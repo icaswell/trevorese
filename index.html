@@ -70,6 +70,10 @@
       font-weight: bold;
     }
 
+    .not-found-compound-asterisk {
+      color: blue;
+    }
+
     .gloss {
       color: teal;
       font-weight: bold;
@@ -148,7 +152,7 @@
     }
 
     // Fetch the dictionary
-    fetch('./trevorese.json?v=7')
+    fetch('./trevorese.json?v=8')
       .then(response => response.json())
       .then(data => {
         // Store the dictionary data in a global variable
@@ -213,10 +217,12 @@
                 const [_, word, punct] = match; // Destructure match groups
     
                 if (word) { // It's a word (not punctuation)
-                    if (word.includes("-") && ! window.compounds.includes(word)) {
+                    var surf = get_surface_single_word(word, notFoundWords);
+                    if (word.includes("-") && ! window.compounds.includes(word) && ! notFoundCompounds.includes(word)) {
                       notFoundCompounds.push(word);
+                      surf = `${surf}<span class="not-found-compound-asterisk">*</span>`;
                     }
-                    surfaces.push(get_surface_single_word(word, notFoundWords))
+                    surfaces.push(surf);
                 } else if (punct) { // It's punctuation (excluding spaces)
                     punctuation.push(punct);
                 }
@@ -258,7 +264,7 @@
       const translated = get_surface(topBox.value.toLowerCase(), notFoundWords, notFoundCompounds);
       bottomBox.innerHTML = translated;
       sideBox.innerHTML = notFoundWords.join("\n");
-      bottomSideBox.innerHTML = notFoundCompounds.join("\n");
+      bottomSideBox.innerHTML = notFoundCompounds.join("\n * ");
     });
   </script>
 
