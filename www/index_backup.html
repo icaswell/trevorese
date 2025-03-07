@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trevorese Typing Assistant!</title>
+  <style>
+    body {
+      background-color: teal;
+      font-family: sans-serif;
+    }
+
+    .container {
+      display: flex;           /* Use flexbox for the main container */
+    }
+
+    .main-container {          /* Container for input and output */
+      display: flex;
+      flex-direction: column;
+    }
+
+    #top-box, #bottom-box {
+      width: 550px;
+      height: 200px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    #bottom-box {
+      background-color: orange;
+      display: inline-block; /* Allow the div to shrink to content width */
+      height: auto;         /* Let the height be determined by content */
+      width: 800px;
+    }
+
+    #side-box {
+      width: 500px;
+      height: 460px;
+      background-color: yellow;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      padding: 10px;
+      height: auto;         /* Let the height be determined by content */
+    }
+
+    #bottom-side-box {
+      width: 500px;
+      height: 460px;
+      background-color: yellow;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      padding: 10px;
+      height: auto;         /* Let the height be determined by content */
+    }
+
+    .bold { /* New class for bold text */
+     font-weight: bold;
+    }
+
+    .partofspeech {
+      color: grey;
+      font-size: 11px;
+    }
+
+    .nosurface {
+      color: gray;
+    }
+
+    .propernoun {
+      color: blue;
+      font-weight: bold;
+    }
+
+    .not-found-compound-asterisk {
+      color: blue;
+    }
+
+    .gloss {
+      color: teal;
+      font-weight: bold;
+    }
+    .highlight {
+      background-color: red;
+    }
+
+    .box-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Trevorese Typing Assistant!</h1>
+  <div class="container">
+    <div class="main-container">
+      <div>
+        <div class="box-title">Input (Gloss)</div>
+        <textarea id="top-box"></textarea>
+      </div>
+      <div>
+        <div class="box-title">Surface</div>
+        <div id="bottom-box"></div>
+      </div>
+    </div>
+
+    <div> 
+      <div class="box-title">Potential glosses for non-gloss things you entered</div>
+      <div id="side-box"></div>
+      <br>
+      <div class="box-title">Compound words not in the dictionary</div>
+      <div id="bottom-side-box"></div>
+    </div>
+  </div>
+
+  <script>
+    function EmphGloss(word) {
+      const match = word.match(/\(([^)]+)\) (.+)/); // Match pattern (x) y
+      if (match) {
+        const firstPart = match[1];  // Capture (x)
+        const secondPart = match[2]; // Capture y
+        return `<span class="partofspeech">(${firstPart})</span> <span class="gloss">${secondPart}</span>`;
+      } else {
+        return `<span class="gloss">${word}</span>`;
+      }
+    }
+
+    function splitAndAppendDefinitions(dict) {
+      const newDict = {};
+      const skipWords = ["to", "do", "be", "become", "from", "sth/sb", "make",  "sth", "sb", "swh", "a", "the", "and", "of", "in", ""];
+
+      for (const key in dict) {
+        // an entry looks something like:
+        // "to confront sth/sb": "(vt) head-front",
+        const words = key.split(" ");
+        const emphasized_gloss = EmphGloss(dict[key]);
+        for (const word of words) {
+          // Skip if the word is in skipWords and the key has multiple words
+          if (skipWords.includes(word) && words.length > 1) {
+            continue; 
+          }
+
+          // Ensure an entry exists before appending
+          if (!newDict[word]) {
+            newDict[word] = `\n    [${key}] ${emphasized_gloss}`;
+          } else {
+            newDict[word] += `\n    [${key}] ${emphasized_gloss}`;
+          }
+        }
+      }
+
+      return newDict;
+    }
+
+    // Fetch the dictionary
+    fetch('./trevorese.json?v=8')
+      .then(response => response.json())
+      .then(data => {
+        // Store the dictionary data in a global variable
+        window.compounds = data["compounds"];
+        window.gloss_to_surface = data["gloss_to_surface"];
+        window.english_to_gloss = splitAndAppendDefinitions(data["english_to_gloss"]);
+      })
+      .catch(error => {
+        console.error('Error loading dictionary:', error);
+      });
+
+
+
+  </script>
+
+  <script>
+    const topBox = document.getElementById("top-box");
+    const bottomBox = document.getElementById("bottom-box");
+    const sideBox = document.getElementById("side-box");
+    const bottomSideBox = document.getElementById("bottom-side-box");
+
+    /* Gets the surfaces for a single (compound) word */
+    function get_surface_single_word(word, notFoundWords) {
+      const glosses = word.split("-"); // Split by dashes
+    
+      const subsurfaces = glosses.map(gloss => {
+        let subsurface;
+        if (gloss in window.gloss_to_surface) { 
+            const surfaceValue = window.gloss_to_surface[gloss];
+            if (surfaceValue.startsWith("__")) {
+                subsurface = `<span class="nosurface">${surfaceValue}</span>`;
+            } else {
+                subsurface = `<span class="gloss">${surfaceValue}</span>`;
+            }
+        } else {
+            if (word.startsWith("u")) {
+              subsurface = `<span class="propernoun">${gloss}</span>`;
+            } else {
+              subsurface = `<span class="highlight">${gloss}</span>`;
+              notFoundWords.push(get_suggestion(gloss));
+            }
+        }
+        return subsurface;        
+      });
+      return subsurfaces.join("");
+    }
+
+
+
+    /* Gets the surfaces for the entire input (containing spaces and newlines) */
+    function get_surface(gloss, notFoundWords, notFoundCompounds) {
+        const regex = /([-a-zA-Z]+|^)|([^-a-zA-Z]*)/g; // Match words, non-word chars, or spaces
+        const lines = gloss.split("\n"); // Split into lines
+        
+    
+        const resultLines = lines.map(line => {
+            const matches = line.matchAll(regex);
+            const surfaces = [];
+            const punctuation = [];
+    
+            for (const match of matches) {
+                const [_, word, punct] = match; // Destructure match groups
+    
+                if (word) { // It's a word (not punctuation)
+                    var surf = get_surface_single_word(word, notFoundWords);
+                    if (word.includes("-") && ! window.compounds.includes(word) && ! notFoundCompounds.includes(word)) {
+                      notFoundCompounds.push(word);
+                      surf = `${surf}<span class="not-found-compound-asterisk">*</span>`;
+                    }
+                    surfaces.push(surf);
+                } else if (punct) { // It's punctuation (excluding spaces)
+                    punctuation.push(punct);
+                }
+            }
+    
+            // Efficiently interleave subsurfaces and punctuation
+            let result = "";
+            for (let i = 0; i < surfaces.length; i++) {
+                result += surfaces[i]
+              if (punctuation[i] != "-" ){
+                result += (punctuation[i] || ""); 
+              }
+            }
+    
+            return result.trim(); // Trim extra spaces from each line
+        });
+    
+        return resultLines.join("<br>"); // Join lines with <br> for multi-line output
+    }
+
+    /* Gets the HTML for the suggested Trevorese words for a given English word. */
+    function get_suggestion (word) {
+      var suggestion = window.english_to_gloss[word.toLowerCase()];
+      if (suggestion) {
+        suggestion = `<span class="bold">${word}:</span> ${suggestion}`;
+      } else if (word) {
+        suggestion = `<span class="bold">${word}:</span> no suggestions found`
+      } else {
+        suggestion = "";
+      }
+      return suggestion;
+    }
+
+
+
+    topBox.addEventListener("input", () => {
+      const notFoundWords = []; // words entered that are not glosses (probably english words)
+      const notFoundCompounds = []; // compounds that have not officially been defined
+      const translated = get_surface(topBox.value.toLowerCase(), notFoundWords, notFoundCompounds);
+      bottomBox.innerHTML = translated;
+      sideBox.innerHTML = notFoundWords.join("\n");
+      bottomSideBox.innerHTML = notFoundCompounds.join("\n * ");
+    });
+  </script>
+
+</body>
+</html>
+

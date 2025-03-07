@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevorese Typing Assistant!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Trevorese Typing Assistant!</h1>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="gloss-to-surface">Gloss to Surface</div>
+        <div class="tab" data-tab="surface-to-gloss">Surface to Gloss</div>
+        <div class="tab" data-tab="about">About</div>
+    </div>
+
+    <div class="tab-content active" id="gloss-to-surface">
+        <div class="tab-content-inner-container">
+            <div class="main-container">
+                <div class="input-output-container">
+                    <div class="box-title">Input (Gloss)</div>
+                    <textarea id="top-box"></textarea>
+                </div>
+                <div class="input-output-container">
+                    <div class="box-title">Surface</div>
+                    <div id="bottom-box"></div>
+                </div>
+            </div>
+            <div class="suggestions-container">
+                <div>
+                    <div class="box-title">Potential glosses for non-gloss things you entered</div>
+                    <div id="side-box"></div>
+                </div>
+                <div>
+                    <div class="box-title">Compound words not in the dictionary</div>
+                    <div id="bottom-side-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content" id="surface-to-gloss">
+        <div class="tab-content-inner-container">
+            <div class="main-container">
+                <div class="input-output-container">
+                    <div class="box-title">Input (Surface)</div>
+                    <textarea id="top-box-2"></textarea>  </div>
+                <div class="input-output-container">
+                    <div class="box-title">Gloss</div>
+                    <div id="bottom-box-2"></div> </div>
+            </div>
+
+            <div class="suggestions-container">
+              <div>
+                <div class="box-title">Compound words not in the dictionary</div>
+                <div id="bottom-side-box-2"></div> </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="tab-content" id="about">
+        <div style="padding:20px;">
+            <h2>About Trevorese Typing Assistant</h2>
+            <p>This tool helps you type in Trevorese, a constructed language.  It provides real-time translation between glosses and surface forms, and offers suggestions for unknown words.</p>
+            <p>How to use:</p>
+              <ul>
+                <li>Enter text in the "input (gloss)" box in the "gloss to surface" tab.</li>
+                <li>Trevorese glosses are separated by spaces.</li>
+                <li>Hyphens are used within a single Trevorese word.</li>
+                <li>See the output appear in real time in the "surface" box.</li>
+                <li>If you enter English, the assistant will check the dictionary for possible glosses.</li>
+              </ul>
+
+            <p>Contact: [Your contact info here]</p>
+        </div>
+    </div>
+</div>
+
+<script src="general.js"></script>
+<script src="surfacetogloss.js"></script>
+<script src="glosstosurface.js"></script>
+
+
+</body>
+</html>
