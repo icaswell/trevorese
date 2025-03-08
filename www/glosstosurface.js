@@ -1,10 +1,12 @@
 // --- Gloss to Surface ---
 function get_surface_single_word(word, notFoundWords) {
     const glosses = word.split("-");
+    const data = (window.currentFlavor === 'hypertrevorese') ? window.gloss_to_surface_hypertrevorese : window.gloss_to_surface;
+
     const subsurfaces = glosses.map(gloss => {
         let subsurface;
-        if (gloss in window.gloss_to_surface) {
-            const surfaceValue = window.gloss_to_surface[gloss];
+        if (gloss in data) {
+            const surfaceValue = data[gloss];
             if (surfaceValue.startsWith("__")) {
                 subsurface = `<span class="nosurface">${surfaceValue}</span>`;
             } else {
@@ -26,6 +28,8 @@ function get_surface_single_word(word, notFoundWords) {
 function get_surface(gloss, notFoundWords, notFoundCompounds) {
     const regex = /([-a-zA-Z]+|^)|([^-a-zA-Z]*)/g;
     const lines = gloss.split("\n");
+    const data = (window.currentFlavor === 'hypertrevorese') ? window.gloss_to_surface_hypertrevorese : window.gloss_to_surface;
+
     const resultLines = lines.map(line => {
         const matches = line.matchAll(regex);
         const surfaces = [];
@@ -34,6 +38,36 @@ function get_surface(gloss, notFoundWords, notFoundCompounds) {
             const [_, word, punct] = match;
             if (word) {
                 let surf = get_surface_single_word(word, notFoundWords);
+
+                if (window.showAnnotations) {
+                    let annotation = "";
+                    const supergloss = window.gloss_to_supergloss[word] || "?";
+                    const supercompound = window.gloss_to_supercompound[word];
+                    const fullGloss = word;
+
+                    if (word.includes("-")) { // Compound word
+                        if (supercompound) {
+                            if (supergloss != supercompound && supercompound != fullGloss) {
+                                annotation = `(${supergloss} > ${supercompound} > ${fullGloss})`;
+                            } else if (supergloss != fullGloss) {
+                                annotation = `(${supergloss} > ${fullGloss})`;
+                            }
+                             else {
+                                annotation = `(${fullGloss})`;
+                            }
+                        } else if (supergloss) {
+                            annotation = `(${supergloss} > ${fullGloss})`;
+                        }
+                        else {
+                          annotation = `(? > ${fullGloss})`;
+                        }
+
+                    } else { // Atomic word
+                        annotation = `(${fullGloss})`;
+                    }
+                    surf = `${surf}<span class="annotation">${annotation}</span>`;
+                }
+
                 if (word.includes("-") && !window.compounds.includes(word) && !notFoundCompounds.includes(word)) {
                     notFoundCompounds.push(word);
                     surf = `${surf}<span class="not-found-compound-asterisk">*</span>`;
@@ -66,4 +100,3 @@ function get_suggestion(word) {
     }
     return suggestion;
 }
-

@@ -116,11 +116,89 @@ textarea, #bottom-box, #bottom-box-2 {
 
 }
 
+/* Slider styles */
+.tabs {
+    display: flex;
+    align-items: center; /* Vertically align tabs and sliders */
+}
+
+.slider-container {
+    display: flex;
+    margin-left: 20px; /* Space between "About" tab and sliders */
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.slider-wrapper label {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.slider-with-labels {
+    display: flex;
+    align-items: center;
+}
+
+.slider-label {
+    font-size: 0.8em;
+    color: #333;
+    margin: 0 10px;
+}
+
+.slider {
+    position: relative;
+    background-color: #ddd;
+    width: 60px; /* Adjust width as needed */
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 3px; /* Adjust padding */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.slider-button {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.slider.flavor-hyp .slider-button {
+    transform: translateX(30px); /* Adjust based on slider width and button width */
+}
+
+.slider.annotations-yes .slider-button {
+    transform: translateX(30px); /* Adjust based on slider width and button width */
+}
+
+.slider.active {
+    background-color: teal;
+}
+
+
 /* Styling for specific classes */
 .bold { font-weight: bold; }
 .partofspeech { color: grey; font-size: 11px; }
 .nosurface { color: gray; }
 .propernoun { color: blue; font-weight: bold; }
 .not-found-compound-asterisk { color: blue; }
-.gloss { color: teal; font-weight: bold; }
+.gloss { color: teal; font-weight: bold; }  /* todo used for surfaces */
+.surface { color: teal; font-weight: bold; }  /* todo unused */
+.annotation {
+  font-size: 0.8em; /* Adjust the value to make it smaller, e.g., 0.7em or 0.9em */
+  color: grey; /* Or #808080 for a slightly darker grey */
+}
 .highlight { background-color: red; }

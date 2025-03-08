@@ -83,6 +83,58 @@ topBox2.addEventListener("input", () => {
 });
 
 
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SLIDER LOGIC~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// Global variables
+window.currentFlavor = 'standard';
+window.showAnnotations = false;
+
+// Get the slider elements
+const flavorSlider = document.getElementById('flavor-slider');
+const annotationsSlider = document.getElementById('annotations-slider');
+
+// Event listener for the flavor slider
+flavorSlider.addEventListener('click', () => {
+    flavorSlider.classList.toggle('active');
+    if (flavorSlider.dataset.flavor === 'std') {
+        window.currentFlavor = 'hypertrevorese';
+        flavorSlider.dataset.flavor = 'hyp';
+        flavorSlider.classList.add('flavor-hyp');
+    } else {
+        window.currentFlavor = 'standard';
+        flavorSlider.dataset.flavor = 'std';
+        flavorSlider.classList.remove('flavor-hyp');
+    }
+    console.log('Flavor:', currentFlavor); // For debugging
+
+    // Trigger the existing event listeners
+    topBox.dispatchEvent(new Event('input'));
+    topBox2.dispatchEvent(new Event('input'));
+});
+
+// Event listener for the annotations slider
+annotationsSlider.addEventListener('click', () => {
+    annotationsSlider.classList.toggle('active');
+    if (annotationsSlider.dataset.annotations === 'no') {
+        window.showAnnotations = true;
+        annotationsSlider.dataset.annotations = 'yes';
+        annotationsSlider.classList.add('annotations-yes');
+    } else {
+        window.showAnnotations = false;
+        annotationsSlider.dataset.annotations = 'no';
+        annotationsSlider.classList.remove('annotations-yes');
+    }
+    console.log('Annotations:', showAnnotations); // For debugging
+
+    // Trigger the existing event listeners
+    topBox.dispatchEvent(new Event('input'));
+    topBox2.dispatchEvent(new Event('input'));
+});
+
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOAD STUFFS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 // Fetch the dictionary
 fetch('./trevorese.json?v=9')
     .then(response => {
@@ -94,6 +146,9 @@ fetch('./trevorese.json?v=9')
     .then(data => {
         window.compounds = data["compounds"];
         window.gloss_to_surface = data["gloss_to_surface"];
+        window.gloss_to_surface_hypertrevorese = data["gloss_to_surface_hypertrevorese"];
+        window.gloss_to_supergloss = data["gloss_to_supergloss"];
+        window.gloss_to_supercompound = data["gloss_to_supercompound"];
         window.surface_to_gloss = {};
         // Create reverse mapping (surface to gloss)
         for (let gloss in window.gloss_to_surface) {
@@ -114,3 +169,4 @@ fetch('./trevorese.json?v=9')
         document.getElementById('bottom-box').innerHTML = `<span style="color: red;">Error loading dictionary: ${error.message}</span>`;
         document.getElementById('bottom-box-2').innerHTML = `<span style="color: red;">Error loading dictionary: ${error.message}</span>`;
     });
+
