@@ -13,8 +13,7 @@
     <h1>Trevorese Typing Assistant!</h1>
 
     <div class="tabs">
-        <div class="tab active" data-tab="gloss-to-surface">Gloss to Surface</div>
-        <div class="tab" data-tab="surface-to-gloss">Surface to Gloss</div>
+        <div class="tab active" data-tab="gloss-to-surface">Annotate glosses and surfaces!</div>
         <div class="tab" data-tab="about">About</div>
 
         <div class="slider-container">
@@ -28,64 +27,41 @@
                     <span class="slider-label">hyp</span>
                 </div>
             </div>
-            <div class="slider-wrapper">
-                <label>Annotations</label>
-                <div class="slider-with-labels">
-                    <span class="slider-label">no</span>
-                    <div class="slider" id="annotations-slider" data-annotations="no">
-                        <div class="slider-button"></div>
-                    </div>
-                    <span class="slider-label">yes</span>
-                </div>
             </div>
-        </div>
     </div>
 
     <div class="tab-content active" id="gloss-to-surface">
         <div class="tab-content-inner-container">
             <div class="main-container">
                 <div class="input-output-container">
-                    <div class="box-title">Input (Gloss)</div>
-                    <textarea id="top-box"></textarea>
+                    <div class="box-title" id="input-box-title">Input Gloss or Surface</div>
+                    <textarea id="topBox"></textarea>
+                </div>
+                <div class="input-output-container">
+                    <div class="box-title">Gloss</div>
+                    <div id="bottomBoxGloss"></div>
                 </div>
                 <div class="input-output-container">
                     <div class="box-title">Surface</div>
-                    <div id="bottom-box"></div>
+                    <div id="bottomBoxSurface"></div>
+                </div>
+                <div class="input-output-container">
+                    <div class="box-title">Surface (Annotated)</div>
+                    <div id="bottomBoxSurfaceAnnotated"></div>
                 </div>
             </div>
             <div class="suggestions-container">
                 <div>
                     <div class="box-title">Potential glosses for non-gloss things you entered</div>
-                    <div id="side-box"></div>
+                    <div id="sideBox"></div>
                 </div>
                 <div>
                     <div class="box-title">Compound words not in the dictionary</div>
-                    <div id="bottom-side-box"></div>
+                    <div id="bottomSideBox"></div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="tab-content" id="surface-to-gloss">
-        <div class="tab-content-inner-container">
-            <div class="main-container">
-                <div class="input-output-container">
-                    <div class="box-title">Input (Surface)</div>
-                    <textarea id="top-box-2"></textarea>  </div>
-                <div class="input-output-container">
-                    <div class="box-title">Gloss</div>
-                    <div id="bottom-box-2"></div> </div>
-            </div>
-
-            <div class="suggestions-container">
-              <div>
-                <div class="box-title">Compound words not in the dictionary</div>
-                <div id="bottom-side-box-2"></div> </div>
-            </div>
-
-        </div>
-    </div>
-
 
     <div class="tab-content" id="about">
         <div style="padding:20px;">
@@ -106,8 +82,8 @@
 </div>
 
 <script src="general.js"></script>
-<script src="surfacetogloss.js"></script>
-<script src="glosstosurface.js"></script>
+<script src="fsa.js"></script>
+<script src="io.js"></script>
 
 
 </body>

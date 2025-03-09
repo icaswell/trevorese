@@ -53,34 +53,10 @@ function splitAndAppendDefinitions(dict) {
 
 // --- Event Listeners and Initial Setup ---
 
-const topBox = document.getElementById("top-box");
+const topBox = document.getElementById("topBox");
 const bottomBox = document.getElementById("bottom-box");
-const sideBox = document.getElementById("side-box");
-const bottomSideBox = document.getElementById("bottom-side-box");
-const topBox2 = document.getElementById("top-box-2");
-const bottomBox2 = document.getElementById("bottom-box-2");
-
-
-//Gloss to Surface:
-topBox.addEventListener("input", () => {
-    const notFoundWords = [];
-    const notFoundCompounds = [];
-    const translated = get_surface(topBox.value.toLowerCase(), notFoundWords, notFoundCompounds);
-    bottomBox.innerHTML = translated;
-    sideBox.innerHTML = notFoundWords.join("\n");
-    bottomSideBox.innerHTML = "* " + notFoundCompounds.join("<br> * ");
-});
-
-//Surface to Gloss:
-topBox2.addEventListener("input", () => {
-  try {
-     const glossed = get_gloss(topBox2.value);
-     bottomBox2.innerHTML = glossed;
-  } catch (error) {
-    bottomBox2.innerHTML = `<span style="color: red;">${error.message}</span>`;
-  }
-
-});
+const sideBox = document.getElementById("sideBox");
+const bottomSideBox = document.getElementById("bottomSideBox");
 
 
 /*----------------------------------------------------------------------*/
@@ -109,27 +85,26 @@ flavorSlider.addEventListener('click', () => {
 
     // Trigger the existing event listeners
     topBox.dispatchEvent(new Event('input'));
-    topBox2.dispatchEvent(new Event('input'));
 });
 
-// Event listener for the annotations slider
-annotationsSlider.addEventListener('click', () => {
-    annotationsSlider.classList.toggle('active');
-    if (annotationsSlider.dataset.annotations === 'no') {
-        window.showAnnotations = true;
-        annotationsSlider.dataset.annotations = 'yes';
-        annotationsSlider.classList.add('annotations-yes');
-    } else {
-        window.showAnnotations = false;
-        annotationsSlider.dataset.annotations = 'no';
-        annotationsSlider.classList.remove('annotations-yes');
-    }
-    console.log('Annotations:', showAnnotations); // For debugging
-
-    // Trigger the existing event listeners
-    topBox.dispatchEvent(new Event('input'));
-    topBox2.dispatchEvent(new Event('input'));
-});
+// // Event listener for the annotations slider
+// annotationsSlider.addEventListener('click', () => {
+//     annotationsSlider.classList.toggle('active');
+//     if (annotationsSlider.dataset.annotations === 'no') {
+//         window.showAnnotations = true;
+//         annotationsSlider.dataset.annotations = 'yes';
+//         annotationsSlider.classList.add('annotations-yes');
+//     } else {
+//         window.showAnnotations = false;
+//         annotationsSlider.dataset.annotations = 'no';
+//         annotationsSlider.classList.remove('annotations-yes');
+//     }
+//     console.log('Annotations:', showAnnotations); // For debugging
+// 
+//     // Trigger the existing event listeners
+//     topBox.dispatchEvent(new Event('input'));
+//     // topBox2.dispatchEvent(new Event('input'));
+// });
 
 
 /*----------------------------------------------------------------------*/

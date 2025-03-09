@@ -81,7 +81,7 @@ h1 {
     color: #004d4d;
 }
 
-textarea, #bottom-box, #side-box, #bottom-side-box, #bottom-side-box-2 , #bottom-box-2 {
+textarea, #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated, #sideBox, #bottomSideBox {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -92,22 +92,22 @@ textarea, #bottom-box, #side-box, #bottom-side-box, #bottom-side-box-2 , #bottom
     font-family: 'Roboto', sans-serif; /* Consistent font */
 }
 
-textarea, #bottom-box, #bottom-box-2 {
-  height: 200px;
+textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated { 
+  height: 100px;
 }
 
-#bottom-box, #bottom-box-2 {
+#bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
     background-color: #ffcc80; /* Light orange */
     overflow-y: auto; /* Scroll for long content */
 }
 
-#side-box, #bottom-side-box, #bottom-side-box-2 {
+#sideBox, #bottomSideBox  {
     background-color: #ffff99; /* Light yellow */
     white-space: pre-wrap;
     overflow-y: auto;
   height: auto;
 }
-#side-box, #bottom-side-box, .suggestions-container {
+#sideBox, #bottomSideBox, .suggestions-container {
     flex: 0 0 35%; /* Give suggestion containers fixed width. */
 }
 .suggestions-container {
