@@ -37,17 +37,26 @@
                     <div class="box-title" id="input-box-title">Input Gloss or Surface</div>
                     <textarea id="topBox"></textarea>
                 </div>
-                <div class="input-output-container">
-                    <div class="box-title">Surface (Annotated)</div>
+                <div class="input-output-container box-container">
+                    <div class="box-title-wrapper">
+                      <div class="box-title" onclick="toggleBox('bottomBoxSurfaceAnnotated')">Surface (Annotated)</div>
+                      <button class="copy-button" onclick="copyText('bottomBoxSurfaceAnnotated')"><img src="copy.png" alt="Copy"></button>
+                    </div>
                     <div id="bottomBoxSurfaceAnnotated"></div>
                 </div>
-                <div class="input-output-container">
-                    <div class="box-title">Gloss</div>
-                    <div id="bottomBoxGloss"></div>
+                <div class="input-output-container box-container">
+                    <div class="box-title-wrapper">
+                    <div class="box-title" onclick="toggleBox('bottomBoxGloss')">Gloss</div>
+                    <button class="copy-button" onclick="copyText('bottomBoxGloss')"><img src="copy.png" alt="Copy"></button>
+                    </div>
+                    <div id="bottomBoxGloss" class="hidden"></div>
                 </div>
-                <div class="input-output-container">
-                    <div class="box-title">Surface</div>
-                    <div id="bottomBoxSurface"></div>
+                <div class="input-output-container box-container">
+                    <div class="box-title-wrapper">
+                      <div class="box-title" onclick="toggleBox('bottomBoxSurface')">Surface</div>
+                      <button class="copy-button" onclick="copyText('bottomBoxSurface')"><img src="copy.png" alt="Copy"></button>
+                    </div>
+                    <div id="bottomBoxSurface" class="hidden"></div>
                 </div>
             </div>
             <div class="suggestions-container">
@@ -75,7 +84,6 @@
 <script src="general.js"></script>
 <script src="fsa.js"></script>
 <script src="io.js"></script>
-
 
 </body>
 </html>

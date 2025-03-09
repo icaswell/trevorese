@@ -145,3 +145,49 @@ fetch('./trevorese.json?v=9')
         document.getElementById('bottom-box-2').innerHTML = `<span style="color: red;">Error loading dictionary: ${error.message}</span>`;
     });
 
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~~HIDING AND COPYING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    function toggleBox(boxId) {
+        const box = document.getElementById(boxId);
+        box.classList.toggle('hidden');
+    }
+
+    function copyText(boxId) {
+        const box = document.getElementById(boxId);
+        const text = box.innerText; // Use innerText to get the visible text, not innerHTML
+
+        // Use the Clipboard API for modern browsers
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+                console.log("Text copied to clipboard: " + text);
+                // Optional: Show a brief "Copied!" message.
+                // You could add a small <span> next to the button and toggle its visibility.
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                fallbackCopyText(text); // Fallback for older browsers
+            });
+        } else {
+          fallbackCopyText(text); // Fallback for older browsers
+        }
+    }
+
+    // Fallback for older browsers (and cases where Clipboard API fails)
+    function fallbackCopyText(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            const successful = document.execCommand('copy');
+            const msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Fallback: Copying text command was ' + msg);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+        document.body.removeChild(textarea);
+
+    }
+
+

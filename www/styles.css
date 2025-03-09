@@ -206,3 +206,52 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
   color: grey; /* Or #808080 for a slightly darker grey */
 }
 .highlight { background-color: red; }
+
+        /* Add styles for hiding/showing and the copy button */
+        .hidden {
+            display: none;
+        }
+
+        .box-container {
+            position: relative; /* Make the container relative for absolute positioning of the button */
+            border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        /* Keep this for consistent styling, but the content will be in a separate div */
+        .box-container > div:not(.box-title-wrapper) {
+            padding: 10px;
+            /* border: 1px solid #ddd;  Optional: Add a border to the content area */
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 24px;  /* Adjust as needed based on your image size */
+            height: 24px; /* Adjust as needed based on your image size */
+        }
+      .copy-button img {
+        width: 24px;
+        height: 24px;
+      }
+
+        .box-title {
+            cursor: pointer; /* Make the title clickable */
+            user-select: none; /* Prevent text selection on title click */
+            -webkit-user-select: none; /* For Safari */
+            -moz-user-select: none;    /* For Firefox */
+            -ms-user-select: none;     /* For IE/Edge */
+            font-weight: bold;
+            display: block; /* Ensure the title takes up the full width */
+        }
+
+        .box-title-wrapper {
+          position: relative;
+        }
+
+
