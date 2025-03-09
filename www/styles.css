@@ -93,7 +93,11 @@ textarea, #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated, #sideB
 }
 
 textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated { 
-  height: 100px;
+  height: 200px;
+}
+
+#bottomBoxSurfaceAnnotated { 
+  height: 300px;
 }
 
 #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {

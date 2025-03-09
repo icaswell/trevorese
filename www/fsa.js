@@ -31,9 +31,10 @@ function buildFSA() {
 
     ROOT = new Node("^");
     const END = new Node("$");
-    const NG = new Node('n');
-    const NG_G = NG.addChild('g');
-    NG_G.addChild(END);
+    const NG = new Node('ŋ');
+     NG.addChild(END);
+    // const NG_G = NG.addChild('g');
+    //   NG_G.addChild(END);
 
     const vowelNodes = [];
     for (const ch of vowels) {
@@ -76,6 +77,7 @@ function buildFSA() {
 }
 
 function chomp_tokens(s) {
+    s = s.replaceAll("ng", "ŋ");  // rather than dealing with making an FSA that can backtrack, just remove digraphs lol
     let cur = ROOT;
     const tokenized = [''];
     let i = 0;
@@ -116,6 +118,8 @@ function chomp_tokens(s) {
         const errorPos = i - tokenized[tokenized.length - 1].length;
         throw new Error(`Unparseable: incomplete token '${tokenized[tokenized.length - 1]}' at position ${errorPos}. Input: "${s}"`);
     }
-    return tokenized.filter(tok => tok != '');
+    return tokenized
+    .map(token => token.replace(/ŋ/g, 'ng'))
+    .filter(token => token.trim() !== '');
 }
 
