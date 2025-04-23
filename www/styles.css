@@ -199,11 +199,23 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
 .nosurface { color: gray; }
 .propernoun { color: blue; font-weight: bold; }
 .not-found-compound-asterisk { color: blue; }
-.gloss { color: teal; font-weight: bold; }  /* todo used for surfaces */
+.gloss { color: magenta; font-weight: bold; }  /* todo used for surfaces */
+.wrong { color: red; }  /* used for incorrect forms like *bwaing */ 
 .surface { color: teal; font-weight: bold; }  /* todo unused */
 .annotation {
   font-size: 0.8em; /* Adjust the value to make it smaller, e.g., 0.7em or 0.9em */
   color: grey; /* Or #808080 for a slightly darker grey */
+}
+body .english {
+    font-weight: bold;
+    color: purple;
+}
+
+body .principle {
+    background-color: magenta;
+    color: white; /* Added for readability */
+    padding: 0.1em 0.3em; /* Add some padding */
+    border-radius: 3px; /* Rounded corners */
 }
 .highlight { background-color: red; }
 
@@ -254,4 +266,154 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
           position: relative;
         }
 
+/* Tutorial page styles */
+.tutorial-body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    background-color: #fff;
+}
 
+.tutorial-body h1 {
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.tutorial-body h2 {
+    color: #444;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.tutorial-body h3 {
+    color: #555;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.tutorial-body h4 {
+    color: #666;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-align: left;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+
+/* Update the iframe styles in the main page */
+#tutorial iframe {
+    /* width: 100%; */ /* Using inline 100vw now */
+    height: 800px;
+    border: none;
+    background-color: white; /* Ensure iframe background is white */
+}
+
+#tutorial > div {
+    padding: 0; /* Remove padding that might constrain width */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+/* Override default padding for the active tutorial tab */
+#tutorial.active {
+    padding: 0;
+    box-sizing: border-box; /* Ensure width includes padding/border */
+    display: block !important; /* Override inherited flex display */
+    width: 100%; /* Ensure full width */
+}
+
+/* Style body inside tutorial iframe */
+#tutorial iframe body {
+    background-color: white;
+    padding: 20px; /* Add padding similar to other tabs */
+    box-sizing: border-box; /* Ensure padding doesn't increase overall size */
+}
+
+/* Collapsible sections for tutorial */
+.collapsible-header {
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.collapsible-header::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s;
+    font-size: 14px;
+}
+
+.collapsible-header.open::before {
+    transform: rotate(90deg);
+}
+
+.collapsible-content {
+    display: none;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+.collapsible-content.open {
+    display: block;
+}
+
+/* Top-level sections (H2) */
+.section-h2 > .collapsible-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Sub-sections (H3) */
+.section-h3 > .collapsible-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Ensure tables within the tutorial fit the container and wrap text */
+#tutorial iframe table {
+    width: 100%; /* Make table take full available width */
+    table-layout: fixed; /* Force table to obey width constraint */
+    border-collapse: collapse; /* Optional: Improves appearance */
+    margin-bottom: 1em; /* Optional: Adds space below tables */
+}
+
+#tutorial iframe th,
+#tutorial iframe td {
+    border: 1px solid #ccc; /* Optional: Adds cell borders */
+    padding: 0.5em; /* Optional: Adds cell padding */
+    word-wrap: break-word; /* Ensure long words wrap */
+    text-align: left; /* Optional: Align text */
+}
+
+/* Styles for elements within the iframe tutorial.html */
+#tutorial iframe .principle {
+    background-color: magenta;
+    color: white; /* Added for readability */
+    padding: 0.1em 0.3em; /* Add some padding */
+    border-radius: 3px; /* Rounded corners */
+}
