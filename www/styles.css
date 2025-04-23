@@ -199,7 +199,8 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
 .nosurface { color: gray; }
 .propernoun { color: blue; font-weight: bold; }
 .not-found-compound-asterisk { color: blue; }
-.gloss { color: magenta; font-weight: bold; }  /* todo used for surfaces */
+.gloss { color: magenta; font-weight: bold; }
+.gloss-emph { color: purple; font-weight: bold; }
 .wrong { color: red; }  /* used for incorrect forms like *bwaing */ 
 .surface { color: teal; font-weight: bold; }  /* todo unused */
 .annotation {
@@ -208,7 +209,7 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
 }
 body .english {
     font-weight: bold;
-    color: purple;
+    color: blue;
 }
 
 body .principle {
@@ -291,7 +292,7 @@ body .principle {
     margin-top: 30px;
     margin-bottom: 20px;
     text-align: left;
-    background-color: transparent;
+    background-color: #B2DFDB; /* Changed from teal */
     padding: 0;
     border-radius: 0;
 }
@@ -301,7 +302,7 @@ body .principle {
     margin-top: 25px;
     margin-bottom: 20px;
     text-align: left;
-    background-color: transparent;
+    background-color: #B2DFDB; /* Changed from purple */
     padding: 0;
     border-radius: 0;
 }
@@ -311,7 +312,7 @@ body .principle {
     margin-top: 25px;
     margin-bottom: 15px;
     text-align: left;
-    background-color: transparent;
+    background-color: #B2DFDB;
     padding: 0;
     border-radius: 0;
 }
@@ -394,20 +395,47 @@ body .principle {
     color: #444;
 }
 
-/* Ensure tables within the tutorial fit the container and wrap text */
-#tutorial iframe table {
-    width: 100%; /* Make table take full available width */
-    table-layout: fixed; /* Force table to obey width constraint */
-    border-collapse: collapse; /* Optional: Improves appearance */
-    margin-bottom: 1em; /* Optional: Adds space below tables */
+/* New Pretty Table Styles */
+.table-container table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%; /* Ensure it takes container width */
+    table-layout: fixed; /* Ensure columns are respected */
 }
 
-#tutorial iframe th,
-#tutorial iframe td {
-    border: 1px solid #ccc; /* Optional: Adds cell borders */
-    padding: 0.5em; /* Optional: Adds cell padding */
-    word-wrap: break-word; /* Ensure long words wrap */
-    text-align: left; /* Optional: Align text */
+.table-container table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-container table th,
+.table-container table td {
+    padding: 12px 15px;
+    border: none; /* Remove default border if any */
+    word-wrap: break-word; /* Keep word wrap */
+    text-align: left; /* Keep text alignment */
+}
+
+.table-container table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-container table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-container table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.table-container table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
 }
 
 /* Styles for elements within the iframe tutorial.html */
@@ -416,4 +444,92 @@ body .principle {
     color: white; /* Added for readability */
     padding: 0.1em 0.3em; /* Add some padding */
     border-radius: 3px; /* Rounded corners */
+}
+
+/* Styles for Periodic Table */
+#periodic-table .table-container table {
+    border-collapse: collapse;
+    margin: 25px auto; /* Center the table if container is wider */
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 600px; /* Adjust as needed */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: auto; /* Allow table to size based on content, up to container width */
+    table-layout: auto; /* Let browser determine column widths initially */
+}
+
+#periodic-table .table-container table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center; /* Center header text */
+    font-weight: bold;
+}
+
+#periodic-table .table-container table th,
+#periodic-table .table-container table td {
+    padding: 8px 10px; /* Reduced padding */
+    border: 1px solid #dddddd; /* Add light borders for grid look */
+    text-align: center; /* Center cell text */
+    word-wrap: break-word;
+}
+
+#periodic-table .table-container table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#periodic-table .table-container table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#periodic-table .table-container table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+/* Specific Periodic Table Cell Styles */
+#periodic-table .table-container td.pt-grey {
+    background-color: #666666; /* Dark grey */
+    color: #cccccc; /* Light grey */
+}
+
+#periodic-table .table-container td.pt-black {
+    background-color: black;
+    color: black; /* Hide text */
+}
+
+#periodic-table .table-container td.pt-first-col {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    font-weight: bold;
+    width: 24px; /* Narrower first column */
+    min-width: 24px;
+    max-width: 24px;
+}
+
+/* Darker background for longer header cells */
+#periodic-table .table-container thead th.pt-header-long {
+    background-color: #00796B; /* Darker Teal */
+}
+
+#periodic-table .table-container td.pt-first-col.pt-header-long {
+    background-color: #388E3C; /* Darker Green */
+}
+
+/* Reduce spacing for lists inside the 'About' tab iframe */
+#about iframe ol,
+#about iframe ul {
+    margin-top: 0.5em;      /* Reduce top margin */
+    margin-bottom: 0.5em;   /* Reduce bottom margin */
+    padding-left: 2em;      /* Adjust left padding for alignment */
+}
+
+#about iframe li {
+    margin-bottom: 0.25em;  /* Reduce space between list items */
+}
+
+#about iframe ol ol,
+#about iframe ul ul,
+#about iframe ol ul,
+#about iframe ul ol {
+    margin-top: 0.25em;     /* Tighter spacing for nested lists */
+    margin-bottom: 0.25em;
 }

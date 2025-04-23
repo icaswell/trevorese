@@ -11,6 +11,11 @@ document.querySelectorAll('.tab').forEach(tab => {
         // Activate clicked tab and corresponding content
         tab.classList.add('active');
         document.getElementById(tabId).classList.add('active');
+
+        // Load periodic table content if this tab is clicked and not already loaded
+        if (tabId === 'periodic-table' && !periodicTableLoaded) {
+            loadPeriodicTable();
+        }
     });
 });
 
@@ -58,6 +63,7 @@ const bottomBox = document.getElementById("bottom-box");
 const sideBox = document.getElementById("sideBox");
 const bottomSideBox = document.getElementById("bottomSideBox");
 
+let periodicTableLoaded = false; // Flag to track if table is loaded
 
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SLIDER LOGIC~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -87,24 +93,6 @@ flavorSlider.addEventListener('click', () => {
     topBox.dispatchEvent(new Event('input'));
 });
 
-// // Event listener for the annotations slider
-// annotationsSlider.addEventListener('click', () => {
-//     annotationsSlider.classList.toggle('active');
-//     if (annotationsSlider.dataset.annotations === 'no') {
-//         window.showAnnotations = true;
-//         annotationsSlider.dataset.annotations = 'yes';
-//         annotationsSlider.classList.add('annotations-yes');
-//     } else {
-//         window.showAnnotations = false;
-//         annotationsSlider.dataset.annotations = 'no';
-//         annotationsSlider.classList.remove('annotations-yes');
-//     }
-//     console.log('Annotations:', showAnnotations); // For debugging
-// 
-//     // Trigger the existing event listeners
-//     topBox.dispatchEvent(new Event('input'));
-//     // topBox2.dispatchEvent(new Event('input'));
-// });
 
 
 /*----------------------------------------------------------------------*/
@@ -191,3 +179,138 @@ fetch('./trevorese.json?v=9')
     }
 
 
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~ PERIODIC TABLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+async function loadPeriodicTable() {
+    const tableContainer = document.getElementById('periodic-table');
+    tableContainer.innerHTML = 'Loading table...'; // Show loading indicator
+    console.log('loadPeriodicTable function started.'); // DEBUG
+
+    try {
+        console.log('Fetching fptable.tsv...'); // DEBUG
+        const response = await fetch('./fptable.tsv?v=' + Date.now()); // Add cache-busting param
+        console.log('Fetch response received:', response.status); // DEBUG
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const tsvData = await response.text();
+        console.log('TSV data fetched, length:', tsvData.length); // DEBUG
+        const rows = tsvData.trim().split('\n');
+        console.log('TSV parsed into', rows.length, 'rows.'); // DEBUG
+
+        let tableHTML = '<div class="table-container"><table id="trevorese-periodic-table">';
+
+        rows.forEach((row, rowIndex) => {
+            // console.log(`Processing row ${rowIndex}`); // DEBUG (can be noisy)
+            const cells = row.split('\t');
+            if (rowIndex === 0) {
+                tableHTML += '<thead><tr><th></th>'; // Add empty top-left header cell
+                cells.forEach(cell => {
+                    const cellContent = cell.trim();
+                    const headerClass = cellContent.length > 1 ? 'pt-header-long' : '';
+                    tableHTML += `<th class="${headerClass}">${cellContent}</th>`;
+                });
+                tableHTML += '</tr></thead><tbody>';
+            } else {
+                tableHTML += '<tr>';
+                cells.forEach((cell, cellIndex) => {
+                    const cellContent = cell.trim();
+                    let cellClass = '';
+                    let processedContent = cellContent; // Content to display inside TD
+
+                    // Apply special classes first
+                    if (cellContent.includes('()')) {
+                        cellClass += ' pt-grey';
+                    }
+                    if (cellContent === '\\') {
+                        cellClass += ' pt-black';
+                    }
+
+                    // Handle first column styling
+                    if (cellIndex === 0) {
+                        cellClass += ' pt-first-col';
+                        if (cellContent.length > 1) {
+                            cellClass += ' pt-header-long';
+                        }
+                    } else { // Apply surface style to data cells (not first column)
+                        // Only apply surface styling if not grey/black cell
+                        if (!cellClass.includes('pt-grey') && !cellClass.includes('pt-black')) {
+                            const parenIndex = cellContent.indexOf('(');
+                            if (parenIndex !== -1) {
+                                const surfacePart = cellContent.substring(0, parenIndex).trim();
+                                const restPart = cellContent.substring(parenIndex);
+                                processedContent = `<span class="surface">${surfacePart}</span> ${restPart}`;
+                            } else if (cellContent) { // Don't wrap empty cells
+                                processedContent = `<span class="surface">${cellContent}</span>`;
+                            }
+                        }
+                    }
+
+                    tableHTML += `<td class="${cellClass.trim()}">${processedContent}</td>`;
+                });
+                tableHTML += '</tr>';
+            }
+        });
+
+        tableHTML += '</tbody></table></div>';
+        tableContainer.innerHTML = tableHTML;
+        periodicTableLoaded = true; // Set flag to true after successful load
+        console.log('Periodic table HTML generated and inserted.'); // DEBUG
+
+    } catch (error) {
+        console.error('Error loading or parsing periodic table:', error); // Log the specific error
+        tableContainer.innerHTML = `<span style="color: red;">Error loading periodic table: ${error.message}. Check console for details.</span>`;
+    }
+}
+
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~~~ KEYBOARD SCROLLING ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+document.addEventListener('keydown', function(event) {
+    const activeElement = document.activeElement;
+    const isInput = activeElement.tagName === 'INPUT' || 
+                    activeElement.tagName === 'TEXTAREA' || 
+                    activeElement.tagName === 'SELECT';
+
+    // Ignore if typing in an input field
+    if (isInput) {
+        return;
+    }
+
+    const activeTabContent = document.querySelector('.tab-content.active');
+    if (!activeTabContent) {
+        return; // No active tab found
+    }
+
+    let scrollAmount = 0;
+    const scrollStep = activeTabContent.clientHeight * 0.8; // Scroll by 80% of viewport height
+
+    switch (event.code) {
+        case 'Space':
+        case 'PageDown':
+            scrollAmount = scrollStep;
+            break;
+        case 'PageUp':
+            scrollAmount = -scrollStep;
+            break;
+        default:
+            return; // Ignore other keys
+    }
+
+    if (scrollAmount !== 0) {
+        event.preventDefault(); // Prevent default browser scroll
+        // Check if the active content is an iframe, scroll its content window
+        if (activeTabContent.tagName === 'IFRAME') {
+            activeTabContent.contentWindow.scrollBy(0, scrollAmount);
+        } else {
+             // Otherwise, scroll the div itself (if it's scrollable)
+            activeTabContent.scrollBy(0, scrollAmount);
+        }
+    }
+});
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ INITIALIZATION ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
