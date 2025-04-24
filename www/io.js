@@ -15,7 +15,7 @@ function get_surface_single_word(word, notFoundWords) {
       if (surfaceValue.startsWith("__")) {
         subsurface = `<span class="nosurface">${surfaceValue}</span>`;
       } else {
-        subsurface = `<span class="gloss">${surfaceValue}</span>`;
+        subsurface = `<span class="surface">${surfaceValue}</span>`;
       }
     } else {
       if (word.startsWith("u")) {
@@ -55,40 +55,45 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
         let surf = get_surface_single_word(word, notFoundWords);
         surfaces.push(surf);
 
-        let annotatedSurf = surf;
-        if (showAnnotations) {
-          let annotation = "";
-          const supergloss = window.gloss_to_supergloss[word] || "?";
-          const supercompound = window.gloss_to_supercompound[word];
-          const fullGloss = word;
+        let annotatedSurf = surf; // Declare and initialize with base surface
+        let annotation = "";
+        const isCompound = word.includes('-');
 
-          if (word.includes("-")) { // Compound word
-            if (supercompound) {
-              if (supergloss != supercompound && supercompound != fullGloss) {
-                annotation = `(${supergloss} > ${supercompound} > ${fullGloss})`;
-              } else if (supergloss != fullGloss) {
-                annotation = `(${supergloss} > ${fullGloss})`;
-              }
-               else {
-                annotation = `(${fullGloss})`;
-              }
-            } else if (supergloss) {
-              annotation = `(${supergloss} > ${fullGloss})`;
-            }
-            else {
-             annotation = `(? > ${fullGloss})`;
-            }
+        // --- Annotation Logic --- START ---
+        const fullGloss = word; // Use the original word (gloss)
 
-          } else { // Atomic word
-            annotation = `(${fullGloss})`;
+        if (isCompound) {
+          const superCompoundGloss = window.compounds[fullGloss] || "?";
+          const superSuperCompound = window.gloss_to_supercompound[fullGloss];
+          if (superSuperCompound && superCompoundGloss !== '?' && superSuperCompound !== fullGloss) {
+            annotation = `(${superCompoundGloss} > ${superSuperCompound} > ${fullGloss})`;
+          } else if (superCompoundGloss !== '?') {
+            annotation = `(${superCompoundGloss} > ${fullGloss})`;
+          } else {
+            annotation = `(? > ${fullGloss})`;
           }
-          annotatedSurf = `${annotatedSurf}<span class="annotation">${annotation}</span>`;
+        } else { // Atomic word logic: Annotate with the gloss itself
+          if (fullGloss) { // Check gloss exists
+            annotation = `(${fullGloss})`; // Simple annotation: (gloss)
+          } else {
+            annotation = ""; // Should not happen if gloss exists
+          }
+        }
+        // --- Annotation Logic --- END ---
+
+        if (showAnnotations) {
+          if (annotation) { // Only add annotation span if annotation is not empty
+            annotatedSurf = `${surf}<span class="annotation">${annotation}</span>`;
+          } else {
+            // No annotation to apply
+          }
         }
 
-        if (word.includes("-") && !window.compounds.includes(word) && !notFoundCompounds.includes(word)) {
+        if (word.includes("-") && !(word in window.compounds) && !notFoundCompounds.includes(word)) {
           notFoundCompounds.push(word);
           annotatedSurf = `${annotatedSurf}<span class="not-found-compound-asterisk">*</span>`;
         }
+
         annotatedSurfaces.push(annotatedSurf);
       } else if (punct) {
         punctuation.push(punct);
@@ -114,25 +119,103 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
 
   document.getElementById('bottomBoxGloss').innerHTML = resultLines.join("<br>");
   document.getElementById('bottomBoxSurface').innerHTML = surfaceResult;
+
   document.getElementById('bottomBoxSurfaceAnnotated').innerHTML = annotatedSurfaceResult;
+
   document.getElementById('sideBox').innerHTML = notFoundWords.join("\n");
   document.getElementById('bottomSideBox').innerHTML = "* " + notFoundCompounds.join("<br> * ");
 }
 
 function get_suggestion(word) {
-  var suggestion = window.english_to_gloss[word.toLowerCase()];
-  if (suggestion) {
-    suggestion = `<span class="bold">${word}:</span> ${suggestion}`;
-  } else if (word) {
-    suggestion = `<span class="bold">${word}:</span> no suggestions found`
+  // Structure to hold matching results
+  let matches = [];
+  let englishDefinitions = [];
+  
+  // First try exact match
+  const exactMatch = window.english_to_gloss[word.toLowerCase()];
+  if (exactMatch) {
+    // If found exact match, save it
+    englishDefinitions.push(word.toLowerCase());
+    matches.push(exactMatch);
   } else {
-    suggestion = "";
+    // Look for partial matches as fallback
+    const wordLower = word.toLowerCase();
+    for (const englishDef in window.english_to_gloss) {
+      // Check if the English definition contains our word as a complete word
+      const wordBoundaryRegex = new RegExp(`\\b${wordLower}\\b`, 'i');
+      if (englishDef.match(wordBoundaryRegex)) {
+        englishDefinitions.push(englishDef);
+        matches.push(window.english_to_gloss[englishDef]);
+      }
+    }
   }
+  
+  // Format the suggestions
+  let suggestion = "";
+  if (matches.length > 0) {
+    // Begin with the word and colon
+    suggestion = `<span class="bold">${word}:</span>\n    `;
+    
+    // Add each match with proper formatting
+    for (let i = 0; i < matches.length; i++) {
+      const englishDef = englishDefinitions[i];
+      const treveroseGloss = matches[i];
+      
+      // Extract parts of speech if present (assuming format like "talk direction over-truth (verb)")
+      let glossText = treveroseGloss;
+      let partOfSpeech = "";
+      
+      console.log(`DEBUG: treveroseGloss='${treveroseGloss}'`); // Debug log
+      
+      // The format might be different than expected - try to manually split
+      // Look for common part of speech patterns like (verb), (noun), etc.
+      const posPattern = /\((\w+)\)/; // Simplified pattern to match (verb), (noun), etc.
+      const posMatch = treveroseGloss.match(posPattern);
+      
+      console.log(`DEBUG: posMatch=`, posMatch); // Debug log
+      
+      if (posMatch && posMatch[1]) {
+        // Extract the part of speech tag (e.g., "verb") from group 1
+        const posTag = posMatch[1];
+        // Reconstruct the span with parentheses
+        partOfSpeech = `<span class="partofspeech">(${posTag})</span>`;
+        // Remove the original tag from glossText
+        glossText = treveroseGloss.replace(posPattern, "").trim();
+        
+        console.log(`DEBUG: extracted posTag='${posTag}', glossText='${glossText}'`); // Debug log
+      } else {
+        // Fallback: try to manually split at the last parenthesis
+        const lastOpenParen = treveroseGloss.lastIndexOf('(');
+        if (lastOpenParen > 0) {
+          const lastCloseParen = treveroseGloss.lastIndexOf(')');
+          if (lastCloseParen > lastOpenParen) {
+            const posTag = treveroseGloss.substring(lastOpenParen + 1, lastCloseParen);
+            partOfSpeech = `<span class="partofspeech">(${posTag})</span>`;
+            glossText = treveroseGloss.substring(0, lastOpenParen).trim();
+            console.log(`DEBUG: fallback extracted posTag='${posTag}', glossText='${glossText}'`); // Debug log
+          }
+        }
+      }
+      
+      // Add properly formatted entry
+      suggestion += `[${englishDef}] <span class="gloss">${glossText}</span>${partOfSpeech}`;
+      
+      // Add separator if there are more matches
+      if (i < matches.length - 1) {
+        suggestion += "<br>";
+      }
+    }
+  } else if (word) {
+    // No suggestions found
+    suggestion = `<span class="bold">${word}:</span> no suggestions found`;
+  }
+  
   return suggestion;
 }
 
 // --- New wrapper function for surface to gloss then surface ---
 function surface_to_gloss_to_surface(surfaceInput) {
+  console.log(`--- Entering surface_to_gloss_to_surface with: '${surfaceInput}'`); // DEBUG ENTRY
   /* Uses FSA to parse surface input into gloss and then calls get_surface.*/
   const notFoundCompounds =[];
   const lines = surfaceInput.split("\n");
@@ -152,6 +235,7 @@ function surface_to_gloss_to_surface(surfaceInput) {
         try {
           tokenized = chomp_tokens(word);
         } catch (error) {
+          console.error(`Error in chomp_tokens for word '${word}':`, error); // DEBUG ERROR
           lineGlosses.push(word); // Push the original unparseable word
           continue; // Skip to the next match
         }
@@ -160,12 +244,13 @@ function surface_to_gloss_to_surface(surfaceInput) {
         const rawGlosses = tokenized.map(token => {
           return window.surface_to_gloss[token] || token;
         });
+        console.log(`Lookup surface '${tokenized.join(',')}': Got gloss(es) '${rawGlosses.join(',')}'`); // DEBUG
         const combinedGloss = rawGlosses.join("-");
         lineGlosses.push(combinedGloss);
 
         if (combinedGloss.length > 0
           && combinedGloss.includes('-')
-          && !window.compounds.includes(combinedGloss)
+          && !(combinedGloss in window.compounds)
           && !notFoundCompounds.includes(combinedGloss)) {
           notFoundCompounds.push(combinedGloss);
         }
@@ -197,20 +282,4 @@ function surface_to_gloss_to_surface(surfaceInput) {
   document.getElementById('bottomSideBox').innerHTML = decoratedNotFoundCompounds.join("<br>");
 }
 
-// Gloss to Surface Input Event Listener (Modified)
-topBox.addEventListener("input", () => {
-    const inputText = topBox.value.trim();
-    const inputType = detectInputType(inputText);
-    const inputBoxTitle = document.getElementById("input-box-title");
-
-    if (inputType === "gloss") {
-        inputBoxTitle.textContent = "Input (Gloss - Detected)";
-        const notFoundWords =[];
-        const notFoundCompounds =[];
-        get_surface(inputText.toLowerCase(), notFoundWords, notFoundCompounds, false);
-        get_surface(inputText.toLowerCase(), notFoundWords, notFoundCompounds, true);
-    } else if (inputType === "surface") {
-        inputBoxTitle.textContent = "Input (Surface - Detected)";
-        surface_to_gloss_to_surface(inputText);
-    }
-});
+// Ensure bottomSideBox exists on the page

@@ -96,91 +96,6 @@ flavorSlider.addEventListener('click', () => {
 
 
 /*----------------------------------------------------------------------*/
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOAD STUFFS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-// Fetch the dictionary
-fetch('./trevorese.json?v=9')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`); // Better error handling
-        }
-        return response.json();
-    })
-    .then(data => {
-        window.compounds = data["compounds"];
-        window.gloss_to_surface = data["gloss_to_surface"];
-        window.gloss_to_surface_hypertrevorese = data["gloss_to_surface_hypertrevorese"];
-        window.gloss_to_supergloss = data["gloss_to_supergloss"];
-        window.gloss_to_supercompound = data["gloss_to_supercompound"];
-        window.surface_to_gloss = {};
-        // Create reverse mapping (surface to gloss)
-        for (let gloss in window.gloss_to_surface) {
-            let surface = window.gloss_to_surface[gloss];
-            //only add if surface doesn't start with __
-            if (!surface.startsWith("__")) {
-                window.surface_to_gloss[surface] = gloss;
-            }
-        }
-
-        window.english_to_gloss = splitAndAppendDefinitions(data["english_to_gloss"]);
-        // Build the FSA after loading the dictionary
-        buildFSA();
-    })
-    .catch(error => {
-        console.error('Error loading dictionary:', error);
-        // Display error to the user, e.g., in the bottom box
-        document.getElementById('bottom-box').innerHTML = `<span style="color: red;">Error loading dictionary: ${error.message}</span>`;
-        document.getElementById('bottom-box-2').innerHTML = `<span style="color: red;">Error loading dictionary: ${error.message}</span>`;
-    });
-
-
-/*----------------------------------------------------------------------*/
-/*~~~~~~~~~~~~~~~~~~~~~~HIDING AND COPYING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-    function toggleBox(boxId) {
-        const box = document.getElementById(boxId);
-        box.classList.toggle('hidden');
-    }
-
-    function copyText(boxId) {
-        const box = document.getElementById(boxId);
-        const text = box.innerText; // Use innerText to get the visible text, not innerHTML
-
-        // Use the Clipboard API for modern browsers
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(text).then(() => {
-                console.log("Text copied to clipboard: " + text);
-                // Optional: Show a brief "Copied!" message.
-                // You could add a small <span> next to the button and toggle its visibility.
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-                fallbackCopyText(text); // Fallback for older browsers
-            });
-        } else {
-          fallbackCopyText(text); // Fallback for older browsers
-        }
-    }
-
-    // Fallback for older browsers (and cases where Clipboard API fails)
-    function fallbackCopyText(text) {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        try {
-            const successful = document.execCommand('copy');
-            const msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Fallback: Copying text command was ' + msg);
-        } catch (err) {
-            console.error('Fallback: Oops, unable to copy', err);
-        }
-        document.body.removeChild(textarea);
-
-    }
-
-
-
-/*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ PERIODIC TABLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 async function loadPeriodicTable() {
@@ -267,7 +182,53 @@ async function loadPeriodicTable() {
 
 
 /*----------------------------------------------------------------------*/
-/*~~~~~~~~~~~~~~~~~~~~~~~ KEYBOARD SCROLLING ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~HIDING AND COPYING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    function toggleBox(boxId) {
+        const box = document.getElementById(boxId);
+        box.classList.toggle('hidden');
+    }
+
+    function copyText(boxId) {
+        const box = document.getElementById(boxId);
+        const text = box.innerText; // Use innerText to get the visible text, not innerHTML
+
+        // Use the Clipboard API for modern browsers
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+                console.log("Text copied to clipboard: " + text);
+                // Optional: Show a brief "Copied!" message.
+                // You could add a small <span> next to the button and toggle its visibility.
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                fallbackCopyText(text); // Fallback for older browsers
+            });
+        } else {
+          fallbackCopyText(text); // Fallback for older browsers
+        }
+    }
+
+    // Fallback for older browsers (and cases where Clipboard API fails)
+    function fallbackCopyText(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            const successful = document.execCommand('copy');
+            const msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Fallback: Copying text command was ' + msg);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+        document.body.removeChild(textarea);
+
+    }
+
+
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~ KEYBOARD SCROLLING ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 document.addEventListener('keydown', function(event) {
     const activeElement = document.activeElement;

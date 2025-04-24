@@ -123,3 +123,5 @@ function chomp_tokens(s) {
     .filter(token => token.trim() !== '');
 }
 
+// Initialize the FSA
+buildFSA();
