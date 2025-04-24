@@ -186,23 +186,61 @@ function processSurfaceMode(doc, isSurfaceMode) {
                     span.dataset.originalContent = span.textContent;
                 }
                 
-                // Get the corresponding surface form
-                const gloss = span.dataset.originalContent || span.textContent.trim().toLowerCase();
+                // Get the original gloss content
+                const glossText = span.dataset.originalContent || span.textContent.trim();
                 
-                if (window.gloss_to_surface && gloss in window.gloss_to_surface) {
-                    const surface = window.gloss_to_surface[gloss];
-                    // Change class to surface or surface-emph
-                    if (span.className.includes('gloss-emph')) {
-                        span.className = 'surface-emph';
-                    } else if (span.className.includes('gloss')) {
-                        span.className = 'surface';
+                // Check if it's a compound (contains dashes)
+                if (glossText.includes('-')) {
+                    // Handle compound word
+                    const parts = glossText.split('-');
+                    let surfaceParts = [];
+                    let allPartsFound = true;
+                    
+                    // Process each part
+                    for (const part of parts) {
+                        const trimmedPart = part.trim().toLowerCase();
+                        if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
+                            surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                        } else {
+                            // If any part is not found, mark the whole compound
+                            allPartsFound = false;
+                            surfaceParts.push(part); // Keep original part
+                        }
                     }
-                    // Update content
-                    span.textContent = surface;
+                    
+                    // Update class and content based on whether all parts were found
+                    if (allPartsFound) {
+                        if (span.className.includes('gloss-emph')) {
+                            span.className = 'surface-emph';
+                        } else {
+                            span.className = 'surface';
+                        }
+                    } else {
+                        span.className = 'gloss-notfound';
+                    }
+                    
+                    // Join the surface parts without dashes (as per Trevorese rules)
+                    span.textContent = surfaceParts.join('');
+                    
                 } else {
-                    // No surface found, mark as not found
-                    span.className = 'gloss-notfound';
-                    // Keep original text
+                    // Handle atomic word
+                    const gloss = glossText.toLowerCase();
+                    
+                    if (window.gloss_to_surface && gloss in window.gloss_to_surface) {
+                        const surface = window.gloss_to_surface[gloss];
+                        // Change class to surface or surface-emph
+                        if (span.className.includes('gloss-emph')) {
+                            span.className = 'surface-emph';
+                        } else if (span.className.includes('gloss')) {
+                            span.className = 'surface';
+                        }
+                        // Update content
+                        span.textContent = surface;
+                    } else {
+                        // No surface found, mark as not found
+                        span.className = 'gloss-notfound';
+                        // Keep original text
+                    }
                 }
             } else {
                 // Restore original class and content
@@ -248,6 +286,110 @@ document.querySelectorAll('.tab').forEach(tab => {
 });
 
 /*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~ COLLAPSE SECTIONS LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Initialize collapse state
+let collapseState = true; // Default to collapsed (checked)
+
+// Function to toggle all collapsible sections
+function toggleAllCollapsibleSections(collapsed) {
+    collapseState = collapsed;
+    
+    // Get the iframe documents
+    const tutorialFrame = document.querySelector('#tutorial iframe');
+    const aboutFrame = document.querySelector('#about iframe');
+    
+    // Process tutorial iframe if it exists
+    if (tutorialFrame) {
+        try {
+            const tutorialDoc = tutorialFrame.contentDocument || tutorialFrame.contentWindow.document;
+            toggleCollapsibleInDoc(tutorialDoc, collapsed);
+        } catch (e) {
+            console.error('Error accessing tutorial iframe:', e);
+        }
+    }
+    
+    // Process about iframe if it exists
+    if (aboutFrame) {
+        try {
+            const aboutDoc = aboutFrame.contentDocument || aboutFrame.contentWindow.document;
+            toggleCollapsibleInDoc(aboutDoc, collapsed);
+        } catch (e) {
+            console.error('Error accessing about iframe:', e);
+        }
+    }
+}
+
+// Function to toggle collapsible sections in a document
+function toggleCollapsibleInDoc(doc, collapsed) {
+    if (!doc) return;
+    
+    try {
+        // Find all collapsible headers
+        const collapsibleHeaders = doc.querySelectorAll('.collapsible-header');
+        
+        collapsibleHeaders.forEach(header => {
+            // Get the content element (next sibling)
+            const content = header.nextElementSibling;
+            
+            if (content && content.classList.contains('collapsible-content')) {
+                if (collapsed) {
+                    // Collapse: add 'collapsed' class to header if not already present
+                    if (!header.classList.contains('collapsed')) {
+                        header.classList.add('collapsed');
+                    }
+                    // Hide content
+                    content.style.display = 'none';
+                } else {
+                    // Expand: remove 'collapsed' class from header
+                    header.classList.remove('collapsed');
+                    // Show content
+                    content.style.display = 'block';
+                }
+            }
+        });
+    } catch (e) {
+        console.error('Error toggling collapsible sections:', e);
+    }
+}
+
+// Initialize collapse checkbox
+document.addEventListener('DOMContentLoaded', () => {
+    const collapseCheckbox = document.getElementById('collapse-checkbox');
+    
+    if (collapseCheckbox) {
+        // Set initial state
+        collapseState = collapseCheckbox.checked;
+        
+        // Add event listener for checkbox change
+        collapseCheckbox.addEventListener('change', () => {
+            toggleAllCollapsibleSections(collapseCheckbox.checked);
+        });
+        
+        // Apply initial state after iframes load
+        setTimeout(() => {
+            toggleAllCollapsibleSections(collapseState);
+        }, 1000);
+    }
+});
+
+// Add event listeners for tab clicks to maintain collapse state
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const tabId = tab.dataset.tab;
+        if (tabId === 'tutorial' || tabId === 'about') {
+            // Wait a bit for iframe content to be accessible
+            setTimeout(() => {
+                const collapseCheckbox = document.getElementById('collapse-checkbox');
+                if (collapseCheckbox) {
+                    toggleAllCollapsibleSections(collapseCheckbox.checked);
+                }
+            }, 500);
+        }
+    });
+});
+
+/*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ WORD INFO POPUP LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Initialize popup elements when the DOM is fully loaded
@@ -285,7 +427,7 @@ const FIELD_DISPLAY_ORDER = [
 
 // Function to find VocabEntry by surface form
 function findVocabEntryBySurface(surface) {
-    // First check if the surface exists in the surface_to_gloss map
+    // First check if the surface exists directly in the surface_to_gloss map
     if (window.surface_to_gloss && surface in window.surface_to_gloss) {
         const gloss = window.surface_to_gloss[surface];
         // Now get the VocabEntry from the dictionary
@@ -298,6 +440,47 @@ function findVocabEntryBySurface(surface) {
             };
         }
     }
+    
+    // If not found directly, check if it's a compound surface
+    // by trying to find a compound gloss that would generate this surface
+    if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs) {
+        // Get all compound glosses from the dictionary
+        const compoundGlosses = Object.keys(window.trevorese_dictionary.vocabs).filter(g => g.includes('-'));
+        
+        for (const compoundGloss of compoundGlosses) {
+            // Calculate what surface this compound would generate
+            const parts = compoundGloss.split('-');
+            const surfaceParts = [];
+            let allPartsFound = true;
+            
+            // Look up each part's surface
+            for (const part of parts) {
+                const trimmedPart = part.trim().toLowerCase();
+                if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
+                    surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                } else {
+                    allPartsFound = false;
+                    break;
+                }
+            }
+            
+            // Skip if any part wasn't found
+            if (!allPartsFound) continue;
+            
+            // Join the surface parts and compare with the target surface
+            const calculatedSurface = surfaceParts.join('');
+            if (calculatedSurface === surface) {
+                // Found a match! Return the compound entry
+                return {
+                    entry: window.trevorese_dictionary.vocabs[compoundGloss],
+                    gloss: compoundGloss,
+                    index: Array.from(Object.keys(window.trevorese_dictionary.vocabs)).indexOf(compoundGloss) + 1,
+                    isCompound: true
+                };
+            }
+        }
+    }
+    
     return null;
 }
 
