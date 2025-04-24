@@ -29,6 +29,13 @@
                     <span class="slider-label">hyp</span>
                 </div>
             </div>
+            
+            <div class="slider-wrapper checkbox-wrapper">
+                <label for="surface-mode-checkbox">Surface Mode</label>
+                <div class="checkbox-with-labels">
+                    <input type="checkbox" id="surface-mode-checkbox" checked>
+                </div>
+            </div>
             </div>
     </div>
 
@@ -91,6 +98,17 @@
 <script src="general.js"></script>
 <script src="fsa.js"></script>
 <script src="io.js"></script>
+
+<!-- Word Info Popup -->
+<div id="word-info-popup" class="word-info-popup">
+    <div class="popup-header">
+        <span id="popup-word"></span>
+        <span class="popup-close">&times;</span>
+    </div>
+    <div id="popup-content" class="popup-content">
+        <!-- Content will be populated by JavaScript -->
+    </div>
+</div>
 
 </body>
 </html>

@@ -93,7 +93,368 @@ flavorSlider.addEventListener('click', () => {
     topBox.dispatchEvent(new Event('input'));
 });
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SURFACE MODE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+// Get the surface mode checkbox
+const surfaceModeCheckbox = document.getElementById('surface-mode-checkbox');
+
+// Global variable to track surface mode state
+window.surfaceMode = true; // Default to checked (true)
+
+// Function to convert gloss spans to surface spans
+function toggleSurfaceMode(isSurfaceMode) {
+    window.surfaceMode = isSurfaceMode;
+    console.log('Surface mode toggled:', isSurfaceMode);
+    
+    // Only apply to tutorial and about tabs
+    const tutorialFrame = document.querySelector('#tutorial iframe');
+    const aboutFrame = document.querySelector('#about iframe');
+    
+    // Process tutorial iframe if it exists
+    if (tutorialFrame) {
+        try {
+            // Try to access the contentDocument
+            const tutorialDoc = tutorialFrame.contentDocument || tutorialFrame.contentWindow.document;
+            processSurfaceMode(tutorialDoc, isSurfaceMode);
+        } catch (e) {
+            console.error('Error accessing tutorial iframe:', e);
+        }
+    }
+    
+    // Process about iframe if it exists
+    if (aboutFrame) {
+        try {
+            // Try to access the contentDocument
+            const aboutDoc = aboutFrame.contentDocument || aboutFrame.contentWindow.document;
+            processSurfaceMode(aboutDoc, isSurfaceMode);
+        } catch (e) {
+            console.error('Error accessing about iframe:', e);
+        }
+    }
+}
+
+// Function to process a document for surface mode
+function processSurfaceMode(doc, isSurfaceMode) {
+    console.log('Processing document for surface mode:', isSurfaceMode);
+    if (!doc) {
+        console.error('No document provided to processSurfaceMode');
+        return;
+    }
+    
+    try {
+        // Update table headings
+        const tableHeadings = doc.querySelectorAll('th, td.heading');
+        tableHeadings.forEach(heading => {
+            if (heading.textContent.toLowerCase().includes('gloss')) {
+                if (isSurfaceMode) {
+                    heading.dataset.originalText = heading.textContent;
+                    heading.textContent = heading.textContent.replace(/gloss/i, 'surface');
+                } else if (heading.dataset.originalText) {
+                    heading.textContent = heading.dataset.originalText;
+                }
+            }
+        });
+        
+        // Find all spans with gloss classes
+        const allSpans = doc.querySelectorAll('span');
+        const glossSpans = [];
+        
+        // Filter spans that have gloss classes or have been converted to surface
+        allSpans.forEach(span => {
+            if (span.className.includes('gloss') || 
+                span.className.includes('surface') || 
+                span.dataset.originalClass) {
+                glossSpans.push(span);
+            }
+        });
+        
+        console.log('Found spans to process:', glossSpans.length);
+        
+        // Process each span
+        glossSpans.forEach(span => {
+            if (isSurfaceMode) {
+                // If already in surface mode, skip
+                if (span.className.includes('surface') && !span.dataset.originalClass) {
+                    return;
+                }
+                
+                // Store original class and content if not already stored
+                if (!span.dataset.originalClass) {
+                    span.dataset.originalClass = span.className;
+                }
+                if (!span.dataset.originalContent) {
+                    span.dataset.originalContent = span.textContent;
+                }
+                
+                // Get the corresponding surface form
+                const gloss = span.dataset.originalContent || span.textContent.trim().toLowerCase();
+                
+                if (window.gloss_to_surface && gloss in window.gloss_to_surface) {
+                    const surface = window.gloss_to_surface[gloss];
+                    // Change class to surface or surface-emph
+                    if (span.className.includes('gloss-emph')) {
+                        span.className = 'surface-emph';
+                    } else if (span.className.includes('gloss')) {
+                        span.className = 'surface';
+                    }
+                    // Update content
+                    span.textContent = surface;
+                } else {
+                    // No surface found, mark as not found
+                    span.className = 'gloss-notfound';
+                    // Keep original text
+                }
+            } else {
+                // Restore original class and content
+                if (span.dataset.originalClass) {
+                    span.className = span.dataset.originalClass;
+                }
+                if (span.dataset.originalContent) {
+                    span.textContent = span.dataset.originalContent;
+                }
+            }
+        });
+    } catch (e) {
+        console.error('Error in processSurfaceMode:', e);
+    }
+}
+
+// Event listener for the surface mode checkbox
+surfaceModeCheckbox.addEventListener('change', () => {
+    console.log('Checkbox changed:', surfaceModeCheckbox.checked);
+    toggleSurfaceMode(surfaceModeCheckbox.checked);
+});
+
+// Initialize surface mode based on checkbox default state
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing surface mode');
+    // Wait a bit for iframes to load
+    setTimeout(() => {
+        toggleSurfaceMode(surfaceModeCheckbox.checked);
+    }, 1000);
+});
+
+// Add event listeners for tab clicks to ensure surface mode is applied when switching tabs
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const tabId = tab.dataset.tab;
+        if (tabId === 'tutorial' || tabId === 'about') {
+            // Wait a bit for iframe content to be accessible
+            setTimeout(() => {
+                toggleSurfaceMode(surfaceModeCheckbox.checked);
+            }, 500);
+        }
+    });
+});
+
+/*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~ WORD INFO POPUP LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Initialize popup elements when the DOM is fully loaded
+let wordInfoPopup, popupWord, popupContent, popupClose;
+
+// Function to initialize popup elements
+function initPopupElements() {
+    // Get the popup elements
+    wordInfoPopup = document.getElementById('word-info-popup');
+    popupWord = document.getElementById('popup-word');
+    popupContent = document.getElementById('popup-content');
+    popupClose = document.querySelector('.popup-close');
+    
+    // Add event listeners if elements exist
+    if (popupClose) {
+        // Close popup when clicking the close button
+        popupClose.addEventListener('click', hideWordInfoPopup);
+    }
+}
+
+// Define the order of fields to display
+const FIELD_DISPLAY_ORDER = [
+    { tsv: "noun/pronoun", display: "noun" },
+    { tsv: "verb", display: "verb" },
+    { tsv: "adj/adv", display: "adj/adv" },
+    { tsv: "quantifier", display: "quantifier" },
+    { tsv: "conjunction", display: "conjunction" },
+    { tsv: "preposition", display: "preposition" },
+    { tsv: "affix", display: "affix" },
+    { tsv: "interjection", display: "interjection" },
+    { tsv: "fn", display: "function word" },
+    { tsv: "cognates", display: "cognates" },
+    { tsv: "COMMENTS/TODOS", display: "Notes" }
+];
+
+// Function to find VocabEntry by surface form
+function findVocabEntryBySurface(surface) {
+    // First check if the surface exists in the surface_to_gloss map
+    if (window.surface_to_gloss && surface in window.surface_to_gloss) {
+        const gloss = window.surface_to_gloss[surface];
+        // Now get the VocabEntry from the dictionary
+        if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs && 
+            gloss in window.trevorese_dictionary.vocabs) {
+            return {
+                entry: window.trevorese_dictionary.vocabs[gloss],
+                gloss: gloss,
+                index: Array.from(Object.keys(window.trevorese_dictionary.vocabs)).indexOf(gloss) + 1
+            };
+        }
+    }
+    return null;
+}
+
+// Function to populate the popup with word information
+function populateWordInfoPopup(surface) {
+    const result = findVocabEntryBySurface(surface);
+    if (!result) {
+        popupWord.innerHTML = `<span class="surface">${surface}</span> (not found)`;
+        popupContent.innerHTML = '<p>No information available for this word.</p>';
+        return;
+    }
+    
+    const { entry, gloss, index } = result;
+    
+    // Set the header with surface form and index
+    popupWord.innerHTML = `<span class="surface">${surface}</span> (#${index})`;
+    
+    // Build the content HTML
+    let contentHTML = `<div class="field-row"><span class="field-label">gloss:</span> <span class="gloss">${gloss}</span></div>`;
+    
+    // Add facet information in the specified order
+    FIELD_DISPLAY_ORDER.forEach(field => {
+        if (entry.facets[field.tsv] && entry.facets[field.tsv].length > 0) {
+            const values = entry.facets[field.tsv];
+            contentHTML += `<div class="field-row"><span class="field-label">${field.display}:</span> <span class="english">${values.join('; ')}</span></div>`;
+        }
+    });
+    
+    // Set the content
+    popupContent.innerHTML = contentHTML;
+}
+
+// Function to show the popup at the clicked position
+function showWordInfoPopup(event, surface) {
+    // Populate the popup
+    populateWordInfoPopup(surface);
+    
+    // Position the popup near the clicked element
+    const rect = event.target.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    
+    // Calculate position (centered below the word)
+    const top = rect.bottom + scrollTop + 5; // 5px below the word
+    const left = rect.left + scrollLeft + (rect.width / 2) - (wordInfoPopup.offsetWidth / 2);
+    
+    // Set the position
+    wordInfoPopup.style.top = `${top}px`;
+    wordInfoPopup.style.left = `${left}px`;
+    
+    // Show the popup
+    wordInfoPopup.style.display = 'block';
+}
+
+// Function to hide the popup
+function hideWordInfoPopup() {
+    if (wordInfoPopup) {
+        wordInfoPopup.style.display = 'none';
+    }
+}
+
+// Close popup when clicking outside
+document.addEventListener('click', (event) => {
+    if (event.target.closest('#word-info-popup') || 
+        event.target.classList.contains('surface') || 
+        event.target.classList.contains('surface-emph')) {
+        return; // Don't close if clicking inside popup or on a surface span
+    }
+    hideWordInfoPopup();
+});
+
+// Function to add click listeners to surface spans in iframes
+function addSurfaceClickListeners() {
+    // Get the iframe documents
+    const tutorialFrame = document.querySelector('#tutorial iframe');
+    const aboutFrame = document.querySelector('#about iframe');
+    
+    // Process tutorial iframe if it exists
+    if (tutorialFrame && tutorialFrame.contentDocument) {
+        const tutorialDoc = tutorialFrame.contentDocument || tutorialFrame.contentWindow.document;
+        addClickListenersToDoc(tutorialDoc);
+    }
+    
+    // Process about iframe if it exists
+    if (aboutFrame && aboutFrame.contentDocument) {
+        const aboutDoc = aboutFrame.contentDocument || aboutFrame.contentWindow.document;
+        addClickListenersToDoc(aboutDoc);
+    }
+}
+
+// Function to add click listeners to surface spans in a document
+function addClickListenersToDoc(doc) {
+    // Find all surface spans
+    const surfaceSpans = doc.querySelectorAll('.surface, .surface-emph');
+    
+    // Add click listeners to each span
+    surfaceSpans.forEach(span => {
+        // Remove existing listeners to avoid duplicates
+        span.removeEventListener('click', surfaceClickHandler);
+        
+        // Add new click listener
+        span.addEventListener('click', surfaceClickHandler);
+    });
+}
+
+// Click handler for surface spans
+function surfaceClickHandler(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const surface = event.target.textContent.trim();
+    showWordInfoPopup(event, surface);
+}
+
+// Add surface click listeners when surface mode is toggled
+const originalToggleSurfaceMode = toggleSurfaceMode;
+toggleSurfaceMode = function(isSurfaceMode) {
+    originalToggleSurfaceMode(isSurfaceMode);
+    
+    // Add click listeners after a short delay to ensure DOM is updated
+    setTimeout(() => {
+        if (isSurfaceMode) {
+            addSurfaceClickListeners();
+        }
+    }, 500);
+};
+
+// Add click listeners when tabs are clicked
+document.querySelectorAll('.tab').forEach(tab => {
+    const originalClickHandler = tab.onclick;
+    tab.onclick = function(event) {
+        if (originalClickHandler) {
+            originalClickHandler.call(this, event);
+        }
+        
+        const tabId = tab.dataset.tab;
+        if ((tabId === 'tutorial' || tabId === 'about') && window.surfaceMode) {
+            // Wait a bit for iframe content to be accessible
+            setTimeout(() => {
+                addSurfaceClickListeners();
+            }, 500);
+        }
+    };
+});
+
+// Initialize click listeners when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize popup elements
+    initPopupElements();
+    
+    // Wait for iframes to load
+    setTimeout(() => {
+        if (window.surfaceMode) {
+            addSurfaceClickListeners();
+        }
+    }, 1500);
+});
 
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ PERIODIC TABLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
