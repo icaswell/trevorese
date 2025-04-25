@@ -748,7 +748,7 @@ async function loadPeriodicTable() {
 
 
 /*----------------------------------------------------------------------*/
-/*~~~~~~~~~~~~~~~~~~~~~~HIDING AND COPYING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~ HIDING AND COPYING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     function toggleBox(boxId) {
         const box = document.getElementById(boxId);
@@ -840,4 +840,371 @@ document.addEventListener('keydown', function(event) {
 });
 
 /*----------------------------------------------------------------------*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~ DICTIONARY SEARCH ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+function searchDictionary(query) {
+    if (!query || query.trim() === '') {
+        // Clear results if query is empty
+        document.getElementById('trevorese-to-english').innerHTML = '';
+        document.getElementById('english-to-trevorese').innerHTML = '';
+        return;
+    }
+
+    query = query.trim().toLowerCase();
+    
+    // Results containers
+    const treveroseToEnglishResults = document.getElementById('trevorese-to-english');
+    const englishToTreveroseResults = document.getElementById('english-to-trevorese');
+    
+    // Clear previous results
+    treveroseToEnglishResults.innerHTML = '';
+    englishToTreveroseResults.innerHTML = '';
+    
+    // Search in Trevorese (gloss and surface)
+    let treveroseMatches = [];
+    
+    // Search in gloss directly
+    if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs) {
+        const allGlosses = Object.keys(window.trevorese_dictionary.vocabs);
+        
+        // Filter glosses that contain the query
+        const matchingGlosses = allGlosses.filter(gloss => 
+            gloss.toLowerCase().includes(query)
+        );
+        
+        // Add matching glosses to results
+        matchingGlosses.forEach(gloss => {
+            const vocabEntry = window.trevorese_dictionary.vocabs[gloss];
+            treveroseMatches.push({
+                gloss: gloss,
+                surface: vocabEntry.surface || '',
+                definitions: vocabEntry.facets
+            });
+        });
+    }
+    
+    // Search in surface forms
+    if (window.surface_to_gloss) {
+        const allSurfaces = Object.keys(window.surface_to_gloss);
+        
+        // Filter surfaces that contain the query
+        const matchingSurfaces = allSurfaces.filter(surface => 
+            surface.toLowerCase().includes(query)
+        );
+        
+        // Add matching surfaces to results
+        matchingSurfaces.forEach(surface => {
+            const gloss = window.surface_to_gloss[surface];
+            if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs && 
+                window.trevorese_dictionary.vocabs[gloss]) {
+                
+                // Check if this entry is already in our results
+                const existingEntry = treveroseMatches.find(entry => entry.gloss === gloss);
+                if (!existingEntry) {
+                    treveroseMatches.push({
+                        gloss: gloss,
+                        surface: surface,
+                        definitions: window.trevorese_dictionary.vocabs[gloss].facets
+                    });
+                }
+            }
+        });
+    }
+    
+    // Display Trevorese to English results
+    if (treveroseMatches.length > 0) {
+        treveroseMatches.forEach(match => {
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'dictionary-entry';
+            
+            // Create word display with surface and gloss
+            const wordDiv = document.createElement('div');
+            wordDiv.className = 'word';
+            
+            if (match.surface) {
+                const surfaceSpan = document.createElement('span');
+                surfaceSpan.className = 'surface';
+                surfaceSpan.textContent = match.surface;
+                wordDiv.appendChild(surfaceSpan);
+                wordDiv.appendChild(document.createTextNode(' '));
+            }
+            
+            const glossSpan = document.createElement('span');
+            glossSpan.className = 'gloss';
+            glossSpan.textContent = match.gloss;
+            wordDiv.appendChild(glossSpan);
+            
+            entryDiv.appendChild(wordDiv);
+            
+            // Add definitions
+            for (const field of DEFINITION_FIELDS) {
+                if (match.definitions[field] && match.definitions[field].length > 0) {
+                    const defDiv = document.createElement('div');
+                    defDiv.className = 'definition';
+                    
+                    const posSpan = document.createElement('span');
+                    posSpan.className = 'pos';
+                    posSpan.textContent = field + ': ';
+                    defDiv.appendChild(posSpan);
+                    
+                    const defContent = document.createTextNode(match.definitions[field].join(', '));
+                    defDiv.appendChild(defContent);
+                    
+                    entryDiv.appendChild(defDiv);
+                }
+            }
+            
+            // Add supergloss if available
+            if (match.definitions.supergloss && match.definitions.supergloss.length > 0) {
+                const superglossDiv = document.createElement('div');
+                superglossDiv.className = 'definition';
+                
+                const superglossLabel = document.createElement('span');
+                superglossLabel.className = 'pos';
+                superglossLabel.textContent = 'Supergloss: ';
+                superglossDiv.appendChild(superglossLabel);
+                
+                const superglossContent = document.createTextNode(match.definitions.supergloss.join(', '));
+                superglossDiv.appendChild(superglossContent);
+                
+                entryDiv.appendChild(superglossDiv);
+            }
+            
+            treveroseToEnglishResults.appendChild(entryDiv);
+        });
+    } else {
+        treveroseToEnglishResults.innerHTML = '<p>No Trevorese matches found.</p>';
+    }
+    
+    // English to Trevorese Search
+    console.log(`[Eng->Trev Search] Query: '${query}'`);
+    const englishResults = [];
+    const addedGlosses = new Set(); // Keep track of glosses already added
+
+    if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs) {
+        for (const gloss in window.trevorese_dictionary.vocabs) {
+            const entry = window.trevorese_dictionary.vocabs[gloss]; // Get the entry from vocabs
+            console.log(`[Eng->Trev Search] Checking gloss: '${gloss}'`, entry);
+            let matchFoundInEntry = false;
+            const matchedDefinitionsInEntry = [];
+
+            // Check definitions in facets
+            if (entry.facets) {
+                for (const field in entry.facets) {
+                    const definitions = entry.facets[field];
+                    console.log(`[Eng->Trev Search]  - Checking field: '${field}', Defs:`, definitions);
+                    if (Array.isArray(definitions)) {
+                        definitions.forEach(definition => {
+                            console.log(`[Eng->Trev Search]    - Comparing query '${query}' with definition '${definition}'`);
+                            if (typeof definition === 'string' && definition.toLowerCase().includes(query)) {
+                                console.log(`[Eng->Trev Search]      * Match found!`);
+                                matchFoundInEntry = true;
+                                matchedDefinitionsInEntry.push({ field: field, def: definition });
+                            }
+                        });
+                    } else if (typeof definitions === 'string') {
+                        // Handle cases where facet might be a single string (though spec implies array)
+                        console.log(`[Eng->Trev Search]    - Comparing query '${query}' with definition '${definitions}' (as string)`);
+                        if (definitions.toLowerCase().includes(query)) {
+                            console.log(`[Eng->Trev Search]      * Match found!`);
+                            matchFoundInEntry = true;
+                            matchedDefinitionsInEntry.push({ field: field, def: definitions });
+                        }
+                    }
+                }
+            }
+
+            // If a match was found in this entry's definitions and we haven't added this gloss yet
+            if (matchFoundInEntry && !addedGlosses.has(gloss)) {
+                console.log(`[Eng->Trev Search] Adding result for gloss: '${gloss}'`);
+                englishResults.push({
+                    gloss: gloss,
+                    entry: entry, // Include the full entry for display
+                    matchedDefs: matchedDefinitionsInEntry
+                });
+                addedGlosses.add(gloss); // Mark this gloss as added
+            }
+        }
+    }
+
+    console.log(`[Eng->Trev Search] Final English results:`, englishResults);
+    displayEnglishResults(englishResults, query);
+}
+
+// Initialize dictionary search when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('dictionary-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            searchDictionary(this.value);
+        });
+    }
+});
+
+/*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ INITIALIZATION ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Function to display Trevorese -> English results
+function displayTrevoreseResults(results) {
+    const treveroseToEnglishResults = document.getElementById('treveroseToEnglishResults');
+    treveroseToEnglishResults.innerHTML = ''; // Clear previous results
+
+    if (results.length > 0) {
+        results.forEach(result => {
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'dictionary-entry';
+
+            // Trevorese word (surface and gloss)
+            const wordDiv = document.createElement('div');
+            wordDiv.className = 'word';
+            if (result.entry.surface) {
+                const surfaceSpan = document.createElement('span');
+                surfaceSpan.className = 'surface';
+                surfaceSpan.textContent = result.entry.surface;
+                wordDiv.appendChild(surfaceSpan);
+                wordDiv.appendChild(document.createTextNode(' '));
+            }
+            const glossSpan = document.createElement('span');
+            glossSpan.className = 'gloss';
+            glossSpan.textContent = result.gloss; // Use the full gloss
+            wordDiv.appendChild(glossSpan);
+            entryDiv.appendChild(wordDiv);
+
+            // English definitions
+            const definitionsDiv = document.createElement('div');
+            definitionsDiv.className = 'definition';
+            if (result.entry.facets) {
+                DEFINITION_FIELDS.forEach(field => {
+                    if (result.entry.facets[field]) {
+                        result.entry.facets[field].forEach(def => {
+                            const defP = document.createElement('p');
+                            defP.innerHTML = `<span class="pos">(${field})</span> ${def}`;
+                            definitionsDiv.appendChild(defP);
+                        });
+                    }
+                });
+                 // Also display supergloss if present
+                if (result.entry.facets.supergloss) {
+                     result.entry.facets.supergloss.forEach(def => {
+                        const defP = document.createElement('p');
+                        defP.innerHTML = `<span class="pos">(supergloss)</span> ${def}`;
+                        definitionsDiv.appendChild(defP);
+                    });
+                }
+            }
+            entryDiv.appendChild(definitionsDiv);
+
+            treveroseToEnglishResults.appendChild(entryDiv);
+        });
+    } else {
+        treveroseToEnglishResults.innerHTML = '<p>No Trevorese matches found.</p>';
+    }
+}
+
+// Function to display English -> Trevorese results
+function displayEnglishResults(results, query) {
+    const englishToTreveroseResults = document.getElementById('english-to-trevorese');
+    englishToTreveroseResults.innerHTML = ''; // Clear previous results
+
+    if (results.length > 0) {
+        results.forEach(result => {
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'dictionary-entry';
+
+            // Matched English definition (word part)
+            const wordDiv = document.createElement('div');
+            wordDiv.className = 'word';
+
+            // Display the first matched English definition with highlighting
+            if (result.matchedDefs && result.matchedDefs.length > 0) {
+                const firstMatch = result.matchedDefs[0]; // Display the first definition that matched
+                const matchedDef = firstMatch.def;
+                const matchedField = firstMatch.field;
+
+                // Highlight the matched part in the definition
+                const lowerQuery = query.toLowerCase();
+                const lowerDef = matchedDef.toLowerCase();
+                const matchIndex = lowerDef.indexOf(lowerQuery);
+
+                if (matchIndex !== -1) {
+                    // Text before match
+                    if (matchIndex > 0) {
+                        wordDiv.appendChild(document.createTextNode(matchedDef.substring(0, matchIndex)));
+                    }
+                    // Highlighted match
+                    const highlightSpan = document.createElement('span');
+                    highlightSpan.className = 'highlight';
+                    highlightSpan.textContent = matchedDef.substring(matchIndex, matchIndex + query.length);
+                    wordDiv.appendChild(highlightSpan);
+                    // Text after match
+                    if (matchIndex + query.length < matchedDef.length) {
+                        wordDiv.appendChild(document.createTextNode(matchedDef.substring(matchIndex + query.length)));
+                    }
+                } else {
+                    // Fallback if somehow index is -1 despite being a match
+                    wordDiv.textContent = matchedDef;
+                }
+
+                // Add part of speech/field
+                const posSpan = document.createElement('span');
+                posSpan.className = 'pos';
+                posSpan.textContent = ` (${matchedField})`;
+                wordDiv.appendChild(posSpan);
+            }
+            entryDiv.appendChild(wordDiv);
+
+            // Trevorese translation (definition part)
+            const translationDiv = document.createElement('div');
+            translationDiv.className = 'definition';
+            
+            // Handle compound words properly
+            const isCompound = result.gloss.includes('-');
+            let surfaceToShow = '';
+
+            if (isCompound) {
+                // For compound words, we need to build the surface form from the component atoms
+                const glossParts = result.gloss.split('-');
+                const surfaceParts = [];
+
+                // Get surface form for each part of the compound
+                for (const part of glossParts) {
+                    if (window.gloss_to_surface && window.gloss_to_surface[part]) {
+                        surfaceParts.push(window.gloss_to_surface[part]);
+                    } else {
+                        // If we can't find the surface for a part, use the part itself
+                        surfaceParts.push(part);
+                    }
+                }
+
+                // Join the surface parts to form the compound surface
+                surfaceToShow = surfaceParts.join('');
+                
+                // Add supergloss annotation if available
+                const supergloss = window.compounds && window.compounds[result.gloss];
+                if (supergloss) {
+                    surfaceToShow += ` (${supergloss} > ${result.gloss})`;
+                } else {
+                    surfaceToShow += ` (${result.gloss})`;
+                }
+            } else if (result.entry.surface) {
+                // For atomic words, use the surface directly
+                surfaceToShow = result.entry.surface;
+                surfaceToShow += ` (${result.gloss})`;
+            } else {
+                // Fallback if no surface is available
+                surfaceToShow = result.gloss;
+            }
+
+            // Display the surface form
+            const surfaceSpan = document.createElement('span');
+            surfaceSpan.className = 'surface';
+            surfaceSpan.textContent = surfaceToShow;
+            translationDiv.appendChild(surfaceSpan);
+            entryDiv.appendChild(translationDiv);
+
+            englishToTreveroseResults.appendChild(entryDiv);
+        });
+    } else {
+        englishToTreveroseResults.innerHTML = '<p>No English matches found.</p>';
+    }
+}

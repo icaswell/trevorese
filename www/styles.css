@@ -244,6 +244,96 @@ body .principle {
     display: none;
 }
 
+/* Dictionary Styles */
+.dictionary-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#dictionary-search {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.dictionary-results-container {
+    display: flex;
+    gap: 20px;
+}
+
+.dictionary-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dictionary-column h3 {
+    margin-top: 0;
+    padding: 10px;
+    background-color: #004d4d;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.dictionary-results {
+    flex: 1;
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+    background-color: #f9f9f9;
+}
+
+.dictionary-entry {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.dictionary-entry:last-child {
+    border-bottom: none;
+}
+
+.dictionary-entry .word {
+    font-weight: bold;
+    font-size: 18px;
+    color: #004d4d;
+}
+
+.dictionary-entry .pos {
+    font-style: italic;
+    color: #666;
+    margin-left: 5px;
+}
+
+.dictionary-entry .definition {
+    margin-top: 5px;
+}
+
+.dictionary-entry .surface {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.dictionary-entry .gloss {
+    color: #009879;
+}
+
+.highlight {
+    background-color: #ffff99;
+}
+
 /* Word Info Popup Styles */
 .word-info-popup {
     display: none;

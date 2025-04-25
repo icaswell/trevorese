@@ -16,6 +16,7 @@
         <div class="tab active" data-tab="about">About</div>
         <div class="tab" data-tab="periodic-table">Periodic Table of Trevorese</div>
         <div class="tab" data-tab="tutorial">Tutorial</div>
+        <div class="tab" data-tab="dictionary">Dictionary</div>
         <div class="tab" data-tab="gloss-to-surface">Annotate glosses and surfaces!</div>
 
         <div class="slider-container">
@@ -48,6 +49,24 @@
 
     <div class="tab-content" id="tutorial">
         <iframe src="tutorial.html" style="width: 100%; height: 800px; border: none;"></iframe>
+    </div>
+
+    <div class="tab-content" id="dictionary">
+        <div class="dictionary-container">
+            <div class="search-container">
+                <input type="text" id="dictionary-search" placeholder="Search for words in Trevorese or English..." />
+            </div>
+            <div class="dictionary-results-container">
+                <div class="dictionary-column">
+                    <h3>Trevorese to English</h3>
+                    <div id="trevorese-to-english" class="dictionary-results"></div>
+                </div>
+                <div class="dictionary-column">
+                    <h3>English to Trevorese</h3>
+                    <div id="english-to-trevorese" class="dictionary-results"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="tab-content" id="gloss-to-surface">
