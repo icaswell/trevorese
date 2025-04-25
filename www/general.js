@@ -328,6 +328,28 @@ function toggleCollapsibleInDoc(doc, collapsed) {
         // Find all collapsible headers
         const collapsibleHeaders = doc.querySelectorAll('.collapsible-header');
         
+        // First, ensure all headers have click handlers if they don't already
+        collapsibleHeaders.forEach(header => {
+            // Check if we've already added our click handler
+            if (!header.hasAttribute('data-click-handler-added')) {
+                // Add the click handler to toggle visibility
+                header.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle the collapsed class
+                    this.classList.toggle('collapsed');
+                    // Toggle the visibility of the next sibling (content)
+                    const content = this.nextElementSibling;
+                    if (content && content.classList.contains('collapsible-content')) {
+                        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                    }
+                });
+                
+                // Mark that we've added the handler
+                header.setAttribute('data-click-handler-added', 'true');
+            }
+        });
+        
+        // Now apply the collapsed state as requested
         collapsibleHeaders.forEach(header => {
             // Get the content element (next sibling)
             const content = header.nextElementSibling;

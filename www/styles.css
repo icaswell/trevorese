@@ -17,14 +17,14 @@ body {
     flex-direction: column;
 }
 
-h1 {
+.container > h1 {
     text-align: center;
     color: #fff;
-    margin-bottom: 30px;
     background-color: #004d4d; /* Darker teal */
     padding: 10px 0;
     border-radius: 8px 8px 0 0;
-    margin: -20px -20px 20px -20px;
+    /* top, right, bottom, left */
+    margin: -20px -20px 20px -20px; 
 }
 
 .tabs {
@@ -363,14 +363,15 @@ body .principle {
     background-color: #fff;
 }
 
-.tutorial-body h1 {
-    color: #333;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    text-align: left;
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
+.tutorial-body h1,
+.about-body h1 {
+    text-align: center;
+    color: #fff;
+    background-color: #004d4d; /* Darker teal */
+    padding: 10px 0;
+    border-radius: 8px 8px 0 0;
+    /* top, right, bottom, left */
+    margin: 0px -20px 20px -20px; /* Zero top margin */
 }
 
 .tutorial-body h2 {
@@ -583,7 +584,7 @@ body .principle {
 }
 
 #periodic-table .table-container td.pt-first-col {
-    background-color: #57ed5c; /* Green */
+    background-color: #02b408; /* Green */
     color: white;
     font-weight: bold;
     width: 24px; /* Narrower first column */
@@ -618,4 +619,34 @@ body .principle {
 #about iframe ul ol {
     margin-top: 0.25em;     /* Tighter spacing for nested lists */
     margin-bottom: 0.25em;
+}
+
+/* Footnote Styles */
+#about iframe .footnotes {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+#about iframe .footnotes ol {
+    padding-left: 20px; /* Indent footnote list */
+    font-size: 0.9em;
+    color: #555;
+}
+
+#about iframe .footnotes li {
+    margin-bottom: 10px; /* Space between footnotes */
+}
+
+#about iframe sup a {
+    text-decoration: none;
+    color: #007bff; /* Blue link color */
+}
+
+#about iframe sup a:hover {
+    text-decoration: underline;
+}
+
+#about iframe .footnotes li a { /* Style for the return arrow */
+  text-decoration: none;
 }
