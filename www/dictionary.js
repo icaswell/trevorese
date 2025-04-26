@@ -18,6 +18,9 @@ class VocabEntry {
         if (this.atomic) {
             this.surface = row[indices["surface"]] || "";
         }
+        
+        // Initialize complexity to 0, will be calculated after all facets are processed
+        this.complexity = 0;
 
         for (const col_name in indices) {
             const i = indices[col_name];
@@ -34,6 +37,40 @@ class VocabEntry {
                  }
             }
         }
+        
+        // Calculate complexity after all facets are processed
+        this.calculateComplexity();
+    }
+    
+    calculateComplexity() {
+        // Calculate complexity as sum(log_2(atom["a"])) for each atom in gloss
+        // Default value of 100 for atoms without an "a" field
+        if (!window.trevorese_dictionary) {
+            // Dictionary not loaded yet, will be calculated later
+            return;
+        }
+        
+        let totalComplexity = 0;
+        
+        if (this.atomic) {
+            // For atomic words, use their own 'a' value
+            const aValue = this.facets['a'] && this.facets['a'][0] ? parseInt(this.facets['a'][0]) : 100;
+            totalComplexity = Math.log2(aValue);
+        } else if (this.gloss_parts && this.gloss_parts.length > 0) {
+            // For compound words, sum the log2 of each atom's 'a' value
+            for (const part of this.gloss_parts) {
+                const atomEntry = window.trevorese_dictionary.vocabs[part];
+                let aValue = 100; // Default value
+                
+                if (atomEntry && atomEntry.facets && atomEntry.facets['a'] && atomEntry.facets['a'][0]) {
+                    aValue = parseInt(atomEntry.facets['a'][0]);
+                }
+                
+                totalComplexity += Math.log2(aValue);
+            }
+        }
+        
+        this.complexity = totalComplexity;
     }
 
     toString() { // Equivalent to Python's __repr__
@@ -274,6 +311,14 @@ class Dictionary {
             vocab.surface = this.get_surface(vocab);
         }
     }
+
+    calculateAllComplexities() {
+        // Calculate complexity for all vocab entries after dictionary is fully loaded
+        console.log("Calculating complexities for all dictionary entries...");
+        for (const gloss in this.vocabs) {
+            this.vocabs[gloss].calculateComplexity();
+        }
+    }
 }
 
 // --- Data Loading and Processing ---
@@ -431,6 +476,10 @@ async function loadDictionaryData() {
         console.log("window.compounds count:", Object.keys(window.compounds).length);
         console.log("window.english_to_gloss count:", Object.keys(window.english_to_gloss).length);
         console.log("window.gloss_to_surface_hypertrevorese count:", Object.keys(window.gloss_to_surface_hypertrevorese).length);
+        
+        // Calculate complexity for all entries after dictionary is fully loaded
+        window.trevorese_dictionary.calculateAllComplexities();
+        console.log("Complexities calculated for all dictionary entries.");
 
     } catch (error) {
         console.error('Failed to load or process dictionary data:', error);
