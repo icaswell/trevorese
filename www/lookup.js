@@ -127,9 +127,11 @@ function searchDictionary(query) {
         
         allMatches.forEach(match => {
             // Use the unified display function
-            // Create a proper entry object with facets for the display function
+            // Create a proper entry object with facets and descendants for the display function
+            const originalEntry = window.trevorese_dictionary.vocabs[match.gloss];
             const entry = {
-                facets: match.definitions
+                facets: match.definitions,
+                descendants: originalEntry ? originalEntry.descendants : []
             };
             
             const entryDiv = createDictionaryEntryDisplay(entry, {
