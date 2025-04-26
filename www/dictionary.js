@@ -314,11 +314,20 @@ class Dictionary {
     }
 
     tokenize(s) {
-        // Special case for hyphenated compound words (e.g., 'love-dirt-animal')
+        // Special case for hyphenated compound words (e.g., 'love-dirt-animal' or 'person like have self-talk')
         if (s.includes('-')) {
             // For compound words, we need to treat each part as a separate word
+            // First, split by hyphens to get the main parts
             const parts = s.split('-');
-            const words = parts.map(part => part.trim());
+            const words = [];
+            
+            // Process each part, handling spaces within parts
+            for (const part of parts) {
+                // If a part contains spaces, we need to handle it as a single unit
+                // This ensures "person like have self" is treated as a single part
+                words.push(part.trim());
+            }
+            
             // Create punctuation array with empty strings and a hyphen between each word
             const punct = [''];
             for (let i = 0; i < words.length - 1; i++) {
@@ -370,12 +379,40 @@ class Dictionary {
         if (sentence instanceof VocabEntry) {
             sentence = sentence.gloss;
         }
+        
+        // Handle compound words with spaces in their parts
         const [words, punct] = this.tokenize(sentence);
         const surfs = [];
+        
         for (let word of words) {
             word = word.toLowerCase();
-            surfs.push(this.surfaces_map[word] !== undefined ? this.surfaces_map[word] : `<${word}>`);
+            
+            // Check if this is a multi-word part (e.g., "person like have self")
+            if (word.includes(' ')) {
+                // For multi-word parts, look up each word individually
+                const wordParts = word.split(' ');
+                let surfaceParts = [];
+                
+                for (const part of wordParts) {
+                    if (part.trim() === '') continue;
+                    
+                    // Look up each word in the surfaces map
+                    if (this.surfaces_map[part] !== undefined) {
+                        surfaceParts.push(this.surfaces_map[part]);
+                    } else {
+                        // If not found, keep the original word
+                        surfaceParts.push(`<${part}>`);
+                    }
+                }
+                
+                // Join the surface parts with spaces preserved
+                surfs.push(surfaceParts.join(' '));
+            } else {
+                // For single words, look up directly
+                surfs.push(this.surfaces_map[word] !== undefined ? this.surfaces_map[word] : `<${word}>`);
+            }
         }
+        
         let surface = this.interleave_words_and_punct(surfs, punct);
         surface = surface.replace(/([a-z])-([a-z])/g, "$1$2"); // Join for single -
         return surface;
