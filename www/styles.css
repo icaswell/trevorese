@@ -276,6 +276,10 @@ body .principle {
     flex-direction: column;
 }
 
+.dictionary-column.full-width {
+    width: 100%;
+}
+
 .dictionary-column h3 {
     margin-top: 0;
     padding: 10px;
@@ -328,6 +332,11 @@ body .principle {
 
 .dictionary-entry .gloss {
     color: #009879;
+}
+
+.dictionary-entry .supergloss {
+    color: #009879;
+    font-style: italic;
 }
 
 .highlight {
