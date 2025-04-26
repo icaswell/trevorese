@@ -43,6 +43,7 @@ const FIELD_DISPLAY_ORDER = [
     { tsv: "affix", display: "affix" },
     { tsv: "interjection", display: "interjection" },
     { tsv: "fn", display: "function word" },
+    { tsv: "descendants", display: "descendants" },
     { tsv: "cognates", display: "cognates" },
     { tsv: "COMMENTS/TODOS", display: "Notes" }
 ];
@@ -106,7 +107,68 @@ function createDictionaryEntryDisplay(entry, options = {}) {
         // Use FIELD_DISPLAY_ORDER to determine the order of fields
         FIELD_DISPLAY_ORDER.forEach(field => {
             const fieldName = field.tsv;
-            if (entry.facets[fieldName] && entry.facets[fieldName].length > 0) {
+            
+            // Special handling for descendants field
+            if (fieldName === 'descendants') {
+                // For debugging
+                console.log(`Checking descendants for ${gloss}`);
+                
+                // Check if this entry has any descendants directly
+                let hasDescendants = window.gloss_to_descendants && 
+                                    window.gloss_to_descendants[gloss] && 
+                                    window.gloss_to_descendants[gloss].length > 0;
+                                    
+                // Also check if this entry's supergloss has descendants
+                const supergloss = window.compounds && window.compounds[gloss];
+                if (supergloss && window.gloss_to_descendants && window.gloss_to_descendants[supergloss]) {
+                    console.log(`Found supergloss ${supergloss} for ${gloss}, checking its descendants`);
+                    hasDescendants = hasDescendants || window.gloss_to_descendants[supergloss].length > 0;
+                }
+                
+                if (hasDescendants) {
+                    const defDiv = document.createElement('div');
+                    defDiv.className = 'definition';
+                    
+                    const posSpan = document.createElement('span');
+                    posSpan.className = 'pos';
+                    posSpan.textContent = field.display + ': ';
+                    defDiv.appendChild(posSpan);
+                    
+                    // Format descendants as "surface (supergloss)"
+                    let descendants = [];
+                    
+                    // Get direct descendants if any
+                    if (window.gloss_to_descendants[gloss] && window.gloss_to_descendants[gloss].length > 0) {
+                        descendants = descendants.concat(window.gloss_to_descendants[gloss]);
+                    }
+                    
+                    // Get descendants from supergloss if applicable
+                    const supergloss = window.compounds && window.compounds[gloss];
+                    if (supergloss && window.gloss_to_descendants[supergloss] && window.gloss_to_descendants[supergloss].length > 0) {
+                        descendants = descendants.concat(window.gloss_to_descendants[supergloss]);
+                    }
+                    
+                    console.log(`Found ${descendants.length} descendants for ${gloss}`);
+                    
+                    // Format each descendant as "surface (supergloss)"
+                    const descendantTexts = descendants.map(d => {
+                        console.log(`Formatting descendant: ${JSON.stringify(d)}`);
+                        if (d.surface && d.supergloss) {
+                            return `${d.surface} (${d.supergloss})`;
+                        } else if (d.surface) {
+                            return `${d.surface} (${d.gloss})`;
+                        } else {
+                            return d.gloss;
+                        }
+                    });
+                    
+                    const defContent = document.createTextNode(descendantTexts.join(', '));
+                    defDiv.appendChild(defContent);
+                    entryDiv.appendChild(defDiv);
+                }
+            }
+            // Regular handling for other fields
+            else if (entry.facets[fieldName] && entry.facets[fieldName].length > 0) {
                 const defDiv = document.createElement('div');
                 defDiv.className = 'definition';
                 

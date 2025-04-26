@@ -574,6 +574,106 @@ async function loadDictionaryData() {
         // Placeholder for missing definitions from Python code
         window.gloss_to_supergloss = {}; 
         window.gloss_to_supercompound = {}; 
+        
+        // Compute descendants for each word based on supergloss decomposition
+        console.log("Computing word descendants based on supergloss decomposition...");
+        window.gloss_to_descendants = {};
+        
+        // Initialize the descendants map for all glosses
+        for (const gloss in all_vocabs.vocabs) {
+            window.gloss_to_descendants[gloss] = [];
+        }
+        
+        // Debug: Log the compounds map to see what we're working with
+        console.log("Compounds map:", window.compounds);
+        
+        // Function to recursively process supergloss decomposition and update descendants
+        function processSuperglosses(gloss, descendant) {
+            console.log(`Processing supergloss for ${gloss} with descendant ${descendant}`);
+            
+            // Get the supergloss for this gloss
+            const supergloss = window.compounds[gloss];
+            if (!supergloss) {
+                console.log(`No supergloss found for ${gloss}`);
+                return;
+            }
+            
+            console.log(`Supergloss for ${gloss} is ${supergloss}`);
+            
+            // Split the supergloss into parts
+            const parts = supergloss.split('-');
+            console.log(`Split parts for ${gloss}: ${JSON.stringify(parts)}`);
+            
+            // Add the descendant to each part's descendants list
+            for (const part of parts) {
+                const trimmedPart = part.trim();
+                if (!trimmedPart) {
+                    console.log(`Empty part found in ${gloss}, skipping`);
+                    continue;
+                }
+                
+                console.log(`Processing part: ${trimmedPart} for descendant ${descendant}`);
+                
+                // Check if this part exists in the dictionary
+                if (!window.gloss_to_descendants[trimmedPart]) {
+                    console.log(`Warning: ${trimmedPart} not found in dictionary, creating entry`);
+                    window.gloss_to_descendants[trimmedPart] = [];
+                }
+                
+                // If this part is a compound word, process its supergloss too
+                if (window.compounds[trimmedPart]) {
+                    console.log(`${trimmedPart} is a compound word, processing recursively`);
+                    processSuperglosses(trimmedPart, descendant);
+                }
+                
+                // Check if descendant is already in the list
+                const existingIndex = window.gloss_to_descendants[trimmedPart].findIndex(d => d.gloss === descendant);
+                console.log(`Existing index for ${descendant} in ${trimmedPart}: ${existingIndex}`);
+                
+                // Add this descendant to the part's descendants list if not already there
+                if (existingIndex === -1) {
+                    // Get the surface for the descendant
+                    const descendantVocab = all_vocabs.vocabs[descendant];
+                    const surface = descendantVocab ? descendantVocab.surface : '';
+                    
+                    // Get the supergloss for the descendant
+                    const supergloss = window.compounds[descendant] || '';
+                    
+                    window.gloss_to_descendants[trimmedPart].push({
+                        gloss: descendant,
+                        surface: surface,
+                        supergloss: supergloss
+                    });
+                    
+                    console.log(`Added ${descendant} as descendant of ${trimmedPart}`);
+                } else {
+                    console.log(`${descendant} already exists as descendant of ${trimmedPart}`);
+                }
+            }
+        }
+        
+        // Process all compound words to build the descendants map
+        console.log(`Found ${Object.keys(window.compounds).length} compound words to process`);
+        for (const gloss in window.compounds) {
+            console.log(`Processing descendants for compound word: ${gloss}`);
+            processSuperglosses(gloss, gloss);
+        }
+        
+        // Debug: Log some stats about the descendants map
+        let totalDescendants = 0;
+        let wordsWithDescendants = 0;
+        for (const gloss in window.gloss_to_descendants) {
+            const count = window.gloss_to_descendants[gloss].length;
+            totalDescendants += count;
+            if (count > 0) {
+                wordsWithDescendants++;
+                console.log(`${gloss} has ${count} descendants`);
+            }
+        }
+        console.log(`Total descendants: ${totalDescendants}, Words with descendants: ${wordsWithDescendants}`);
+        console.log("Sample of descendants:", Object.entries(window.gloss_to_descendants).slice(0, 5))
+        
+        console.log("Finished computing descendants");
 
         const topBox = document.getElementById('topBox'); // Ensure topBox is defined here
         if (topBox) {
