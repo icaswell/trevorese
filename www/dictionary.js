@@ -314,6 +314,21 @@ class Dictionary {
     }
 
     tokenize(s) {
+        // Special case for hyphenated compound words (e.g., 'love-dirt-animal')
+        if (s.includes('-')) {
+            // For compound words, we need to treat each part as a separate word
+            const parts = s.split('-');
+            const words = parts.map(part => part.trim());
+            // Create punctuation array with empty strings and a hyphen between each word
+            const punct = [''];
+            for (let i = 0; i < words.length - 1; i++) {
+                punct.push('-');
+            }
+            punct.push(''); // Add final empty string to match Python behavior
+            return [words, punct];
+        }
+        
+        // Regular tokenization for non-compound words
         // Split text into tokens and in-between spans.
         // JS regex differs from Python's unicode handling slightly, using \w for simplicity
         // Using splitKeep helper to mimic Python's re.split behavior better
@@ -324,7 +339,7 @@ class Dictionary {
         
         // Split by word characters to get words
         const words = this.splitKeep(s, /\w+/).filter((_, i) => i % 2 !== 0); // Keep only words
-        
+            
         // Adjust first/last punct based on padding
         punct[0] = (s.startsWith(' ') ? '' : punct[0]) || '';
         punct[punct.length - 1] = (s.endsWith(' ') ? '' : punct[punct.length - 1]) || '';
@@ -467,6 +482,16 @@ async function loadDictionaryData() {
             const surface = window.gloss_to_surface[gloss];
             if (surface && !surface.startsWith("__")) { // Ensure surface exists and isn't special
                 window.surface_to_gloss[surface] = gloss;
+            }
+        }
+        
+        // Create mapping for compound surfaces to their glosses
+        window.compound_surface_to_gloss = {};
+        for (const gloss in all_vocabs.vocabs) {
+            const vocab = all_vocabs.vocabs[gloss];
+            if (!vocab.atomic && vocab.surface) {
+                // Store the compound surface to gloss mapping
+                window.compound_surface_to_gloss[vocab.surface] = gloss;
             }
         }
 
