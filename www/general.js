@@ -13,8 +13,14 @@ document.querySelectorAll('.tab').forEach(tab => {
         document.getElementById(tabId).classList.add('active');
 
         // Load periodic table content if this tab is clicked and not already loaded
-        if (tabId === 'periodic-table' && !periodicTableLoaded) {
-            loadPeriodicTable();
+        if (tabId === 'periodic-table') {
+            if (!periodicTableLoaded) {
+                loadPeriodicTable();
+            }
+            // Add click listeners to gloss spans in the periodic table
+            setTimeout(() => {
+                addClickListenersToDoc(document);
+            }, 500); // Small delay to ensure content is loaded
         }
     });
 });
@@ -502,7 +508,7 @@ document.addEventListener('click', (event) => {
     hideWordInfoPopup();
 });
 
-// Function to add click listeners to surface spans in iframes
+// Function to add click listeners to surface spans in iframes and tabs
 function addSurfaceClickListeners() {
     // Get the iframe documents
     const tutorialFrame = document.querySelector('#tutorial iframe');
@@ -519,30 +525,43 @@ function addSurfaceClickListeners() {
         const aboutDoc = aboutFrame.contentDocument || aboutFrame.contentWindow.document;
         addClickListenersToDoc(aboutDoc);
     }
+    
+    // Process the periodic table tab directly (not in an iframe)
+    const periodicTableTab = document.querySelector('#periodic-table');
+    if (periodicTableTab) {
+        addClickListenersToDoc(document);
+    }
 }
 
-// Function to add click listeners to surface spans in a document
+// Function to add click listeners to surface and gloss spans in a document
 function addClickListenersToDoc(doc) {
-    // Find all surface spans
-    const surfaceSpans = doc.querySelectorAll('.surface, .surface-emph');
+    // Find all surface and gloss spans
+    const spans = doc.querySelectorAll('.surface, .surface-emph, .gloss');
     
     // Add click listeners to each span
-    surfaceSpans.forEach(span => {
+    spans.forEach(span => {
         // Remove existing listeners to avoid duplicates
-        span.removeEventListener('click', surfaceClickHandler);
+        span.removeEventListener('click', spanClickHandler);
         
         // Add new click listener
-        span.addEventListener('click', surfaceClickHandler);
+        span.addEventListener('click', spanClickHandler);
     });
 }
 
-// Click handler for surface spans
-function surfaceClickHandler(event) {
+// Click handler for both surface and gloss spans
+function spanClickHandler(event) {
     event.preventDefault();
     event.stopPropagation();
     
-    const surface = event.target.textContent.trim();
-    showWordInfoPopup(event, surface);
+    let text = event.target.textContent.trim();
+    
+    // If it's a gloss span, remove the parentheses if present
+    if (event.target.classList.contains('gloss')) {
+        // Remove parentheses from gloss text if present
+        text = text.replace(/^\((.+)\)$/, '$1');
+    }
+    
+    showWordInfoPopup(event, text);
 }
 
 // Add surface click listeners when surface mode is toggled
@@ -557,6 +576,19 @@ toggleSurfaceMode = function(isSurfaceMode) {
         }
     }, 500);
 };
+
+// Initialize click listeners when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Add a small delay to ensure all content is loaded
+    setTimeout(() => {
+        addSurfaceClickListeners();
+        
+        // Also add listeners to the main document for the periodic table
+        if (document.querySelector('#periodic-table.active')) {
+            addClickListenersToDoc(document);
+        }
+    }, 1000);
+});
 
 // Add click listeners when tabs are clicked
 document.querySelectorAll('.tab').forEach(tab => {
