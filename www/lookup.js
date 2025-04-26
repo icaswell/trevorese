@@ -4,6 +4,7 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ DICTIONARY SEARCH ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 function searchDictionary(query) {
+    console.log('Searching for:', query);
     if (!query || query.trim() === '') {
         // Clear results if query is empty
         document.getElementById('dictionary-results').innerHTML = '';
@@ -89,6 +90,30 @@ function searchDictionary(query) {
                     }
                 }
             }
+        }
+        
+        // Search for compound surfaces using our precomputed map
+        console.log('Searching for compound surfaces that match:', query);
+        
+        if (window.compound_surface_to_gloss) {
+            for (const surface in window.compound_surface_to_gloss) {
+                if (surface.toLowerCase().includes(query)) {
+                    const gloss = window.compound_surface_to_gloss[surface];
+                    if (!addedGlosses.has(gloss) && window.trevorese_dictionary.vocabs[gloss]) {
+                        console.log('Found compound match:', gloss, 'with surface:', surface);
+                        allMatches.push({
+                            gloss: gloss,
+                            surface: surface,
+                            definitions: window.trevorese_dictionary.vocabs[gloss].facets,
+                            matchReason: 'surface'
+                        });
+                        addedGlosses.add(gloss);
+                    }
+                }
+            }
+            console.log('Checked', Object.keys(window.compound_surface_to_gloss).length, 'compound entries');
+        } else {
+            console.log('Compound surface map not available');
         }
     }
     
@@ -238,8 +263,54 @@ function searchDictionary(query) {
     }
 }
 
+// Build a mapping of compound surfaces to glosses
+function buildCompoundSurfaceMap() {
+    console.log('Building compound surface map...');
+    window.compound_surface_to_gloss = {};
+    
+    for (const gloss in window.trevorese_dictionary.vocabs) {
+        const entry = window.trevorese_dictionary.vocabs[gloss];
+        if (!entry.atomic) {
+            // Compute the surface form for this compound
+            const glossParts = gloss.split('-');
+            const surfaceParts = [];
+            let allPartsFound = true;
+            
+            for (const part of glossParts) {
+                const trimmedPart = part.trim().toLowerCase();
+                if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
+                    surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                } else {
+                    allPartsFound = false;
+                    surfaceParts.push(part);
+                }
+            }
+            
+            if (allPartsFound) {
+                const computedSurface = surfaceParts.join('');
+                window.compound_surface_to_gloss[computedSurface] = gloss;
+            }
+        }
+    }
+    
+    console.log('Compound surface map built with', Object.keys(window.compound_surface_to_gloss).length, 'entries');
+}
+
 // Initialize dictionary search when the page loads
 document.addEventListener('DOMContentLoaded', function() {
+    // Build the compound surface map after the dictionary is loaded
+    if (window.trevorese_dictionary) {
+        buildCompoundSurfaceMap();
+    } else {
+        // If dictionary isn't loaded yet, wait for it
+        const checkDictionary = setInterval(function() {
+            if (window.trevorese_dictionary) {
+                buildCompoundSurfaceMap();
+                clearInterval(checkDictionary);
+            }
+        }, 100);
+    }
+    
     const searchInput = document.getElementById('dictionary-search');
     if (searchInput) {
         searchInput.addEventListener('input', function() {
