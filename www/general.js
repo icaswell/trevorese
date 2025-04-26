@@ -953,31 +953,28 @@ function searchDictionary(query) {
             
             if (isCompound) {
                 // For compound words, we need to build the surface form from the component atoms
-                if (match.surface) {
-                    const surfaceSpan = document.createElement('span');
-                    surfaceSpan.className = 'surface';
-                    surfaceSpan.textContent = match.surface;
-                    wordDiv.appendChild(surfaceSpan);
-                    wordDiv.appendChild(document.createTextNode(' '));
-                } else {
-                    // If no surface is provided, try to build it from parts
-                    const glossParts = match.gloss.split('-');
-                    const surfaceParts = [];
-                    
-                    for (const part of glossParts) {
-                        if (window.gloss_to_surface && window.gloss_to_surface[part]) {
-                            surfaceParts.push(window.gloss_to_surface[part]);
-                        } else {
-                            surfaceParts.push(part);
-                        }
+                // Always compute the surface from parts for compounds, even if a surface is provided
+                // This ensures we get the full compound surface, not just the first atom
+                const glossParts = match.gloss.split('-');
+                const surfaceParts = [];
+                let allPartsFound = true;
+                
+                for (const part of glossParts) {
+                    const trimmedPart = part.trim().toLowerCase();
+                    if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
+                        surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                    } else {
+                        // If we can't find the surface for a part, mark it and use the part itself
+                        allPartsFound = false;
+                        surfaceParts.push(part);
                     }
-                    
-                    const surfaceSpan = document.createElement('span');
-                    surfaceSpan.className = 'surface';
-                    surfaceSpan.textContent = surfaceParts.join('');
-                    wordDiv.appendChild(surfaceSpan);
-                    wordDiv.appendChild(document.createTextNode(' '));
                 }
+                
+                const surfaceSpan = document.createElement('span');
+                surfaceSpan.className = 'surface';
+                surfaceSpan.textContent = surfaceParts.join('');
+                wordDiv.appendChild(surfaceSpan);
+                wordDiv.appendChild(document.createTextNode(' '));
                 
                 // Add supergloss annotation if available
                 const supergloss = window.compounds && window.compounds[match.gloss];
