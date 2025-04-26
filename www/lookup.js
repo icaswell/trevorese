@@ -126,135 +126,17 @@ function searchDictionary(query) {
         });
         
         allMatches.forEach(match => {
-            const entryDiv = document.createElement('div');
-            entryDiv.className = 'dictionary-entry';
+            // Use the unified display function
+            // Create a proper entry object with facets for the display function
+            const entry = {
+                facets: match.definitions
+            };
             
-            // Create word display with surface and gloss
-            const wordDiv = document.createElement('div');
-            wordDiv.className = 'word';
-            
-            // Handle compound words properly
-            const isCompound = match.gloss.includes('-');
-            let displayText = '';
-            
-            if (isCompound) {
-                // For compound words, we need to build the surface form from the component atoms
-                // Always compute the surface from parts for compounds, even if a surface is provided
-                // This ensures we get the full compound surface, not just the first atom
-                const glossParts = match.gloss.split('-');
-                const surfaceParts = [];
-                let allPartsFound = true;
-                
-                for (const part of glossParts) {
-                    const trimmedPart = part.trim().toLowerCase();
-                    if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
-                        surfaceParts.push(window.gloss_to_surface[trimmedPart]);
-                    } else {
-                        // If we can't find the surface for a part, mark it and use the part itself
-                        allPartsFound = false;
-                        surfaceParts.push(part);
-                    }
-                }
-                
-                const surfaceSpan = document.createElement('span');
-                surfaceSpan.className = 'surface';
-                surfaceSpan.textContent = surfaceParts.join('');
-                wordDiv.appendChild(surfaceSpan);
-                wordDiv.appendChild(document.createTextNode(' '));
-                
-                // Add supergloss annotation if available
-                const supergloss = window.compounds && window.compounds[match.gloss];
-                if (supergloss) {
-                    const superglossSpan = document.createElement('span');
-                    superglossSpan.className = 'supergloss';
-                    superglossSpan.textContent = `(${supergloss} > ${match.gloss})`;
-                    wordDiv.appendChild(superglossSpan);
-                } else {
-                    const glossSpan = document.createElement('span');
-                    glossSpan.className = 'gloss';
-                    glossSpan.textContent = `(${match.gloss})`;
-                    wordDiv.appendChild(glossSpan);
-                }
-            } else {
-                // For atomic words
-                if (match.surface) {
-                    const surfaceSpan = document.createElement('span');
-                    surfaceSpan.className = 'surface';
-                    surfaceSpan.textContent = match.surface;
-                    wordDiv.appendChild(surfaceSpan);
-                    wordDiv.appendChild(document.createTextNode(' '));
-                }
-                
-                const glossSpan = document.createElement('span');
-                glossSpan.className = 'gloss';
-                glossSpan.textContent = `(${match.gloss})`;
-                wordDiv.appendChild(glossSpan);
-            }
-            
-            entryDiv.appendChild(wordDiv);
-            
-            // Add definitions
-            if (match.definitions) {
-                for (const field of DEFINITION_FIELDS) {
-                    if (match.definitions[field] && match.definitions[field].length > 0) {
-                        const defDiv = document.createElement('div');
-                        defDiv.className = 'definition';
-                        
-                        const posSpan = document.createElement('span');
-                        posSpan.className = 'pos';
-                        posSpan.textContent = field + ': ';
-                        defDiv.appendChild(posSpan);
-                        
-                        // Highlight the query in the definition if this is a definition match
-                        if (match.matchReason === 'definition') {
-                            const defText = match.definitions[field].join(', ');
-                            const lowerDefText = defText.toLowerCase();
-                            const lowerQuery = query.toLowerCase();
-                            let lastIndex = 0;
-                            let index = lowerDefText.indexOf(lowerQuery);
-                            
-                            while (index !== -1) {
-                                // Add text before match
-                                defDiv.appendChild(document.createTextNode(defText.substring(lastIndex, index)));
-                                
-                                // Add highlighted match
-                                const highlight = document.createElement('span');
-                                highlight.className = 'highlight';
-                                highlight.textContent = defText.substring(index, index + query.length);
-                                defDiv.appendChild(highlight);
-                                
-                                lastIndex = index + query.length;
-                                index = lowerDefText.indexOf(lowerQuery, lastIndex);
-                            }
-                            
-                            // Add remaining text
-                            defDiv.appendChild(document.createTextNode(defText.substring(lastIndex)));
-                        } else {
-                            // No highlighting needed
-                            const defContent = document.createTextNode(match.definitions[field].join(', '));
-                            defDiv.appendChild(defContent);
-                        }
-                        
-                        entryDiv.appendChild(defDiv);
-                    }
-                }
-                
-                // Add supergloss if available
-                if (match.definitions.supergloss && match.definitions.supergloss.length > 0) {
-                    const superglossDiv = document.createElement('div');
-                    superglossDiv.className = 'definition';
-                    
-                    const superglossLabel = document.createElement('span');
-                    superglossLabel.className = 'pos';
-                    superglossLabel.textContent = 'Supergloss: ';
-                    superglossDiv.appendChild(superglossLabel);
-                    
-                    const superglossContent = document.createTextNode(match.definitions.supergloss.join(', '));
-                    superglossDiv.appendChild(superglossContent);
-                    
-                    entryDiv.appendChild(superglossDiv);
-                }
-            }
+            const entryDiv = createDictionaryEntryDisplay(entry, {
+                gloss: match.gloss,
+                surface: match.surface,
+                highlightQuery: match.matchReason === 'definition' ? query : null
+            });
             
             dictionaryResults.appendChild(entryDiv);
         });

@@ -432,79 +432,9 @@ function initPopupElements() {
     }
 }
 
-// Define the order of fields to display
-const FIELD_DISPLAY_ORDER = [
-    { tsv: "noun/pronoun", display: "noun" },
-    { tsv: "verb", display: "verb" },
-    { tsv: "adj/adv", display: "adj/adv" },
-    { tsv: "quantifier", display: "quantifier" },
-    { tsv: "conjunction", display: "conjunction" },
-    { tsv: "preposition", display: "preposition" },
-    { tsv: "affix", display: "affix" },
-    { tsv: "interjection", display: "interjection" },
-    { tsv: "fn", display: "function word" },
-    { tsv: "cognates", display: "cognates" },
-    { tsv: "COMMENTS/TODOS", display: "Notes" }
-];
+// FIELD_DISPLAY_ORDER is now defined in display.js
 
-// Function to find VocabEntry by surface form
-function findVocabEntryBySurface(surface) {
-    // First check if the surface exists directly in the surface_to_gloss map
-    if (window.surface_to_gloss && surface in window.surface_to_gloss) {
-        const gloss = window.surface_to_gloss[surface];
-        // Now get the VocabEntry from the dictionary
-        if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs && 
-            gloss in window.trevorese_dictionary.vocabs) {
-            return {
-                entry: window.trevorese_dictionary.vocabs[gloss],
-                gloss: gloss,
-                index: Array.from(Object.keys(window.trevorese_dictionary.vocabs)).indexOf(gloss) + 1
-            };
-        }
-    }
-    
-    // If not found directly, check if it's a compound surface
-    // by trying to find a compound gloss that would generate this surface
-    if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs) {
-        // Get all compound glosses from the dictionary
-        const compoundGlosses = Object.keys(window.trevorese_dictionary.vocabs).filter(g => g.includes('-'));
-        
-        for (const compoundGloss of compoundGlosses) {
-            // Calculate what surface this compound would generate
-            const parts = compoundGloss.split('-');
-            const surfaceParts = [];
-            let allPartsFound = true;
-            
-            // Look up each part's surface
-            for (const part of parts) {
-                const trimmedPart = part.trim().toLowerCase();
-                if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
-                    surfaceParts.push(window.gloss_to_surface[trimmedPart]);
-                } else {
-                    allPartsFound = false;
-                    break;
-                }
-            }
-            
-            // Skip if any part wasn't found
-            if (!allPartsFound) continue;
-            
-            // Join the surface parts and compare with the target surface
-            const calculatedSurface = surfaceParts.join('');
-            if (calculatedSurface === surface) {
-                // Found a match! Return the compound entry
-                return {
-                    entry: window.trevorese_dictionary.vocabs[compoundGloss],
-                    gloss: compoundGloss,
-                    index: Array.from(Object.keys(window.trevorese_dictionary.vocabs)).indexOf(compoundGloss) + 1,
-                    isCompound: true
-                };
-            }
-        }
-    }
-    
-    return null;
-}
+// findVocabEntryBySurface is now defined in display.js
 
 // Function to populate the popup with word information
 function populateWordInfoPopup(surface) {
@@ -517,22 +447,20 @@ function populateWordInfoPopup(surface) {
     
     const { entry, gloss, index } = result;
     
-    // Set the header with surface form and index
-    popupWord.innerHTML = `<span class="surface">${surface}</span> (#${index})`;
+    // Set the header with surface form
+    popupWord.innerHTML = `<span class="surface">${surface}</span>`;
     
-    // Build the content HTML
-    let contentHTML = `<div class="field-row"><span class="field-label">gloss:</span> <span class="gloss">${gloss}</span></div>`;
-    
-    // Add facet information in the specified order
-    FIELD_DISPLAY_ORDER.forEach(field => {
-        if (entry.facets[field.tsv] && entry.facets[field.tsv].length > 0) {
-            const values = entry.facets[field.tsv];
-            contentHTML += `<div class="field-row"><span class="field-label">${field.display}:</span> <span class="english">${values.join('; ')}</span></div>`;
-        }
+    // Use the unified display function to create the entry display
+    const entryDiv = createDictionaryEntryDisplay(entry, {
+        gloss: gloss,
+        surface: surface,
+        showIndex: true,
+        index: index
     });
     
-    // Set the content
-    popupContent.innerHTML = contentHTML;
+    // Clear and set the content
+    popupContent.innerHTML = '';
+    popupContent.appendChild(entryDiv);
 }
 
 // Function to show the popup at the clicked position
