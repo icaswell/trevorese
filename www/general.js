@@ -453,15 +453,22 @@ function populateWordInfoPopup(surface) {
     
     const { entry, gloss, index } = result;
     
-    // Set the header with surface form
-    popupWord.innerHTML = `<span class="surface">${surface}</span>`;
+    // Set the header using the standardized header display function
+    popupWord.innerHTML = createDictionaryHeaderDisplay({
+        surface: surface,
+        gloss: gloss,
+        showIndex: true,
+        index: index
+    });
     
     // Use the unified display function to create the entry display
+    // Hide the word header since we're showing it in the popup header
     const entryDiv = createDictionaryEntryDisplay(entry, {
         gloss: gloss,
         surface: surface,
         showIndex: true,
-        index: index
+        index: index,
+        hideWordHeader: true  // Hide the word header since it's in the popup header
     });
     
     // Clear and set the content

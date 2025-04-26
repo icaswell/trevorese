@@ -3,6 +3,35 @@
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ DICTIONARY DISPLAY ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+// Function to create a standardized dictionary header display
+// Returns HTML string for "surface (gloss)" with proper styling
+function createDictionaryHeaderDisplay(options = {}) {
+    const {
+        surface = '',
+        gloss = '',
+        showIndex = false,
+        index = null
+    } = options;
+    
+    let html = '';
+    
+    // Add surface if available
+    if (surface) {
+        html += `<span class="surface">${surface}</span> `;
+    }
+    
+    // Add gloss with optional index
+    if (gloss) {
+        if (showIndex && index !== null) {
+            html += `<span class="gloss">(${gloss})</span> <span class="index">#${index}</span>`;
+        } else {
+            html += `<span class="gloss">(${gloss})</span>`;
+        }
+    }
+    
+    return html;
+}
+
 // Define the order of fields to display
 const FIELD_DISPLAY_ORDER = [
     { tsv: "noun/pronoun", display: "noun" },
@@ -26,60 +55,51 @@ function createDictionaryEntryDisplay(entry, options = {}) {
         surface,
         highlightQuery = null,
         showIndex = false,
-        index = null
+        index = null,
+        hideWordHeader = false  // New option to hide the word header
     } = options;
     
     // Create the container for the entry
     const entryDiv = document.createElement('div');
     entryDiv.className = 'dictionary-entry';
     
-    // Create word display with surface and gloss
-    const wordDiv = document.createElement('div');
-    wordDiv.className = 'word';
-    
-    // Handle compound words properly
-    const isCompound = gloss.includes('-');
-    let displaySurface = surface;
-    
-    if (isCompound && !displaySurface) {
-        // For compound words, we need to build the surface form from the component atoms
-        const glossParts = gloss.split('-');
-        const surfaceParts = [];
+    // Create word display with surface and gloss (if not hidden)
+    if (!hideWordHeader) {
+        // Handle compound words properly
+        const isCompound = gloss.includes('-');
+        let displaySurface = surface;
         
-        for (const part of glossParts) {
-            const trimmedPart = part.trim().toLowerCase();
-            if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
-                surfaceParts.push(window.gloss_to_surface[trimmedPart]);
-            } else {
-                surfaceParts.push(part);
+        if (isCompound && !displaySurface) {
+            // For compound words, we need to build the surface form from the component atoms
+            const glossParts = gloss.split('-');
+            const surfaceParts = [];
+            
+            for (const part of glossParts) {
+                const trimmedPart = part.trim().toLowerCase();
+                if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
+                    surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                } else {
+                    surfaceParts.push(part);
+                }
             }
+            
+            displaySurface = surfaceParts.join('');
         }
         
-        displaySurface = surfaceParts.join('');
+        // Create the word header div
+        const wordDiv = document.createElement('div');
+        wordDiv.className = 'word';
+        
+        // Use the standardized header display function
+        wordDiv.innerHTML = createDictionaryHeaderDisplay({
+            surface: displaySurface,
+            gloss: gloss,
+            showIndex: showIndex,
+            index: index
+        });
+        
+        entryDiv.appendChild(wordDiv);
     }
-    
-    // Add surface if available
-    if (displaySurface) {
-        const surfaceSpan = document.createElement('span');
-        surfaceSpan.className = 'surface';
-        surfaceSpan.textContent = displaySurface;
-        wordDiv.appendChild(surfaceSpan);
-        wordDiv.appendChild(document.createTextNode(' '));
-    }
-    
-    // Add gloss
-    const glossSpan = document.createElement('span');
-    glossSpan.className = 'gloss';
-    
-    // Add index if requested
-    if (showIndex && index !== null) {
-        glossSpan.textContent = `(${gloss}) #${index}`;
-    } else {
-        glossSpan.textContent = `(${gloss})`;
-    }
-    
-    wordDiv.appendChild(glossSpan);
-    entryDiv.appendChild(wordDiv);
     
     // Add definitions in the specified order
     if (entry && entry.facets) {
