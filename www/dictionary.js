@@ -1,4 +1,67 @@
 'use strict';
+/**
+ * Parse TSV data with proper handling of quoted fields that may contain newlines
+ * @param {string} tsvData - The raw TSV data as a string
+ * @returns {Array<Array<string>>} - Array of rows, each row being an array of field values
+ */
+function parseTSV(tsvData) {
+    const rows = [];
+    let currentRow = [];
+    let currentField = '';
+    let inQuotes = false;
+    
+    // Add a newline at the end to ensure the last row is processed
+    tsvData = tsvData.trim() + '\n';
+    
+    for (let i = 0; i < tsvData.length; i++) {
+        const char = tsvData[i];
+        const nextChar = i < tsvData.length - 1 ? tsvData[i + 1] : '';
+        
+        // Handle quote character (double quote)
+        if (char === '"') {
+            if (inQuotes && nextChar === '"') {
+                // Escaped quote inside a quoted field
+                currentField += '"';
+                i++; // Skip the next quote
+            } else {
+                // Toggle quote mode
+                inQuotes = !inQuotes;
+            }
+        }
+        // Handle tab character (field separator)
+        else if (char === '\t' && !inQuotes) {
+            currentRow.push(currentField);
+            currentField = '';
+        }
+        // Handle newline character (row separator)
+        else if ((char === '\n' || (char === '\r' && nextChar === '\n')) && !inQuotes) {
+            if (char === '\r') {
+                i++; // Skip the next \n in \r\n sequence
+            }
+            
+            // Add the last field to the current row
+            currentRow.push(currentField);
+            currentField = '';
+            
+            // Add the completed row to the rows array if it has content
+            if (currentRow.length > 0 && currentRow.some(field => field.trim().length > 0)) {
+                rows.push(currentRow);
+                currentRow = [];
+            }
+        }
+        // Handle all other characters
+        else {
+            currentField += char;
+        }
+    }
+    
+    // Handle any remaining data (should not happen with the added newline)
+    if (currentRow.length > 0) {
+        rows.push(currentRow);
+    }
+    
+    return rows;
+}
 
 const DEFINITION_FIELDS = [
     "noun/pronoun", "adj/adv", "verb", "quantifier", "conjunction", 
@@ -299,7 +362,6 @@ class Dictionary {
             surfs.push(this.surfaces_map[word] !== undefined ? this.surfaces_map[word] : `<${word}>`);
         }
         let surface = this.interleave_words_and_punct(surfs, punct);
-        surface = surface.replace(/([a-z])--([a-z])/g, "$1_$2"); // Use _ for --
         surface = surface.replace(/([a-z])-([a-z])/g, "$1$2"); // Join for single -
         return surface;
     }
@@ -332,7 +394,10 @@ async function loadDictionaryData() {
         }
         const tsvData = await response.text();
         console.log("TSV data fetched.");
-        const rows = tsvData.trim().split('\n').map(line => line.split('\t'));
+        
+        // Parse TSV with proper handling of quoted fields that may contain newlines
+        const rows = parseTSV(tsvData);
+        console.log(`Parsed ${rows.length} rows from TSV.`);
 
         const all_vocabs = new Dictionary();
         let indices = {};
