@@ -118,8 +118,8 @@ function createDictionaryEntryDisplay(entry, options = {}) {
                 posSpan.textContent = field.display + ': ';
                 defDiv.appendChild(posSpan);
                 
-                // Format descendants as "surface (supergloss)"
-                const formattedDescendants = [];
+                // Get descendants with their entries for sorting
+                const descendantsWithEntries = [];
                 
                 for (const descendantGloss of entry.descendants) {
                     const descendantEntry = window.trevorese_dictionary.vocabs[descendantGloss];
@@ -132,18 +132,38 @@ function createDictionaryEntryDisplay(entry, options = {}) {
                             supergloss = descendantEntry.facets.supergloss[0];
                         }
                         
-                        // Format as "surface (supergloss)"
+                        // Store descendant with its entry and formatted display
+                        let formattedDescendant = '';
                         if (descendantSurface && supergloss) {
-                            formattedDescendants.push(`${descendantSurface} (${supergloss})`);
+                            formattedDescendant = `${descendantSurface} (${supergloss})`;
                         } else if (descendantSurface) {
-                            formattedDescendants.push(`${descendantSurface} (${descendantGloss})`);
+                            formattedDescendant = `${descendantSurface} (${descendantGloss})`;
                         } else {
-                            formattedDescendants.push(descendantGloss);
+                            formattedDescendant = descendantGloss;
                         }
+                        
+                        descendantsWithEntries.push({
+                            gloss: descendantGloss,
+                            entry: descendantEntry,
+                            formatted: formattedDescendant,
+                            complexity: descendantEntry.complexity || 0
+                        });
                     } else {
-                        formattedDescendants.push(descendantGloss);
+                        // For entries not found, add with default complexity
+                        descendantsWithEntries.push({
+                            gloss: descendantGloss,
+                            entry: null,
+                            formatted: descendantGloss,
+                            complexity: 0
+                        });
                     }
                 }
+                
+                // Sort descendants by complexity (ascending)
+                descendantsWithEntries.sort((a, b) => a.complexity - b.complexity);
+                
+                // Extract the formatted descendants after sorting
+                const formattedDescendants = descendantsWithEntries.map(d => d.formatted);
                 
                 // Add formatted descendants to the definition
                 const defContent = document.createTextNode(formattedDescendants.join(', '));
