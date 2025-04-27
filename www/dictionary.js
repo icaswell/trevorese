@@ -92,6 +92,37 @@ class VocabEntry {
         // gloss: String representing the Trevorese gloss (e.g., "of-back-go--animal")
         this.gloss = rawGloss;
         
+        // hyphen_indices: Array of indices in gloss_parts where double hyphens occur
+        // For "of-back-go--animal", this would be [2] (after "go")
+        this.hyphen_indices = [];
+        // Find double hyphens in the original gloss and track their positions
+        let partIndex = 0;
+        for (let i = 0; i < this.gloss.length - 1; i++) {
+            if (this.gloss[i] === '-' && this.gloss[i + 1] === '-') {
+                // Double hyphen found, calculate the corresponding index in gloss_parts
+                // Count how many parts we've seen up to this point
+                const textBeforeDoubleHyphen = this.gloss.substring(0, i);
+                
+                // partsBeforeDoubleHyphen: Array of parts split by single hyphens
+                const partsBeforeDoubleHyphen = textBeforeDoubleHyphen.split('-');
+                partIndex = partsBeforeDoubleHyphen.length - 1;
+                  
+                // adjustedIndex: Number representing the index in the final gloss_parts array
+                // This accounts for parts that might contain spaces
+                let adjustedIndex = 0;
+                for (let j = 0; j < partIndex; j++) {
+                    // spaceParts: Array of parts after splitting by spaces and filtering
+                    const spaceParts = partsBeforeDoubleHyphen[j].trim().split(' ').filter(p => p);
+                    adjustedIndex += spaceParts.length;
+                }
+                // Add the index to hyphen_indices
+                this.hyphen_indices.push(adjustedIndex);
+                  
+                // Skip the second hyphen
+                i++;
+            }
+        }
+        
         // gloss_parts: Array of individual word parts after splitting by hyphens and spaces
         // For "of-back-go--animal" this would be ["of", "back", "go", "animal"]
         // Empty parts from double hyphens are filtered out
@@ -138,51 +169,7 @@ class VocabEntry {
             this.gloss_parts = [];
         }
         
-        // Verify the result
-        if (direct_debug) {
-            console.log("DIRECT_DEBUG: Final gloss:", this.gloss);
-            console.log("DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
-            console.log("DIRECT_DEBUG: facets:", this.facets);
-            console.log("DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
-            console.log("DIRECT_DEBUG: Is gloss_parts defined?", this.gloss_parts !== undefined);
-            console.log("DIRECT_DEBUG: Is gloss_parts an array?", Array.isArray(this.gloss_parts));
-            console.log("DIRECT_DEBUG: gloss_parts length:", this.gloss_parts.length);
-        }
-        
-        // hyphen_indices: Array of indices in gloss_parts where double hyphens occur
-        // For "of-back-go--animal", this would be [2] (after "go")
-        this.hyphen_indices = [];
-        
-        // Find double hyphens in the original gloss and track their positions
-        if (this.gloss) {
-            let partIndex = 0;
-            for (let i = 0; i < this.gloss.length - 1; i++) {
-                if (this.gloss[i] === '-' && this.gloss[i + 1] === '-') {
-                    // Double hyphen found, calculate the corresponding index in gloss_parts
-                    // Count how many parts we've seen up to this point
-                    const textBeforeDoubleHyphen = this.gloss.substring(0, i);
-                    
-                    // partsBeforeDoubleHyphen: Array of parts split by single hyphens
-                    const partsBeforeDoubleHyphen = textBeforeDoubleHyphen.split('-');
-                    partIndex = partsBeforeDoubleHyphen.length - 1;
-                      
-                    // adjustedIndex: Number representing the index in the final gloss_parts array
-                    // This accounts for parts that might contain spaces
-                    let adjustedIndex = 0;
-                    for (let j = 0; j < partIndex; j++) {
-                        // spaceParts: Array of parts after splitting by spaces and filtering
-                        const spaceParts = partsBeforeDoubleHyphen[j].trim().split(' ').filter(p => p);
-                        adjustedIndex += spaceParts.length;
-                    }
-                    // Add the index to hyphen_indices
-                    this.hyphen_indices.push(adjustedIndex);
-                      
-                    // Skip the second hyphen
-                    i++;
-                }
-            }
-        }
-        
+
         // atomic: Boolean indicating if this is an atomic word (single gloss part, not starting with u_)
         this.atomic = this.gloss && this.gloss_parts.length === 1 && !this.gloss.startsWith("u_");
         
@@ -193,14 +180,13 @@ class VocabEntry {
         if (this.atomic) {
             this.surface = row[indices["surface"]] || "";
         }
-        
+
+    
         // Initialize complexity to 0, will be calculated after all facets are processed
         this.complexity = 0;
-
+        // add in facets
         for (const col_name in indices) {
-            // Skip the 'gloss' column since we already have this.gloss
             if (col_name === 'gloss') continue;
-            
             const i = indices[col_name];
             if (i === null || i === undefined || !row[i]) continue;
             
@@ -221,34 +207,45 @@ class VocabEntry {
         
         // Calculate complexity after all facets are processed
         this.calculateComplexity();
-        
+         // Verify the result
+        // if (direct_debug) {
+        //     console.log("DIRECT_DEBUG: Final gloss:", this.gloss);
+        //     console.log("DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
+        //     console.log("DIRECT_DEBUG: surface:", this.surface);
+        //     console.log("DIRECT_DEBUG: atomic:", this.atomic);
+        //     console.log("DIRECT_DEBUG: complexity:", this.complexity);
+        //     console.log("DIRECT_DEBUG: hyphen_indices:", this.hyphen_indices);
+        //     console.log("DIRECT_DEBUG: facets:", this.facets);
+        //     console.log("DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
+        //     console.log("DIRECT_DEBUG: Is gloss_parts defined?", this.gloss_parts !== undefined);
+        //     console.log("DIRECT_DEBUG: Is gloss_parts an array?", Array.isArray(this.gloss_parts));
+        //     console.log("DIRECT_DEBUG: gloss_parts length:", this.gloss_parts.length);
+        // }
+                   
         // Enhanced debugging for "of-back-go--animal"
         // Check if the raw gloss contains the target string regardless of exact match
-        if (row[indices["gloss"]] && row[indices["gloss"]].includes("of-back-go--animal")) {
-            console.log("%c FINAL SUMMARY FOR of-back-go--animal ", "background: #ff9800; color: white; font-weight: bold");
-            console.log("EXACT MATCH?", row[indices["gloss"]] === "of-back-go--animal");
-            console.log("raw gloss (with quotes):", JSON.stringify(row[indices["gloss"]]));
-            console.log("trimmed gloss (with quotes):", JSON.stringify(row[indices["gloss"]].trim()));
-            console.log("this.gloss (with quotes):", JSON.stringify(this.gloss));
+        if (direct_debug) {
+            console.log("DIRECT_DEBUG:%c FINAL SUMMARY FOR of-back-go--animal ", "background: #ff9800; color: white; font-weight: bold");
+            console.log("DIRECT_DEBUG:EXACT MATCH?", row[indices["gloss"]] === "of-back-go--animal");
+            console.log("DIRECT_DEBUG:raw gloss (with quotes):", JSON.stringify(row[indices["gloss"]]));
+            console.log("DIRECT_DEBUG:trimmed gloss (with quotes):", JSON.stringify(row[indices["gloss"]].trim()));
+            console.log("DIRECT_DEBUG:this.gloss (with quotes):", JSON.stringify(this.gloss));
             
             // More detailed gloss_parts logging
-            console.log("gloss_parts:", this.gloss_parts);
-            console.log("gloss_parts type:", typeof this.gloss_parts);
-            console.log("Is gloss_parts defined?", this.gloss_parts !== undefined);
-            console.log("Is gloss_parts an array?", Array.isArray(this.gloss_parts));
-            console.log("gloss_parts length:", this.gloss_parts ? this.gloss_parts.length : "undefined");
-            console.log("gloss_parts stringified:", JSON.stringify(this.gloss_parts));
+            console.log("DIRECT_DEBUG:gloss_parts:", this.gloss_parts);
+            console.log("DIRECT_DEBUG:gloss_parts type:", typeof this.gloss_parts);
+            console.log("DIRECT_DEBUG:Is gloss_parts defined?", this.gloss_parts !== undefined);
+            console.log("DIRECT_DEBUG:Is gloss_parts an array?", Array.isArray(this.gloss_parts));
+            console.log("DIRECT_DEBUG:gloss_parts length:", this.gloss_parts ? this.gloss_parts.length : "undefined");
+            console.log("DIRECT_DEBUG:gloss_parts stringified:", JSON.stringify(this.gloss_parts));
             
-            console.log("hyphen_indices:", this.hyphen_indices);
-            console.log("facets:", JSON.stringify(this.facets, null, 2));
-            console.log("atomic:", this.atomic);
-            console.log("surface:", this.surface);
+            console.log("DIRECT_DEBUG:hyphen_indices:", this.hyphen_indices);
+            console.log("DIRECT_DEBUG:facets:", JSON.stringify(this.facets, null, 2));
+            console.log("DIRECT_DEBUG:atomic:", this.atomic);
+            console.log("DIRECT_DEBUG:surface:", this.surface);
         }
         
-        // Original exact match condition
-        if (row[indices["gloss"]] === "of-back-go--animal") {
-            console.log("EXACT MATCH for of-back-go--animal");
-        }
+
     }
     
     /**
@@ -669,57 +666,20 @@ class Dictionary {
         
         return surface;
     }
-    
+
     surface_all_molecules() {
-        // Calculate surfaces for all non-atomic words
-        let facetsGlossCount = 0;
-        
         for (const gloss in this.vocabs) {
             const vocab = this.vocabs[gloss];
-            
-            // Check if any code is using facets["gloss"]
-            if (vocab.facets && vocab.facets["gloss"]) {
-                facetsGlossCount++;
-                if (facetsGlossCount <= 5) { // Limit logging to avoid console spam
-                    console.warn(`Found entry using facets["gloss"]: ${vocab.gloss}`);
-                    console.warn(`  facets["gloss"]: ${JSON.stringify(vocab.facets["gloss"])}`);
-                    console.warn(`  this.gloss: ${vocab.gloss}`);
-                    console.warn(`  Are they equal? ${vocab.gloss === vocab.facets["gloss"][0]}`);
-                }
-            }
-            
-            if (!vocab.atomic && !vocab.surface) {
-                vocab.surface = this.get_surface(vocab);
-            }
-        }
-        
-        if (facetsGlossCount > 0) {
-            console.warn(`Total entries using facets["gloss"]: ${facetsGlossCount}`);
+            if (vocab.atomic) continue;
+            vocab.surface = this.get_surface(vocab);
         }
     }
-    
+
     calculateAllComplexities() {
         // Calculate complexity for all vocab entries after dictionary is fully loaded
         console.log("Calculating complexities for all dictionary entries...");
         for (const gloss in this.vocabs) {
             this.vocabs[gloss].calculateComplexity();
-        }
-    }
-    
-    cleanupFacetsGloss() {
-        // Remove facets["gloss"] from all entries since we use .gloss directly
-        let removedCount = 0;
-        
-        for (const gloss in this.vocabs) {
-            const vocab = this.vocabs[gloss];
-            if (vocab.facets && vocab.facets["gloss"]) {
-                delete vocab.facets["gloss"];
-                removedCount++;
-            }
-        }
-        
-        if (removedCount > 0) {
-            console.log(`Removed facets["gloss"] from ${removedCount} entries`);
         }
     }
     
@@ -1022,10 +982,6 @@ async function loadDictionaryData() {
         // Calculate complexity for all entries after dictionary is fully loaded
         window.trevorese_dictionary.calculateAllComplexities();
         console.log("Complexities calculated for all dictionary entries.");
-        
-        // Clean up any facets["gloss"] entries
-        window.trevorese_dictionary.cleanupFacetsGloss();
-        console.log("Cleaned up facets[\"gloss\"] entries.");
 
     } catch (error) {
         console.error('Failed to load or process dictionary data:', error);
