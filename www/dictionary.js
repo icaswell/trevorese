@@ -92,82 +92,10 @@ class VocabEntry {
         // gloss: String representing the Trevorese gloss (e.g., "of-back-go--animal")
         this.gloss = rawGloss;
         
-        // hyphen_indices: Array of indices in gloss_parts where double hyphens occur
-        // For "of-back-go--animal", this would be [2] (after "go")
-        this.hyphen_indices = [];
-        // Find double hyphens in the original gloss and track their positions
-        let partIndex = 0;
-        for (let i = 0; i < this.gloss.length - 1; i++) {
-            if (this.gloss[i] === '-' && this.gloss[i + 1] === '-') {
-                // Double hyphen found, calculate the corresponding index in gloss_parts
-                // Count how many parts we've seen up to this point
-                const textBeforeDoubleHyphen = this.gloss.substring(0, i);
-                
-                // partsBeforeDoubleHyphen: Array of parts split by single hyphens
-                const partsBeforeDoubleHyphen = textBeforeDoubleHyphen.split('-');
-                partIndex = partsBeforeDoubleHyphen.length - 1;
-                  
-                // adjustedIndex: Number representing the index in the final gloss_parts array
-                // This accounts for parts that might contain spaces
-                let adjustedIndex = 0;
-                for (let j = 0; j < partIndex; j++) {
-                    // spaceParts: Array of parts after splitting by spaces and filtering
-                    const spaceParts = partsBeforeDoubleHyphen[j].trim().split(' ').filter(p => p);
-                    adjustedIndex += spaceParts.length;
-                }
-                // Add the index to hyphen_indices
-                this.hyphen_indices.push(adjustedIndex);
-                  
-                // Skip the second hyphen
-                i++;
-            }
-        }
-        
-        // gloss_parts: Array of individual word parts after splitting by hyphens and spaces
-        // For "of-back-go--animal" this would be ["of", "back", "go", "animal"]
-        // Empty parts from double hyphens are filtered out
-        this.gloss= this.gloss.replaceAll("--", "-");
-        // Improved gloss_parts calculation that properly handles double hyphens
-        if (this.gloss) {
-            // Check if this gloss contains double hyphens
-            const hasDoubleHyphens = this.gloss.includes('--');
-            
-            if (hasDoubleHyphens) {
-                console.log(`Processing entry with double hyphens: ${this.gloss}`);
-                
-                // First split by single hyphens (this will create empty strings for double hyphens)
-                const parts = this.gloss.split('-');
-                
-                // Filter out empty parts (which come from double hyphens)
-                const nonEmptyParts = parts.filter(part => part.trim() !== '');
-                
-                // Split by spaces and flatten
-                const finalParts = [];
-                for (const part of nonEmptyParts) {
-                    const spaceParts = part.split(' ').filter(p => p.trim() !== '');
-                    for (const spacePart of spaceParts) {
-                        finalParts.push(spacePart);
-                    }
-                }
-                
-                // Use this improved calculation for entries with double hyphens
-                this.gloss_parts = finalParts;
-                
-                // For debugging
-                if (direct_debug) {
-                    console.log('Improved gloss_parts for of-back-go--animal:', this.gloss_parts);
-                }
-            } else {
-                // Standard calculation for entries without double hyphens
-                this.gloss_parts = this.gloss.split('-')
-                    .filter(part => part.trim() !== '') // Skip any empty parts
-                    .flatMap(part => part.split(' ')) // Split parts that contain spaces
-                    .filter(p => p);  // Filter out any empty strings
-            }
-        } else {
-            // Default to empty array if no gloss
-            this.gloss_parts = [];
-        }
+        // Calculate hyphen_indices and gloss_parts
+        this.hyphen_indices = this.calculateHyphenIndices(this.gloss);
+        this.gloss = this.gloss.replaceAll("--", "-"); // Replace double hyphens with single for gloss_parts calculation
+        this.gloss_parts = this.calculateGlossParts(this.gloss, direct_debug);
         
 
         // atomic: Boolean indicating if this is an atomic word (single gloss part, not starting with u_)
@@ -182,8 +110,6 @@ class VocabEntry {
         }
 
     
-        // Initialize complexity to 0, will be calculated after all facets are processed
-        this.complexity = 0;
         // add in facets
         for (const col_name in indices) {
             if (col_name === 'gloss') continue;
@@ -206,6 +132,8 @@ class VocabEntry {
         }
         
         // Calculate complexity after all facets are processed
+        // todo this should be done by the dictionary after errthing is loaded
+        this.complexity = 0;
         this.calculateComplexity();
          // Verify the result
         // if (direct_debug) {
@@ -230,6 +158,7 @@ class VocabEntry {
             console.log("DIRECT_DEBUG:raw gloss (with quotes):", JSON.stringify(row[indices["gloss"]]));
             console.log("DIRECT_DEBUG:trimmed gloss (with quotes):", JSON.stringify(row[indices["gloss"]].trim()));
             console.log("DIRECT_DEBUG:this.gloss (with quotes):", JSON.stringify(this.gloss));
+            console.log("DIRECT_DEBUG: complexity:", this.complexity);
             
             // More detailed gloss_parts logging
             console.log("DIRECT_DEBUG:gloss_parts:", this.gloss_parts);
@@ -246,6 +175,93 @@ class VocabEntry {
         }
         
 
+    }
+    
+    /**
+     * Calculates the indices in gloss_parts where double hyphens occur
+     * For "of-back-go--animal", this would return [2] (after "go")
+     * 
+     * @param {string} gloss - The gloss string to analyze
+     * @returns {Array<number>} Array of indices where double hyphens occur
+     */
+    calculateHyphenIndices(gloss) {
+        const hyphenIndices = [];
+        
+        if (!gloss) return hyphenIndices;
+        
+        // Find double hyphens in the gloss and track their positions
+        for (let i = 0; i < gloss.length - 1; i++) {
+            if (gloss[i] === '-' && gloss[i + 1] === '-') {
+                // Double hyphen found, calculate the corresponding index in gloss_parts
+                // Count how many parts we've seen up to this point
+                const textBeforeDoubleHyphen = gloss.substring(0, i);
+                
+                // Array of parts split by single hyphens
+                const partsBeforeDoubleHyphen = textBeforeDoubleHyphen.split('-');
+                const partIndex = partsBeforeDoubleHyphen.length - 1;
+                  
+                // Calculate the adjusted index in the final gloss_parts array
+                // This accounts for parts that might contain spaces
+                let adjustedIndex = 0;
+                for (let j = 0; j < partIndex; j++) {
+                    // Count space-separated parts
+                    const spaceParts = partsBeforeDoubleHyphen[j].trim().split(' ').filter(p => p);
+                    adjustedIndex += spaceParts.length;
+                }
+                
+                // Add the index to hyphenIndices
+                hyphenIndices.push(adjustedIndex);
+                  
+                // Skip the second hyphen
+                i++;
+            }
+        }
+        
+        return hyphenIndices;
+    }
+    
+    /**
+     * Calculates the gloss_parts array by splitting the gloss by hyphens and spaces
+     * For "of-back-go--animal" this would return ["of", "back", "go", "animal"]
+     * 
+     * @param {string} gloss - The gloss string to split into parts
+     * @param {boolean} debug - Whether to output debug information
+     * @returns {Array<string>} Array of individual word parts
+     */
+    calculateGlossParts(gloss, debug) {
+        if (!gloss) return [];
+        
+        // Check if this gloss contains double hyphens
+        const hasDoubleHyphens = gloss.includes('--');
+        
+        if (hasDoubleHyphens && debug) {
+            console.log(`Processing entry with double hyphens: ${gloss}`);
+        }
+        
+        if (hasDoubleHyphens) {
+            // First split by single hyphens (this will create empty strings for double hyphens)
+            const parts = gloss.split('-');
+            
+            // Filter out empty parts (which come from double hyphens)
+            const nonEmptyParts = parts.filter(part => part.trim() !== '');
+            
+            // Split by spaces and flatten
+            const finalParts = [];
+            for (const part of nonEmptyParts) {
+                const spaceParts = part.split(' ').filter(p => p.trim() !== '');
+                for (const spacePart of spaceParts) {
+                    finalParts.push(spacePart);
+                }
+            }
+            
+            return finalParts;
+        } else {
+            // Standard calculation for entries without double hyphens
+            return gloss.split('-')
+                .filter(part => part.trim() !== '') // Skip any empty parts
+                .flatMap(part => part.split(' ')) // Split parts that contain spaces
+                .filter(p => p);  // Filter out any empty strings
+        }
     }
     
     /**
