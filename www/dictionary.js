@@ -69,31 +69,102 @@ const DEFINITION_FIELDS = [
 ];
 
 class VocabEntry {
+    /**
+     * Represents a vocabulary entry in the Trevorese dictionary
+     * Handles both atomic words and compound words (with single or double hyphens)
+     * 
+     * @param {Array<string>} row - Array of strings representing a row from the TSV file
+     * @param {Object} indices - Object mapping column names to indices in the row array
+     */
     constructor(row, indices) {
-        // facets: the meanings of this word in different parts of speech
-        this.facets = {}; // Using plain object instead of defaultdict
+        // facets: Object mapping part of speech to array of definitions
+        // e.g., { "noun/pronoun": ["person", "human"], "verb": ["to be"] }
+        this.facets = {}; 
+        
+        // gloss: String representing the Trevorese gloss (e.g., "of-back-go--animal")
         this.gloss = (row[indices["gloss"]] || '').trim();
+        
+        // gloss_parts: Array of individual word parts after splitting by hyphens and spaces
+        // For "of-back-go--animal" this would be ["of", "back", "go", "animal"]
+        // Empty parts from double hyphens are filtered out
         this.gloss_parts = this.gloss 
-            ? this.gloss.split('-').flatMap(part => part.split(' ')).filter(p => p) 
+            ? this.gloss.split('-')
+                .flatMap(part => part.replaceAll("--", "-"))  // Convert double hyphens to single (not working as intended)
+                .filter(part => part.trim() !== '') // Skip empty parts from double hyphens
+                .flatMap(part => part.split(' ')) // Split parts that contain spaces
+                .filter(p => p)  // Filter out any empty strings
             : [];
+        
+        // hyphen_indices: Array of indices in gloss_parts where double hyphens occur
+        // For "of-back-go--animal", this would be [2] (after "go")
+        this.hyphen_indices = [];
+        
+        // Find double hyphens in the original gloss and track their positions
+        if (this.gloss) {
+            // Process the gloss string character by character to find double hyphens
+            for (let i = 0; i < this.gloss.length - 1; i++) {
+                if (this.gloss[i] === '-' && this.gloss[i + 1] === '-') {
+                    // When a double hyphen is found, calculate its position in the gloss_parts array
+                    
+                    // textBeforeDoubleHyphen: String containing all text before the double hyphen
+                    const textBeforeDoubleHyphen = this.gloss.substring(0, i);
+                    
+                    // partsBeforeDoubleHyphen: Array of parts split by single hyphens
+                    const partsBeforeDoubleHyphen = textBeforeDoubleHyphen.split('-');
+                    
+                    // partIndex: Number representing the index in the hyphen-split parts
+                    const partIndex = partsBeforeDoubleHyphen.length - 1;
+                      
+                    // adjustedIndex: Number representing the index in the final gloss_parts array
+                    // This accounts for parts that might contain spaces
+                    let adjustedIndex = 0;
+                    for (let j = 0; j < partIndex; j++) {
+                        // spaceParts: Array of parts after splitting by spaces and filtering
+                        const spaceParts = partsBeforeDoubleHyphen[j].trim().split(' ').filter(p => p);
+                        adjustedIndex += spaceParts.length;
+                    }
+                    
+                    // Add the calculated index to hyphen_indices
+                    this.hyphen_indices.push(adjustedIndex);
+                      
+                    // Skip the second hyphen character
+                    i++;
+                }
+            }
+        }
+        
+        // atomic: Boolean indicating if this is an atomic word (single gloss part, not starting with u_)
         this.atomic = this.gloss && this.gloss_parts.length === 1 && !this.gloss.startsWith("u_");
+        
+        // surface: String representing the Trevorese surface form
+        // For atomic words, this is set directly from the TSV
+        // For compounds, this will be calculated later in Dictionary.surface_all_molecules()
         this.surface = "";
         if (this.atomic) {
             this.surface = row[indices["surface"]] || "";
         }
         
-        // Initialize complexity to 0, will be calculated after all facets are processed
+        // complexity: Number representing word complexity (calculated after facets are processed)
+        // Used for sorting descendants in display
         this.complexity = 0;
 
+        // Process all columns in the TSV row to populate facets
         for (const col_name in indices) {
+            // i: Number representing the column index in the row
             const i = indices[col_name];
+            
+            // Skip columns that don't exist or have no value
             if (i === null || i === undefined || !row[i]) continue;
             
+            // Initialize the facet array if it doesn't exist
             if (!this.facets[col_name]) {
                 this.facets[col_name] = [];
             }
             
+            // entries: Array of strings after splitting by semicolons and cleaning
             const entries = row[i].split(';').map(s => s.trim()).filter(s => s);
+            
+            // Add each entry to the facet array if it's not already there
             for (const sub_element of entries) {
                  if (!this.facets[col_name].includes(sub_element)) {
                     this.facets[col_name].push(sub_element);
@@ -102,56 +173,74 @@ class VocabEntry {
         }
         
         // Calculate complexity after all facets are processed
+        // This is used for sorting descendants in the display
         this.calculateComplexity();
+        
+        // Final logging for "of-back-go--animal"
+        if (row[indices["gloss"]] === "of-back-go--animal") {
+            console.log("FINAL ENTRY for of-back-go--animal:");
+            console.log("gloss_parts:", this.gloss_parts);
+            console.log("hyphen_indices:", this.hyphen_indices);
+            console.log("facets:", JSON.stringify(this.facets, null, 2));
+            console.log("atomic:", this.atomic);
+            console.log("surface:", this.surface);
+        }
     }
     
+    /**
+     * Calculates the complexity of this vocabulary entry
+     * Used for sorting descendants in display order (simpler words first)
+     */
     calculateComplexity() {
-        // Calculate complexity as sum(log_2(atom["a"])) for each atom in gloss
-        // Default value of 100 for atoms without an "a" field
-        if (!window.trevorese_dictionary) {
-            // Dictionary not loaded yet, will be calculated later
-            return;
+        // Calculate complexity based on number of gloss parts and definitions
+        // For "of-back-go--animal" the base complexity would be 4 ("of", "back", "go", "animal")
+        this.complexity = this.gloss_parts.length;
+        
+        // Add a small amount of complexity for each definition
+        // This ensures words with more definitions are considered slightly more complex
+        for (const facet in this.facets) {
+            // Skip special facets that don't contribute to semantic complexity
+            if (facet === "supergloss" || facet === "supercompound") continue;
+            
+            // Add 0.1 for each definition in this facet
+            // This is a small enough value that the number of gloss parts remains the primary factor
+            this.complexity += this.facets[facet].length * 0.1;
         }
-        
-        let totalComplexity = 0;
-        
-        if (this.atomic) {
-            // For atomic words, use their own 'a' value
-            const aValue = this.facets['a'] && this.facets['a'][0] ? parseInt(this.facets['a'][0]) : 100;
-            totalComplexity = Math.log2(aValue);
-        } else if (this.gloss_parts && this.gloss_parts.length > 0) {
-            // For compound words, sum the log2 of each atom's 'a' value
-            for (const part of this.gloss_parts) {
-                const atomEntry = window.trevorese_dictionary.vocabs[part];
-                let aValue = 100; // Default value
-                
-                if (atomEntry && atomEntry.facets && atomEntry.facets['a'] && atomEntry.facets['a'][0]) {
-                    aValue = parseInt(atomEntry.facets['a'][0]);
-                }
-                
-                totalComplexity += Math.log2(aValue);
-            }
-        }
-        
-        this.complexity = totalComplexity;
     }
 
-    toString() { // Equivalent to Python's __repr__
+    /**
+     * Returns a string representation of this vocabulary entry
+     * Equivalent to Python's __repr__ method
+     * @returns {string} String representation of this VocabEntry
+     */
+    toString() { 
+        // out: Array of strings, each representing a facet in the format "field: value1; value2"
         let out = [];
+        
+        // Process each facet in this entry
         for (const field in this.facets) {
-            let aspect_as_str;
+            // aspect: The value of this facet, which may be an array or a single value
             const aspect = this.facets[field];
+            
+            // aspect_as_str: String representation of the facet value
+            let aspect_as_str;
+            
+            // Handle array facets by joining with semicolons
             if (Array.isArray(aspect)) {
                 aspect_as_str = aspect.join('; ');
             } else {
+                // Convert non-array facets to string
                 aspect_as_str = String(aspect);
             }
-            if (aspect_as_str) { // Only add if there's content
-                 out.push(field + ": " + aspect_as_str);
+            
+            // Add formatted facet to output array if it has content
+            if (aspect_as_str) { 
+                 out.push(`${field}: ${aspect_as_str}`);
             }
         }
 
         // Custom sorter logic
+        // Sort facets by a custom key to ensure consistent ordering
         out.sort((a, b) => {
             const keyA = a.split(':')[0];
             const keyB = b.split(':')[0];
@@ -198,59 +287,121 @@ class VocabEntry {
     }
 }
 
+/**
+ * Represents the complete Trevorese dictionary
+ * Manages vocabulary entries and provides methods for lookup, surface generation, and more
+ */
 class Dictionary {
+    /**
+     * Creates a new Dictionary instance
+     */
     constructor() {
-        // mapping of gloss (str) to vocab entry
-        this.vocabs = {}; // { gloss: VocabEntry }
-        this.surfaces_map = {}; // { gloss: surface } for atomic words
+        // vocabs: Object mapping gloss strings to VocabEntry objects
+        // e.g., { "of-back-go--animal": VocabEntry, "do": VocabEntry }
+        this.vocabs = {};
+        
+        // surfaces_map: Object mapping gloss strings to surface forms for atomic words only
+        // e.g., { "do": "du", "go": "go" }
+        // This is used for quick lookup of atomic word surfaces
+        this.surfaces_map = {};
     }
 
+    /**
+     * Adds a vocabulary entry to the dictionary
+     * If an entry with the same gloss already exists, it updates that entry
+     * 
+     * @param {VocabEntry} vocab - The vocabulary entry to add
+     */
     add_vocab(vocab) {
+        // Skip entries without a gloss
         if (!vocab.gloss) {
             console.warn(`Empty vocab entry: ${vocab}`);
             return;
         }
+        
+        // Update existing entry or add new one
         if (this.vocabs[vocab.gloss]) {
+            // If entry already exists, update it with new information
             this.vocabs[vocab.gloss].update(vocab);
         } else {
+            // Otherwise add the new entry
             this.vocabs[vocab.gloss] = vocab;
         }
+        
+        // For atomic words with surfaces, add to surfaces_map for quick lookup
         if (vocab.atomic && vocab.surface) {
             this.surfaces_map[vocab.gloss] = vocab.surface;
         }
     }
 
-    toString() { // Equivalent to Python's __repr__
+    /**
+     * Returns a string representation of this dictionary
+     * Equivalent to Python's __repr__ method
+     * @returns {string} String representation with entry, surface, and definition counts
+     */
+    toString() {
+        // n_surfaces: Number of entries that have a surface form
         let n_surfaces = 0;
+        
+        // definitions: Set of unique definition strings (to avoid duplicates)
         let definitions = new Set();
+        
+        // Iterate through all vocabulary entries
         for (const gloss in this.vocabs) {
             const vocab = this.vocabs[gloss];
+            
+            // Count entries with surface forms
             if (vocab.facets["surface"] && vocab.facets["surface"].length > 0) {
                 n_surfaces += 1;
             }
+            
+            // Count unique definitions across all definition fields
             for (const definition_type of DEFINITION_FIELDS) {
+                 // defs: Array of definitions for this part of speech
                  const defs = vocab.facets[definition_type] || [];
+                 
+                 // Add each definition to the set (prefixed with type to avoid duplicates across types)
                  for (const definition of defs) {
                      definitions.add(definition_type + definition);
                  }
             }
         }
+        
+        // Return formatted string with counts
         return `Dictionary with ${Object.keys(this.vocabs).length} entries, ${n_surfaces} surfaces, and ${definitions.size} definitions`;
     }
 
+    /**
+     * Creates a mapping from atomic words to the compound words that use them
+     * This is used for finding related words and building the descendants list
+     * 
+     * @returns {Object} Mapping of atom glosses to arrays of VocabEntry objects
+     */
     get_atoms_to_molecules() {
-        // Returns a mapping from atoms [strings] to words using them
-        const atomic = {}; // { atom_gloss: [VocabEntry, ...] }
+        // atomic: Object mapping atom glosses to arrays of VocabEntry objects that use them
+        // e.g., { "do": [VocabEntry("do-thing"), VocabEntry("do-go")] }
+        const atomic = {};
+        
+        // Iterate through all vocabulary entries
         for (const gloss in this.vocabs) {
             const vocab = this.vocabs[gloss];
+            
+            // For atomic words, initialize their entry in the mapping
             if (vocab.atomic) {
                 if (!(vocab.gloss in atomic)) {
                     atomic[vocab.gloss] = [];
                 }
-            } else { // let's add this molecule to each atom that uses it
+            } else { 
+                // For compound words, add them to each of their component atoms
+                // First get unique sub-glosses to avoid duplicates
                 const unique_sub_glosses = [...new Set(vocab.gloss_parts)];
+                
+                // Add this compound to each atom's list
                 for (const sub_gloss of unique_sub_glosses) {
+                     // Initialize the array if needed
                      if (!atomic[sub_gloss]) atomic[sub_gloss] = [];
+                     
+                     // Add this compound to the atom's list
                      atomic[sub_gloss].push(vocab);
                 }
             }
@@ -288,31 +439,64 @@ class Dictionary {
         return english_to_trevor;
     }
 
-    // Helper for JS regex splitting while keeping delimiter
-    // From: https://stackoverflow.com/a/21350614
+    /**
+     * Helper method for regex splitting while keeping delimiters
+     * Adapted from: https://stackoverflow.com/a/21350614
+     * 
+     * @param {string} str - The string to split
+     * @param {RegExp} splitter - Regular expression to split on
+     * @returns {Array<string>} Array containing parts and delimiters
+     */
     splitKeep(str, splitter) {
+        // result: Array to store all parts including delimiters
         let result = [];
         let lastIndex = 0;
+        
+        // Use replace as a way to iterate through all matches
+        // For each match, push the text before it and the delimiter itself
         str.replace(splitter, function(match, index) {
+            // Add the text before this match
             result.push(str.substring(lastIndex, index));
+            // Add the delimiter itself
             result.push(match);
+            // Update lastIndex for next iteration
             lastIndex = index + match.length;
         });
+        
+        // Add any remaining text after the last match
         result.push(str.substring(lastIndex));
         return result;
     }
 
+    /**
+     * Combines words and punctuation arrays back into a single string
+     * 
+     * @param {Array<string>} words - Array of word tokens
+     * @param {Array<string>} punct - Array of punctuation tokens (one longer than words)
+     * @returns {string} Combined string with words and punctuation interleaved
+     */
     interleave_words_and_punct(words, punct) {
         // Note: JS split behavior differs slightly from Python's re.split for start/end
         // The tokenize function handles this adjustment.
         let result = '';
+        
+        // Add each word preceded by its punctuation
         for (let i = 0; i < words.length; i++) {
             result += (punct[i] || '') + words[i];
         }
+        
+        // Add final punctuation (if any)
         result += punct[words.length] || '';
         return result;
     }
 
+    /**
+     * Tokenizes a string into words and punctuation
+     * Handles both compound words with hyphens and regular words
+     * 
+     * @param {string} s - The string to tokenize
+     * @returns {Array} A tuple of [words array, punctuation array]
+     */
     tokenize(s) {
         // Special case for hyphenated compound words (e.g., 'love-dirt-animal' or 'person like have self-talk')
         if (s.includes('-')) {
@@ -323,12 +507,15 @@ class Dictionary {
             
             // Process each part, handling spaces within parts
             for (const part of parts) {
-                // If a part contains spaces, we need to handle it as a single unit
-                // This ensures "person like have self" is treated as a single part
+                // Each part may contain spaces (e.g., "person like" in "person like-have")
+                // We treat each part as a single unit regardless of spaces
                 words.push(part.trim());
             }
             
-            // Create punctuation array with empty strings and a hyphen between each word
+            // Create punctuation array with proper structure:
+            // - Empty string at the beginning
+            // - Hyphen between each word
+            // - Empty string at the end
             const punct = [''];
             for (let i = 0; i < words.length - 1; i++) {
                 punct.push('-');
@@ -374,47 +561,128 @@ class Dictionary {
         return [words, punct];
     }
 
+    /**
+     * Converts a Trevorese gloss to its surface form
+     * Handles both atomic words and compound words with special handling for double hyphens
+     * 
+     * @param {string|VocabEntry} sentence - The gloss or VocabEntry to convert to surface form
+     * @returns {string} The Trevorese surface form
+     */
     get_surface(sentence) {
-        // Get Trevorese surface of gloss or sentence of glosses.
+        // hyphenIndices: Array of indices in the gloss_parts where double hyphens occur
+        // Used to add hyphens to the surface form at the correct positions
+        let hyphenIndices = [];
+        
+        // isTargetEntry: Boolean flag for special debug logging of "of-back-go--animal"
+        let isTargetEntry = false;
+        
+        // Handle input that is a VocabEntry object
         if (sentence instanceof VocabEntry) {
+            // Extract hyphen_indices from the VocabEntry if available
+            // These indicate where double hyphens (--) occur in the original gloss
+            hyphenIndices = sentence.hyphen_indices || [];
+            
+            // Special debug logging for "of-back-go--animal"
+            isTargetEntry = sentence.gloss === "of-back-go--animal";
+            if (isTargetEntry) {
+                console.log("get_surface called for of-back-go--animal");
+                console.log("hyphen_indices:", hyphenIndices);
+            }
+            
+            // Extract the gloss string from the VocabEntry
             sentence = sentence.gloss;
         }
         
-        // Handle compound words with spaces in their parts
+        // More special debug logging for "of-back-go--animal"
+        if (sentence === "of-back-go--animal") {
+            isTargetEntry = true;
+            console.log("get_surface called with of-back-go--animal string");
+        }
+        
+        // Tokenize the sentence into words and punctuation
+        if (isTargetEntry) {
+            console.log("Tokenizing of-back-go--animal:");
+        }
+        
+        // words: Array of word tokens from the gloss
+        // punct: Array of punctuation tokens (one longer than words)
         const [words, punct] = this.tokenize(sentence);
+        
+        if (isTargetEntry) {
+            console.log("Tokenization result - words:", words);
+            console.log("Tokenization result - punct:", punct);
+        }
+        
+        // surfs: Array to store the surface form for each word in the gloss
         const surfs = [];
         
-        for (let word of words) {
-            word = word.toLowerCase();
+        // Process each word in the tokenized input to get its surface form
+        for (let i = 0; i < words.length; i++) {
+            // Normalize word to lowercase for dictionary lookup
+            let word = words[i].toLowerCase();
             
-            // Check if this is a multi-word part (e.g., "person like have self")
+            // Handle multi-word parts (e.g., "person like" in "person like-have")
+            // These occur when a hyphen-separated part contains spaces
             if (word.includes(' ')) {
-                // For multi-word parts, look up each word individually
+                // wordParts: Array of individual words after splitting by spaces
                 const wordParts = word.split(' ');
+                
+                // surfaceParts: Array to collect surface forms for each part
                 let surfaceParts = [];
                 
+                // Process each space-separated part
                 for (const part of wordParts) {
+                    // Skip empty parts
                     if (part.trim() === '') continue;
                     
-                    // Look up each word in the surfaces map
+                    // Look up the surface form in the dictionary
                     if (this.surfaces_map[part] !== undefined) {
+                        // If found in dictionary, use the Trevorese surface form
                         surfaceParts.push(this.surfaces_map[part]);
                     } else {
-                        // If not found, keep the original word
+                        // If not found, use angle brackets to indicate missing surface form
+                        // This helps identify words that need to be added to the dictionary
                         surfaceParts.push(`<${part}>`);
                     }
                 }
                 
-                // Join the surface parts with spaces preserved
+                // Join the surface parts with spaces preserved to maintain the structure
                 surfs.push(surfaceParts.join(' '));
             } else {
-                // For single words, look up directly
-                surfs.push(this.surfaces_map[word] !== undefined ? this.surfaces_map[word] : `<${word}>`);
+                // For single words, look up directly in the surfaces map
+                // If found, use the surface form; otherwise, use angle brackets
+                surfs.push(this.surfaces_map[word] !== undefined ? 
+                    this.surfaces_map[word] : // Use the dictionary surface form
+                    `<${word}>`);              // Mark as missing with angle brackets
             }
         }
         
+        // Handle double hyphens (--) by adding a hyphen to the surface at specified indices
+        // For example, in "of-back-go--animal", a hyphen is added after "go"
+        for (const index of hyphenIndices) {
+            // Only modify valid indices within the surfs array
+            if (index >= 0 && index < surfs.length) {
+                // Append a hyphen to the surface form at this index
+                // This preserves the double hyphen structure in the surface form
+                surfs[index] = surfs[index] + '-';
+            }
+        }
+        
+        // Combine the surface forms with punctuation to create the complete surface string
+        // This step interleaves the surface forms of words with their corresponding punctuation
         let surface = this.interleave_words_and_punct(surfs, punct);
-        surface = surface.replace(/([a-z])-([a-z])/g, "$1$2"); // Join for single -
+        
+        // Remove hyphens between letters (a-z) to create proper Trevorese morphology
+        // This ensures that hyphens used for word-building are removed in the surface form
+        // For example, "ni-ta-bai" becomes "nitabai"
+        surface = surface.replace(/([a-z])-([a-z])/g, "$1$2");
+        
+        // Clean up empty placeholders (commented out for now)
+        // This would remove any empty angle brackets that might appear
+        // surface = surface.replace(/<>/g, "");
+        
+        // Return the final Trevorese surface form
+        // This is the result of combining surface forms with punctuation and cleaning up
         return surface;
     }
 
@@ -481,12 +749,12 @@ class Dictionary {
                 ? v.facets.supercompound[0] 
                 : v.gloss;
             
-            console.log(`Expanding supercompound for ${v.gloss}: ${supercomp} (depth: ${depth})`);
+            // console.log(`Expanding supercompound for ${v.gloss}: ${supercomp} (depth: ${depth})`);
             
             const ancestors = [];
             const subglosses = supercomp.split('-');
             
-            console.log(`Children of ${v.gloss}: ${JSON.stringify(subglosses)}`);
+            // console.log(`Children of ${v.gloss}: ${JSON.stringify(subglosses)}`);
             
             for (const subgloss of subglosses) {
                 if (!supergloss_to_v[subgloss]) {
@@ -501,7 +769,7 @@ class Dictionary {
             // Add this vocab entry as a descendant to all its ancestors
             for (const ancestor of ancestors) {
                 if (gloss_to_descendants[ancestor]) {
-                    console.log(`Adding ${v.gloss} as descendant to ${ancestor}`);
+                    // console.log(`Adding ${v.gloss} as descendant to ${ancestor}`);
                     gloss_to_descendants[ancestor].add(v.gloss);
                 }
             }
