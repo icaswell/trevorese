@@ -22,11 +22,6 @@ document.querySelectorAll('.tab').forEach(tab => {
                 addClickListenersToDoc(document);
             }, 500); // Small delay to ensure content is loaded
         }
-        
-        // Populate Todo tab tables if Todo tab is clicked
-        if (tabId === 'todo') {
-            populateTodoTables();
-        }
     });
 });
 
@@ -601,57 +596,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
 });
-
-// Function to populate the Todo tab tables
-function populateTodoTables() {
-    if (!window.superglossProblems || !window.todoNotes) {
-        console.log('Todo data not available yet');
-        return;
-    }
-    
-    // Populate supergloss problems table
-    const superglossTable = document.getElementById('supergloss-problems-table').querySelector('tbody');
-    superglossTable.innerHTML = '';
-    
-    if (window.superglossProblems.length === 0) {
-        const row = document.createElement('tr');
-        row.innerHTML = '<td colspan="4">No supergloss problems found</td>';
-        superglossTable.appendChild(row);
-    } else {
-        window.superglossProblems.forEach(problem => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${problem.gloss}</td>
-                <td>${problem.surface}</td>
-                <td>${problem.expected}</td>
-                <td>${problem.actual}</td>
-            `;
-            superglossTable.appendChild(row);
-        });
-    }
-    
-    // Populate TODO notes table
-    const todoNotesTable = document.getElementById('todo-notes-table').querySelector('tbody');
-    todoNotesTable.innerHTML = '';
-    
-    if (window.todoNotes.length === 0) {
-        const row = document.createElement('tr');
-        row.innerHTML = '<td colspan="3">No TODO notes found</td>';
-        todoNotesTable.appendChild(row);
-    } else {
-        window.todoNotes.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.gloss}</td>
-                <td>${item.surface}</td>
-                <td>${item.note}</td>
-            `;
-            todoNotesTable.appendChild(row);
-        });
-    }
-    
-    console.log(`Populated Todo tables with ${window.superglossProblems.length} supergloss problems and ${window.todoNotes.length} TODO notes`);
-}
 
 // Add click listeners when tabs are clicked
 document.querySelectorAll('.tab').forEach(tab => {
