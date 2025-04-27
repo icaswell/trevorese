@@ -19,6 +19,7 @@
         <div class="tab" data-tab="tutorial">Tutorial</div>
         <div class="tab" data-tab="dictionary">Dictionary</div>
         <div class="tab" data-tab="gloss-to-surface">Typing tool</div>
+        <div class="tab" data-tab="todo">Todo</div>
 
         <div class="slider-container">
             <div class="slider-wrapper">
@@ -114,6 +115,43 @@
 
     <div class="tab-content" id="periodic-table">
         <!-- Periodic table will be loaded here by JavaScript -->
+    </div>
+
+    <div class="tab-content" id="todo">
+        <div class="todo-container">
+            <h2>Supergloss Decomposition Issues</h2>
+            <div class="todo-section">
+                <table class="todo-table" id="supergloss-problems-table">
+                    <thead>
+                        <tr>
+                            <th>Gloss</th>
+                            <th>Surface</th>
+                            <th>Expected</th>
+                            <th>Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Words with TODO Notes</h2>
+            <div class="todo-section">
+                <table class="todo-table" id="todo-notes-table">
+                    <thead>
+                        <tr>
+                            <th>Gloss</th>
+                            <th>Surface</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 

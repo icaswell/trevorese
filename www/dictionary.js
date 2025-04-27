@@ -509,12 +509,29 @@ class Dictionary {
             return ancestors.join('-');
         };
         
+        // Track words with supergloss problems and TODO notes
+        window.superglossProblems = [];
+        window.todoNotes = [];
+        
         // Process all non-atomic entries with supercompound
         let correct = 0;
         let incorrect = 0;
         
         for (const gloss in this.vocabs) {
             const v = this.vocabs[gloss];
+            
+            // Check for TODO notes
+            if (v.facets['COMMENTS/TODOS'] && v.facets['COMMENTS/TODOS'].length > 0) {
+                for (const note of v.facets['COMMENTS/TODOS']) {
+                    if (note.toLowerCase().includes('todo')) {
+                        window.todoNotes.push({
+                            gloss: gloss,
+                            surface: v.surface || '',
+                            note: note
+                        });
+                    }
+                }
+            }
             
             // Skip atomic entries, entries with spaces, or entries starting with u_
             if (v.atomic || gloss.includes(' ') || gloss.startsWith('u_')) continue;
@@ -529,6 +546,12 @@ class Dictionary {
             } else {
                 incorrect++;
                 console.warn(`Mismatch for ${v.gloss}: ${sc}`);
+                window.superglossProblems.push({
+                    gloss: gloss,
+                    surface: v.surface || '',
+                    expected: v.gloss,
+                    actual: sc
+                });
             }
         }
         
