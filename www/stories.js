@@ -110,12 +110,12 @@ function createStoryHTML(story, index) {
                     // Build HTML for compound word
                     for (let i = 0; i < words.length; i++) {
                         lineHTML += punct[i];
-                        lineHTML += `<span class="surface">${words[i]}</span>`;
+                        lineHTML += `<span class="surface" onclick="showWordInfoPopup(event, '${words[i]}')">${words[i]}</span>`;
                     }
                     lineHTML += punct[words.length] || '';
                 } else {
                     // Regular word
-                    lineHTML += `<span class="surface">${token}</span>`;
+                    lineHTML += `<span class="surface" onclick="showWordInfoPopup(event, '${token}')">${token}</span>`;
                 }
             } else if (/\s+/.test(token)) {
                 // It's whitespace - preserve it
