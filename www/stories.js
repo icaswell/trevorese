@@ -100,11 +100,11 @@ function createStoryHTML(story, index) {
         storyContent += `<div class="story-line">${wordDivs}</div>`;
     });
     
-    // Return the complete story HTML
+    // Return the complete story HTML using the same structure as tutorial tab
     return `
-        <div class="collapsible-container">
-            <div class="collapsible" data-story-id="${index}">${storyTitle}</div>
-            <div class="content">
+        <div class="section-h2">
+            <div class="collapsible-header" data-story-id="${index}">${storyTitle}</div>
+            <div class="collapsible-content">
                 <div class="story-content">
                     ${storyContent}
                 </div>
@@ -151,20 +151,23 @@ function loadStories() {
  * Set up collapsible functionality for stories
  */
 function setupCollapsibles() {
-    const collapsibles = document.querySelectorAll('.collapsible');
+    const collapsibleHeaders = document.querySelectorAll('#stories-container .collapsible-header');
     
-    collapsibles.forEach(collapsible => {
-        collapsible.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const content = this.nextElementSibling;
+    collapsibleHeaders.forEach(header => {
+        // Add the click handler to toggle visibility
+        header.addEventListener('click', function() {
+            // Toggle the open class
+            this.classList.toggle('open');
             
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+            // Toggle the visibility of the next sibling (content)
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('collapsible-content')) {
+                content.classList.toggle('open');
             }
         });
     });
+    
+    // All stories start collapsed by default
 }
 
 // Initialize stories when the page loads
