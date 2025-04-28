@@ -126,8 +126,10 @@ function createStoryHTML(story, index) {
             }
         });
         
-        // Add the line to the story content
-        storyContent += `<div class="story-line">${lineHTML}</div>`;
+        // Add the line to the story content with data attributes for English translation and note
+        const escapedEnglish = (line.english || '').replace(/"/g, '&quot;');
+        const escapedNote = (line.note || '').replace(/"/g, '&quot;');
+        storyContent += `<div class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}">${lineHTML}</div>`;
     });
     
     // Return the complete story HTML using the same structure as tutorial tab
@@ -170,6 +172,9 @@ function loadStories() {
             
             // Add event listeners to the collapsible elements
             setupCollapsibles();
+            
+            // Set up long-press handlers for translation popups
+            setupLongPressHandlers();
         })
         .catch(error => {
             console.error("Error loading stories:", error);
@@ -198,6 +203,114 @@ function setupCollapsibles() {
     });
     
     // All stories start collapsed by default
+}
+
+/**
+ * Set up long-press functionality for showing translations
+ */
+function setupLongPressHandlers() {
+    // Variables to track long press
+    let longPressTimer;
+    let isLongPress = false;
+    const longPressDuration = 500; // milliseconds
+    
+    // Create a translation popup element
+    const translationPopup = document.createElement('div');
+    translationPopup.className = 'translation-popup';
+    document.body.appendChild(translationPopup);
+    
+    // Function to show the translation popup
+    function showTranslationPopup(event, storyLine) {
+        // Get the English translation and note from data attributes
+        const english = storyLine.getAttribute('data-english');
+        const note = storyLine.getAttribute('data-note');
+        
+        // Create the popup content
+        let popupContent = '';
+        if (english) {
+            popupContent += `<div class="english">${english}</div>`;
+        }
+        if (note) {
+            popupContent += `<div class="note">${note}</div>`;
+        }
+        
+        // If there's no content, don't show the popup
+        if (!popupContent) {
+            return;
+        }
+        
+        // Set the popup content
+        translationPopup.innerHTML = popupContent;
+        
+        // Position the popup near the clicked element
+        const rect = storyLine.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        
+        // Calculate position (centered below the line)
+        const top = rect.bottom + scrollTop + 5; // 5px below the line
+        const left = rect.left + scrollLeft;
+        
+        // Set the position
+        translationPopup.style.top = `${top}px`;
+        translationPopup.style.left = `${left}px`;
+        
+        // Show the popup
+        translationPopup.style.display = 'block';
+    }
+    
+    // Function to hide the translation popup
+    function hideTranslationPopup() {
+        translationPopup.style.display = 'none';
+    }
+    
+    // Add event listeners to all surface spans
+    function addSurfaceEventListeners() {
+        const surfaceSpans = document.querySelectorAll('#stories-container .surface');
+        
+        surfaceSpans.forEach(span => {
+            // Find the parent story-line element
+            const storyLine = span.closest('.story-line');
+            if (!storyLine) return;
+            
+            // Add mousedown event for long press
+            span.addEventListener('mousedown', function(event) {
+                // Start the long press timer
+                isLongPress = false;
+                clearTimeout(longPressTimer);
+                longPressTimer = setTimeout(function() {
+                    isLongPress = true;
+                    showTranslationPopup(event, storyLine);
+                }, longPressDuration);
+            });
+            
+            // Add mouseup event to cancel long press
+            span.addEventListener('mouseup', function() {
+                clearTimeout(longPressTimer);
+                // If it wasn't a long press, don't hide the popup
+                // This allows the regular click to show the word info popup
+                if (!isLongPress) {
+                    return;
+                }
+            });
+            
+            // Add mouseleave event to cancel long press
+            span.addEventListener('mouseleave', function() {
+                clearTimeout(longPressTimer);
+            });
+        });
+    }
+    
+    // Add click event to document to hide the popup when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!translationPopup.contains(event.target) && 
+            !event.target.classList.contains('surface')) {
+            hideTranslationPopup();
+        }
+    });
+    
+    // Call the function to add event listeners
+    addSurfaceEventListeners();
 }
 
 // Initialize stories when the page loads

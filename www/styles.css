@@ -642,6 +642,31 @@ body .principle {
     margin-bottom: 10px;
     white-space: normal;
     line-height: 1.5;
+    position: relative;
+}
+
+/* Translation popup */
+.translation-popup {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+    max-width: 80%;
+    display: none;
+}
+
+.translation-popup .english {
+    font-weight: bold;
+    color: blue;
+    margin-bottom: 5px;
+}
+
+.translation-popup .note {
+    font-style: italic;
+    color: #666;
 }
 
 /* New Pretty Table Styles */
