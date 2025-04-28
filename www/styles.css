@@ -622,6 +622,95 @@ body .principle {
     color: #444;
 }
 
+/* Stories Tab Styles */
+.stories-container {
+    padding: 20px;
+}
+
+.stories-container h2 {
+    color: #004d4d;
+    margin-bottom: 20px;
+}
+
+/* Collapsible container for stories */
+.collapsible-container {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Collapsible header for stories */
+.collapsible {
+    background-color: #f1f1f1;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    transition: 0.4s;
+}
+
+.collapsible:hover {
+    background-color: #ddd;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.collapsible.active:after {
+    content: "\2212";
+}
+
+/* Content area for stories */
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: white;
+}
+
+/* Story content */
+.story-content {
+    padding: 15px 0;
+}
+
+/* Story line */
+.story-line {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Surface style for story words */
+.story-line .surface {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 3px 6px;
+    background-color: #e6f7f7;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #008080;
+    transition: background-color 0.2s;
+}
+
+.story-line .surface:hover {
+    background-color: #c0e8e8;
+}
+
 /* New Pretty Table Styles */
 .table-container table {
     border-collapse: collapse;
