@@ -640,26 +640,8 @@ body .principle {
 /* Story line */
 .story-line {
     margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-/* Surface style for story words */
-.story-line .surface {
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    padding: 3px 6px;
-    background-color: #e6f7f7;
-    border-radius: 3px;
-    cursor: pointer;
-    color: #008080;
-    transition: background-color 0.2s;
-}
-
-.story-line .surface:hover {
-    background-color: #c0e8e8;
+    white-space: normal;
+    line-height: 1.5;
 }
 
 /* New Pretty Table Styles */

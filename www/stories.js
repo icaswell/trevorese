@@ -90,14 +90,44 @@ function createStoryHTML(story, index) {
     
     // Add each line of the story
     story.lines.forEach(line => {
-        // Split the line into words
-        const words = line.trevorese.split(' ');
+        // For each line, we need to handle spaces and punctuation properly
+        const trevorese = line.trevorese;
         
-        // Create a div for each word
-        const wordDivs = words.map(word => `<div class="surface">${word}</div>`).join(' ');
+        // Use a regex to tokenize the line into words and non-words
+        const tokens = trevorese.match(/[\w-]+|[^\w\s-]+|\s+/g) || [];
+        
+        // Process each token
+        let lineHTML = '';
+        
+        tokens.forEach(token => {
+            // Check if token is a word (contains alphanumeric characters)
+            if (/[\w-]/.test(token)) {
+                // It's a word or compound word
+                if (token.includes('-')) {
+                    // For compound words, use the dictionary tokenizer
+                    const [words, punct] = window.trevorese_dictionary.tokenize(token);
+                    
+                    // Build HTML for compound word
+                    for (let i = 0; i < words.length; i++) {
+                        lineHTML += punct[i];
+                        lineHTML += `<span class="surface">${words[i]}</span>`;
+                    }
+                    lineHTML += punct[words.length] || '';
+                } else {
+                    // Regular word
+                    lineHTML += `<span class="surface">${token}</span>`;
+                }
+            } else if (/\s+/.test(token)) {
+                // It's whitespace - preserve it
+                lineHTML += token;
+            } else {
+                // It's punctuation or other non-word characters
+                lineHTML += token;
+            }
+        });
         
         // Add the line to the story content
-        storyContent += `<div class="story-line">${wordDivs}</div>`;
+        storyContent += `<div class="story-line">${lineHTML}</div>`;
     });
     
     // Return the complete story HTML using the same structure as tutorial tab
