@@ -47,18 +47,6 @@ Displays issues and notes related to the development of the Trevorese language, 
 ### Stories
 Presents stories written in Trevorese, allowing users to practice reading and understanding the language in context.
 
-## Table of Contents
-
-1. [JavaScript Files](#javascript-files)
-   - [dictionary.js](#dictionaryjs)
-   - [io.js](#iojs)
-   - [fsa.js](#fsajs)
-   - [surfacetogloss.js](#surfacetoglossjs)
-   - [glosstosurface.js](#glosstosurfacejs)
-   - [display.js](#displayjs)
-   - [stories.js](#storiesjs)
-2. [Window Variables](#window-variables)
-
 ## JavaScript Files
 
 ### dictionary.js
