@@ -1,0 +1,4 @@
+there is some error and window.gloss_to_supercompound is always empty
+make tests tab do more things, like read i dictionary
+rename window.compounds ot window.compound_gloss_to_supercompound (check this)
+rename io.js to typing_tools.js

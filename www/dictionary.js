@@ -909,18 +909,14 @@ async function loadDictionaryData() {
         for (const gloss in window.atomgloss_to_surface) {
             const surface = window.atomgloss_to_surface[gloss];
             if (surface && !surface.startsWith("__")) { // Ensure surface exists and isn't special
+                // Only add atomic words here - these are single tokens
                 window.surface_to_gloss[surface] = gloss;
             }
         }
         
         // Then add all words (including compounds) from vocabs
-        for (const gloss in all_vocabs.vocabs) {
-            const vocab = all_vocabs.vocabs[gloss];
-            if (vocab.surface) {
-                // Store the surface to gloss mapping for all words
-                window.surface_to_gloss[vocab.surface] = gloss;
-            }
-        }
+        // We don't add these to surface_to_gloss because they may contain spaces
+        // and would interfere with the token-by-token lookup in the FSA
         
         // For backward compatibility, keep compound_surface_to_gloss as a reference to surface_to_gloss
         window.compound_surface_to_gloss = window.surface_to_gloss;
