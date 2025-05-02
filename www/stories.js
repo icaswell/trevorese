@@ -34,13 +34,19 @@ function parseStories(tsvContent) {
             continue;
         }
         
+        // Skip lines that start with a tab (empty first column)
+        if (line.startsWith('\t')) {
+            console.log("Skipping line with empty first column:", line);
+            continue;
+        }
+        
         // Split the line into columns
         const columns = line.split('\t');
         const trevorese = columns[0] ? columns[0].trim() : "";
         const english = columns.length > 1 ? columns[1].trim() : "";
         const notes = columns.length > 2 ? columns[2].trim() : "";
         
-        // Skip lines with empty Trevorese
+        // Skip lines with empty Trevorese (additional check)
         if (!trevorese) continue;
         
         // If we don't have a current story, this line is a title

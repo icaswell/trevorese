@@ -904,8 +904,10 @@ async function loadDictionaryData() {
             }
         }
 
-        // Create reverse mapping (surface to gloss) for atomic words
+        // Create reverse mapping (surface to gloss) for all words (both atomic and compound)
         window.surface_to_gloss = {};
+        
+        // First add atomic words from gloss_to_surface mapping
         for (const gloss in window.gloss_to_surface) {
             const surface = window.gloss_to_surface[gloss];
             if (surface && !surface.startsWith("__")) { // Ensure surface exists and isn't special
@@ -913,15 +915,17 @@ async function loadDictionaryData() {
             }
         }
         
-        // Create mapping for compound surfaces to their glosses
-        window.compound_surface_to_gloss = {};
+        // Then add all words (including compounds) from vocabs
         for (const gloss in all_vocabs.vocabs) {
             const vocab = all_vocabs.vocabs[gloss];
-            if (!vocab.atomic && vocab.surface) {
-                // Store the compound surface to gloss mapping
-                window.compound_surface_to_gloss[vocab.surface] = gloss;
+            if (vocab.surface) {
+                // Store the surface to gloss mapping for all words
+                window.surface_to_gloss[vocab.surface] = gloss;
             }
         }
+        
+        // For backward compatibility, keep compound_surface_to_gloss as a reference to surface_to_gloss
+        window.compound_surface_to_gloss = window.surface_to_gloss;
 
         const raw_english_to_gloss = all_vocabs.get_dictionary_lines_inverted_dict();
         window.english_to_gloss = {};

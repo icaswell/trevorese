@@ -212,7 +212,7 @@ The application uses several global window variables to store and access diction
 | `window.gloss_to_supercompound` | Object mapping glosses to their supercompound forms. Used for showing the hierarchy of compound words. |
 | `window.currentFlavor` | String indicating the current flavor of Trevorese being used (standard or hypertrevorese). |
 | `window.showAnnotations` | Boolean flag indicating whether to show annotations for words. |
-| `window.compound_surface_to_gloss` | Object mapping compound surface forms to their gloss representations. |
+| `window.compound_surface_to_gloss` | Reference to `window.surface_to_gloss` maintained for backward compatibility. |
 
 These window variables are initialized in the `loadDictionaryData()` function in dictionary.js and are used throughout the application for various conversion and display operations.
 

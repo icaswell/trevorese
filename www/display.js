@@ -239,8 +239,8 @@ function findVocabEntryBySurface(surface) {
     }
     
     // Then check compound surfaces
-    if (window.compound_surface_to_gloss && surface in window.compound_surface_to_gloss) {
-        const gloss = window.compound_surface_to_gloss[surface];
+    if (window.surface_to_gloss && surface in window.surface_to_gloss) {
+        const gloss = window.surface_to_gloss[surface];
         if (gloss && window.trevorese_dictionary.vocabs[gloss]) {
             return {
                 entry: window.trevorese_dictionary.vocabs[gloss],

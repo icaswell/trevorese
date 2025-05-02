@@ -95,10 +95,10 @@ function searchDictionary(query) {
         // Search for compound surfaces using our precomputed map
         console.log('Searching for compound surfaces that match:', query);
         
-        if (window.compound_surface_to_gloss) {
-            for (const surface in window.compound_surface_to_gloss) {
+        if (window.surface_to_gloss) {
+            for (const surface in window.surface_to_gloss) {
                 if (surface.toLowerCase().includes(query)) {
-                    const gloss = window.compound_surface_to_gloss[surface];
+                    const gloss = window.surface_to_gloss[surface];
                     if (!addedGlosses.has(gloss) && window.trevorese_dictionary.vocabs[gloss]) {
                         console.log('Found compound match:', gloss, 'with surface:', surface);
                         allMatches.push({
@@ -111,7 +111,7 @@ function searchDictionary(query) {
                     }
                 }
             }
-            console.log('Checked', Object.keys(window.compound_surface_to_gloss).length, 'compound entries');
+            console.log('Checked', Object.keys(window.surface_to_gloss).length, 'compound entries');
         } else {
             console.log('Compound surface map not available');
         }
@@ -150,7 +150,10 @@ function searchDictionary(query) {
 // Build a mapping of compound surfaces to glosses
 function buildCompoundSurfaceMap() {
     console.log('Building compound surface map...');
-    window.compound_surface_to_gloss = {};
+    // Make sure window.surface_to_gloss exists
+    if (!window.surface_to_gloss) {
+        window.surface_to_gloss = {};
+    }
     
     for (const gloss in window.trevorese_dictionary.vocabs) {
         const entry = window.trevorese_dictionary.vocabs[gloss];
@@ -172,12 +175,15 @@ function buildCompoundSurfaceMap() {
             
             if (allPartsFound) {
                 const computedSurface = surfaceParts.join('');
-                window.compound_surface_to_gloss[computedSurface] = gloss;
+                window.surface_to_gloss[computedSurface] = gloss;
             }
         }
     }
     
-    console.log('Compound surface map built with', Object.keys(window.compound_surface_to_gloss).length, 'entries');
+    // For backward compatibility
+    window.compound_surface_to_gloss = window.surface_to_gloss;
+    
+    console.log('Surface-to-gloss map built with', Object.keys(window.surface_to_gloss).length, 'entries');
 }
 
 // Initialize dictionary search when the page loads
