@@ -883,11 +883,11 @@ async function loadDictionaryData() {
         // Assign to window variables (mirroring Python JSON creation)
         window.trevorese_dictionary = all_vocabs;
         
-        window.gloss_to_surface = {};
+        window.atomgloss_to_surface = {};
         for (const gloss in all_vocabs.vocabs) {
             const v = all_vocabs.vocabs[gloss];
             if (v.atomic) {
-                window.gloss_to_surface[gloss] = v.surface;
+                window.atomgloss_to_surface[gloss] = v.surface;
             }
         }
         
@@ -907,9 +907,9 @@ async function loadDictionaryData() {
         // Create reverse mapping (surface to gloss) for all words (both atomic and compound)
         window.surface_to_gloss = {};
         
-        // First add atomic words from gloss_to_surface mapping
-        for (const gloss in window.gloss_to_surface) {
-            const surface = window.gloss_to_surface[gloss];
+        // First add atomic words from atomgloss_to_surface mapping
+        for (const gloss in window.atomgloss_to_surface) {
+            const surface = window.atomgloss_to_surface[gloss];
             if (surface && !surface.startsWith("__")) { // Ensure surface exists and isn't special
                 window.surface_to_gloss[surface] = gloss;
             }
@@ -951,7 +951,7 @@ async function loadDictionaryData() {
             }
         }
         
-        window.gloss_to_surface_hypertrevorese = {};
+        window.atomgloss_to_surface_hypertrevorese = {};
         const atomsSorted = all_vocabs.get_atoms().sort((a, b) => {
             const numA = parseInt((a.facets['a'] && a.facets['a'][0]) || '0');
             const numB = parseInt((b.facets['a'] && b.facets['a'][0]) || '0');
@@ -960,7 +960,7 @@ async function loadDictionaryData() {
         
         atomsSorted.forEach((a, i) => {
             if (i < HYPERORDER.length) {
-                 window.gloss_to_surface_hypertrevorese[a.gloss] = HYPERORDER[i];
+                 window.atomgloss_to_surface_hypertrevorese[a.gloss] = HYPERORDER[i];
             } else {
                  console.warn(`Ran out of hyperorder codes for atom: ${a.gloss}`);
             }
@@ -985,7 +985,7 @@ async function loadDictionaryData() {
                     get_surface(inputText.toLowerCase(), notFoundWords, notFoundCompounds, true);
                 } else if (inputType === "surface") {
                     inputBoxTitle.textContent = "Input (Surface - Detected)";
-                    surface_to_gloss_to_surface(inputText);
+                    surface_to_atomgloss_to_surface(inputText);
                 }
             });
         } else {
@@ -994,10 +994,10 @@ async function loadDictionaryData() {
 
         console.log("Trevorese dictionary and related data loaded and assigned to window.");
         console.log("window.trevorese_dictionary:", window.trevorese_dictionary);
-        console.log("window.gloss_to_surface count:", Object.keys(window.gloss_to_surface).length);
+        console.log("window.atomgloss_to_surface count:", Object.keys(window.atomgloss_to_surface).length);
         console.log("window.compounds count:", Object.keys(window.compounds).length);
         console.log("window.english_to_gloss count:", Object.keys(window.english_to_gloss).length);
-        console.log("window.gloss_to_surface_hypertrevorese count:", Object.keys(window.gloss_to_surface_hypertrevorese).length);
+        console.log("window.atomgloss_to_surface_hypertrevorese count:", Object.keys(window.atomgloss_to_surface_hypertrevorese).length);
         
         // Calculate complexity for all entries after dictionary is fully loaded
         window.trevorese_dictionary.calculateAllComplexities();
@@ -1007,10 +1007,10 @@ async function loadDictionaryData() {
         console.error('Failed to load or process dictionary data:', error);
         // Optionally, set default empty values on window to prevent errors later
         window.trevorese_dictionary = new Dictionary();
-        window.gloss_to_surface = {};
+        window.atomgloss_to_surface = {};
         window.compounds = {};
         window.english_to_gloss = {};
-        window.gloss_to_surface_hypertrevorese = {};
+        window.atomgloss_to_surface_hypertrevorese = {};
         window.gloss_to_supergloss = {};
         window.gloss_to_supercompound = {};
     }

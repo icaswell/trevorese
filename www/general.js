@@ -205,8 +205,8 @@ function processSurfaceMode(doc, isSurfaceMode) {
                     // Process each part
                     for (const part of parts) {
                         const trimmedPart = part.trim().toLowerCase();
-                        if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
-                            surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                        if (window.atomgloss_to_surface && trimmedPart in window.atomgloss_to_surface) {
+                            surfaceParts.push(window.atomgloss_to_surface[trimmedPart]);
                         } else {
                             // If any part is not found, mark the whole compound
                             allPartsFound = false;
@@ -232,8 +232,8 @@ function processSurfaceMode(doc, isSurfaceMode) {
                     // Handle atomic word
                     const gloss = glossText.toLowerCase();
                     
-                    if (window.gloss_to_surface && gloss in window.gloss_to_surface) {
-                        const surface = window.gloss_to_surface[gloss];
+                    if (window.atomgloss_to_surface && gloss in window.atomgloss_to_surface) {
+                        const surface = window.atomgloss_to_surface[gloss];
                         // Change class to surface or surface-emph
                         if (span.className.includes('gloss-emph')) {
                             span.className = 'surface-emph';
@@ -933,8 +933,8 @@ function displayEnglishResults(results, query) {
 
                 // Get surface form for each part of the compound
                 for (const part of glossParts) {
-                    if (window.gloss_to_surface && window.gloss_to_surface[part]) {
-                        surfaceParts.push(window.gloss_to_surface[part]);
+                    if (window.atomgloss_to_surface && window.atomgloss_to_surface[part]) {
+                        surfaceParts.push(window.atomgloss_to_surface[part]);
                     } else {
                         // If we can't find the surface for a part, use the part itself
                         surfaceParts.push(part);

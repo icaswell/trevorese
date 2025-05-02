@@ -6,7 +6,7 @@ function detectInputType(inputText) {
 // --- Gloss to Surface (Modified to handle all three output boxes) ---
 function get_surface_single_word(word, notFoundWords) {
   const glosses = word.split("-");
-  const data = (window.currentFlavor === 'hypertrevorese') ? window.gloss_to_surface_hypertrevorese : window.gloss_to_surface;
+  const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
 
   const subsurfaces = glosses.map(gloss => {
     let subsurface;
@@ -37,7 +37,7 @@ function get_surface_single_word(word, notFoundWords) {
 function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
   const regex = /([-a-zA-Z]+|^)|([^-a-zA-Z]*)/g;
   const lines = gloss.split("\n");
-  const data = (window.currentFlavor === 'hypertrevorese') ? window.gloss_to_surface_hypertrevorese : window.gloss_to_surface;
+  const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
   let surfaceResult = "";
   let annotatedSurfaceResult = "";
 
@@ -214,8 +214,8 @@ function get_suggestion(word) {
 }
 
 // --- New wrapper function for surface to gloss then surface ---
-function surface_to_gloss_to_surface(surfaceInput) {
-  console.log(`--- Entering surface_to_gloss_to_surface with: '${surfaceInput}'`); // DEBUG ENTRY
+function surface_to_atomgloss_to_surface(surfaceInput) {
+  console.log(`--- Entering surface_to_atomgloss_to_surface with: '${surfaceInput}'`); // DEBUG ENTRY
   /* Uses FSA to parse surface input into gloss and then calls get_surface.*/
   const notFoundCompounds =[];
   const lines = surfaceInput.split("\n");

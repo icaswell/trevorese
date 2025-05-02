@@ -1,7 +1,7 @@
 // --- Gloss to Surface ---
 function get_surface_single_word(word, notFoundWords) {
     const glosses = word.split("-");
-    const data = (window.currentFlavor === 'hypertrevorese') ? window.gloss_to_surface_hypertrevorese : window.gloss_to_surface;
+    const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
 
     const subsurfaces = glosses.map(gloss => {
         let subsurface;
@@ -28,7 +28,7 @@ function get_surface_single_word(word, notFoundWords) {
 function get_surface(gloss, notFoundWords, notFoundCompounds) {
     const regex = /([-a-zA-Z]+|^)|([^-a-zA-Z]*)/g;
     const lines = gloss.split("\n");
-    const data = (window.currentFlavor === 'hypertrevorese') ? window.gloss_to_surface_hypertrevorese : window.gloss_to_surface;
+    const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
 
     const resultLines = lines.map(line => {
         const matches = line.matchAll(regex);

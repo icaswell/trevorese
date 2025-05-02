@@ -27,10 +27,18 @@ function runGlobalTests() {
         { query: "window.surface_to_gloss['dapwalu']", accessor: () => window.surface_to_gloss['dapwalu'] },
         { query: "window.compounds['big-plant-place']", accessor: () => window.compounds['big-plant-place'] },
         { query: "window.english_to_gloss['forest']", accessor: () => window.english_to_gloss['forest'] },
-        { query: "window.gloss_to_surface['big-plant-place']", accessor: () => window.gloss_to_surface['big-plant-place'] },
-        { query: "window.gloss_to_surface_hypertrevorese['big-plant-place']", accessor: () => window.gloss_to_surface_hypertrevorese['big-plant-place'] },
+
+        { query: "window.atomgloss_to_surface['big']", accessor: () => window.atomgloss_to_surface['big'] },
+        { query: "window.atomgloss_to_surface_hypertrevorese['big']", accessor: () => window.atomgloss_to_surface_hypertrevorese['big'] },
+        { query: "window.gloss_to_supergloss['big']", accessor: () => window.gloss_to_supergloss['big'] },
+        { query: "window.gloss_to_supercompound['big']", accessor: () => window.gloss_to_supercompound['big'] },
+
+
+        { query: "window.atomgloss_to_surface['big-plant-place']", accessor: () => window.atomgloss_to_surface['big-plant-place'] },
+        { query: "window.atomgloss_to_surface_hypertrevorese['big-plant-place']", accessor: () => window.atomgloss_to_surface_hypertrevorese['big-plant-place'] },
         { query: "window.gloss_to_supergloss['big-plant-place']", accessor: () => window.gloss_to_supergloss['big-plant-place'] },
         { query: "window.gloss_to_supercompound['big-plant-place']", accessor: () => window.gloss_to_supercompound['big-plant-place'] }
+
     ];
     
     // Clear previous results

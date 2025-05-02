@@ -77,8 +77,8 @@ function createDictionaryEntryDisplay(entry, options = {}) {
             
             for (const part of glossParts) {
                 const trimmedPart = part.trim().toLowerCase();
-                if (window.gloss_to_surface && trimmedPart in window.gloss_to_surface) {
-                    surfaceParts.push(window.gloss_to_surface[trimmedPart]);
+                if (window.atomgloss_to_surface && trimmedPart in window.atomgloss_to_surface) {
+                    surfaceParts.push(window.atomgloss_to_surface[trimmedPart]);
                 } else {
                     surfaceParts.push(part);
                 }
