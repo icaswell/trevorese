@@ -100,7 +100,7 @@ Handles input/output operations for the dictionary, including text processing an
   - Searches in the English-to-gloss mapping
   - Formats results with proper CSS classes for word, gloss, and part of speech
 
-- **`surface_to_gloss_to_surface(surfaceInput)`**: Converts surface input to gloss and then back to annotated surface.
+- **`surface_to_atomgloss_to_surface(surfaceInput)`**: Converts surface input to gloss and then back to annotated surface.
   - Uses FSA to parse surface input
   - Displays both raw and annotated versions
 
@@ -122,35 +122,6 @@ Implements a Finite State Automaton (FSA) for parsing Trevorese surface forms.
   - Uses the FSA to validate and segment input
   - Handles special cases like "ng" digraph
 
-### surfacetogloss.js
-
-Handles conversion from Trevorese surface forms to gloss representations.
-
-#### Key Components:
-
-- **`Node` Class and `buildFSA()`**: Similar to fsa.js but optimized for surface-to-gloss conversion.
-
-- **`chomp_tokens(s)`**: Tokenizes surface forms into valid Trevorese syllables.
-
-- **`get_gloss(surfaceInput)`**: Converts surface text to gloss representation.
-  - Tokenizes input using the FSA
-  - Looks up each token in the surface-to-gloss mapping
-  - Handles compound words and formatting
-
-### glosstosurface.js
-
-Handles conversion from gloss to surface forms (complementary to surfacetogloss.js).
-
-#### Key Components:
-
-- **`get_surface_single_word(word, notFoundWords)`**: Converts a single gloss word to surface form.
-
-- **`get_surface(gloss, notFoundWords, notFoundCompounds)`**: Converts gloss text to surface form.
-  - Similar to the function in io.js but with different annotation handling
-
-- **`get_suggestion(word)`**: Provides suggestions for unknown words.
-  - Simpler version than the one in io.js
-
 ### display.js
 
 Manages the UI display of dictionary entries and search results.
@@ -171,6 +142,10 @@ Manages the UI display of dictionary entries and search results.
   - Checks direct matches in surface_to_gloss
   - Checks compound surfaces
   - Falls back to searching through all entries
+
+### tests.js
+
+displays unit tests to user
 
 ### stories.js
 
@@ -203,16 +178,14 @@ The application uses several global window variables to store and access diction
 | Variable | Description |
 |----------|-------------|
 | `window.trevorese_dictionary` | Instance of the Dictionary class containing all vocabulary entries and methods for lookup and conversion. |
-| `window.gloss_to_surface` | Object mapping gloss strings to their surface forms. Used for converting gloss to surface. |
+| `window.atomgloss_to_surface` | Object mapping gloss strings to their surface forms. Used for converting gloss to surface. |
 | `window.surface_to_gloss` | Object mapping surface strings to their gloss forms. Used for converting surface to gloss. |
 | `window.compounds` | Object mapping compound glosses to their supergloss (meaning). Contains annotations for compound words showing their meaning. |
 | `window.english_to_gloss` | Object mapping English words to their Trevorese gloss equivalents. Used for suggestions when unknown words are entered. |
-| `window.gloss_to_surface_hypertrevorese` | Alternative mapping for the "hypertrevorese" flavor of the language. |
-| `window.gloss_to_supergloss` | Object mapping glosses to their supergloss (meaning at a higher level). |
+| `window.atomgloss_to_surface_hypertrevorese` | Alternative mapping for the "hypertrevorese" flavor of the language. |
 | `window.gloss_to_supercompound` | Object mapping glosses to their supercompound forms. Used for showing the hierarchy of compound words. |
 | `window.currentFlavor` | String indicating the current flavor of Trevorese being used (standard or hypertrevorese). |
 | `window.showAnnotations` | Boolean flag indicating whether to show annotations for words. |
-| `window.compound_surface_to_gloss` | Reference to `window.surface_to_gloss` maintained for backward compatibility. |
 
 These window variables are initialized in the `loadDictionaryData()` function in dictionary.js and are used throughout the application for various conversion and display operations.
 
