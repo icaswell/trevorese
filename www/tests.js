@@ -31,16 +31,11 @@ function runGlobalTests() {
         { query: "window.atomgloss_to_surface['big']", accessor: () => window.atomgloss_to_surface['big'] },
         { query: "window.atomgloss_to_surface_hypertrevorese['big']", accessor: () => window.atomgloss_to_surface_hypertrevorese['big'] },
 
-        { query: "window.gloss_to_supergloss['big']", accessor: () => window.gloss_to_supergloss['big'] },
         { query: "window.gloss_to_supercompound['big']", accessor: () => window.gloss_to_supercompound['big'] },
-
-        { query: "window.gloss_to_supergloss['big-plant-place']", accessor: () => window.gloss_to_supergloss['big-plant-place'] },
         { query: "window.gloss_to_supercompound['big-plant-place']", accessor: () => window.gloss_to_supercompound['big-plant-place'] },
 
-        // Display the full contents of gloss_to_supergloss
-        { query: "Object.keys(window.gloss_to_supergloss).length", accessor: () => Object.keys(window.gloss_to_supergloss).length },
-        { query: "Object.keys(window.gloss_to_supergloss).slice(0, 10)", accessor: () => Object.keys(window.gloss_to_supergloss).slice(0, 10) },
-        { query: "Full window.gloss_to_supergloss object", accessor: () => window.gloss_to_supergloss }
+        // Display the full contents of gloss_to_supercompound
+        { query: "Full window.gloss_to_supercompound object", accessor: () => window.gloss_to_supercompound }
     ];
     
     // Clear previous results

@@ -702,15 +702,13 @@ class Dictionary {
     computeDescendants() {
         console.log("Computing descendants for all vocab entries...");
         
-        // Create supergloss_to_v and gloss_to_supergloss maps
+        // Create supergloss_to_v map
         const supergloss_to_v = {};
-        const gloss_to_supergloss = {};
         
         for (const gloss in this.vocabs) {
             const v = this.vocabs[gloss];
             if (v.facets.supergloss && v.facets.supergloss.length > 0) {
                 supergloss_to_v[v.facets.supergloss[0]] = v;
-                gloss_to_supergloss[gloss] = v.facets.supergloss[0];
             } else {
                 supergloss_to_v[v.gloss] = v;
             }
@@ -967,7 +965,6 @@ async function loadDictionaryData() {
         });
 
         // Placeholder for missing definitions from Python code
-        window.gloss_to_supergloss = {}; 
         window.gloss_to_supercompound = {}; 
 
         const topBox = document.getElementById('topBox'); // Ensure topBox is defined here
@@ -1011,7 +1008,6 @@ async function loadDictionaryData() {
         window.compounds = {};
         window.english_to_gloss = {};
         window.atomgloss_to_surface_hypertrevorese = {};
-        window.gloss_to_supergloss = {};
         window.gloss_to_supercompound = {};
     }
 }
