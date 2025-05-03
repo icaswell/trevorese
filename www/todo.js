@@ -6,16 +6,19 @@ function populateTodoTab() {
     const superglossProblemsTable = document.getElementById('supergloss-problems-table').querySelector('tbody');
     const todoNotesTable = document.getElementById('todo-notes-table').querySelector('tbody');
     const missingGlossesTable = document.getElementById('missing-glosses-table').querySelector('tbody');
+    const unrecognizedCompoundsTable = document.getElementById('unrecognized-compounds-table').querySelector('tbody');
     
     // Clear existing content
     superglossProblemsTable.innerHTML = '';
     todoNotesTable.innerHTML = '';
     missingGlossesTable.innerHTML = '';
+    unrecognizedCompoundsTable.innerHTML = '';
     
     // Arrays to store issues
     const superglossIssues = [];
     const todoNotes = [];
     const missingGlosses = [];
+    const unrecognizedCompounds = [];
     
     // Check if dictionary is loaded
     if (!window.trevorese_dictionary || !window.trevorese_dictionary.vocabs) {
@@ -123,8 +126,8 @@ function populateTodoTab() {
         todoNotesTable.appendChild(row);
     }
     
-    // Find missing glosses in tutorial files
-    findMissingGlosses(missingGlosses).then(() => {
+    // Find missing glosses and unrecognized compounds in tutorial files
+    findMissingGlosses(missingGlosses, unrecognizedCompounds).then(() => {
         // Sort missing glosses by gloss
         missingGlosses.sort((a, b) => a.gloss.localeCompare(b.gloss));
         
@@ -156,7 +159,50 @@ function populateTodoTab() {
             missingGlossesTable.appendChild(row);
         }
         
-        console.log(`Found ${superglossIssues.length} supergloss issues, ${todoNotes.length} TODO notes, and ${missingGlosses.length} missing glosses`);
+        // Sort unrecognized compounds by gloss
+        unrecognizedCompounds.sort((a, b) => a.gloss.localeCompare(b.gloss));
+        
+        // Remove duplicates from unrecognized compounds
+        const uniqueUnrecognizedCompounds = [];
+        const seenCompounds = new Set();
+        
+        unrecognizedCompounds.forEach(item => {
+            const key = item.gloss.toLowerCase();
+            if (!seenCompounds.has(key)) {
+                seenCompounds.add(key);
+                uniqueUnrecognizedCompounds.push(item);
+            }
+        });
+        
+        // Populate unrecognized compounds table
+        if (uniqueUnrecognizedCompounds.length > 0) {
+            for (const compound of uniqueUnrecognizedCompounds) {
+                const row = document.createElement('tr');
+                
+                const glossCell = document.createElement('td');
+                glossCell.textContent = compound.gloss;
+                row.appendChild(glossCell);
+                
+                const locationCell = document.createElement('td');
+                locationCell.textContent = compound.location;
+                row.appendChild(locationCell);
+                
+                const surfaceCell = document.createElement('td');
+                surfaceCell.textContent = compound.surface;
+                row.appendChild(surfaceCell);
+                
+                unrecognizedCompoundsTable.appendChild(row);
+            }
+        } else {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 3;
+            cell.textContent = 'No unrecognized compounds found.';
+            row.appendChild(cell);
+            unrecognizedCompoundsTable.appendChild(row);
+        }
+        
+        console.log(`Found ${superglossIssues.length} supergloss issues, ${todoNotes.length} TODO notes, ${missingGlosses.length} missing glosses, and ${uniqueUnrecognizedCompounds.length} unrecognized compounds`);
     });
 }
 
@@ -209,8 +255,8 @@ function findEntryByGlossOrSupergloss(gloss) {
     return null;
 }
 
-// Function to find missing glosses in tutorial files
-async function findMissingGlosses(missingGlosses) {
+// Function to find missing glosses and unrecognized compounds in tutorial files
+async function findMissingGlosses(missingGlosses, unrecognizedCompounds) {
     const tutorialFiles = [
         'tutorial_part_1.html',
         'tutorial_part_2.html',
@@ -246,12 +292,16 @@ async function findMissingGlosses(missingGlosses) {
                 if (glossText.includes('-')) {
                     // Handle compound word
                     const parts = glossText.split('-');
+                    let allPartsFound = true;
+                    let missingPart = '';
                     
                     // Process each part
                     for (const part of parts) {
                         const trimmedPart = part.trim().toLowerCase();
                         if (!window.atomgloss_to_surface || !(trimmedPart in window.atomgloss_to_surface)) {
                             // Found a missing part
+                            allPartsFound = false;
+                            missingPart = trimmedPart;
                             missingGlosses.push({
                                 gloss: glossText,
                                 location: file,
@@ -260,6 +310,25 @@ async function findMissingGlosses(missingGlosses) {
                             // Only report each gloss once
                             break;
                         }
+                    }
+                    
+                    // If all parts are found but the compound is not in the dictionary
+                    if (allPartsFound && !(glossText.toLowerCase() in window.compounds)) {
+                        // Generate surface form for the compound
+                        let surfaceForm = '';
+                        for (const part of parts) {
+                            const trimmedPart = part.trim().toLowerCase();
+                            if (window.atomgloss_to_surface && trimmedPart in window.atomgloss_to_surface) {
+                                surfaceForm += window.atomgloss_to_surface[trimmedPart];
+                            }
+                        }
+                        
+                        // Add to unrecognized compounds
+                        unrecognizedCompounds.push({
+                            gloss: glossText,
+                            location: file,
+                            surface: surfaceForm
+                        });
                     }
                 } else {
                     // Handle atomic word
