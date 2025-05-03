@@ -7,18 +7,21 @@ function populateTodoTab() {
     const todoNotesTable = document.getElementById('todo-notes-table').querySelector('tbody');
     const missingGlossesTable = document.getElementById('missing-glosses-table').querySelector('tbody');
     const unrecognizedCompoundsTable = document.getElementById('unrecognized-compounds-table').querySelector('tbody');
+    const unglossableSurfacesTable = document.getElementById('unglossable-surfaces-table').querySelector('tbody');
     
     // Clear existing content
     superglossProblemsTable.innerHTML = '';
     todoNotesTable.innerHTML = '';
     missingGlossesTable.innerHTML = '';
     unrecognizedCompoundsTable.innerHTML = '';
+    unglossableSurfacesTable.innerHTML = '';
     
     // Arrays to store issues
     const superglossIssues = [];
     const todoNotes = [];
     const missingGlosses = [];
     const unrecognizedCompounds = [];
+    const unglossableSurfaces = [];
     
     // Check if dictionary is loaded
     if (!window.trevorese_dictionary || !window.trevorese_dictionary.vocabs) {
@@ -128,6 +131,9 @@ function populateTodoTab() {
     
     // Find missing glosses and unrecognized compounds in tutorial files
     findMissingGlosses(missingGlosses, unrecognizedCompounds).then(() => {
+        // Scan stories.tsv for unrecognized compounds and unglossable surfaces
+        return scanStoriesFile(unrecognizedCompounds, unglossableSurfaces);
+    }).then(() => {
         // Sort missing glosses by gloss
         missingGlosses.sort((a, b) => a.gloss.localeCompare(b.gloss));
         
@@ -202,7 +208,50 @@ function populateTodoTab() {
             unrecognizedCompoundsTable.appendChild(row);
         }
         
-        console.log(`Found ${superglossIssues.length} supergloss issues, ${todoNotes.length} TODO notes, ${missingGlosses.length} missing glosses, and ${uniqueUnrecognizedCompounds.length} unrecognized compounds`);
+        // Sort unglossable surfaces alphabetically
+        unglossableSurfaces.sort((a, b) => a.surface.localeCompare(b.surface));
+        
+        // Remove duplicates from unglossable surfaces
+        const uniqueUnglossableSurfaces = [];
+        const seenSurfaces = new Set();
+        
+        unglossableSurfaces.forEach(item => {
+            const key = item.surface;
+            if (!seenSurfaces.has(key)) {
+                seenSurfaces.add(key);
+                uniqueUnglossableSurfaces.push(item);
+            }
+        });
+        
+        // Populate unglossable surfaces table
+        if (uniqueUnglossableSurfaces.length > 0) {
+            for (const surface of uniqueUnglossableSurfaces) {
+                const row = document.createElement('tr');
+                
+                const surfaceCell = document.createElement('td');
+                surfaceCell.textContent = surface.surface;
+                row.appendChild(surfaceCell);
+                
+                const locationCell = document.createElement('td');
+                locationCell.textContent = 'stories.tsv';
+                row.appendChild(locationCell);
+                
+                const storyCell = document.createElement('td');
+                storyCell.textContent = surface.story;
+                row.appendChild(storyCell);
+                
+                unglossableSurfacesTable.appendChild(row);
+            }
+        } else {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 3;
+            cell.textContent = 'No unglossable surfaces found.';
+            row.appendChild(cell);
+            unglossableSurfacesTable.appendChild(row);
+        }
+        
+        console.log(`Found ${superglossIssues.length} supergloss issues, ${todoNotes.length} TODO notes, ${missingGlosses.length} missing glosses, ${uniqueUnrecognizedCompounds.length} unrecognized compounds, and ${unglossableSurfaces.length} unglossable surfaces`);
     });
 }
 
@@ -253,6 +302,130 @@ function findEntryByGlossOrSupergloss(gloss) {
     }
     
     return null;
+}
+
+// Function to scan stories.tsv for unrecognized compounds and unglossable surfaces
+async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
+    try {
+        // Fetch the stories.tsv file
+        const response = await fetch('stories.tsv');
+        if (!response.ok) {
+            console.error(`Error loading stories.tsv: ${response.status}`);
+            return;
+        }
+        
+        const tsvContent = await response.text();
+        
+        // Split the content into lines
+        const lines = tsvContent.split('\n');
+        
+        // Skip the header line
+        let currentStory = null;
+        
+        // Process each line
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            
+            // Skip empty lines
+            if (!line) continue;
+            
+            // Check if this is a story delimiter
+            if (line === "___") {
+                // Start a new story on the next line
+                currentStory = null;
+                continue;
+            }
+            
+            // Skip lines that start with a tab (empty first column)
+            if (line.startsWith('\t')) {
+                continue;
+            }
+            
+            // Split the line into columns
+            const columns = line.split('\t');
+            const trevorese = columns[0] ? columns[0].trim() : "";
+            
+            // Skip lines with empty Trevorese
+            if (!trevorese) continue;
+            
+            // If we don't have a current story, this line is a title
+            if (!currentStory) {
+                currentStory = trevorese;
+            }
+            
+            // Process the Trevorese text
+            // Use a regex to tokenize the line into words and non-words
+            const tokens = trevorese.match(/[\w-]+|[^\w\s-]+|\s+/g) || [];
+            
+            // Process each token
+            for (const token of tokens) {
+                // Skip non-word tokens (spaces, punctuation)
+                if (!/[\w-]/.test(token)) continue;
+                
+                // Check if it's a compound word (contains hyphens)
+                if (token.includes('-')) {
+                    // Split the compound into parts
+                    const parts = token.split('-');
+                    let allPartsFound = true;
+                    
+                    // Check if all parts are recognized
+                    for (const part of parts) {
+                        if (!window.atomgloss_to_surface || !(part.toLowerCase() in window.atomgloss_to_surface)) {
+                            allPartsFound = false;
+                            break;
+                        }
+                    }
+                    
+                    // If all parts are found but the compound is not in the dictionary
+                    if (allPartsFound) {
+                        const gloss = parts.join('-').toLowerCase();
+                        if (!(gloss in window.compounds)) {
+                            // Generate surface form for the compound
+                            let surfaceForm = '';
+                            for (const part of parts) {
+                                const trimmedPart = part.trim().toLowerCase();
+                                if (window.atomgloss_to_surface && trimmedPart in window.atomgloss_to_surface) {
+                                    surfaceForm += window.atomgloss_to_surface[trimmedPart];
+                                }
+                            }
+                            
+                            // Add to unrecognized compounds
+                            unrecognizedCompounds.push({
+                                gloss: gloss,
+                                location: 'stories.tsv',
+                                surface: surfaceForm
+                            });
+                        }
+                    }
+                } else {
+                    // It's a single word, check if it can be tokenized by the FSA
+                    try {
+                        // Use the FSA to tokenize the surface form
+                        const tokenized = chomp_tokens(token);
+                        
+                        // Check if each token can be mapped to a gloss
+                        for (const surfaceToken of tokenized) {
+                            if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
+                                // Found an unglossable surface
+                                unglossableSurfaces.push({
+                                    surface: surfaceToken,
+                                    story: currentStory
+                                });
+                            }
+                        }
+                    } catch (error) {
+                        // If tokenization fails, it's an unglossable surface
+                        unglossableSurfaces.push({
+                            surface: token,
+                            story: currentStory
+                        });
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error scanning stories.tsv:', error);
+    }
 }
 
 // Function to find missing glosses and unrecognized compounds in tutorial files
