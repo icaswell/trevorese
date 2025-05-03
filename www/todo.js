@@ -5,14 +5,17 @@ function populateTodoTab() {
     // Get the tables
     const superglossProblemsTable = document.getElementById('supergloss-problems-table').querySelector('tbody');
     const todoNotesTable = document.getElementById('todo-notes-table').querySelector('tbody');
+    const missingGlossesTable = document.getElementById('missing-glosses-table').querySelector('tbody');
     
     // Clear existing content
     superglossProblemsTable.innerHTML = '';
     todoNotesTable.innerHTML = '';
+    missingGlossesTable.innerHTML = '';
     
     // Arrays to store issues
     const superglossIssues = [];
     const todoNotes = [];
+    const missingGlosses = [];
     
     // Check if dictionary is loaded
     if (!window.trevorese_dictionary || !window.trevorese_dictionary.vocabs) {
@@ -120,7 +123,41 @@ function populateTodoTab() {
         todoNotesTable.appendChild(row);
     }
     
-    console.log(`Found ${superglossIssues.length} supergloss issues and ${todoNotes.length} TODO notes`);
+    // Find missing glosses in tutorial files
+    findMissingGlosses(missingGlosses).then(() => {
+        // Sort missing glosses by gloss
+        missingGlosses.sort((a, b) => a.gloss.localeCompare(b.gloss));
+        
+        // Populate missing glosses table
+        if (missingGlosses.length > 0) {
+            for (const missingGloss of missingGlosses) {
+                const row = document.createElement('tr');
+                
+                const glossCell = document.createElement('td');
+                glossCell.textContent = missingGloss.gloss;
+                row.appendChild(glossCell);
+                
+                const locationCell = document.createElement('td');
+                locationCell.textContent = missingGloss.location;
+                row.appendChild(locationCell);
+                
+                const missingPartCell = document.createElement('td');
+                missingPartCell.textContent = missingGloss.missingPart;
+                row.appendChild(missingPartCell);
+                
+                missingGlossesTable.appendChild(row);
+            }
+        } else {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 3;
+            cell.textContent = 'No missing glosses found.';
+            row.appendChild(cell);
+            missingGlossesTable.appendChild(row);
+        }
+        
+        console.log(`Found ${superglossIssues.length} supergloss issues, ${todoNotes.length} TODO notes, and ${missingGlosses.length} missing glosses`);
+    });
 }
 
 // Helper function to expand supercompound (simplified version)
@@ -170,6 +207,95 @@ function findEntryByGlossOrSupergloss(gloss) {
     }
     
     return null;
+}
+
+// Function to find missing glosses in tutorial files
+async function findMissingGlosses(missingGlosses) {
+    const tutorialFiles = [
+        'tutorial_part_1.html',
+        'tutorial_part_2.html',
+        'tutorial_part_3.html',
+        'tutorial_part_4.html',
+        'tutorial_part_5.html'
+    ];
+    
+    // Process each tutorial file
+    for (const file of tutorialFiles) {
+        try {
+            // Fetch the tutorial file content
+            const response = await fetch(file);
+            if (!response.ok) {
+                console.error(`Error loading tutorial file: ${file}`);
+                continue;
+            }
+            
+            const htmlContent = await response.text();
+            
+            // Create a temporary DOM element to parse the HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmlContent;
+            
+            // Find all spans with the 'gloss' class
+            const glossSpans = tempDiv.querySelectorAll('span.gloss');
+            
+            // Process each gloss span
+            glossSpans.forEach(span => {
+                const glossText = span.textContent.trim();
+                
+                // Check if it's a compound (contains dashes)
+                if (glossText.includes('-')) {
+                    // Handle compound word
+                    const parts = glossText.split('-');
+                    
+                    // Process each part
+                    for (const part of parts) {
+                        const trimmedPart = part.trim().toLowerCase();
+                        if (!window.atomgloss_to_surface || !(trimmedPart in window.atomgloss_to_surface)) {
+                            // Found a missing part
+                            missingGlosses.push({
+                                gloss: glossText,
+                                location: file,
+                                missingPart: trimmedPart
+                            });
+                            // Only report each gloss once
+                            break;
+                        }
+                    }
+                } else {
+                    // Handle atomic word
+                    const gloss = glossText.toLowerCase();
+                    
+                    if (!window.atomgloss_to_surface || !(gloss in window.atomgloss_to_surface)) {
+                        // Found a missing gloss
+                        missingGlosses.push({
+                            gloss: glossText,
+                            location: file,
+                            missingPart: gloss
+                        });
+                    }
+                }
+            });
+            
+        } catch (error) {
+            console.error(`Error processing tutorial file ${file}:`, error);
+        }
+    }
+    
+    // Remove duplicates (same gloss and missing part)
+    const uniqueMissingGlosses = [];
+    const seen = new Set();
+    
+    missingGlosses.forEach(item => {
+        const key = `${item.gloss}|${item.missingPart}`;
+        if (!seen.has(key)) {
+            seen.add(key);
+            uniqueMissingGlosses.push(item);
+        }
+    });
+    
+    // Clear the array and add unique items back
+    missingGlosses.length = 0;
+    uniqueMissingGlosses.forEach(item => missingGlosses.push(item));
 }
 
 // Initialize the Todo tab when the dictionary is loaded
