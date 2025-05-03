@@ -362,50 +362,22 @@ async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
                 // Skip non-word tokens (spaces, punctuation)
                 if (!/[\w-]/.test(token)) continue;
                 
-                // Check if it's a compound word (contains hyphens)
-                if (token.includes('-')) {
-                    // Split the compound into parts
-                    const parts = token.split('-');
-                    let allPartsFound = true;
+                // For any word (whether it has hyphens or not), try to tokenize with FSA
+                try {
+                    // Use the FSA to tokenize the surface form
+                    const tokenized = chomp_tokens(token.replace(/-/g, '')); // Remove any hyphens for tokenization
                     
-                    // Check if all parts are recognized
-                    for (const part of parts) {
-                        if (!window.atomgloss_to_surface || !(part.toLowerCase() in window.atomgloss_to_surface)) {
-                            allPartsFound = false;
-                            break;
-                        }
-                    }
-                    
-                    // If all parts are found but the compound is not in the dictionary
-                    if (allPartsFound) {
-                        const gloss = parts.join('-').toLowerCase();
-                        if (!(gloss in window.compounds)) {
-                            // Generate surface form for the compound
-                            let surfaceForm = '';
-                            for (const part of parts) {
-                                const trimmedPart = part.trim().toLowerCase();
-                                if (window.atomgloss_to_surface && trimmedPart in window.atomgloss_to_surface) {
-                                    surfaceForm += window.atomgloss_to_surface[trimmedPart];
-                                }
-                            }
-                            
-                            // Add to unrecognized compounds
-                            unrecognizedCompounds.push({
-                                gloss: gloss,
-                                location: 'stories.tsv',
-                                surface: surfaceForm
-                            });
-                        }
-                    }
-                } else {
-                    // It's a single word, check if it can be tokenized by the FSA
-                    try {
-                        // Use the FSA to tokenize the surface form
-                        const tokenized = chomp_tokens(token);
+                    // If we have multiple tokens, this could be a compound
+                    if (tokenized.length > 1) {
+                        // Check if all tokens can be mapped to glosses
+                        const glosses = [];
+                        let allTokensFound = true;
                         
-                        // Check if each token can be mapped to a gloss
                         for (const surfaceToken of tokenized) {
-                            if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
+                            if (window.surface_to_gloss && surfaceToken in window.surface_to_gloss) {
+                                glosses.push(window.surface_to_gloss[surfaceToken]);
+                            } else {
+                                allTokensFound = false;
                                 // Found an unglossable surface
                                 unglossableSurfaces.push({
                                     surface: surfaceToken,
@@ -413,13 +385,36 @@ async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
                                 });
                             }
                         }
-                    } catch (error) {
-                        // If tokenization fails, it's an unglossable surface
-                        unglossableSurfaces.push({
-                            surface: token,
-                            story: currentStory
-                        });
+                        
+                        // If all tokens have glosses, check if the compound is in the dictionary
+                        if (allTokensFound) {
+                            const compoundGloss = glosses.join('-');
+                            if (!(compoundGloss in window.compounds)) {
+                                // Add to unrecognized compounds
+                                unrecognizedCompounds.push({
+                                    gloss: compoundGloss,
+                                    location: 'stories.tsv',
+                                    surface: token
+                                });
+                            }
+                        }
+                    } else if (tokenized.length === 1) {
+                        // Single token - check if it's in the dictionary
+                        const surfaceToken = tokenized[0];
+                        if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
+                            // Found an unglossable surface
+                            unglossableSurfaces.push({
+                                surface: surfaceToken,
+                                story: currentStory
+                            });
+                        }
                     }
+                } catch (error) {
+                    // If tokenization fails, it's an unglossable surface
+                    unglossableSurfaces.push({
+                        surface: token,
+                        story: currentStory
+                    });
                 }
             }
         }
