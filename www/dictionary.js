@@ -700,7 +700,7 @@ class Dictionary {
     }
     
     computeDescendants() {
-        console.log("Computing descendants for all vocab entries...");
+        console.log("ENTER: computeDescendants method");
         
         // Create supergloss_to_v map
         const supergloss_to_v = {};
@@ -715,12 +715,43 @@ class Dictionary {
         }
         
         // Create gloss_to_supercompound map
+        console.log('Creating gloss_to_supercompound map...');
         const gloss_to_supercompound = {};
+        let supercompoundCount = 0;
+        let vocabsCount = Object.keys(this.vocabs).length;
+        console.log(`Checking ${vocabsCount} vocab entries for supercompound facets...`);
+        
+        // Debug: Check a few vocab entries to see if they have supercompound facets
+        const sampleVocabs = Object.entries(this.vocabs).slice(0, 5);
+        for (const [gloss, v] of sampleVocabs) {
+            console.log(`Sample vocab '${gloss}':`, {
+                hasFacets: !!v.facets,
+                facetKeys: v.facets ? Object.keys(v.facets) : 'none',
+                hasSupercompound: v.facets && v.facets.supercompound,
+                supercompoundValue: v.facets && v.facets.supercompound ? v.facets.supercompound : 'none'
+            });
+        }
+        
         for (const gloss in this.vocabs) {
             const v = this.vocabs[gloss];
-            if (v.facets.supercompound && v.facets.supercompound.length > 0) {
+            if (v.facets && v.facets.supercompound && v.facets.supercompound.length > 0) {
                 gloss_to_supercompound[gloss] = v.facets.supercompound[0];
+                supercompoundCount++;
+                
+                // Log the first few entries we find
+                if (supercompoundCount <= 3) {
+                    console.log(`Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
+                }
             }
+        }
+        
+        // Assign to window variable for global access
+        window.gloss_to_supercompound = gloss_to_supercompound;
+        console.log(`Created gloss_to_supercompound map with ${supercompoundCount} entries:`, 
+                   supercompoundCount > 0 ? Object.keys(gloss_to_supercompound).slice(0, 10) : 'EMPTY');
+        
+        if (supercompoundCount === 0) {
+            console.warn('WARNING: No supercompound facets found in any vocab entries!');
         }
         
         // Initialize gloss_to_descendants map
@@ -890,8 +921,21 @@ async function loadDictionaryData() {
         }
         
         // Compute descendants for all vocabulary entries
-        console.log("Computing descendants...");
-        all_vocabs.computeDescendants();
+        console.log("About to compute descendants...");
+        try {
+            all_vocabs.computeDescendants();
+            console.log("computeDescendants completed successfully");
+        } catch (error) {
+            console.error("Error in computeDescendants:", error);
+        }
+        
+        // Verify gloss_to_supercompound was populated
+        console.log(`After computeDescendants, window.gloss_to_supercompound has ${Object.keys(window.gloss_to_supercompound).length} entries`);
+        if (Object.keys(window.gloss_to_supercompound).length > 0) {
+            console.log('Sample entries:', Object.entries(window.gloss_to_supercompound).slice(0, 5));
+        } else {
+            console.warn('WARNING: window.gloss_to_supercompound is empty after computeDescendants!');
+        }
 
         // Build compounds map (gloss -> supergloss)
         window.compounds = {}; // Initialize as an empty object
@@ -960,8 +1004,61 @@ async function loadDictionaryData() {
             }
         });
 
-        // Placeholder for missing definitions from Python code
-        window.gloss_to_supercompound = {}; 
+        // Debug: Check if supercompound column is being recognized in the TSV
+        console.log('TSV column indices:', indices);
+        console.log('Does indices contain supercompound?', 'supercompound' in indices);
+        if ('supercompound' in indices) {
+            console.log('supercompound column index:', indices.supercompound);
+        }
+        
+        // Sample a few rows from the parsed TSV to check supercompound values
+        console.log('Sampling a few rows to check for supercompound data:');
+        for (let i = 1; i < Math.min(5, rows.length); i++) {
+            const row = rows[i];
+            if (indices.supercompound !== undefined && row[indices.supercompound]) {
+                console.log(`Row ${i} has supercompound:`, {
+                    gloss: row[indices.gloss],
+                    supercompound: row[indices.supercompound]
+                });
+            }
+        }
+        
+        // Initialize and populate window.gloss_to_supercompound directly from vocab entries
+        window.gloss_to_supercompound = {};
+        let supercompoundCount = 0;
+        
+        // Debug: Check a sample of vocab entries
+        console.log('Checking sample vocab entries for supercompound facets:');
+        const sampleVocabs = Object.entries(all_vocabs.vocabs).slice(0, 5);
+        for (const [gloss, v] of sampleVocabs) {
+            console.log(`Sample vocab '${gloss}':`, {
+                hasFacets: !!v.facets,
+                facetKeys: v.facets ? Object.keys(v.facets) : 'none',
+                hasSupercompound: v.facets && v.facets.supercompound,
+                supercompoundValue: v.facets && v.facets.supercompound ? v.facets.supercompound : 'none'
+            });
+        }
+        
+        // Directly populate from vocab entries
+        for (const gloss in all_vocabs.vocabs) {
+            const v = all_vocabs.vocabs[gloss];
+            if (v.facets && v.facets.supercompound && v.facets.supercompound.length > 0) {
+                window.gloss_to_supercompound[gloss] = v.facets.supercompound[0];
+                supercompoundCount++;
+                
+                // Log a few examples for debugging
+                if (supercompoundCount <= 3) {
+                    console.log(`Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
+                }
+            }
+        }
+        
+        console.log(`Populated window.gloss_to_supercompound with ${supercompoundCount} entries`);
+        if (supercompoundCount > 0) {
+            console.log('Sample entries:', Object.entries(window.gloss_to_supercompound).slice(0, 5));
+        } else {
+            console.warn('WARNING: No supercompound facets found in any vocab entries!');
+        }
 
         const topBox = document.getElementById('topBox'); // Ensure topBox is defined here
         if (topBox) {

@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -833,4 +833,38 @@ body .principle {
 
 #about iframe .footnotes li a { /* Style for the return arrow */
   text-decoration: none;
+}
+
+/* Test styles */
+.test-item {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.test-query {
+    background-color: #f5f5f5;
+    padding: 8px 12px;
+    font-family: monospace;
+    border-bottom: 1px solid #ddd;
+}
+.test-result {
+    padding: 12px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+.test-result pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.test-success {
+    background-color: #f0fff0;
+}
+.test-error {
+    background-color: #fff0f0;
+    color: #d00;
+}
+.test-undefined, .test-null {
+    background-color: #ffffd0;
+    font-style: italic;
 }
