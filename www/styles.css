@@ -222,6 +222,7 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
 .wrong { color: red; }  /* used for incorrect forms like *bwaing */ 
 .surface { color: teal } /*; font-weight: bold; */
 .surface-emph { color: rgb(0, 202, 135); font-weight: bold; }
+.surface-notfound { color: rgb(255, 0, 98);}
 .annotation {
   font-size: 0.8em; /* Adjust the value to make it smaller, e.g., 0.7em or 0.9em */
   color: grey; /* Or #808080 for a slightly darker grey */
@@ -233,10 +234,20 @@ body .english {
 
 body .principle {
     background-color: magenta;
+    font-size: 22px;
     color: white; /* Added for readability */
     padding: 0.1em 0.3em; /* Add some padding */
     border-radius: 3px; /* Rounded corners */
 }
+
+body .subprinciple {
+    background-color: rgb(146, 55, 195);
+    font-size: 18px;
+    color: white; /* Added for readability */
+    padding: 0.1em 0.3em; /* Add some padding */
+    border-radius: 3px; /* Rounded corners */
+}
+
 .highlight { background-color: red; }
 
         /* Add styles for hiding/showing and the copy button */
@@ -707,14 +718,6 @@ body .principle {
 .table-container table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
-}
-
-/* Styles for elements within the iframe tutorial.html */
-#tutorial iframe .principle {
-    background-color: magenta;
-    color: white; /* Added for readability */
-    padding: 0.1em 0.3em; /* Add some padding */
-    border-radius: 3px; /* Rounded corners */
 }
 
 /* Styles for Periodic Table */

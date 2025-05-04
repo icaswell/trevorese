@@ -3,6 +3,11 @@
  * Loads and displays stories from stories.tsv
  */
 
+// Import functions from other modules
+// Note: These functions are already available globally via script includes in index.html
+// This comment is just to document the dependencies
+// - chomp_tokens from fsa.js
+
 // Global variables
 let stories = [];
 
@@ -82,6 +87,29 @@ function parseStories(tsvContent) {
 }
 
 /**
+ * Check if a word can be properly tokenized and glossed
+ * @param {string} word - The word to check
+ * @returns {boolean} True if the word can be tokenized and all tokens can be mapped to glosses
+ */
+function isWordGlossable(word) {
+    try {
+        // Use the FSA to tokenize the surface form
+        const tokenized = chomp_tokens(word.replace(/-/g, '')); // Remove any hyphens for tokenization
+        
+        // Check if all tokens can be mapped to glosses
+        for (const surfaceToken of tokenized) {
+            if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
+                return false; // Found an unglossable token
+            }
+        }
+        
+        return true; // All tokens are glossable
+    } catch (error) {
+        return false; // Tokenization failed
+    }
+}
+
+/**
  * Create HTML for a story
  * @param {Object} story - The story object
  * @param {number} index - The index of the story
@@ -116,12 +144,17 @@ function createStoryHTML(story, index) {
                     // Build HTML for compound word
                     for (let i = 0; i < words.length; i++) {
                         lineHTML += punct[i];
-                        lineHTML += `<span class="surface" onclick="showWordInfoPopup(event, '${words[i]}')">${words[i]}</span>`;
+                        // Check if the word is glossable
+                        const isGlossable = isWordGlossable(words[i]);
+                        const cssClass = isGlossable ? 'surface' : 'surface-notfound';
+                        lineHTML += `<span class="${cssClass}" onclick="showWordInfoPopup(event, '${words[i]}')">${words[i]}</span>`;
                     }
                     lineHTML += punct[words.length] || '';
                 } else {
-                    // Regular word
-                    lineHTML += `<span class="surface" onclick="showWordInfoPopup(event, '${token}')">${token}</span>`;
+                    // Regular word - check if it's glossable
+                    const isGlossable = isWordGlossable(token);
+                    const cssClass = isGlossable ? 'surface' : 'surface-notfound';
+                    lineHTML += `<span class="${cssClass}" onclick="showWordInfoPopup(event, '${token}')">${token}</span>`;
                 }
             } else if (/\s+/.test(token)) {
                 // It's whitespace - preserve it
