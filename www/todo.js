@@ -134,8 +134,8 @@ function populateTodoTab() {
         // Scan stories.tsv for unrecognized compounds and unglossable surfaces
         return scanStoriesFile(unrecognizedCompounds, unglossableSurfaces);
     }).then(() => {
-        // Sort missing glosses by gloss
-        missingGlosses.sort((a, b) => a.gloss.localeCompare(b.gloss));
+        // Sort missing glosses by location
+        missingGlosses.sort((a, b) => a.location.localeCompare(b.location));
         
         // Populate missing glosses table
         if (missingGlosses.length > 0) {
@@ -307,8 +307,8 @@ function findEntryByGlossOrSupergloss(gloss) {
 // Function to scan stories.tsv for unrecognized compounds and unglossable surfaces
 async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
     try {
-        // Fetch the stories.tsv file
-        const response = await fetch('stories.tsv');
+        // Fetch the stories.tsv file with cache-busting parameter
+        const response = await fetch('stories.tsv?v=' + Date.now()); // Add cache-busting param
         if (!response.ok) {
             console.error(`Error loading stories.tsv: ${response.status}`);
             return;
@@ -436,8 +436,8 @@ async function findMissingGlosses(missingGlosses, unrecognizedCompounds) {
     // Process each tutorial file
     for (const file of tutorialFiles) {
         try {
-            // Fetch the tutorial file content
-            const response = await fetch(file);
+            // Fetch the tutorial file content with cache-busting parameter
+            const response = await fetch(file + '?v=' + Date.now()); // Add cache-busting param
             if (!response.ok) {
                 console.error(`Error loading tutorial file: ${file}`);
                 continue;
