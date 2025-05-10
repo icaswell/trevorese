@@ -449,8 +449,8 @@ async function findMissingGlosses(missingGlosses, unrecognizedCompounds) {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = htmlContent;
             
-            // Find all spans with the 'gloss' class
-            const glossSpans = tempDiv.querySelectorAll('span.gloss');
+            // Find all spans with the 'gloss' and 'gloss-emph' classes
+            const glossSpans = tempDiv.querySelectorAll('span.gloss, span.gloss-emph');
             
             // Process each gloss span
             glossSpans.forEach(span => {
