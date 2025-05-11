@@ -8,8 +8,36 @@ function get_surface_single_word(word, notFoundWords) {
   const glosses = word.split("-");
   const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
 
+  // Check if this is a proper noun gloss
+  if (window.proper_noun_glosses && window.proper_noun_glosses.has(word)) {
+    console.log(`Found proper noun gloss: '${word}'`); // DEBUG
+    // Find the surface form for this proper noun gloss
+    for (const [surface, gloss] of Object.entries(window.proper_nouns)) {
+      if (gloss === word) {
+        console.log(`Proper noun '${word}' has surface form '${surface}'`); // DEBUG
+        return `<span class="propernoun">${surface}</span>`;
+      }
+    }
+    // If we can't find the surface, use the gloss as is
+    return `<span class="propernoun">${word}</span>`;
+  }
+
   const subsurfaces = glosses.map(gloss => {
     let subsurface;
+    // Check if this part is a proper noun gloss
+    if (window.proper_noun_glosses && window.proper_noun_glosses.has(gloss)) {
+      console.log(`Found proper noun gloss part: '${gloss}'`); // DEBUG
+      // Find the surface form for this proper noun gloss
+      for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
+        if (propGloss === gloss) {
+          console.log(`Proper noun part '${gloss}' has surface form '${surface}'`); // DEBUG
+          return `<span class="propernoun">${surface}</span>`;
+        }
+      }
+      // If we can't find the surface, use the gloss as is
+      return `<span class="propernoun">${gloss}</span>`;
+    }
+    
     if (gloss in data) {
       const surfaceValue = data[gloss];
       if (surfaceValue.startsWith("__")) {
@@ -18,7 +46,21 @@ function get_surface_single_word(word, notFoundWords) {
         subsurface = `<span class="surface">${surfaceValue}</span>`;
       }
     } else {
-      if (word.startsWith("u")) {
+      // Check if this is a proper noun gloss
+      if (window.proper_noun_glosses && window.proper_noun_glosses.has(gloss)) {
+        console.log(`Found proper noun gloss in else branch: '${gloss}'`); // DEBUG
+        // Find the surface form for this proper noun gloss
+        for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
+          if (propGloss === gloss) {
+            console.log(`Proper noun '${gloss}' has surface form '${surface}'`); // DEBUG
+            subsurface = `<span class="propernoun">${surface}</span>`;
+            return subsurface; // Return early to avoid further processing
+          }
+        }
+        // If we can't find the surface, use the gloss as is
+        subsurface = `<span class="propernoun">${gloss}</span>`;
+      } else if (word.startsWith("u")) {
+        // Legacy handling for proper nouns starting with 'u'
         subsurface = `<span class="propernoun">${gloss}</span>`;
       } else {
         subsurface = `<span class="highlight">${gloss}</span>`;
@@ -35,8 +77,10 @@ function get_surface_single_word(word, notFoundWords) {
 }
 
 function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
-  const regex = /([-a-zA-Z]+|^)|([^-a-zA-Z]*)/g;
+  // Updated regex to include underscores for proper nouns like 'u_raman'
+  const regex = /([-a-zA-Z_]+|^)|([^-a-zA-Z_]*)/g;
   const lines = gloss.split("\n");
+  console.log(`Processing gloss: '${gloss}'`); // DEBUG
   const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
   let surfaceResult = "";
   let annotatedSurfaceResult = "";
@@ -50,9 +94,34 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
     for (const match of matches) {
       const [_, word, punct] = match;
       if (word) {
+        // Check if this is a proper noun gloss before processing
+        const isProperNoun = window.proper_noun_glosses && window.proper_noun_glosses.has(word);
+        console.log(`Checking if '${word}' is a proper noun: ${isProperNoun}`); // DEBUG
+        
         originalGlosses.push(`<span class="gloss">${word}</span>`); // Default gloss representation
 
-        let surf = get_surface_single_word(word, notFoundWords);
+        let surf;
+        let properNounSurface = null;
+        
+        // Handle proper noun specially
+        if (isProperNoun) {
+          // Find the surface form for this proper noun gloss
+          for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
+            if (propGloss === word) {
+              console.log(`Found proper noun surface for '${word}': '${surface}'`); // DEBUG
+              properNounSurface = surface;
+              surf = `<span class="propernoun">${surface}</span>`;
+              break;
+            }
+          }
+          // If we couldn't find the surface, fall back to regular processing
+          if (!properNounSurface) {
+            surf = get_surface_single_word(word, notFoundWords);
+          }
+        } else {
+          surf = get_surface_single_word(word, notFoundWords);
+        }
+        
         surfaces.push(surf);
 
         let annotatedSurf = surf; // Declare and initialize with base surface
@@ -62,7 +131,11 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
         // --- Annotation Logic --- START ---
         const fullGloss = word; // Use the original word (gloss)
 
-        if (isCompound) {
+        // Special handling for proper nouns in annotation
+        if (isProperNoun && properNounSurface) {
+          // For proper nouns, use a simpler annotation that doesn't split the word
+          annotation = `(${word})`; // Just use the gloss as annotation
+        } else if (isCompound) {
           const superCompoundGloss = window.compounds[fullGloss] || "?";
           const superSuperCompound = window.gloss_to_supercompound[fullGloss];
           if (superSuperCompound && superCompoundGloss !== '?' && superSuperCompound !== fullGloss) {
@@ -222,6 +295,7 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
   let generatedGloss =[]; // Store an array of glosses
 
   const resultLines = lines.map(line => {
+    // Updated regex to match only alphabetic characters for tokenization
     const regex = /([a-zA-Z]+|^)|([^a-zA-Z]*)/g;
     const matches = line.matchAll(regex);
     const lineGlosses =[];
@@ -231,9 +305,19 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
       const [_, word, punct] = match;
 
       if (word) {
+        // First check if the word is a proper noun
+        if (window.proper_nouns && word in window.proper_nouns) {
+          const properNounGloss = window.proper_nouns[word];
+          console.log(`Found proper noun: '${word}' -> '${properNounGloss}'`); // DEBUG
+          lineGlosses.push(properNounGloss);
+          continue; // Skip to the next match
+        }
+        
         let tokenized;
         try {
-          tokenized = chomp_tokens(word);
+          // Use chomp_tokens with proper noun checking enabled
+          tokenized = chomp_tokens(word, true);
+          console.log(`Tokenized '${word}' into: [${tokenized.join(', ')}]`); // DEBUG
         } catch (error) {
           console.error(`Error in chomp_tokens for word '${word}':`, error); // DEBUG ERROR
           lineGlosses.push(word); // Push the original unparseable word
@@ -242,6 +326,12 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
 
         // Build raw gloss (no HTML) for compound check and processing
         const rawGlosses = tokenized.map(token => {
+          // Check if token is a proper noun
+          if (window.proper_nouns && token in window.proper_nouns) {
+            const properNounGloss = window.proper_nouns[token];
+            console.log(`Token '${token}' is a proper noun with gloss '${properNounGloss}'`); // DEBUG
+            return properNounGloss;
+          }
           return window.surface_to_gloss[token] || token;
         });
         console.log(`Lookup surface '${tokenized.join(',')}': Got gloss(es) '${rawGlosses.join(',')}'`); // DEBUG

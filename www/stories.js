@@ -93,18 +93,37 @@ function parseStories(tsvContent) {
  */
 function isWordGlossable(word) {
     try {
+        console.log(`Checking if word is glossable: '${word}'`);
+        
+        // First check if the word is a proper noun
+        if (window.proper_nouns && word in window.proper_nouns) {
+            console.log(`Word '${word}' is a proper noun with gloss '${window.proper_nouns[word]}'`);
+            return true; // Proper nouns are glossable
+        }
+        
         // Use the FSA to tokenize the surface form
-        const tokenized = chomp_tokens(word.replace(/-/g, '')); // Remove any hyphens for tokenization
+        const tokenized = chomp_tokens(word.replace(/-/g, ''), true); // Remove any hyphens for tokenization, enable proper noun checking
+        console.log(`Tokenized '${word}' into: [${tokenized.join(', ')}]`);
         
         // Check if all tokens can be mapped to glosses
         for (const surfaceToken of tokenized) {
+            // Check if the token is a proper noun
+            if (window.proper_nouns && surfaceToken in window.proper_nouns) {
+                console.log(`Token '${surfaceToken}' is a proper noun with gloss '${window.proper_nouns[surfaceToken]}'`);
+                continue; // Proper nouns are glossable, so continue to the next token
+            }
+            
+            // Check if the token is in the regular surface_to_gloss mapping
             if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
+                console.log(`Token '${surfaceToken}' is not glossable`);
                 return false; // Found an unglossable token
             }
         }
         
+        console.log(`Word '${word}' is fully glossable`);
         return true; // All tokens are glossable
     } catch (error) {
+        console.error(`Error checking if '${word}' is glossable:`, error);
         return false; // Tokenization failed
     }
 }

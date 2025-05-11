@@ -76,13 +76,70 @@ function buildFSA() {
     }
 }
 
-function chomp_tokens(s) {
+/**
+ * Check if a string is a proper noun
+ * @param {string} s - The string to check
+ * @returns {boolean} True if the string is a proper noun
+ */
+function isProperNoun(s) {
+    // Check if the string exists in the proper_nouns mapping
+    if (window.proper_nouns && s in window.proper_nouns) {
+        console.log(`Found proper noun: '${s}' -> '${window.proper_nouns[s]}'`);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Get the gloss for a proper noun
+ * @param {string} s - The proper noun surface form
+ * @returns {string|null} The gloss for the proper noun, or null if not found
+ */
+function getProperNounGloss(s) {
+    if (window.proper_nouns && s in window.proper_nouns) {
+        return window.proper_nouns[s];
+    }
+    return null;
+}
+
+/**
+ * Tokenize a string into Trevorese tokens, handling proper nouns
+ * @param {string} s - The string to tokenize
+ * @param {boolean} checkProperNouns - Whether to check for proper nouns
+ * @returns {Array<string>} Array of tokens
+ */
+function chomp_tokens(s, checkProperNouns = true) {
+    // First check if the entire string is a proper noun
+    if (checkProperNouns && isProperNoun(s)) {
+        console.log(`Tokenizing proper noun as a whole: '${s}'`);
+        return [s]; // Return the proper noun as a single token
+    }
+    
     s = s.replaceAll("ng", "ŋ");  // rather than dealing with making an FSA that can backtrack, just remove digraphs lol
     let cur = ROOT;
     const tokenized = [''];
     let i = 0;
 
     while (i < s.length) {
+        // Check if the remaining substring is a proper noun
+        if (checkProperNouns && i > 0) {
+            const remainingString = s.substring(i).replace(/ŋ/g, 'ng');
+            if (isProperNoun(remainingString)) {
+                console.log(`Found proper noun in substring: '${remainingString}'`);
+                // If we have a partial token, complete it first
+                if (tokenized[tokenized.length - 1] !== '') {
+                    if (!("$" in cur.children)) {
+                        const errorPos = i - tokenized[tokenized.length - 1].length;
+                        throw new Error(`Unparseable: incomplete token '${tokenized[tokenized.length - 1]}' at position ${errorPos} before proper noun. Input: "${s}"`);
+                    }
+                }
+                // Add the proper noun as a new token
+                tokenized.push(remainingString);
+                i = s.length; // Skip to the end
+                break;
+            }
+        }
+        
         let ch = s[i];
         let nextCh = s[i + 1] || ''; // Get next char, or '' if at end
         let combined = ch + nextCh;
@@ -98,6 +155,28 @@ function chomp_tokens(s) {
             i += 1;
         } else {
             if (tokenized[tokenized.length - 1] === '') {
+                // Check if the current position starts a proper noun
+                if (checkProperNouns) {
+                    let foundProperNoun = false;
+                    // Try different lengths of substrings starting at current position
+                    for (let j = s.length; j > i; j--) {
+                        const potentialProperNoun = s.substring(i, j).replace(/ŋ/g, 'ng');
+                        if (isProperNoun(potentialProperNoun)) {
+                            console.log(`Found proper noun at position ${i}: '${potentialProperNoun}'`);
+                            tokenized[tokenized.length - 1] = potentialProperNoun;
+                            i = j; // Skip to the end of the proper noun
+                            foundProperNoun = true;
+                            break;
+                        }
+                    }
+                    if (foundProperNoun) {
+                        // Start a new token
+                        tokenized.push('');
+                        cur = ROOT;
+                        continue;
+                    }
+                }
+                
                 // Error: Character cannot start a token
                 const errorPos = i;
                 throw new Error(`Unparseable: character '${ch}' at position ${errorPos} cannot start a token. Input: "${s}"`);
@@ -118,6 +197,7 @@ function chomp_tokens(s) {
         const errorPos = i - tokenized[tokenized.length - 1].length;
         throw new Error(`Unparseable: incomplete token '${tokenized[tokenized.length - 1]}' at position ${errorPos}. Input: "${s}"`);
     }
+    
     return tokenized
     .map(token => token.replace(/ŋ/g, 'ng'))
     .filter(token => token.trim() !== '');
