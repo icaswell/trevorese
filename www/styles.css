@@ -698,7 +698,7 @@ body .subprinciple {
 .table-container table th,
 .table-container table td {
     padding: 12px 15px;
-    border: none; /* Remove default border if any */
+    border: 1px solid #dddddd; /* Add visible cell borders */
     word-wrap: break-word; /* Keep word wrap */
     text-align: left; /* Keep text alignment */
 }
@@ -757,6 +757,29 @@ body .subprinciple {
 
 #periodic-table .table-container table tbody tr:last-of-type {
     border-bottom: 2px solid #00b893;
+}
+
+/* Phonology tab specific table styles */
+#phonology .table-container table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    width: 100%;
+}
+
+#phonology .table-container table th,
+#phonology .table-container table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#phonology .table-container table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+}
+
+#phonology .table-container table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
 }
 
 /* Specific Periodic Table Cell Styles */
