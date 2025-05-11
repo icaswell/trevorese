@@ -759,6 +759,29 @@ body .subprinciple {
     border-bottom: 2px solid #00b893;
 }
 
+/* Phonology tab specific table styles */
+#phonology .table-container table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    width: 100%;
+}
+
+#phonology .table-container table th,
+#phonology .table-container table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#phonology .table-container table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+}
+
+#phonology .table-container table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
 /* Specific Periodic Table Cell Styles */
 #periodic-table .table-container td.pt-grey {
     background-color: #666666; /* Dark grey */
