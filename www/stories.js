@@ -27,6 +27,13 @@ function parseStories(tsvContent) {
     
     // Process each line
     for (let i = 1; i < lines.length; i++) {
+        
+        // Skip lines that start with a tab (empty first column)
+        if (lines[i].startsWith('\t')) {
+            console.log("Skipping line with empty first column:", lines[i]);
+            continue;
+        }
+ 
         const line = lines[i].trim();
         
         // Skip empty lines
@@ -38,13 +45,7 @@ function parseStories(tsvContent) {
             currentStory = null;
             continue;
         }
-        
-        // Skip lines that start with a tab (empty first column)
-        if (line.startsWith('\t')) {
-            console.log("Skipping line with empty first column:", line);
-            continue;
-        }
-        
+       
         // Split the line into columns
         const columns = line.split('\t');
         const trevorese = columns[0] ? columns[0].trim() : "";

@@ -954,14 +954,63 @@ async function loadDictionaryData() {
         // Create reverse mapping (surface to gloss) for all words (both atomic and compound)
         window.surface_to_gloss = {};
         
-        // First add atomic words from atomgloss_to_surface mapping
+        // Temporary map to track surfaces that have multiple glosses
+        // This maps surface -> array of [gloss, atomic_number] pairs
+        const surfaceToGlossesMap = {};
+        
+        // First collect all atomic words with their atomic numbers
+        console.log("Collecting atomic words with their atomic numbers...");
         for (const gloss in window.atomgloss_to_surface) {
             const surface = window.atomgloss_to_surface[gloss];
             if (surface && !surface.startsWith("__")) { // Ensure surface exists and isn't special
-                // Only add atomic words here - these are single tokens
-                window.surface_to_gloss[surface] = gloss;
+                // Get the atomic number (a) for this gloss
+                const vocabEntry = all_vocabs.vocabs[gloss];
+                let atomicNumber = Number.MAX_SAFE_INTEGER; // Default to a high value if not found
+                
+                if (vocabEntry && vocabEntry.facets && vocabEntry.facets['a'] && vocabEntry.facets['a'][0]) {
+                    atomicNumber = parseInt(vocabEntry.facets['a'][0]);
+                }
+                
+                // Add to our temporary map
+                if (!surfaceToGlossesMap[surface]) {
+                    surfaceToGlossesMap[surface] = [];
+                }
+                surfaceToGlossesMap[surface].push([gloss, atomicNumber]);
             }
         }
+        
+        // Now process the map to select the gloss with the lowest atomic number for each surface
+        console.log("Selecting glosses with lowest atomic numbers...");
+        let duplicateSurfaceCount = 0;
+        
+        for (const surface in surfaceToGlossesMap) {
+            const glossPairs = surfaceToGlossesMap[surface];
+            
+            // If there's only one gloss for this surface, use it
+            if (glossPairs.length === 1) {
+                window.surface_to_gloss[surface] = glossPairs[0][0]; // Just use the gloss
+            } else {
+                // Multiple glosses for the same surface - select the one with lowest atomic number
+                duplicateSurfaceCount++;
+                
+                // Sort by atomic number (ascending)
+                glossPairs.sort((a, b) => a[1] - b[1]);
+                
+                // Use the gloss with the lowest atomic number
+                const selectedGloss = glossPairs[0][0];
+                window.surface_to_gloss[surface] = selectedGloss;
+                
+                // Log the duplicate for debugging
+                console.log(`Surface '${surface}' has multiple glosses:`, 
+                    glossPairs.map(pair => `${pair[0]} (a=${pair[1]})`).join(', '), 
+                    `- selected '${selectedGloss}'`);
+            }
+        }
+        
+        // Log summary
+        console.log(`Found ${duplicateSurfaceCount} surfaces with multiple glosses. Selected glosses with lowest atomic numbers.`);
+        console.log(`Note: This disambiguation by atomic number will be unnecessary when surface<>gloss mapping becomes bijective.`);
+        
         
         // Then add all words (including compounds) from vocabs
         // We don't add these to surface_to_gloss because they may contain spaces
