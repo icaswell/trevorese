@@ -299,7 +299,7 @@ let collapseState = true; // Default to collapsed (checked)
 
 // Function to toggle all collapsible sections
 function toggleAllCollapsibleSections(collapsed) {
-    collapseState = collapsed;
+    console.log(`Toggling all collapsible sections: ${collapsed ? 'collapsed' : 'expanded'}`);
     
     // Get the iframe documents
     const tutorialFrame = document.querySelector('#tutorial iframe');
@@ -352,12 +352,19 @@ function toggleCollapsibleInDoc(doc, collapsed) {
                 // Add the click handler to toggle visibility
                 header.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    // Toggle the open class
-                    this.classList.toggle('open');
+                    // Toggle the collapsed class
+                    this.classList.toggle('collapsed');
                     // Toggle the visibility of the next sibling (content)
                     const content = this.nextElementSibling;
                     if (content && content.classList.contains('collapsible-content')) {
-                        content.classList.toggle('open');
+                        // Support both style-based and class-based visibility
+                        if (content.style.display === 'none') {
+                            content.style.display = 'block';
+                            content.classList.add('open');
+                        } else {
+                            content.style.display = 'none';
+                            content.classList.remove('open');
+                        }
                     }
                 });
                 
@@ -373,12 +380,18 @@ function toggleCollapsibleInDoc(doc, collapsed) {
             
             if (content && content.classList.contains('collapsible-content')) {
                 if (collapsed) {
-                    // Collapse: remove 'open' class from header and content
-                    header.classList.remove('open');
+                    // Collapse: add 'collapsed' class to header if not already present
+                    if (!header.classList.contains('collapsed')) {
+                        header.classList.add('collapsed');
+                    }
+                    // Hide content - support both style and class methods
+                    content.style.display = 'none';
                     content.classList.remove('open');
                 } else {
-                    // Expand: add 'open' class to header and content
-                    header.classList.add('open');
+                    // Expand: remove 'collapsed' class from header
+                    header.classList.remove('collapsed');
+                    // Show content - support both style and class methods
+                    content.style.display = 'block';
                     content.classList.add('open');
                 }
             }
@@ -396,29 +409,31 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set initial state
         collapseState = collapseCheckbox.checked;
         
-        // Apply initial state after a short delay to ensure iframes are loaded
-        setTimeout(() => {
-            toggleAllCollapsibleSections(collapseState);
-        }, 1000);
-        
-        // Add event listener for checkbox changes
+        // Add event listener for checkbox change
         collapseCheckbox.addEventListener('change', () => {
             toggleAllCollapsibleSections(collapseCheckbox.checked);
         });
+        
+        // Apply initial state after iframes load
+        setTimeout(() => {
+            toggleAllCollapsibleSections(collapseState);
+        }, 1000);
     }
-    
-    // Add click event listeners to tab buttons for iframe content
-    document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            const tabId = tab.dataset.tab;
-            
-            // If tutorial, about, or phonology tab is clicked, ensure collapsible sections are properly set
-            if (tabId === 'tutorial' || tabId === 'about' || tabId === 'phonology') {
-                setTimeout(() => {
-                    toggleAllCollapsibleSections(collapseState);
-                }, 500);
-            }
-        });
+});
+
+// Add event listeners for tab clicks to maintain collapse state
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const tabId = tab.dataset.tab;
+        if (tabId === 'tutorial' || tabId === 'about' || tabId === 'phonology') {
+            // Wait a bit for iframe content to be accessible
+            setTimeout(() => {
+                const collapseCheckbox = document.getElementById('collapse-checkbox');
+                if (collapseCheckbox) {
+                    toggleAllCollapsibleSections(collapseCheckbox.checked);
+                }
+            }, 500);
+        }
     });
 });
 
