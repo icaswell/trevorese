@@ -698,7 +698,7 @@ body .subprinciple {
 .table-container table th,
 .table-container table td {
     padding: 12px 15px;
-    border: none; /* Remove default border if any */
+    border: 1px solid #dddddd; /* Add visible cell borders */
     word-wrap: break-word; /* Keep word wrap */
     text-align: left; /* Keep text alignment */
 }
