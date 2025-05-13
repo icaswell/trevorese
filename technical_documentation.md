@@ -129,6 +129,25 @@ Manages the UI display of dictionary entries and search results.
 #### Key Components:
 
 - **`createDictionaryHeaderDisplay(options)`**: Creates a standardized dictionary header display.
+
+### general.js
+
+Handles general UI functionality and interactions across the application, including the tutorial system.
+
+#### Key Components:
+
+- **Tab Navigation**: Manages switching between different tabs (About, Dictionary, Typing Tool, etc.)
+- **Collapsible Sections**: Handles expanding and collapsing sections in the UI
+- **Tutorial Content Processing**: 
+  - The tutorial.html file loads content from tutorial_part_1.html through tutorial_part_5.html using fetch requests
+  - `processSurfaceMode(doc, isSurfaceMode)`: Converts between gloss and surface representations in the tutorial content
+    - Finds all spans with gloss-related classes in the document
+    - For compound words (containing hyphens), splits by hyphen and looks up each part in `window.atomgloss_to_surface`
+    - For atomic words, looks up the gloss directly in `window.atomgloss_to_surface`
+    - Applies appropriate CSS classes based on lookup results:
+      - `surface` or `surface-emph`: When a gloss is successfully converted to surface form
+      - `gloss-notfound`: When a gloss cannot be found in the mapping (shown in red)
+    - Stores original content and classes to allow toggling between gloss and surface modes
   - Formats "surface (gloss)" with proper styling
 
 - **`FIELD_DISPLAY_ORDER`**: Defines the order of fields to display in dictionary entries.
@@ -190,7 +209,8 @@ The application uses several global window variables to store and access diction
 These window variables are initialized in the `loadDictionaryData()` function in dictionary.js and are used throughout the application for various conversion and display operations.
 
 
-## Special instructions (largely for AI cosing agent)
+## Special instructions (largely for AI coding agent)
 
  * no need to start a server up; there is already one running.
  * if you need to use python, use `python3` instead of `python`
+ * any styles should be put in styles.css; rmember that many styles are already defined (gloss, surface, etc) and don't need to be reinvented.

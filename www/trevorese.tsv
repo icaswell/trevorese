@@ -134,7 +134,7 @@ ko	arm			101	216			arm; branch; branch (in a river);  fork (in a river); protube
 mang	person			102	218		being	person; human									mang (id:0.8:mang=uncle; ig:0.2:mmadu=human; te:0.7:మానవుడు=human/మనిషి=man; sw:0.2:mtu; id:0.7:manusia; en:0.8:man; de:0.9:man; fil:0.8:mang=old man; id:01:orang); wang (en:one; id:orang); mu- (bnt)	jan
 nau	nose			103	220		point; smell-part	nose		to smell sth							nau (en:0.4:nose; ono:0.4; es:0.3:nariz=nose; pt:0.3:nariz=nose; it:0.4:naso=nose; fr:0.2:nez=nose; ru:0.3:нос=nose; fi:0.2:nenä=nose; de:0.3:Nase=nose; hi:0.3:नाक=nose; ); ti (id:titik; en:titty; en:tip; hi:tikha); gang (zh:exact)
 ka	eat			104	222					to eat sth;  to drink sth							ka (hi:0.9:kha; tpi:0.8:kaikai; id:0.3:makan, pcm:0.2:chop=eat; ar:0.1:yakul=eat, sw:0.5:kula=eat, es:0.5:comida=food;  pt:0.5:comida=food; sn:0.4:kudya=eat; th:0.2:kin=eat; zh:0.1:喝/he=drink; fi:0.6:ruokaa=food); tin (te:tin); kai (tpi:kaikai); chi  (zh:chi), cha (pcm:chop), 	moku
-pe	play			105	224		fun	play; game	playful; fun	to have fun; to play (with sth)							pe (en:0.7:play; ru:0.5:веселье=fun; id:0.6:permainan/bermain=game/play, fi:0.7:peli/pelata=game/play)	musi
+pe	play			105	224	TODO could be split to "good-time"	good-time; fun	play; game	playful; fun	to have fun; to play (with sth)							pe (en:0.7:play; ru:0.5:веселье=fun; id:0.6:permainan/bermain=game/play, fi:0.7:peli/pelata=game/play)	musi
 	no-play	serious		105.5				seriousness	serious; sobering
 meng	think			106	228	"TODO: change to mind; think is mind-feel (or just feel). Also life-see for feel [emotionally] ?
 TODO: consider ""gai"" (from concept); also is more different from ""ming"" meaning"		thought; belief; feeling; opinion; mind; sense; common sense; reason (e.g. Vernünft); concept	theoretical; conceptual; abstract; figurative; thoughtful	to think sth;  to think about sth; to believe sth;  to feel sth;  to opine sth; to consider sth; to reason abth sh; to conceptualize sth; to theorize							meng (es:0.5:mente=mind; pt:0.5:mente=mind; it:0.5:mente=mind;  ar:0.2:معتقد=thought; ru:0.5:мнение=opinion; id:0.3:merasa=feeling; fi:0.2:mieleen=mind; sw:0.2:mawazo/imani/maoni/maana=thought/belief/opinion/sense); kwa (fr:croire=to believe)
@@ -146,17 +146,19 @@ DONE consider change to ""tang"" aka make it the same as ""tongue""...and coinci
 	flat-time	sleep		110			sleep(dau)	sleep; nap	sleepy; tired	to nap							dau (es:0.8:dormir, fr:0.7:dormir, pt:0.8:dormir, de:0.5:Traum=dream; zh:0.5:jiao=sleep)	lape
 mu	female			111	238			female; girl; yin; woman	female; feminine								mu (es:0.6:mujer=woman; zh:0.7:母mu=mother; de:0.5:Mutter=mother; pt:0.6:mulher=woman; hi:0.2:महिला=female; ar:0.2:امرأة=woman; sn:0.6:mukadzi=female;  sn:0.6:musikana=girl; zh:0.3:nü=girl; vi:0.3:nữ; en:0.0:mother; ha:0.2:mace=female; ru:0.0:мать=mother); nyu (zh:nü; vi:nữ); kwi (en:queen, zh:qi/妻=wife)	meli
 gai	male			112	240			male; boy; yang; man	male; masculine								yang (zh:yang=masculine;goat); gai (en:1.0:guy, es:0.5:güe=ox/dude); boi (en:boy)	mije
-ma	love			114	242			love; affection; friendship	beloved; dear	to like sth;  to love sth							ma (efi:1.0:má, anw:1.0:má, ar:0.6:maħbub=beloved; fil:0.6:mahal=beloved; ha:0.6:masoyi=beloved; sn:0.2:mudiwa=beloved; de:0.7:mag; pt:0.7:ama; it:0.7:ama;  fil:0.7:mahalin=love; es:0.7:ama, sw:0.7:mapenzi=affection; sa:0.3:prema, id:0.2:mencintai=love, yrk-xx-tundra:0.1:nya=friend); nya (yrk-xx-tundra:friend)	olin
-ming	meaning			115	244	tok has this as an atom		meaning		to mean sth							ming (en:0.8:mean; hi:0.2:मतलब; ar:0.7:معنى; sw:0.7:maana; ha:0.7:ma'ana; vi:0.1:nghĩa; fi:0.2:merkitys; ms:0.2:maksudnya)
+ma	love			114	242			love; affection; friendship; care	beloved; dear	to like sth;  to love sth; to care for sth; to care about sth							ma (efi:1.0:má, anw:1.0:má, ar:0.6:maħbub=beloved; fil:0.6:mahal=beloved; ha:0.6:masoyi=beloved; sn:0.2:mudiwa=beloved; de:0.7:mag; pt:0.7:ama; it:0.7:ama;  fil:0.7:mahalin=love; es:0.7:ama, sw:0.7:mapenzi=affection; sa:0.3:prema, id:0.2:mencintai=love, yrk-xx-tundra:0.1:nya=friend); nya (yrk-xx-tundra:friend)	olin
+	?									to look after sth; to care for sth; to tend sth
+ming	meaning			115	246	tok has this as an atom		meaning		to mean sth							ming (en:0.8:mean; hi:0.2:मतलब; ar:0.7:معنى; sw:0.7:maana; ha:0.7:ma'ana; vi:0.1:nghĩa; fi:0.2:merkitys; ms:0.2:maksudnya)
 	no-meaning	meaningless		115.5				meaninglessness	meaningless
-mo	mark			116	248	"DONE: ""make write different from represent"" —> write —> flat-symbol
+mo	mark			116	250	"DONE: ""make write different from represent"" —> write —> flat-symbol
 DONE: change core meaning to ""mark"""	symbol	mark; letter; sign; representation; fleck	written	to mark sth; to write sth							mo (fr:0.9:mot=word; te:0.2:maata=word; es:0.2:marca=mark; pt:0.2:marca=mark; it:0.2:marca?=mark; fr:0.2:marque=mark; fil:0.2:marka=mark; fi:0.2:merkki=mark; de:0.2:markieren=mark; fil:0.2:menulis=write;  ar:0.2:مكتوب=written; )
-	?			117	250		fixed-thought; what-thing-think		decisive; picky; choosy								chu (en:choose, sw:chagua=choose; vi:để chọn=to pick; th:thichalueak=to choose sth; th:thichalueak=to pick sth; th:chuchichukchik=choosy; zh:xuan; en:judge) ; swa (zh:xun; fr:choix); kwa/mwa (sw:kuamua)
-ai	egg			118	252			egg									ai (de:1.0:ei; ru:0.7:яйцо=egg; sw:0.9:yai=egg; sn:0.6:zai=egg; ha:0.6:kwai=egg)
-mau	cat			119	254	note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.		cat	catlike								mau (zh:1.0:猫mao=cat; ono:0.7:meow; en:0.7:meow; vi:0.6:mèo=cat)
-kau	cow			120	256	note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.		cow									kau (en:1.0:cow; hi:0.3:गाय=cow; ru:0.3:корова=cow; de:0.7:Kuh)
+	?			117	252		fixed-thought; what-thing-think		decisive; picky; choosy								chu (en:choose, sw:chagua=choose; vi:để chọn=to pick; th:thichalueak=to choose sth; th:thichalueak=to pick sth; th:chuchichukchik=choosy; zh:xuan; en:judge) ; swa (zh:xun; fr:choix); kwa/mwa (sw:kuamua)
+ai	egg			118	254			egg									ai (de:1.0:ei; ru:0.7:яйцо=egg; sw:0.9:yai=egg; sn:0.6:zai=egg; ha:0.6:kwai=egg)
+mau	cat			119	256	note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.		cat	catlike								mau (zh:1.0:猫mao=cat; ono:0.7:meow; en:0.7:meow; vi:0.6:mèo=cat)
+kau	cow			120	258	note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.		cow									kau (en:1.0:cow; hi:0.3:गाय=cow; ru:0.3:корова=cow; de:0.7:Kuh)
 	what-talk	ask		121				request; ask; consultation		to request sth;  to ask (sth of sb); to consult sb							pwi (en:0.7:please; hi:0.3:पूछना=ask; ru:0.2:просить=ask; es:0.2:preguntar=ask; pt:0.2:perguntar=ask; fi:0.2:pyytää=request), pi (en:please); ba (zh:ba)
 	what-talk	question		121				question; guess		to ask sth;  to question sth;  to guess sth
+	big-sound							loud noise; yell; shout		to yell at sb; to shout at sb
 	be-thing	condition		122				case; situation; condition; phenomenon; 				if
 	self-do	become		123		TODO: combine with self-way?		event; happening; process; course of events		to become sth; to happen (to sb: direction being)
 	new-be	create		124		"new" as a verb would be "to refresh" etc.		creation		to build sth;  to create sth;  to make sth
@@ -185,7 +187,7 @@ kau	cow			120	256	note: a "transition metal" (aka an atom that is included that 
 	arm-have	grasp		144		to grasp something is the same as to understand sth in Englsish; same is true for zh 掌握 把握. Aka hand-have	anti-give	grip; grasp		to take sth  (from sb: of person); to grab sth (from sb: of person); to seize sth (from sb: of person); to wrest sth (from sb: of person); to understand sb/sth; to catch sth; to clench hand; to grip sth;  to grasp sth; to carry sth; to bring sth swh; to cope with sth; do deal with sth; to handle sth
 	arm-end-have thing like small-distance			145						to cling to sth
 	no-go	stop		146				stop	stopped	to stop sth;  to halt sth; to desist; to discontinue sth; [ to do ] to stop doing sth								pake
-	do go see mang			147						to visit sb
+	do go see person			147						to visit sb
 	this-go	come		148		used to be "go this place", but "go" feels so different from coming....		arrival		to come (to swh); to visit swh
 	this-go-person	visitor	come-person	149				visitor
 	place-be	wait		150				wait	waiting	to wait (for sth: direction thing); to stay swh
@@ -250,11 +252,11 @@ kau	cow			120	256	note: a "transition metal" (aka an atom that is included that 
 	give no-life-eat direction person			212						to poison sb
 	end-thing	conclusion		213		"finally" sort of wants to be "end-time" --- but let's unify unify unify		conclusion	final; finally	to conclude sth
 	end-direction	target		214				goal; target; aim	goal; target	to target sth; to aim (at sth)
-leng	link			214.1	448		connection	link; joint; connection; relationship; bridge; attachment	connected; related; attached; bridged; linked; tied	to connect (to sth/sb);  to join sth;  to have a relationship with sb/sth; to tie sth; to bind sth							leng (fr:0.6:lian=link; zh:0.7:lian=link; en:0.8:link; vi:0.7:liên kết; fi:0.7:linkki; id:0.2:lampiran=attachment; fi:0.2:liittyvät=related; fi:0.3:liite=attachment; fi:0.2:liitos=joint; pt:0.3:ligar=to tie); pwe (es:puente=bridge); tai (en:tie)
+leng	link			214.1	452		connection	link; joint; connection; relationship; bridge; attachment	connected; related; attached; bridged; linked; tied	to connect (to sth/sb);  to join sth;  to have a relationship with sb/sth; to tie sth; to bind sth							leng (fr:0.6:lian=link; zh:0.7:lian=link; en:0.8:link; vi:0.7:liên kết; fi:0.7:linkki; id:0.2:lampiran=attachment; fi:0.2:liittyvät=related; fi:0.3:liite=attachment; fi:0.2:liitos=joint; pt:0.3:ligar=to tie); pwe (es:puente=bridge); tai (en:tie)
 	link-body	sex		215				sex	sexy; sexual	to have sex (with sb/sth);  to have intercourse (with sb/sth)								unpa
 	no-link	release		216				release; freedom; relaxation; shot; projectile	wild; free	to free sth;  to shoot sth;  to release sth;  to sling sth;  to throw sth; to relax sth
 	no-link-time	leisure	release-time	217				leisure; relaxation; free-time
-kwe	order			217.1	456	"TODO: ""kwe"" is better for ""link"" or string
+kwe	order			217.1	460	"TODO: ""kwe"" is better for ""link"" or string
 DONE: could unify with ""string"". Decision: no!"		order; organization; arrangement	orderly; ordered; organized	to arrange sth; to organize sth;  to set sth in order							kwe (en:0.1:queue, ms:0.2:kemas=neat/tidy; es:0.2:sequencia/acuerdo;  de:0.2:Sequenz; fil:0.2:kaayusan=order; id:0.3:keteraturan=order; sn:0.2:kurongeka=order; te:0.1:క్రమబద్ధమైన=orderly; sw:0.2:kuamuru=ordered)
 	self-order	pattern		217.11				structure; pattern; design	structured
 	good-time-good-no-order	serendipity	good-time-luck	217.12		?? etymology?		serendipity	serendipitous
@@ -263,7 +265,7 @@ DONE: could unify with ""string"". Decision: no!"		order; organization; arrangem
 	good-no-order	luck	good-random	217.15				luck; fortune	lucky; fortunate
 	no-good-no-order	bad_luck	no-luck	217.16				bad luck	unlucky
 	no-order--four-side-body	dice	random-cube	217.17		aka random-cube		die/dice
-le	law			217.18	472	TODO unify with law?	official	rule; law	official; legal								le (es:1.0:ley; en:0.2:law; zh:0.2:律/lü=law; pt:1.0:lei=law; it:0.6:legge=law;        fr:0.2:loi=law; fi:0.2:lakia/laillinen=law/legal; vi:0.2:luật=law; de:0.2:Regel=rule; fil:0.5:legal=legal; id:0.5:legal=legal;); lai ( IE:l*); la (en:law);
+le	law			217.18	476	TODO unify with law?	official	rule; law	official; legal								le (es:1.0:ley; en:0.2:law; zh:0.2:律/lü=law; pt:1.0:lei=law; it:0.6:legge=law;        fr:0.2:loi=law; fi:0.2:lakia/laillinen=law/legal; vi:0.2:luật=law; de:0.2:Regel=rule; fil:0.5:legal=legal; id:0.5:legal=legal;); lai ( IE:l*); la (en:law);
 	no-law	unofficial		217.19					unofficial
 	law-energy	power		217.2				power (e.g. political power or jurisdiction); right (e.g. the right to do sth); control; governance	powerful	to control sth/sb;  to govern sth/sb;  to rule sth
 	law-female	wife		217.21				wife
@@ -333,6 +335,7 @@ le	law			217.18	472	TODO unify with law?	official	rule; law	official; legal					
 	eat-life-water--air-small-animal	mosquito	eat-blood-fly	270		aka drink-blood-fly; two-word compound (6+ syllables)		mosquito
 	sugar-small-animal	bee	sugar-bug	271				bee
 	small-animal-sugar	honey	bug-sugar	272				honey
+	big-plant-animal	squirrel	tree-animal	272.3				squirrel
 	hard-energy-animal	bear	strength-animal	273		Aka strong animal. TODO: to be etymologically aligned with Chinese, can-animal (capable animal) is very nice. 	can-animal; soil-color-being	bear									naked-snail (de: Naktschnecke)
 	small--hard-energy-animal	procyonid	small-bear	274		aka Kleinbär		raccoon; procyonid
 	do-no-dirt--hard-energy-animal	raccoon	do-cleanliness-bear	275		aka Wachbär, araiguma, 浣熊		<disambiguation form> raccoon
@@ -437,7 +440,7 @@ le	law			217.18	472	TODO unify with law?	official	rule; law	official; legal					
 	head-body	neck		372		aka trunk that holds the head		neck
 	long-small-end	spear	long-tip	373			direction-stem	ray; spear									gai (ga:gae)
 	plant-arm	branch		374				stick; branch									dang (hi:danda, te:danda, vi:dán)
-	big-plant-arm	bough	tree-branch	374.5				bough (as in English, just "branch" is normally used)
+	big-plant-arm	bough	tree-arm	374.5				bough (as in English, just "branch" is normally used)
 	back-arm	tail		375				tail
 	small-arm	finger		376		DONE: small-arm or small-end? small-end is odd because it has more of a "tip" meaning	small-arm; number	finger; twig		to point (at sth);  to point to sth;  to indicate sth;  to show sth (to sb: direction person); to finger sb						point (decimal)	dwi (en:twig, fr:doigt; la:digit)
 	like-thing-mark	image	like-thing-mark	377		DONE: merge with symbol etc?	flat-give-see; thing-mark	image; picture; depiction; drawing; painting		to depict sth; to draw sth; to paint sth
@@ -446,7 +449,7 @@ note 2: ""word"" and ""law"" have been de-merged. ""word"" has been changed to "
 	no-side	ball		379		"NOTE: ""all-side"" aka osai sounds nice and circly, but it's bad to have a/i/e/o quantifiers in the middle of compounds.
 DECIDED: decide about the preposition for ""to wind sth AROUND sth"" — we'll re-use circle even though it feels redundant. "	all-side; no-point-body	ball; circle; sphere; berry (of a plant); wheel; border; perimeter; rim; circle; ring	spherical; ball-like; circular; round; rounded	to circle; roll sth into a ball; to coil; to wind sth (around sth: all-side thing)							cho (ono:o; zh:qiu=ball)	sike
 	flat--no-side	circle	flat-ball	380		aka flat-ball	no-point	<disambiguitory_form> circle (if one needs to differentiate it from a ball)
-	no-side-body	sphere	ball-body	381				<disambiguitory_form>ball/sphere
+	body-no-side	sphere	ball-body	381				<disambiguitory_form>ball/sphere
 	no-side of small-arm			382				<disambiguitory_form> ring
 	self--no-side	spin	self-ball	383						to spin sth
 	hard-water	ice		384				ice
@@ -538,7 +541,7 @@ TODO may have to differentiate e.g. hair and stripe, e.g. a zebra has stripes ve
 	yellow-yellow-plant-color	extra_yellow_yellow_green	yellow-yellow_green	466			sun-sun-plant-color	extra yellow yellow-green	extra yellow yellow green	to become extra yellow yellow green; to make sth extra yellow yellow green
 	light-dark-color	grey	light-dark-color	467				grey	grey	to become grey; to make sth grey
 	light-light-dark-color	whitish_grey	light-light-dark-color	468				whitish grey	whitish grey	to become whitish grey; to make sth whitish grey
-	light-hot-color	pink	white-red	462.2				pink	pink
+	light-hot-color	pink	light-red	462.2				pink	pink
 	no-truth-talk	lie	no-truth-talk	469				lie	deceitful	to lie (to sb)
 	no-can	disallow		470		DECIDED: "consider no-allow instead of no-talk" — good idea; changed.	no-talk	refusal; ban	verboten; forbidden; disallowed	to refuse sth;  to say no (to sth); to forbid sth; to ban sth; to disallow sth
 	talk no direction person			471						to contradict sb
@@ -578,7 +581,8 @@ TODO may have to differentiate e.g. hair and stripe, e.g. a zebra has stripes ve
 	talk-place-person	translator	translation-person	517				translator
 	see-part-water	cry	eye-water	518				tears; tear	teary	to cry (about sth);  to lament sth;  to bemoan sth;  to complain about sth; to weep
 	big-person	adult		519				adult; parent		to grow?								mama
-	small-person	child		520				kid; child (son or daughter)	childlike
+	small-small-person	baby	small-child	520.4				baby	baby
+	small-person	child		520			new-person	kid; child (son or daughter)	childlike
 	male-energy	masculinity		521				masculinity	masculine
 	female-energy	feminity		522				feminity	feminine
 	female-part	vagina		523				vagina	vaginal; yonic
@@ -680,7 +684,7 @@ TODO may have to differentiate e.g. hair and stripe, e.g. a zebra has stripes ve
 	metal-see	shine		617		aka metallic appearance		shine	<disambiguation_form> shiny
 	big-plant-stuff-part	splinter	wood-part	618				splinter									wood-let (eo:  lignero a splinter, from 'wood')
 	flat-stuff-link	thread	cloth-link	619				<disambiguation_form> thread; string; rope	sewn	to sew
-	through-opening	hole		620				hole (going all the way through)
+	through-thing	hole		620			through-opening	hole (going all the way through)
 	big-over-thing	summit	big-top	621		done: uh wat TODO weird gloss	big-over-nose	summit (of a mountain)
 	play-energy	silly		622					silly; fun
 	no-play-energy	solemnity	no-silly	623				solemnity	serious; stern; solemn
@@ -734,7 +738,7 @@ TODO may have to differentiate e.g. hair and stripe, e.g. a zebra has stripes ve
 	break like small			670				crack	cracked	to crack sth
 	no-dirt	cleanliness		671				cleanliness		to clean sth;  to wash sth							l* (es:lavar,limpio, en:clean, vi:làm sạch=to clean, vi:lau dọn=clean, ar:lel-tazyi3=to clean sth; ar:li-tafsi7=to clean,  ja:arau=to wash)
 	head-opening	mouth		672			big-new-energy; bite-place; love-touch (for kiss)	mouth		to kiss sb; to mouth sth							bwa (de:boah); la (zh:la)	uta
-deng	tooth			672.5	1406	TODO: consider reprecating to hard-thing or hard-eat-thing etc. note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.	head-opening; bite-thing	bite; tooth		to bite sth;  to chew sth;  to gnaw sth; to nibble sth							"ku (ru:0.7:кусать=bite; hi:0.2:काटना=bite; fil 0.7:kumagat=bite; sw:0.7:kuuma=bite; te:0.3:కొరుకు=bite); meng (id:0.8:menggigit=bite); deng (pie:0.9:*denḱ-=bite, sq:0.7:dang=bite, es:0.2:diente=tooth; 	pt:0.2:dente=tooth; 	it:0.2:dente=tooth; 	fr:0.2:dent=tooth; hi:0.1:दाँत=tooth); dang (sq:1.0:dang=bite); nya (en:0.8:gnaw; vi:0.8:nhai=chew; ar:0.6:نخر=gnaw, de:0.7:nage; zh:0.1:yao; te:0.6:నమలడానికి=chew; fil:0.4:ngumunguya=chew); chu (en:chew);  yao (zh:yao), keng (zh:0.7:啃咬=bite)"
+deng	tooth			672.5	1414	TODO: consider reprecating to hard-thing or hard-eat-thing etc. note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.	head-opening; bite-thing	bite; tooth		to bite sth;  to chew sth;  to gnaw sth; to nibble sth							"ku (ru:0.7:кусать=bite; hi:0.2:काटना=bite; fil 0.7:kumagat=bite; sw:0.7:kuuma=bite; te:0.3:కొరుకు=bite); meng (id:0.8:menggigit=bite); deng (pie:0.9:*denḱ-=bite, sq:0.7:dang=bite, es:0.2:diente=tooth; 	pt:0.2:dente=tooth; 	it:0.2:dente=tooth; 	fr:0.2:dent=tooth; hi:0.1:दाँत=tooth); dang (sq:1.0:dang=bite); nya (en:0.8:gnaw; vi:0.8:nhai=chew; ar:0.6:نخر=gnaw, de:0.7:nage; zh:0.1:yao; te:0.6:నమలడానికి=chew; fil:0.4:ngumunguya=chew); chu (en:chew);  yao (zh:yao), keng (zh:0.7:啃咬=bite)"
 	small-tooth	nibble		673				nibble
 	tooth-animal	rodent		674		TOD collapsing bite and gnaw makes this a little weird...consider rename		mouse; rat; rodent
 	big-tooth-animal	rat	big-rodent	675				rat
@@ -778,7 +782,7 @@ deng	tooth			672.5	1406	TODO: consider reprecating to hard-thing or hard-eat-thi
 	hot-flat-place-fruit	ginger	hot-ground-fruit	713		aka aka spicy earth-fruit		ginger
 	small--see-part-water-plant	garlic	small-onion	714		aka aka small onion		garlic
 	small-plant	grass		715		TODO bad gloss?	link-plant	grass
-	red-fruit	apple		716		a universal specific concept, hence its own gloss. Also "lapa" sounds sort of like "apel"!		apple
+	hot-fruit	apple		716		a universal specific concept, hence its own gloss. Also "lapa" sounds sort of like "apel"!		apple
 	yellow-fruit	banana		717		a universal specific concept, hence its own gloss		banana
 	u_mango			718		TODO atomize		mango
 	u_tomato			719		TODO atomize		tomato
@@ -930,7 +934,7 @@ consider atome fo this semantic gap: prepare/ready/setup/install/construct/build
 	four-time	season		861		DONE: harmonize seasons vs months placement of nombers	four-dark-time-light-time [four-month]	season
 	no-hot-four-time	winter	no-hot-season	862	anti-hot-four-moon-time; dirt-time-one; no-hot-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	anti-hot-four-moon-time; dirt-time-one	winter
 	down-four-time	autumn	down-season	863	anti-up-four-moon-time; dirt-time-two; down-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	anti-up-four-moon-time; dirt-time-two	fall
-	up-four-time	spring	up-season	864	leaf-four-moon-time; dirt-time-three; up-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	leaf-four-moon-time; dirt-time-three	spring
+	over-four-time	spring	up-season	864	leaf-four-moon-time; dirt-time-three; over-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	leaf-four-moon-time; dirt-time-three	spring
 	hot-four-time	summer	hot-season	865	hot-four-moon-time; dirt-time-four; hot-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	hot-four-moon-time; dirt-time-four	summer
 	big-dirt-time	year	earth-time	866		change to big-time? 		year
 	hot-number	temperature		867				temperature
@@ -1009,6 +1013,7 @@ consider atome fo this semantic gap: prepare/ready/setup/install/construct/build
 	what-reason	why		945				why
 	what-time	when		947				when
 	what-way	how		948				how
+	number-two	number_two				written together for ease			number two
 	no person			949				no-one
 	no number			950				none
 	no place			951				nowhere
@@ -1020,7 +1025,7 @@ consider atome fo this semantic gap: prepare/ready/setup/install/construct/build
 	use-thing	tool		957			do-thing	tool										ilo
 	small-break-thing	knife	cut-thing	958				knife
 	do-mark-thing	pen	do-mark-thing	959				pen
-	get-hard-think-place	school	study-place	960		really need to consider adding "know" back	get-know-place	school
+	get-think-place	school	study-place	960		really need to consider adding "know" back	get-know-place	school
 	big-get-think-place	university	big-school	961		大学	big-get-know-place	university
 	new-be-eat-place	kitchen	create-eat-place	962				kitchen
 	water-go-place	swimming_pool	swim-place	963				swimming pool
@@ -1101,7 +1106,7 @@ TODO: slow destroy is to decompose?"	digest, decompose: antiwhole?	destruction; 
 	of this			1042					his
 	of me-number			1043			of me-group		ours; our
 	of this-number			1044			of this-group		their; theirs
-	sour-container-stuff							sourdough	sourdough
+	sour-container-stuff	sourdough	sour-dough					sourdough	sourdough
 	two-kind-love	bisexual	two-kind-love					bisexual	bisexual; bi
 	number-kind-love	polyamory	number-kind-love					polyamory	polyamorous
 	other-kind-love	heterosexual	other-kind-love					straightness; heterosexuality	straight; heterosexual
@@ -1115,15 +1120,116 @@ TODO: slow destroy is to decompose?"	digest, decompose: antiwhole?	destruction; 
 	self-metal	value				TODO bad gloss. big-think should be "to vlaue", but smart collision. big-thing? heart-gold? rare? kulibi? dayau? mengkang?		value; worth	valuable	to value sth; to treasure sth
 	small-see	rare						rarity	rare
 	small-see-thing	treasure	rare-thing					treasure
-	one-over-two	hundred						one hundred
-	one-over-three	thousand						one thousand
-	one-over-four	wan						ten thousand
-	one-over-five	lakh						one hundred thousand
-	one-over-six	million						one million
-	one-over-seven	crore						ten million
-	one-over-eight	yi						100 million
-	one-over-nine	billion						one billion
-	one-over-one-no	arab						ten billion
+	one-over	one_times_ten_to_the
+	one-over-two	hundred	one_times_ten_to_thetwo					one hundred
+	one-over-three	thousand	one_times_ten_to_thethree					one thousand
+	one-over-four	wan	one_times_ten_to_thefour					ten thousand
+	one-over-five	lakh	one_times_ten_to_thefive					one hundred thousand
+	one-over-six	million	one_times_ten_to_thesix					one million
+	one-over-seven	crore	one_times_ten_to_theseven					ten million
+	one-over-eight	yi	one_times_ten_to_theeight					100 million
+	one-over-nine	billion	one_times_ten_to_thenine					one billion
+	one-over-one-no	arab	one_times_ten_to_theten					ten billion
+	energy-arm	strike						strike; blow		to strike; to whip; to hit
+	link-energy-arm	whip	link-strike					whip		to whip; to flog
+	give-thing	gift						gift
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
