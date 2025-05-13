@@ -158,6 +158,23 @@
                     </tbody>
                 </table>
             </div>
+
+            <h2>Compounds with Undefined Atom Elements</h2>
+            <div class="todo-section">
+                <p>These compounds contain elements in their glosses that are not defined as atomic words in the dictionary.</p>
+                <table class="todo-table" id="undefined-atoms-table">
+                    <thead>
+                        <tr>
+                            <th>Gloss</th>
+                            <th>Surface</th>
+                            <th>Undefined Elements</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
             
             <h2>Missing Glosses</h2>
             <div class="todo-section">
@@ -233,14 +250,14 @@
 </div>
 
 <script src="dictionary.js"></script>
-<script src="display.js"></script>
-<script src="lookup.js"></script>
-<script src="general.js"></script>
-<script src="fsa.js"></script>
-<script src="todo.js"></script>
 <script src="io.js"></script>
-<script src="stories.js"></script>
+<script src="fsa.js"></script>
+<script src="display.js"></script>
+<script src="general.js"></script>
 <script src="tests.js"></script>
+<script src="stories.js"></script>
+<script src="todo.js"></script>
+<script src="undefined_atoms.js"></script>
 
 <!-- Word Info Popup -->
 <div id="word-info-popup" class="word-info-popup">
