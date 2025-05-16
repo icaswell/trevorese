@@ -137,41 +137,41 @@ class VocabEntry {
         this.calculateComplexity();
          // Verify the result
         // if (direct_debug) {
-        //     console.log("DIRECT_DEBUG: Final gloss:", this.gloss);
-        //     console.log("DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
-        //     console.log("DIRECT_DEBUG: surface:", this.surface);
-        //     console.log("DIRECT_DEBUG: atomic:", this.atomic);
-        //     console.log("DIRECT_DEBUG: complexity:", this.complexity);
-        //     console.log("DIRECT_DEBUG: hyphen_indices:", this.hyphen_indices);
-        //     console.log("DIRECT_DEBUG: facets:", this.facets);
-        //     console.log("DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
-        //     console.log("DIRECT_DEBUG: Is gloss_parts defined?", this.gloss_parts !== undefined);
-        //     console.log("DIRECT_DEBUG: Is gloss_parts an array?", Array.isArray(this.gloss_parts));
-        //     console.log("DIRECT_DEBUG: gloss_parts length:", this.gloss_parts.length);
+        //     console.log("dictionary.js: DIRECT_DEBUG: Final gloss:", this.gloss);
+        //     console.log("dictionary.js: DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
+        //     console.log("dictionary.js: DIRECT_DEBUG: surface:", this.surface);
+        //     console.log("dictionary.js: DIRECT_DEBUG: atomic:", this.atomic);
+        //     console.log("dictionary.js: DIRECT_DEBUG: complexity:", this.complexity);
+        //     console.log("dictionary.js: DIRECT_DEBUG: hyphen_indices:", this.hyphen_indices);
+        //     console.log("dictionary.js: DIRECT_DEBUG: facets:", this.facets);
+        //     console.log("dictionary.js: DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
+        //     console.log("dictionary.js: DIRECT_DEBUG: Is gloss_parts defined?", this.gloss_parts !== undefined);
+        //     console.log("dictionary.js: DIRECT_DEBUG: Is gloss_parts an array?", Array.isArray(this.gloss_parts));
+        //     console.log("dictionary.js: DIRECT_DEBUG: gloss_parts length:", this.gloss_parts.length);
         // }
                    
         // Enhanced debugging for "of-back-go--animal"
         // Check if the raw gloss contains the target string regardless of exact match
         if (direct_debug) {
-            console.log("DIRECT_DEBUG:%c FINAL SUMMARY FOR of-back-go--animal ", "background: #ff9800; color: white; font-weight: bold");
-            console.log("DIRECT_DEBUG:EXACT MATCH?", row[indices["gloss"]] === "of-back-go--animal");
-            console.log("DIRECT_DEBUG:raw gloss (with quotes):", JSON.stringify(row[indices["gloss"]]));
-            console.log("DIRECT_DEBUG:trimmed gloss (with quotes):", JSON.stringify(row[indices["gloss"]].trim()));
-            console.log("DIRECT_DEBUG:this.gloss (with quotes):", JSON.stringify(this.gloss));
-            console.log("DIRECT_DEBUG: complexity:", this.complexity);
+            console.log("dictionary.js: DIRECT_DEBUG:%c FINAL SUMMARY FOR of-back-go--animal ", "background: #ff9800; color: white; font-weight: bold");
+            console.log("dictionary.js: DIRECT_DEBUG:EXACT MATCH?", row[indices["gloss"]] === "of-back-go--animal");
+            console.log("dictionary.js: DIRECT_DEBUG:raw gloss (with quotes):", JSON.stringify(row[indices["gloss"]]));
+            console.log("dictionary.js: DIRECT_DEBUG:trimmed gloss (with quotes):", JSON.stringify(row[indices["gloss"]].trim()));
+            console.log("dictionary.js: DIRECT_DEBUG:this.gloss (with quotes):", JSON.stringify(this.gloss));
+            console.log("dictionary.js: DIRECT_DEBUG: complexity:", this.complexity);
             
             // More detailed gloss_parts logging
-            console.log("DIRECT_DEBUG:gloss_parts:", this.gloss_parts);
-            console.log("DIRECT_DEBUG:gloss_parts type:", typeof this.gloss_parts);
-            console.log("DIRECT_DEBUG:Is gloss_parts defined?", this.gloss_parts !== undefined);
-            console.log("DIRECT_DEBUG:Is gloss_parts an array?", Array.isArray(this.gloss_parts));
-            console.log("DIRECT_DEBUG:gloss_parts length:", this.gloss_parts ? this.gloss_parts.length : "undefined");
-            console.log("DIRECT_DEBUG:gloss_parts stringified:", JSON.stringify(this.gloss_parts));
+            console.log("dictionary.js: DIRECT_DEBUG:gloss_parts:", this.gloss_parts);
+            console.log("dictionary.js: DIRECT_DEBUG:gloss_parts type:", typeof this.gloss_parts);
+            console.log("dictionary.js: DIRECT_DEBUG:Is gloss_parts defined?", this.gloss_parts !== undefined);
+            console.log("dictionary.js: DIRECT_DEBUG:Is gloss_parts an array?", Array.isArray(this.gloss_parts));
+            console.log("dictionary.js: DIRECT_DEBUG:gloss_parts length:", this.gloss_parts ? this.gloss_parts.length : "undefined");
+            console.log("dictionary.js: DIRECT_DEBUG:gloss_parts stringified:", JSON.stringify(this.gloss_parts));
             
-            console.log("DIRECT_DEBUG:hyphen_indices:", this.hyphen_indices);
-            console.log("DIRECT_DEBUG:facets:", JSON.stringify(this.facets, null, 2));
-            console.log("DIRECT_DEBUG:atomic:", this.atomic);
-            console.log("DIRECT_DEBUG:surface:", this.surface);
+            console.log("dictionary.js: DIRECT_DEBUG:hyphen_indices:", this.hyphen_indices);
+            console.log("dictionary.js: DIRECT_DEBUG:facets:", JSON.stringify(this.facets, null, 2));
+            console.log("dictionary.js: DIRECT_DEBUG:atomic:", this.atomic);
+            console.log("dictionary.js: DIRECT_DEBUG:surface:", this.surface);
         }
         
 
@@ -235,7 +235,7 @@ class VocabEntry {
         const hasDoubleHyphens = gloss.includes('--');
         
         if (hasDoubleHyphens && debug) {
-            console.log(`Processing entry with double hyphens: ${gloss}`);
+            console.log(`dictionary.js: Processing entry with double hyphens: ${gloss}`);
         }
         
         if (hasDoubleHyphens) {
@@ -607,8 +607,8 @@ class Dictionary {
             isTargetEntry = sentence.gloss === "of-back-go--animal";
             
             if (isTargetEntry) {
-                console.log("get_surface called for of-back-go--animal");
-                console.log("hyphen_indices:", hyphenIndices);
+                console.log("dictionary.js: get_surface called for of-back-go--animal");
+                console.log("dictionary.js: hyphen_indices:", hyphenIndices);
             }
             
             sentence = sentence.gloss;
@@ -616,17 +616,17 @@ class Dictionary {
         
         if (sentence === "of-back-go--animal") {
             isTargetEntry = true;
-            console.log("get_surface called with of-back-go--animal string");
+            console.log("dictionary.js: get_surface called with of-back-go--animal string");
         }
         
         // Handle compound words with spaces in their parts
         if (isTargetEntry) {
-            console.log("Tokenizing of-back-go--animal:");
+            console.log("dictionary.js: Tokenizing of-back-go--animal:");
         }
         const [words, punct] = this.tokenize(sentence);
         if (isTargetEntry) {
-            console.log("Tokenization result - words:", words);
-            console.log("Tokenization result - punct:", punct);
+            console.log("dictionary.js: Tokenization result - words:", words);
+            console.log("dictionary.js: Tokenization result - punct:", punct);
         }
         
         // surfs: Array to store the surface form for each word in the gloss
@@ -693,14 +693,14 @@ class Dictionary {
 
     calculateAllComplexities() {
         // Calculate complexity for all vocab entries after dictionary is fully loaded
-        console.log("Calculating complexities for all dictionary entries...");
+        console.log("dictionary.js: Calculating complexities for all dictionary entries...");
         for (const gloss in this.vocabs) {
             this.vocabs[gloss].calculateComplexity();
         }
     }
     
     computeDescendants() {
-        console.log("ENTER: computeDescendants method");
+        console.log("dictionary.js: ENTER: computeDescendants method");
         
         // Create supergloss_to_v map
         const supergloss_to_v = {};
@@ -719,12 +719,12 @@ class Dictionary {
         const gloss_to_supercompound = {};
         let supercompoundCount = 0;
         let vocabsCount = Object.keys(this.vocabs).length;
-        console.log(`Checking ${vocabsCount} vocab entries for supercompound facets...`);
+        console.log(`dictionary.js: Checking ${vocabsCount} vocab entries for supercompound facets...`);
         
         // Debug: Check a few vocab entries to see if they have supercompound facets
         const sampleVocabs = Object.entries(this.vocabs).slice(0, 5);
         for (const [gloss, v] of sampleVocabs) {
-            console.log(`Sample vocab '${gloss}':`, {
+            console.log(`dictionary.js: Sample vocab '${gloss}':`, {
                 hasFacets: !!v.facets,
                 facetKeys: v.facets ? Object.keys(v.facets) : 'none',
                 hasSupercompound: v.facets && v.facets.supercompound,
@@ -740,14 +740,14 @@ class Dictionary {
                 
                 // Log the first few entries we find
                 if (supercompoundCount <= 3) {
-                    console.log(`Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
+                    console.log(`dictionary.js: Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
                 }
             }
         }
         
         // Assign to window variable for global access
         window.gloss_to_supercompound = gloss_to_supercompound;
-        console.log(`Created gloss_to_supercompound map with ${supercompoundCount} entries:`, 
+        console.log(`dictionary.js: Created gloss_to_supercompound map with ${supercompoundCount} entries:`, 
                    supercompoundCount > 0 ? Object.keys(gloss_to_supercompound).slice(0, 10) : 'EMPTY');
         
         if (supercompoundCount === 0) {
@@ -775,12 +775,12 @@ class Dictionary {
                 ? v.facets.supercompound[0] 
                 : v.gloss;
             
-            // console.log(`Expanding supercompound for ${v.gloss}: ${supercomp} (depth: ${depth})`);
+            // console.log(`dictionary.js: Expanding supercompound for ${v.gloss}: ${supercomp} (depth: ${depth})`);
             
             const ancestors = [];
             const subglosses = supercomp.split('-');
             
-            // console.log(`Children of ${v.gloss}: ${JSON.stringify(subglosses)}`);
+            // console.log(`dictionary.js: Children of ${v.gloss}: ${JSON.stringify(subglosses)}`);
             
             for (const subgloss of subglosses) {
                 if (!supergloss_to_v[subgloss]) {
@@ -795,7 +795,7 @@ class Dictionary {
             // Add this vocab entry as a descendant to all its ancestors
             for (const ancestor of ancestors) {
                 if (gloss_to_descendants[ancestor]) {
-                    // console.log(`Adding ${v.gloss} as descendant to ${ancestor}`);
+                    // console.log(`dictionary.js: Adding ${v.gloss} as descendant to ${ancestor}`);
                     gloss_to_descendants[ancestor].add(v.gloss);
                 }
             }
@@ -826,17 +826,17 @@ class Dictionary {
             }
         }
         
-        console.log(`Supercompound validation: ${correct} correct, ${incorrect} incorrect`);
+        console.log(`dictionary.js: Supercompound validation: ${correct} correct, ${incorrect} incorrect`);
         
         // Special logging for 'dirt-time-one'
         if (this.vocabs['dirt-time-one']) {
-            console.log("Special logging for 'dirt-time-one':");
+            console.log("dictionary.js: Special logging for 'dirt-time-one':");
             expand_supercompound(this.vocabs['dirt-time-one']);
         }
         
         // Log descendants of 'dirt'
         if (gloss_to_descendants['dirt']) {
-            console.log("Descendants of 'dirt':", Array.from(gloss_to_descendants['dirt']));
+            console.log("dictionary.js: Descendants of 'dirt':", Array.from(gloss_to_descendants['dirt']));
         }
         
         // Store the descendants in each vocab entry
@@ -846,7 +846,7 @@ class Dictionary {
             }
         }
         
-        console.log("Descendants computation complete.");
+        console.log("dictionary.js: Descendants computation complete.");
         return gloss_to_descendants;
     }
 }
@@ -854,7 +854,7 @@ class Dictionary {
 // --- Data Loading and Processing ---
 
 async function loadDictionaryData() {
-    console.log("Fetching trevorese.tsv...");
+    console.log("dictionary.js: Fetching trevorese.tsv...");
     try {
         // Initialize window variables that will be used for both regular dictionary and proper nouns
         window.proper_nouns = {}; // Store proper nouns mapping: surface -> gloss
@@ -866,11 +866,11 @@ async function loadDictionaryData() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const tsvData = await response.text();
-        console.log("TSV data fetched.");
+        console.log("dictionary.js: TSV data fetched.");
         
         // Parse TSV with proper handling of quoted fields that may contain newlines
         const rows = parseTSV(tsvData);
-        console.log(`Parsed ${rows.length} rows from TSV.`);
+        console.log(`dictionary.js: Parsed ${rows.length} rows from TSV.`);
 
         const all_vocabs = new Dictionary();
         let indices = {};
@@ -879,7 +879,7 @@ async function loadDictionaryData() {
         for (const row of rows) {
             // Simple header check (adjust if needed based on actual header content)
             if (!headerFound && row.includes("gloss")) {
-                 console.log("Header found");
+                 console.log("dictionary.js: Header found");
                  indices = {}; // Reset indices for safety
                  row.forEach((col, index) => {
                      if (col.trim()) { // Only map non-empty column names
@@ -892,7 +892,7 @@ async function loadDictionaryData() {
                      throw new Error("Invalid TSV header: missing 'gloss'.");
                  }
                  headerFound = true;
-                 console.log("Indices mapped:", indices);
+                 console.log("dictionary.js: Indices mapped:", indices);
             } else if (headerFound) {
                  // This is a vocab entry row
                  if (indices["gloss"] === undefined || !row[indices["gloss"]]) continue; // Skip rows without a gloss
@@ -910,9 +910,9 @@ async function loadDictionaryData() {
              throw new Error("Could not parse TSV header.");
         }
         
-        console.log("Initial dictionary populated:", all_vocabs.toString());
+        console.log("dictionary.js: Initial dictionary populated:", all_vocabs.toString());
         all_vocabs.surface_all_molecules();
-        console.log("Molecule surfaces calculated.");
+        console.log("dictionary.js: Molecule surfaces calculated.");
 
         // Assign to window variables (mirroring Python JSON creation)
         window.trevorese_dictionary = all_vocabs;
@@ -926,16 +926,16 @@ async function loadDictionaryData() {
         }
         
         // Compute descendants for all vocabulary entries
-        console.log("About to compute descendants...");
+        console.log("dictionary.js: About to compute descendants...");
         try {
             all_vocabs.computeDescendants();
-            console.log("computeDescendants completed successfully");
+            console.log("dictionary.js: computeDescendants completed successfully");
         } catch (error) {
             console.error("Error in computeDescendants:", error);
         }
         
         // Verify gloss_to_supercompound was populated
-        console.log(`After computeDescendants, window.gloss_to_supercompound has ${Object.keys(window.gloss_to_supercompound).length} entries`);
+        console.log(`dictionary.js: After computeDescendants, window.gloss_to_supercompound has ${Object.keys(window.gloss_to_supercompound).length} entries`);
         if (Object.keys(window.gloss_to_supercompound).length > 0) {
             console.log('Sample entries:', Object.entries(window.gloss_to_supercompound).slice(0, 5));
         } else {
@@ -959,7 +959,7 @@ async function loadDictionaryData() {
         const surfaceToGlossesMap = {};
         
         // First collect all atomic words with their atomic numbers
-        console.log("Collecting atomic words with their atomic numbers...");
+        console.log("dictionary.js: Collecting atomic words with their atomic numbers...");
         for (const gloss in window.atomgloss_to_surface) {
             const surface = window.atomgloss_to_surface[gloss];
             if (surface && !surface.startsWith("__")) { // Ensure surface exists and isn't special
@@ -980,7 +980,7 @@ async function loadDictionaryData() {
         }
         
         // Now process the map to select the gloss with the lowest atomic number for each surface
-        console.log("Selecting glosses with lowest atomic numbers...");
+        console.log("dictionary.js: Selecting glosses with lowest atomic numbers...");
         let duplicateSurfaceCount = 0;
         
         for (const surface in surfaceToGlossesMap) {
@@ -1001,15 +1001,15 @@ async function loadDictionaryData() {
                 window.surface_to_gloss[surface] = selectedGloss;
                 
                 // Log the duplicate for debugging
-                console.log(`Surface '${surface}' has multiple glosses:`, 
+                console.log(`dictionary.js: Surface '${surface}' has multiple glosses:`, 
                     glossPairs.map(pair => `${pair[0]} (a=${pair[1]})`).join(', '), 
                     `- selected '${selectedGloss}'`);
             }
         }
         
         // Log summary
-        console.log(`Found ${duplicateSurfaceCount} surfaces with multiple glosses. Selected glosses with lowest atomic numbers.`);
-        console.log(`Note: This disambiguation by atomic number will be unnecessary when surface<>gloss mapping becomes bijective.`);
+        console.log(`dictionary.js: Found ${duplicateSurfaceCount} surfaces with multiple glosses. Selected glosses with lowest atomic numbers.`);
+        console.log(`dictionary.js: Note: This disambiguation by atomic number will be unnecessary when surface<>gloss mapping becomes bijective.`);
         
         
         // Then add all words (including compounds) from vocabs
@@ -1070,7 +1070,7 @@ async function loadDictionaryData() {
         for (let i = 1; i < Math.min(5, rows.length); i++) {
             const row = rows[i];
             if (indices.supercompound !== undefined && row[indices.supercompound]) {
-                console.log(`Row ${i} has supercompound:`, {
+                console.log(`dictionary.js: Row ${i} has supercompound:`, {
                     gloss: row[indices.gloss],
                     supercompound: row[indices.supercompound]
                 });
@@ -1085,7 +1085,7 @@ async function loadDictionaryData() {
         console.log('Checking sample vocab entries for supercompound facets:');
         const sampleVocabs = Object.entries(all_vocabs.vocabs).slice(0, 5);
         for (const [gloss, v] of sampleVocabs) {
-            console.log(`Sample vocab '${gloss}':`, {
+            console.log(`dictionary.js: Sample vocab '${gloss}':`, {
                 hasFacets: !!v.facets,
                 facetKeys: v.facets ? Object.keys(v.facets) : 'none',
                 hasSupercompound: v.facets && v.facets.supercompound,
@@ -1102,12 +1102,12 @@ async function loadDictionaryData() {
                 
                 // Log a few examples for debugging
                 if (supercompoundCount <= 3) {
-                    console.log(`Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
+                    console.log(`dictionary.js: Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
                 }
             }
         }
         
-        console.log(`Populated window.gloss_to_supercompound with ${supercompoundCount} entries`);
+        console.log(`dictionary.js: Populated window.gloss_to_supercompound with ${supercompoundCount} entries`);
         if (supercompoundCount > 0) {
             console.log('Sample entries:', Object.entries(window.gloss_to_supercompound).slice(0, 5));
         } else {
@@ -1136,30 +1136,30 @@ async function loadDictionaryData() {
             console.error("Could not find topBox element to attach listener.");
         }
 
-        console.log("Trevorese dictionary and related data loaded and assigned to window.");
-        console.log("window.trevorese_dictionary:", window.trevorese_dictionary);
-        console.log("window.atomgloss_to_surface count:", Object.keys(window.atomgloss_to_surface).length);
-        console.log("window.compounds count:", Object.keys(window.compounds).length);
-        console.log("window.english_to_gloss count:", Object.keys(window.english_to_gloss).length);
-        console.log("window.atomgloss_to_surface_hypertrevorese count:", Object.keys(window.atomgloss_to_surface_hypertrevorese).length);
+        console.log("dictionary.js: Trevorese dictionary and related data loaded and assigned to window.");
+        console.log("dictionary.js: window.trevorese_dictionary:", window.trevorese_dictionary);
+        console.log("dictionary.js: window.atomgloss_to_surface count:", Object.keys(window.atomgloss_to_surface).length);
+        console.log("dictionary.js: window.compounds count:", Object.keys(window.compounds).length);
+        console.log("dictionary.js: window.english_to_gloss count:", Object.keys(window.english_to_gloss).length);
+        console.log("dictionary.js: window.atomgloss_to_surface_hypertrevorese count:", Object.keys(window.atomgloss_to_surface_hypertrevorese).length);
         
         // Calculate complexity for all entries after dictionary is fully loaded
         window.trevorese_dictionary.calculateAllComplexities();
-        console.log("Complexities calculated for all dictionary entries.");
+        console.log("dictionary.js: Complexities calculated for all dictionary entries.");
         
         // Now load proper nouns from propernouns.tsv
-        console.log("Fetching propernouns.tsv...");
+        console.log("dictionary.js: Fetching propernouns.tsv...");
         try {
             const properNounsResponse = await fetch('./propernouns.tsv?v=' + Date.now()); // Cache bust
             if (!properNounsResponse.ok) {
                 console.warn(`Warning: Could not load propernouns.tsv. Status: ${properNounsResponse.status}`);
             } else {
                 const properNounsTsvData = await properNounsResponse.text();
-                console.log("Proper nouns TSV data fetched.");
+                console.log("dictionary.js: Proper nouns TSV data fetched.");
                 
                 // Parse TSV with proper handling of quoted fields that may contain newlines
                 const properNounsRows = parseTSV(properNounsTsvData);
-                console.log(`Parsed ${properNounsRows.length} rows from propernouns.tsv.`);
+                console.log(`dictionary.js: Parsed ${properNounsRows.length} rows from propernouns.tsv.`);
                 
                 let properNounsIndices = {};
                 let properNounsHeaderFound = false;
@@ -1168,7 +1168,7 @@ async function loadDictionaryData() {
                 for (const row of properNounsRows) {
                     // Simple header check
                     if (!properNounsHeaderFound && row.includes("surface") && row.includes("gloss")) {
-                        console.log("Proper nouns header found");
+                        console.log("dictionary.js: Proper nouns header found");
                         properNounsIndices = {}; // Reset indices for safety
                         row.forEach((col, index) => {
                             if (col.trim()) { // Only map non-empty column names
@@ -1181,7 +1181,7 @@ async function loadDictionaryData() {
                             throw new Error("Invalid propernouns.tsv header: missing 'surface' or 'gloss'.");
                         }
                         properNounsHeaderFound = true;
-                        console.log("Proper nouns indices mapped:", properNounsIndices);
+                        console.log("dictionary.js: Proper nouns indices mapped:", properNounsIndices);
                     } else if (properNounsHeaderFound) {
                         // This is a proper noun entry row
                         const surface = row[properNounsIndices["surface"]]?.trim();
@@ -1189,7 +1189,7 @@ async function loadDictionaryData() {
                         
                         // Skip entries without a surface or gloss
                         if (!surface || !gloss) {
-                            console.log(`Skipping proper noun entry without surface or gloss: ${JSON.stringify(row)}`);
+                            console.log(`dictionary.js: Skipping proper noun entry without surface or gloss: ${JSON.stringify(row)}`);
                             continue;
                         }
                         
@@ -1210,14 +1210,14 @@ async function loadDictionaryData() {
                         
                         // Log a few examples for debugging
                         if (properNounsCount <= 5) {
-                            console.log(`Added proper noun: surface='${surface}', gloss='${gloss}'`);
+                            console.log(`dictionary.js: Added proper noun: surface='${surface}', gloss='${gloss}'`);
                         }
                     }
                 }
                 
-                console.log(`Added ${properNounsCount} proper nouns to the dictionary`);
-                console.log(`window.proper_nouns count: ${Object.keys(window.proper_nouns).length}`);
-                console.log(`window.proper_noun_glosses count: ${window.proper_noun_glosses.size}`);
+                console.log(`dictionary.js: Added ${properNounsCount} proper nouns to the dictionary`);
+                console.log(`dictionary.js: window.proper_nouns count: ${Object.keys(window.proper_nouns).length}`);
+                console.log(`dictionary.js: window.proper_noun_glosses count: ${window.proper_noun_glosses.size}`);
                 
                 if (properNounsCount > 0) {
                     console.log('Sample proper nouns:', Object.entries(window.proper_nouns).slice(0, 5));

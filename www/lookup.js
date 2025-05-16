@@ -4,20 +4,35 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ DICTIONARY SEARCH ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 function searchDictionary(query) {
-    console.log('Searching for:', query);
+    console.log('lookup.js: Searching for:', query);
+    
+    // Check if trevorese_dictionary is available
+    if (!window.trevorese_dictionary) {
+        console.error('lookup.js: trevorese_dictionary is not available!');
+        document.getElementById('dictionary-results').innerHTML = '<p>Dictionary data is still loading. Please try again in a moment.</p>';
+        return;
+    }
+    
     if (!query || query.trim() === '') {
         // Clear results if query is empty
+        console.log('lookup.js: Empty query, clearing results');
         document.getElementById('dictionary-results').innerHTML = '';
         return;
     }
 
     query = query.trim().toLowerCase();
+    console.log('lookup.js: Normalized query:', query);
     
     // Results container
     const dictionaryResults = document.getElementById('dictionary-results');
+    if (!dictionaryResults) {
+        console.error('lookup.js: Could not find dictionary-results element!');
+        return;
+    }
     
     // Clear previous results
     dictionaryResults.innerHTML = '';
+    console.log('lookup.js: Cleared previous results');
     
     // Combined results array to store all matches
     let allMatches = [];
@@ -93,14 +108,14 @@ function searchDictionary(query) {
         }
         
         // Search for compound surfaces using our precomputed map
-        console.log('Searching for compound surfaces that match:', query);
+        console.log('lookup.js: Searching for compound surfaces that match:', query);
         
         if (window.surface_to_gloss) {
             for (const surface in window.surface_to_gloss) {
                 if (surface.toLowerCase().includes(query)) {
                     const gloss = window.surface_to_gloss[surface];
                     if (!addedGlosses.has(gloss) && window.trevorese_dictionary.vocabs[gloss]) {
-                        console.log('Found compound match:', gloss, 'with surface:', surface);
+                        console.log('lookup.js: Found compound match:', gloss, 'with surface:', surface);
                         allMatches.push({
                             gloss: gloss,
                             surface: surface,
@@ -111,9 +126,9 @@ function searchDictionary(query) {
                     }
                 }
             }
-            console.log('Checked', Object.keys(window.surface_to_gloss).length, 'compound entries');
+            console.log('lookup.js: Checked', Object.keys(window.surface_to_gloss).length, 'compound entries');
         } else {
-            console.log('Compound surface map not available');
+            console.log('lookup.js: Compound surface map not available');
         }
     }
     
@@ -149,7 +164,7 @@ function searchDictionary(query) {
 
 // Build a mapping of compound surfaces to glosses
 function buildCompoundSurfaceMap() {
-    console.log('Building compound surface map...');
+    console.log('lookup.js: Building compound surface map...');
     // Make sure window.surface_to_gloss exists
     if (!window.surface_to_gloss) {
         window.surface_to_gloss = {};
@@ -183,18 +198,23 @@ function buildCompoundSurfaceMap() {
     // For backward compatibility
     window.compound_surface_to_gloss = window.surface_to_gloss;
     
-    console.log('Surface-to-gloss map built with', Object.keys(window.surface_to_gloss).length, 'entries');
+    console.log('lookup.js: Surface-to-gloss map built with', Object.keys(window.surface_to_gloss).length, 'entries');
 }
 
 // Initialize dictionary search when the page loads
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('lookup.js: DOMContentLoaded event fired');
+    
     // Build the compound surface map after the dictionary is loaded
     if (window.trevorese_dictionary) {
+        console.log('lookup.js: trevorese_dictionary is available immediately');
         buildCompoundSurfaceMap();
     } else {
+        console.log('lookup.js: Waiting for trevorese_dictionary to be available');
         // If dictionary isn't loaded yet, wait for it
         const checkDictionary = setInterval(function() {
             if (window.trevorese_dictionary) {
+                console.log('lookup.js: trevorese_dictionary is now available');
                 buildCompoundSurfaceMap();
                 clearInterval(checkDictionary);
             }
@@ -202,9 +222,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const searchInput = document.getElementById('dictionary-search');
+    console.log('lookup.js: Dictionary search input element:', searchInput);
+    
     if (searchInput) {
+        console.log('lookup.js: Adding input event listener to dictionary search');
         searchInput.addEventListener('input', function() {
+            console.log('lookup.js: Search input event fired with value:', this.value);
             searchDictionary(this.value);
         });
+        
+        // Also add a focus event listener to help with debugging
+        searchInput.addEventListener('focus', function() {
+            console.log('lookup.js: Search input focused');
+        });
+    } else {
+        console.error('lookup.js: Could not find dictionary-search element!');
     }
 });

@@ -11,12 +11,15 @@
 // Global variables
 let stories = [];
 
+// Define the eye icon as a variable for easy updating
+const EYE_ICON = '👁'; // 'ᘛ⁐̤ᕐᐷ'; //'👁';
+
 /**
  * Parse the stories.tsv file and organize stories
  * @param {string} tsvContent - The content of the stories.tsv file
  */
 function parseStories(tsvContent) {
-    console.log("Parsing stories from TSV...");
+    console.log("stories.js: Parsing stories from TSV...");
     
     // Split the content into lines
     const lines = tsvContent.split('\n');
@@ -30,7 +33,7 @@ function parseStories(tsvContent) {
         
         // Skip lines that start with a tab (empty first column)
         if (lines[i].startsWith('\t')) {
-            console.log("Skipping line with empty first column:", lines[i]);
+            console.log("stories.js: Skipping line with empty first column:", lines[i]);
             continue;
         }
  
@@ -67,7 +70,7 @@ function parseStories(tsvContent) {
             };
             stories.push(currentStory);
             storyCount++;
-            console.log(`Story ${storyCount}: "${trevorese}" (${english})`);
+            console.log(`stories.js: Story ${storyCount}: "${trevorese}" (${english})`);
         } else {
             // Add this line to the current story
             currentStory.lines.push({
@@ -78,12 +81,12 @@ function parseStories(tsvContent) {
             
             // Log the first line of each story
             if (currentStory.lines.length === 1) {
-                console.log(`First line: "${trevorese}" (${english})`);
+                console.log(`stories.js: First line: "${trevorese}" (${english})`);
             }
         }
     }
     
-    console.log(`Total stories parsed: ${storyCount}`);
+    console.log(`stories.js: Total stories parsed: ${storyCount}`);
     return stories;
 }
 
@@ -94,37 +97,37 @@ function parseStories(tsvContent) {
  */
 function isWordGlossable(word) {
     try {
-        console.log(`Checking if word is glossable: '${word}'`);
+        console.log(`stories.js: Checking if word is glossable: '${word}'`);
         
         // First check if the word is a proper noun
         if (window.proper_nouns && word in window.proper_nouns) {
-            console.log(`Word '${word}' is a proper noun with gloss '${window.proper_nouns[word]}'`);
+            console.log(`stories.js: Word '${word}' is a proper noun with gloss '${window.proper_nouns[word]}'`);
             return true; // Proper nouns are glossable
         }
         
         // Use the FSA to tokenize the surface form
         const tokenized = chomp_tokens(word.replace(/-/g, ''), true); // Remove any hyphens for tokenization, enable proper noun checking
-        console.log(`Tokenized '${word}' into: [${tokenized.join(', ')}]`);
+        console.log(`stories.js: Tokenized '${word}' into: [${tokenized.join(', ')}]`);
         
         // Check if all tokens can be mapped to glosses
         for (const surfaceToken of tokenized) {
             // Check if the token is a proper noun
             if (window.proper_nouns && surfaceToken in window.proper_nouns) {
-                console.log(`Token '${surfaceToken}' is a proper noun with gloss '${window.proper_nouns[surfaceToken]}'`);
+                console.log(`stories.js: Token '${surfaceToken}' is a proper noun with gloss '${window.proper_nouns[surfaceToken]}'`);
                 continue; // Proper nouns are glossable, so continue to the next token
             }
             
             // Check if the token is in the regular surface_to_gloss mapping
             if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
-                console.log(`Token '${surfaceToken}' is not glossable`);
+                console.log(`stories.js: Token '${surfaceToken}' is not glossable`);
                 return false; // Found an unglossable token
             }
         }
         
-        console.log(`Word '${word}' is fully glossable`);
+        console.log(`stories.js: Word '${word}' is fully glossable`);
         return true; // All tokens are glossable
     } catch (error) {
-        console.error(`Error checking if '${word}' is glossable:`, error);
+        console.error(`stories.js: Error checking if '${word}' is glossable:`, error);
         return false; // Tokenization failed
     }
 }
@@ -190,15 +193,15 @@ function createStoryHTML(story, index) {
         const escapedNote = (line.note || '').replace(/"/g, '&quot;');
         
         // Log the translation data for this line
-        console.log(`Story line: "${line.trevorese}" | Translation: "${line.english || 'none'}" | Note: "${line.note || 'none'}"`);
+        console.log(`stories.js: Story line: "${line.trevorese}" | Translation: "${line.english || 'none'}" | Note: "${line.note || 'none'}"`);
         
         // Check if this line is a chorus (laitaisang) or verse (gasangkwai X)
         if (line.trevorese.trim() === 'laitaisang' || line.trevorese.trim().startsWith('gasangkwai')) {
             // Format chorus and verse lines as h4
-            storyContent += `<h4 class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}" data-trevorese="${line.trevorese}"><span class="translation-eye" title="Show translation">👁</span> ${lineHTML}</h4>`;
+            storyContent += `<h4 class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}" data-trevorese="${line.trevorese}"><span class="translation-eye" title="Show translation">${EYE_ICON}</span> ${lineHTML}</h4>`;
         } else {
             // Regular line formatting
-            storyContent += `<div class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}" data-trevorese="${line.trevorese}"><span class="translation-eye" title="Show translation">👁</span> ${lineHTML}</div>`;
+            storyContent += `<div class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}" data-trevorese="${line.trevorese}"><span class="translation-eye" title="Show translation">${EYE_ICON}</span> ${lineHTML}</div>`;
         }
     });
     
@@ -219,7 +222,7 @@ function createStoryHTML(story, index) {
  * Load and display the stories
  */
 function loadStories() {
-    console.log("Loading stories...");
+    console.log("stories.js: Loading stories...");
     
     // Get the stories container
     const storiesContainer = document.getElementById('stories-container');
@@ -247,7 +250,7 @@ function loadStories() {
             setupLongPressHandlers();
         })
         .catch(error => {
-            console.error("Error loading stories:", error);
+            console.error("stories.js: Error loading stories:", error);
             storiesContainer.innerHTML = `<p>Error loading stories: ${error.message}</p>`;
         });
 }
@@ -305,7 +308,7 @@ function setupCollapsibles() {
  * Set up functionality for showing translations
  */
 function setupLongPressHandlers() {
-    console.log('Setting up translation handlers...');
+    console.log('stories.js: Setting up translation handlers...');
     
     // Variables to track long press
     let longPressTimer;
@@ -319,20 +322,20 @@ function setupLongPressHandlers() {
         translationPopup.id = 'translation-popup';
         translationPopup.className = 'translation-popup';
         document.body.appendChild(translationPopup);
-        console.log('Created translation popup element');
+        console.log('stories.js: Created translation popup element');
     }
     
     // Function to show the translation popup
     function showTranslationPopup(event, storyLine) {
-        console.log('%c📝 SHOWING TRANSLATION POPUP', 'background: #004d4d; color: white; padding: 2px 5px; border-radius: 3px;');
-        console.log('Story line element:', storyLine);
+        console.log('%cstories.js: 📝 SHOWING TRANSLATION POPUP', 'background: #004d4d; color: white; padding: 2px 5px; border-radius: 3px;');
+        console.log('stories.js: Story line element:', storyLine);
         
         // Get the English translation and note from data attributes
         const english = storyLine.getAttribute('data-english');
         const note = storyLine.getAttribute('data-note');
         const trevorese = storyLine.getAttribute('data-trevorese');
         
-        console.log('Translation data:', { 
+        console.log('stories.js: Translation data:', { 
             trevorese: trevorese,
             english: english, 
             note: note,
@@ -351,14 +354,14 @@ function setupLongPressHandlers() {
         
         // If there's no content, don't show the popup
         if (!popupContent) {
-            console.error('❌ No content to show in popup! This means the story line has no English translation or note.');
+            console.error('stories.js: ❌ No content to show in popup! This means the story line has no English translation or note.');
             alert('No translation available for this line: ' + trevorese);
             return;
         }
         
         // Set the popup content
         translationPopup.innerHTML = popupContent;
-        console.log('Popup content set to:', popupContent);
+        console.log('stories.js: Popup content set to:', popupContent);
         
         // Position the popup near the clicked element
         const rect = storyLine.getBoundingClientRect();
@@ -378,10 +381,10 @@ function setupLongPressHandlers() {
         // Add a border to make it more visible for debugging
         translationPopup.style.border = '2px solid #004d4d';
         
-        console.log('%c✅ Popup should now be visible', 'color: green; font-weight: bold;');
-        console.log('Popup position:', { top, left });
-        console.log('Popup element:', translationPopup);
-        console.log('Popup computed style:', window.getComputedStyle(translationPopup));
+        console.log('%cstories.js: ✅ Popup should now be visible', 'color: green; font-weight: bold;');
+        console.log('stories.js: Popup position:', { top, left });
+        console.log('stories.js: Popup element:', translationPopup);
+        console.log('stories.js: Popup computed style:', window.getComputedStyle(translationPopup));
     }
     
     // Function to hide the translation popup
@@ -393,15 +396,17 @@ function setupLongPressHandlers() {
     
     // Track the currently active story line for the popup
     let activeStoryLine = null;
+     
     
+    //𓁼 ◉👁  
     // Direct event handler for eye icons - using event delegation for better performance
     document.getElementById('stories-container').addEventListener('click', function(event) {
-        console.log('Click detected in stories container on:', event.target);
+        console.log('stories.js: Click detected in stories container on:', event.target);
         
         // Check if the clicked element is an eye icon
         if (event.target.classList.contains('translation-eye')) {
             event.stopPropagation(); // Prevent event bubbling
-            console.log('Eye icon clicked! 👁');
+            console.log(`stories.js: Eye icon clicked! ${EYE_ICON}`);
             
             // Find the parent story line element (could be div.story-line or h4.story-line)
             const storyLine = event.target.closest('.story-line') || event.target.closest('h4.story-line');
@@ -412,8 +417,8 @@ function setupLongPressHandlers() {
                 const english = storyLine.getAttribute('data-english');
                 const note = storyLine.getAttribute('data-note');
                 
-                console.log('Found story line element:', storyLine);
-                console.log('Story line data:', {
+                console.log('stories.js: Found story line element:', storyLine);
+                console.log('stories.js: Story line data:', {
                     trevorese: trevorese,
                     english: english,
                     note: note,
@@ -423,7 +428,7 @@ function setupLongPressHandlers() {
                 // Check if this is the same story line that's currently active
                 if (activeStoryLine === storyLine && translationPopup.style.display === 'block') {
                     // If the popup is already showing for this line, hide it
-                    console.log('Toggling off translation popup');
+                    console.log('stories.js: Toggling off translation popup');
                     hideTranslationPopup();
                     activeStoryLine = null;
                     
@@ -432,7 +437,7 @@ function setupLongPressHandlers() {
                     event.target.style.color = '#666';
                 } else {
                     // Otherwise, show the popup for this line
-                    console.log('Showing translation popup');
+                    console.log('stories.js: Showing translation popup');
                     showTranslationPopup(event, storyLine);
                     activeStoryLine = storyLine;
                     
@@ -441,15 +446,15 @@ function setupLongPressHandlers() {
                     event.target.style.color = '#004d4d';
                 }
             } else {
-                console.error('❌ No story line found for eye icon! This should not happen.');
-                console.log('Parent elements:', event.target.parentElement);
+                console.error('stories.js: ❌ No story line found for eye icon! This should not happen.');
+                console.log('stories.js: Parent elements:', event.target.parentElement);
             }
         }
     });
     
     // Add long-press handlers to surface spans
     const surfaceSpans = document.querySelectorAll('#stories-container .surface');
-    console.log(`Found ${surfaceSpans.length} surface spans to attach long-press to`);
+    console.log(`stories.js: Found ${surfaceSpans.length} surface spans to attach long-press to`);
     
     surfaceSpans.forEach(span => {
         // Find the parent story-line element
@@ -492,7 +497,7 @@ function setupLongPressHandlers() {
         }
     });
     
-    console.log('Translation handlers setup complete');
+    console.log('stories.js: Translation handlers setup complete');
 }
 
 // Initialize stories when the page loads

@@ -10,11 +10,11 @@ function get_surface_single_word(word, notFoundWords) {
 
   // Check if this is a proper noun gloss
   if (window.proper_noun_glosses && window.proper_noun_glosses.has(word)) {
-    console.log(`Found proper noun gloss: '${word}'`); // DEBUG
+    console.log(`io.js: Found proper noun gloss: '${word}'`); // DEBUG
     // Find the surface form for this proper noun gloss
     for (const [surface, gloss] of Object.entries(window.proper_nouns)) {
       if (gloss === word) {
-        console.log(`Proper noun '${word}' has surface form '${surface}'`); // DEBUG
+        console.log(`io.js: Proper noun '${word}' has surface form '${surface}'`); // DEBUG
         return `<span class="propernoun">${surface}</span>`;
       }
     }
@@ -26,11 +26,11 @@ function get_surface_single_word(word, notFoundWords) {
     let subsurface;
     // Check if this part is a proper noun gloss
     if (window.proper_noun_glosses && window.proper_noun_glosses.has(gloss)) {
-      console.log(`Found proper noun gloss part: '${gloss}'`); // DEBUG
+      console.log(`io.js: Found proper noun gloss part: '${gloss}'`); // DEBUG
       // Find the surface form for this proper noun gloss
       for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
         if (propGloss === gloss) {
-          console.log(`Proper noun part '${gloss}' has surface form '${surface}'`); // DEBUG
+          console.log(`io.js: Proper noun part '${gloss}' has surface form '${surface}'`); // DEBUG
           return `<span class="propernoun">${surface}</span>`;
         }
       }
@@ -48,11 +48,11 @@ function get_surface_single_word(word, notFoundWords) {
     } else {
       // Check if this is a proper noun gloss
       if (window.proper_noun_glosses && window.proper_noun_glosses.has(gloss)) {
-        console.log(`Found proper noun gloss in else branch: '${gloss}'`); // DEBUG
+        console.log(`io.js: Found proper noun gloss in else branch: '${gloss}'`); // DEBUG
         // Find the surface form for this proper noun gloss
         for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
           if (propGloss === gloss) {
-            console.log(`Proper noun '${gloss}' has surface form '${surface}'`); // DEBUG
+            console.log(`io.js: Proper noun '${gloss}' has surface form '${surface}'`); // DEBUG
             subsurface = `<span class="propernoun">${surface}</span>`;
             return subsurface; // Return early to avoid further processing
           }
@@ -80,7 +80,7 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
   // Updated regex to include underscores for proper nouns like 'u_raman'
   const regex = /([-a-zA-Z_]+|^)|([^-a-zA-Z_]*)/g;
   const lines = gloss.split("\n");
-  console.log(`Processing gloss: '${gloss}'`); // DEBUG
+  console.log(`io.js: Processing gloss: '${gloss}'`); // DEBUG
   const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
   let surfaceResult = "";
   let annotatedSurfaceResult = "";
@@ -96,7 +96,7 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
       if (word) {
         // Check if this is a proper noun gloss before processing
         const isProperNoun = window.proper_noun_glosses && window.proper_noun_glosses.has(word);
-        console.log(`Checking if '${word}' is a proper noun: ${isProperNoun}`); // DEBUG
+        console.log(`io.js: Checking if '${word}' is a proper noun: ${isProperNoun}`); // DEBUG
         
         originalGlosses.push(`<span class="gloss">${word}</span>`); // Default gloss representation
 
@@ -108,7 +108,7 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
           // Find the surface form for this proper noun gloss
           for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
             if (propGloss === word) {
-              console.log(`Found proper noun surface for '${word}': '${surface}'`); // DEBUG
+              console.log(`io.js: Found proper noun surface for '${word}': '${surface}'`); // DEBUG
               properNounSurface = surface;
               surf = `<span class="propernoun">${surface}</span>`;
               break;
@@ -238,14 +238,14 @@ function get_suggestion(word) {
       let glossText = treveroseGloss;
       let partOfSpeech = "";
       
-      console.log(`DEBUG: treveroseGloss='${treveroseGloss}'`); // Debug log
+      console.log(`io.js: DEBUG: treveroseGloss='${treveroseGloss}'`); // Debug log
       
       // The format might be different than expected - try to manually split
       // Look for common part of speech patterns like (verb), (noun), etc.
       const posPattern = /\((\w+)\)/; // Simplified pattern to match (verb), (noun), etc.
       const posMatch = treveroseGloss.match(posPattern);
       
-      console.log(`DEBUG: posMatch=`, posMatch); // Debug log
+      console.log(`io.js: DEBUG: posMatch=`, posMatch); // Debug log
       
       if (posMatch && posMatch[1]) {
         // Extract the part of speech tag (e.g., "verb") from group 1
@@ -255,7 +255,7 @@ function get_suggestion(word) {
         // Remove the original tag from glossText
         glossText = treveroseGloss.replace(posPattern, "").trim();
         
-        console.log(`DEBUG: extracted posTag='${posTag}', glossText='${glossText}'`); // Debug log
+        console.log(`io.js: DEBUG: extracted posTag='${posTag}', glossText='${glossText}'`); // Debug log
       } else {
         // Fallback: try to manually split at the last parenthesis
         const lastOpenParen = treveroseGloss.lastIndexOf('(');
@@ -265,7 +265,7 @@ function get_suggestion(word) {
             const posTag = treveroseGloss.substring(lastOpenParen + 1, lastCloseParen);
             partOfSpeech = `<span class="partofspeech">(${posTag})</span>`;
             glossText = treveroseGloss.substring(0, lastOpenParen).trim();
-            console.log(`DEBUG: fallback extracted posTag='${posTag}', glossText='${glossText}'`); // Debug log
+            console.log(`io.js: DEBUG: fallback extracted posTag='${posTag}', glossText='${glossText}'`); // Debug log
           }
         }
       }
@@ -288,7 +288,7 @@ function get_suggestion(word) {
 
 // --- New wrapper function for surface to gloss then surface ---
 function surface_to_atomgloss_to_surface(surfaceInput) {
-  console.log(`--- Entering surface_to_atomgloss_to_surface with: '${surfaceInput}'`); // DEBUG ENTRY
+  console.log(`io.js: --- Entering surface_to_atomgloss_to_surface with: '${surfaceInput}'`); // DEBUG ENTRY
   /* Uses FSA to parse surface input into gloss and then calls get_surface.*/
   const notFoundCompounds =[];
   const lines = surfaceInput.split("\n");
@@ -308,7 +308,7 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
         // First check if the word is a proper noun
         if (window.proper_nouns && word in window.proper_nouns) {
           const properNounGloss = window.proper_nouns[word];
-          console.log(`Found proper noun: '${word}' -> '${properNounGloss}'`); // DEBUG
+          console.log(`io.js: Found proper noun: '${word}' -> '${properNounGloss}'`); // DEBUG
           lineGlosses.push(properNounGloss);
           continue; // Skip to the next match
         }
@@ -317,7 +317,7 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
         try {
           // Use chomp_tokens with proper noun checking enabled
           tokenized = chomp_tokens(word, true);
-          console.log(`Tokenized '${word}' into: [${tokenized.join(', ')}]`); // DEBUG
+          console.log(`io.js: Tokenized '${word}' into: [${tokenized.join(', ')}]`); // DEBUG
         } catch (error) {
           console.error(`Error in chomp_tokens for word '${word}':`, error); // DEBUG ERROR
           lineGlosses.push(word); // Push the original unparseable word
@@ -329,12 +329,12 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
           // Check if token is a proper noun
           if (window.proper_nouns && token in window.proper_nouns) {
             const properNounGloss = window.proper_nouns[token];
-            console.log(`Token '${token}' is a proper noun with gloss '${properNounGloss}'`); // DEBUG
+            console.log(`io.js: Token '${token}' is a proper noun with gloss '${properNounGloss}'`); // DEBUG
             return properNounGloss;
           }
           return window.surface_to_gloss[token] || token;
         });
-        console.log(`Lookup surface '${tokenized.join(',')}': Got gloss(es) '${rawGlosses.join(',')}'`); // DEBUG
+        console.log(`io.js: Lookup surface '${tokenized.join(',')}': Got gloss(es) '${rawGlosses.join(',')}'`); // DEBUG
         const combinedGloss = rawGlosses.join("-");
         lineGlosses.push(combinedGloss);
 
