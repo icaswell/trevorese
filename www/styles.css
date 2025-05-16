@@ -634,7 +634,7 @@ body .subprinciple {
 }
 
 /* Stories Tab Styles */
-/* .stories-container {
+.stories-container {
     padding: 20px;
 }
 
@@ -645,6 +645,21 @@ body .subprinciple {
 
 /* Story content */
 
+/* Translation eye icon */
+.translation-eye {
+    cursor: pointer;
+    margin-right: 5px;
+    color: #666;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.translation-eye:hover {
+    opacity: 1;
+    color: #004d4d; /* Teal color to match theme */
+    transform: scale(1.2);
+}
 
 /* Story line */
 .story-line {
@@ -652,6 +667,31 @@ body .subprinciple {
     white-space: normal;
     line-height: 1.3;
     position: relative;
+}
+
+/* Translation popup */
+.translation-popup {
+    position: absolute;
+    z-index: 1000;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    display: none;
+}
+
+.translation-popup .english {
+    font-weight: normal;
+    color: #004d4d; /* Teal color to match theme */
+    margin-bottom: 5px;
+}
+
+.translation-popup .note {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
 }
 
 /* .translation-popup {

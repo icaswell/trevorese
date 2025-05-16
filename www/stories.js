@@ -188,7 +188,18 @@ function createStoryHTML(story, index) {
         // Add the line to the story content with data attributes for English translation and note
         const escapedEnglish = (line.english || '').replace(/"/g, '&quot;');
         const escapedNote = (line.note || '').replace(/"/g, '&quot;');
-        storyContent += `<div class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}">${lineHTML}</div>`;
+        
+        // Log the translation data for this line
+        console.log(`Story line: "${line.trevorese}" | Translation: "${line.english || 'none'}" | Note: "${line.note || 'none'}"`);
+        
+        // Check if this line is a chorus (laitaisang) or verse (gasangkwai X)
+        if (line.trevorese.trim() === 'laitaisang' || line.trevorese.trim().startsWith('gasangkwai')) {
+            // Format chorus and verse lines as h4
+            storyContent += `<h4 class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}" data-trevorese="${line.trevorese}"><span class="translation-eye" title="Show translation">👁</span> ${lineHTML}</h4>`;
+        } else {
+            // Regular line formatting
+            storyContent += `<div class="story-line" data-english="${escapedEnglish}" data-note="${escapedNote}" data-trevorese="${line.trevorese}"><span class="translation-eye" title="Show translation">👁</span> ${lineHTML}</div>`;
+        }
     });
     
     // Return the complete story HTML using the same structure as tutorial tab
@@ -291,24 +302,43 @@ function setupCollapsibles() {
 }
 
 /**
- * Set up long-press functionality for showing translations
+ * Set up functionality for showing translations
  */
 function setupLongPressHandlers() {
+    console.log('Setting up translation handlers...');
+    
     // Variables to track long press
     let longPressTimer;
     let isLongPress = false;
     const longPressDuration = 500; // milliseconds
     
-    // Create a translation popup element
-    const translationPopup = document.createElement('div');
-    translationPopup.className = 'translation-popup';
-    document.body.appendChild(translationPopup);
+    // Create a translation popup element if it doesn't exist yet
+    let translationPopup = document.getElementById('translation-popup');
+    if (!translationPopup) {
+        translationPopup = document.createElement('div');
+        translationPopup.id = 'translation-popup';
+        translationPopup.className = 'translation-popup';
+        document.body.appendChild(translationPopup);
+        console.log('Created translation popup element');
+    }
     
     // Function to show the translation popup
     function showTranslationPopup(event, storyLine) {
+        console.log('%c📝 SHOWING TRANSLATION POPUP', 'background: #004d4d; color: white; padding: 2px 5px; border-radius: 3px;');
+        console.log('Story line element:', storyLine);
+        
         // Get the English translation and note from data attributes
         const english = storyLine.getAttribute('data-english');
         const note = storyLine.getAttribute('data-note');
+        const trevorese = storyLine.getAttribute('data-trevorese');
+        
+        console.log('Translation data:', { 
+            trevorese: trevorese,
+            english: english, 
+            note: note,
+            hasEnglish: !!english,
+            hasNote: !!note
+        });
         
         // Create the popup content
         let popupContent = '';
@@ -321,11 +351,14 @@ function setupLongPressHandlers() {
         
         // If there's no content, don't show the popup
         if (!popupContent) {
+            console.error('❌ No content to show in popup! This means the story line has no English translation or note.');
+            alert('No translation available for this line: ' + trevorese);
             return;
         }
         
         // Set the popup content
         translationPopup.innerHTML = popupContent;
+        console.log('Popup content set to:', popupContent);
         
         // Position the popup near the clicked element
         const rect = storyLine.getBoundingClientRect();
@@ -336,66 +369,109 @@ function setupLongPressHandlers() {
         const top = rect.bottom + scrollTop + 5; // 5px below the line
         const left = rect.left + scrollLeft;
         
-        // Set the position
+        // Set the position and ensure visibility
         translationPopup.style.top = `${top}px`;
         translationPopup.style.left = `${left}px`;
-        
-        // Show the popup
         translationPopup.style.display = 'block';
+        translationPopup.style.zIndex = '9999'; // Ensure it's on top
+        
+        // Add a border to make it more visible for debugging
+        translationPopup.style.border = '2px solid #004d4d';
+        
+        console.log('%c✅ Popup should now be visible', 'color: green; font-weight: bold;');
+        console.log('Popup position:', { top, left });
+        console.log('Popup element:', translationPopup);
+        console.log('Popup computed style:', window.getComputedStyle(translationPopup));
     }
     
     // Function to hide the translation popup
     function hideTranslationPopup() {
-        translationPopup.style.display = 'none';
+        if (translationPopup) {
+            translationPopup.style.display = 'none';
+        }
     }
     
-    // Add event listeners to all surface spans
-    function addSurfaceEventListeners() {
-        const surfaceSpans = document.querySelectorAll('#stories-container .surface');
+    // Direct event handler for eye icons - using event delegation for better performance
+    document.getElementById('stories-container').addEventListener('click', function(event) {
+        console.log('Click detected in stories container on:', event.target);
         
-        surfaceSpans.forEach(span => {
-            // Find the parent story-line element
-            const storyLine = span.closest('.story-line');
-            if (!storyLine) return;
+        // Check if the clicked element is an eye icon
+        if (event.target.classList.contains('translation-eye')) {
+            event.stopPropagation(); // Prevent event bubbling
+            console.log('Eye icon clicked! 👁');
             
-            // Add mousedown event for long press
-            span.addEventListener('mousedown', function(event) {
-                // Start the long press timer
-                isLongPress = false;
-                clearTimeout(longPressTimer);
-                longPressTimer = setTimeout(function() {
-                    isLongPress = true;
-                    showTranslationPopup(event, storyLine);
-                }, longPressDuration);
-            });
+            // Find the parent story line element (could be div.story-line or h4.story-line)
+            const storyLine = event.target.closest('.story-line') || event.target.closest('h4.story-line');
             
-            // Add mouseup event to cancel long press
-            span.addEventListener('mouseup', function() {
-                clearTimeout(longPressTimer);
-                // If it wasn't a long press, don't hide the popup
-                // This allows the regular click to show the word info popup
-                if (!isLongPress) {
-                    return;
-                }
-            });
-            
-            // Add mouseleave event to cancel long press
-            span.addEventListener('mouseleave', function() {
-                clearTimeout(longPressTimer);
-            });
+            if (storyLine) {
+                // Log detailed information about the story line
+                const trevorese = storyLine.getAttribute('data-trevorese');
+                const english = storyLine.getAttribute('data-english');
+                const note = storyLine.getAttribute('data-note');
+                
+                console.log('Found story line element:', storyLine);
+                console.log('Story line data:', {
+                    trevorese: trevorese,
+                    english: english,
+                    note: note,
+                    element: storyLine.outerHTML.substring(0, 100) + '...' // First 100 chars of HTML
+                });
+                
+                // Show the translation popup
+                showTranslationPopup(event, storyLine);
+            } else {
+                console.error('❌ No story line found for eye icon! This should not happen.');
+                console.log('Parent elements:', event.target.parentElement);
+            }
+        }
+    });
+    
+    // Add long-press handlers to surface spans
+    const surfaceSpans = document.querySelectorAll('#stories-container .surface');
+    console.log(`Found ${surfaceSpans.length} surface spans to attach long-press to`);
+    
+    surfaceSpans.forEach(span => {
+        // Find the parent story-line element
+        const storyLine = span.closest('.story-line') || span.closest('h4.story-line');
+        if (!storyLine) return;
+        
+        // Add mousedown event for long press
+        span.addEventListener('mousedown', function(event) {
+            // Start the long press timer
+            isLongPress = false;
+            clearTimeout(longPressTimer);
+            longPressTimer = setTimeout(function() {
+                isLongPress = true;
+                showTranslationPopup(event, storyLine);
+            }, longPressDuration);
         });
-    }
+        
+        // Add mouseup event to cancel long press
+        span.addEventListener('mouseup', function() {
+            clearTimeout(longPressTimer);
+            // If it wasn't a long press, don't hide the popup
+            if (!isLongPress) {
+                return;
+            }
+        });
+        
+        // Add mouseleave event to cancel long press
+        span.addEventListener('mouseleave', function() {
+            clearTimeout(longPressTimer);
+        });
+    });
     
     // Add click event to document to hide the popup when clicking outside
     document.addEventListener('click', function(event) {
-        if (!translationPopup.contains(event.target) && 
-            !event.target.classList.contains('surface')) {
+        if (translationPopup && 
+            !translationPopup.contains(event.target) && 
+            !event.target.classList.contains('surface') &&
+            !event.target.classList.contains('translation-eye')) {
             hideTranslationPopup();
         }
     });
     
-    // Call the function to add event listeners
-    addSurfaceEventListeners();
+    console.log('Translation handlers setup complete');
 }
 
 // Initialize stories when the page loads
