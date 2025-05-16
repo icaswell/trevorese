@@ -97,37 +97,37 @@ function parseStories(tsvContent) {
  */
 function isWordGlossable(word) {
     try {
-        console.log(`stories.js: Checking if word is glossable: '${word}'`);
+        // console.log(`stories.js: Checking if word is glossable: '${word}'`);
         
         // First check if the word is a proper noun
         if (window.proper_nouns && word in window.proper_nouns) {
-            console.log(`stories.js: Word '${word}' is a proper noun with gloss '${window.proper_nouns[word]}'`);
+            // console.log(`stories.js: Word '${word}' is a proper noun with gloss '${window.proper_nouns[word]}'`);
             return true; // Proper nouns are glossable
         }
         
         // Use the FSA to tokenize the surface form
         const tokenized = chomp_tokens(word.replace(/-/g, ''), true); // Remove any hyphens for tokenization, enable proper noun checking
-        console.log(`stories.js: Tokenized '${word}' into: [${tokenized.join(', ')}]`);
+        // console.log(`stories.js: Tokenized '${word}' into: [${tokenized.join(', ')}]`);
         
         // Check if all tokens can be mapped to glosses
         for (const surfaceToken of tokenized) {
             // Check if the token is a proper noun
             if (window.proper_nouns && surfaceToken in window.proper_nouns) {
-                console.log(`stories.js: Token '${surfaceToken}' is a proper noun with gloss '${window.proper_nouns[surfaceToken]}'`);
+                // console.log(`stories.js: Token '${surfaceToken}' is a proper noun with gloss '${window.proper_nouns[surfaceToken]}'`);
                 continue; // Proper nouns are glossable, so continue to the next token
             }
             
             // Check if the token is in the regular surface_to_gloss mapping
             if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {
-                console.log(`stories.js: Token '${surfaceToken}' is not glossable`);
+                // console.log(`stories.js: Token '${surfaceToken}' is not glossable`);
                 return false; // Found an unglossable token
             }
         }
         
-        console.log(`stories.js: Word '${word}' is fully glossable`);
+        // console.log(`stories.js: Word '${word}' is fully glossable`);
         return true; // All tokens are glossable
     } catch (error) {
-        console.error(`stories.js: Error checking if '${word}' is glossable:`, error);
+        // console.error(`stories.js: Error checking if '${word}' is glossable:`, error);
         return false; // Tokenization failed
     }
 }
@@ -142,9 +142,8 @@ function createStoryHTML(story, index) {
     // Create the collapsible header
     const storyTitle = `${story.title.trevorese} (${story.title.english})`;
     
-    // Check if the title contains "upasama" to display opossum image
-    const hasUpasama = story.title.trevorese.toLowerCase().includes('upasama') || 
-                      story.title.english.toLowerCase().includes('upasama');
+    // Array to store images for this story
+    const storyImages = [];
     
     // Create the story content with each word in a surface div
     let storyContent = '';
@@ -153,6 +152,24 @@ function createStoryHTML(story, index) {
     story.lines.forEach(line => {
         // For each line, we need to handle spaces and punctuation properly
         const trevorese = line.trevorese;
+        
+        // Check if this line is an image directive (starts with "images:")
+        if (trevorese.trim().toLowerCase().startsWith('images:')) {
+            // Extract image filenames from the line
+            const imagesPart = trevorese.trim().substring(7); // Remove "images:" prefix
+            const imageFiles = imagesPart.split(',').map(img => img.trim());
+            
+            // Add valid image files to the storyImages array
+            imageFiles.forEach(img => {
+                if (img) {
+                    console.log(`stories.js: Adding image ${img} to story`);
+                    storyImages.push(img);
+                }
+            });
+            
+            // Skip rendering this line in the story content
+            return;
+        }
         
         // Use a regex to tokenize the line into words and non-words
         const tokens = trevorese.match(/[\w-]+|[^\w\s-]+|\s+/g) || [];
@@ -197,7 +214,7 @@ function createStoryHTML(story, index) {
         const escapedNote = (line.note || '').replace(/"/g, '&quot;');
         
         // Log the translation data for this line
-        console.log(`stories.js: Story line: "${line.trevorese}" | Translation: "${line.english || 'none'}" | Note: "${line.note || 'none'}"`);
+        // console.log(`stories.js: Story line: "${line.trevorese}" | Translation: "${line.english || 'none'}" | Note: "${line.note || 'none'}"`);
         
         // Check if this line is a chorus (laitaisang) or verse (gasangkwai X)
         if (line.trevorese.trim() === 'laitaisang' || line.trevorese.trim().startsWith('gasangkwai')) {
@@ -209,15 +226,27 @@ function createStoryHTML(story, index) {
         }
     });
     
+    // Generate HTML for story images if any were found
+    let imagesHTML = '';
+    if (storyImages.length > 0) {
+        // Add padding to the content if there are images
+        const imageContainerStyle = 'position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 10px;';
+        
+        imagesHTML = `<div style="${imageContainerStyle}">`;
+        storyImages.forEach(img => {
+            imagesHTML += `<img src="img/${img}" alt="Story image" style="width: 300px; height: auto;">`;
+        });
+        imagesHTML += '</div>';
+    }
+    
     // Return the complete story HTML using the same structure as tutorial tab
-    // Add opossum image if the title contains "upasama"
     return `
         <div class="section-h2">
             <div class="collapsible-header" data-story-id="${index}">${storyTitle}</div>
             <div class="collapsible-content">
-                <div class="story-content"${hasUpasama ? ' style="position: relative; padding-right: 320px;"' : ''}>
+                <div class="story-content"${storyImages.length > 0 ? ' style="position: relative; padding-right: 320px;"' : ''}>
                     ${storyContent}
-                    ${hasUpasama ? '<img src="img/opossum-1.png" alt="Opossum" style="position: absolute; top: 10px; right: 10px; width: 300px; height: auto;">' : ''}
+                    ${imagesHTML}
                 </div>
             </div>
         </div>
@@ -233,8 +262,11 @@ function loadStories() {
     // Get the stories container
     const storiesContainer = document.getElementById('stories-container');
     
-    // Fetch the stories.tsv file
-    fetch('stories.tsv')
+    // Add cache busting parameter to prevent browser caching
+    const cacheBuster = `?t=${Date.now()}`;
+    
+    // Fetch the stories.tsv file with cache busting
+    fetch(`stories.tsv${cacheBuster}`)
         .then(response => response.text())
         .then(tsvContent => {
             // Parse the stories
