@@ -12,7 +12,7 @@
 let stories = [];
 
 // Define the eye icon as a variable for easy updating
-const EYE_ICON =  'ᘛ⁐̤ᕐᐷ'; //'👁';
+const EYE_ICON =  'ᘛ⁐̤ᕐᐷ'; //'👁'; 🧿 👀𖥂◉
 
 /**
  * Parse the stories.tsv file and organize stories
@@ -142,6 +142,10 @@ function createStoryHTML(story, index) {
     // Create the collapsible header
     const storyTitle = `${story.title.trevorese} (${story.title.english})`;
     
+    // Check if the title contains "upasama" to display opossum image
+    const hasUpasama = story.title.trevorese.toLowerCase().includes('upasama') || 
+                      story.title.english.toLowerCase().includes('upasama');
+    
     // Create the story content with each word in a surface div
     let storyContent = '';
     
@@ -206,12 +210,14 @@ function createStoryHTML(story, index) {
     });
     
     // Return the complete story HTML using the same structure as tutorial tab
+    // Add opossum image if the title contains "upasama"
     return `
         <div class="section-h2">
             <div class="collapsible-header" data-story-id="${index}">${storyTitle}</div>
             <div class="collapsible-content">
-                <div class="story-content">
+                <div class="story-content"${hasUpasama ? ' style="position: relative; padding-right: 320px;"' : ''}>
                     ${storyContent}
+                    ${hasUpasama ? '<img src="img/opossum-1.png" alt="Opossum" style="position: absolute; top: 10px; right: 10px; width: 300px; height: auto;">' : ''}
                 </div>
             </div>
         </div>
