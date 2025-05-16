@@ -456,6 +456,14 @@ function initPopupElements() {
         // Close popup when clicking the close button
         popupClose.addEventListener('click', hideWordInfoPopup);
     }
+    
+    // Add global ESC key event listener to close popups
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            console.log('general.js: ESC key pressed, hiding word info popup');
+            hideWordInfoPopup();
+        }
+    });
 }
 
 // FIELD_DISPLAY_ORDER is now defined in display.js

@@ -12,7 +12,7 @@
 let stories = [];
 
 // Define the eye icon as a variable for easy updating
-const EYE_ICON = '👁'; // 'ᘛ⁐̤ᕐᐷ'; //'👁';
+const EYE_ICON =  'ᘛ⁐̤ᕐᐷ'; //'👁';
 
 /**
  * Parse the stories.tsv file and organize stories
@@ -391,11 +391,30 @@ function setupLongPressHandlers() {
     function hideTranslationPopup() {
         if (translationPopup) {
             translationPopup.style.display = 'none';
+            
+            // Reset the active story line
+            if (activeStoryLine) {
+                // Find and reset the eye icon if it exists
+                const eyeIcon = activeStoryLine.querySelector('.translation-eye');
+                if (eyeIcon) {
+                    eyeIcon.style.opacity = '0.7';
+                    eyeIcon.style.color = '#666';
+                }
+            }
+            activeStoryLine = null;
         }
     }
     
     // Track the currently active story line for the popup
     let activeStoryLine = null;
+    
+    // Add ESC key event listener to close the translation popup
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            console.log('stories.js: ESC key pressed, hiding translation popup');
+            hideTranslationPopup();
+        }
+    });
      
     
     //𓁼 ◉👁  
