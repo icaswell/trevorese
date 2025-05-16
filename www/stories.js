@@ -191,14 +191,14 @@ function createStoryHTML(story, index) {
                         // Check if the word is glossable
                         const isGlossable = isWordGlossable(words[i]);
                         const cssClass = isGlossable ? 'surface' : 'surface-notfound';
-                        lineHTML += `<span class="${cssClass}" onclick="showWordInfoPopup(event, '${words[i]}')">${words[i]}</span>`;
+                        lineHTML += `<span class="${cssClass}" data-word="${words[i]}">${words[i]}</span>`;
                     }
                     lineHTML += punct[words.length] || '';
                 } else {
                     // Regular word - check if it's glossable
                     const isGlossable = isWordGlossable(token);
                     const cssClass = isGlossable ? 'surface' : 'surface-notfound';
-                    lineHTML += `<span class="${cssClass}" onclick="showWordInfoPopup(event, '${token}')">${token}</span>`;
+                    lineHTML += `<span class="${cssClass}" data-word="${token}">${token}</span>`;
                 }
             } else if (/\s+/.test(token)) {
                 // It's whitespace - preserve it
@@ -286,6 +286,9 @@ function loadStories() {
             
             // Set up long-press handlers for translation popups
             setupLongPressHandlers();
+            
+            // Set up word click handlers for word info popups
+            setupWordClickHandlers();
         })
         .catch(error => {
             console.error("stories.js: Error loading stories:", error);
@@ -557,7 +560,29 @@ function setupLongPressHandlers() {
     console.log('stories.js: Translation handlers setup complete');
 }
 
-// Initialize stories when the page loads
+/**
+ * Set up click handlers for words in the stories tab
+ */
+function setupWordClickHandlers() {
+    // Add click event handlers to all surface words
+    const surfaceWords = document.querySelectorAll('#stories-container .surface, #stories-container .surface-notfound');
+    
+    console.log(`stories.js: Setting up click handlers for ${surfaceWords.length} words in stories`);
+    
+    surfaceWords.forEach(word => {
+        word.addEventListener('click', function(event) {
+            const wordText = this.getAttribute('data-word');
+            if (wordText) {
+                console.log(`stories.js: Word clicked: ${wordText}`);
+                showWordInfoPopup(event, wordText);
+            }
+        });
+    });
+}
+
+/**
+ * Initialize stories when the page loads
+ */
 document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on the stories tab
     const storiesTab = document.querySelector('.tab[data-tab="stories"]');
