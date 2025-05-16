@@ -496,8 +496,22 @@ function populateWordInfoPopup(surface) {
     popupContent.appendChild(entryDiv);
 }
 
+// Track the currently clicked word element
+let lastClickedWordElement = null;
+
 // Function to show the popup at the clicked position
 function showWordInfoPopup(event, surface) {
+    // Check if this is the same element that was clicked before
+    if (lastClickedWordElement === event.target && wordInfoPopup.style.display === 'block') {
+        // If clicking the same word again, hide the popup
+        hideWordInfoPopup();
+        lastClickedWordElement = null;
+        return;
+    }
+    
+    // Store the current clicked element
+    lastClickedWordElement = event.target;
+    
     // Populate the popup
     populateWordInfoPopup(surface);
     

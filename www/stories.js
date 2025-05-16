@@ -391,6 +391,9 @@ function setupLongPressHandlers() {
         }
     }
     
+    // Track the currently active story line for the popup
+    let activeStoryLine = null;
+    
     // Direct event handler for eye icons - using event delegation for better performance
     document.getElementById('stories-container').addEventListener('click', function(event) {
         console.log('Click detected in stories container on:', event.target);
@@ -417,8 +420,26 @@ function setupLongPressHandlers() {
                     element: storyLine.outerHTML.substring(0, 100) + '...' // First 100 chars of HTML
                 });
                 
-                // Show the translation popup
-                showTranslationPopup(event, storyLine);
+                // Check if this is the same story line that's currently active
+                if (activeStoryLine === storyLine && translationPopup.style.display === 'block') {
+                    // If the popup is already showing for this line, hide it
+                    console.log('Toggling off translation popup');
+                    hideTranslationPopup();
+                    activeStoryLine = null;
+                    
+                    // Change the eye icon to indicate closed state
+                    event.target.style.opacity = '0.7';
+                    event.target.style.color = '#666';
+                } else {
+                    // Otherwise, show the popup for this line
+                    console.log('Showing translation popup');
+                    showTranslationPopup(event, storyLine);
+                    activeStoryLine = storyLine;
+                    
+                    // Change the eye icon to indicate open state
+                    event.target.style.opacity = '1';
+                    event.target.style.color = '#004d4d';
+                }
             } else {
                 console.error('❌ No story line found for eye icon! This should not happen.');
                 console.log('Parent elements:', event.target.parentElement);

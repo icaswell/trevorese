@@ -20,12 +20,31 @@ function createDictionaryHeaderDisplay(options = {}) {
         html += `<span class="surface">${surface}</span> `;
     }
     
-    // Add gloss with optional index
+    // Add gloss with optional index and compound information
     if (gloss) {
+        // Determine if this is a compound word
+        const isCompound = gloss.includes('-');
+        let glossDisplay = gloss;
+        
+        // For compound words, show supergloss > supercompound > gloss format
+        if (isCompound) {
+            const superCompoundGloss = window.compounds && window.compounds[gloss] ? window.compounds[gloss] : null;
+            const superSuperCompound = window.gloss_to_supercompound && window.gloss_to_supercompound[gloss] ? window.gloss_to_supercompound[gloss] : null;
+            
+            if (superSuperCompound && superCompoundGloss && superSuperCompound !== gloss) {
+                // Full hierarchy: supergloss > supercompound > gloss
+                glossDisplay = `${superCompoundGloss} > ${superSuperCompound} > ${gloss}`;
+            } else if (superCompoundGloss) {
+                // Just supergloss > gloss
+                glossDisplay = `${superCompoundGloss} > ${gloss}`;
+            }
+        }
+        
+        // Add the formatted gloss with optional index
         if (showIndex && index !== null) {
-            html += `<span class="gloss">(${gloss})</span> <span class="index">#${index}</span>`;
+            html += `<span class="gloss">(${glossDisplay})</span> <span class="index">#${index}</span>`;
         } else {
-            html += `<span class="gloss">(${gloss})</span>`;
+            html += `<span class="gloss">(${glossDisplay})</span>`;
         }
     }
     
