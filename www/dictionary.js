@@ -1189,7 +1189,7 @@ async function loadDictionaryData() {
                         
                         // Skip entries without a surface or gloss
                         if (!surface || !gloss) {
-                            console.log(`dictionary.js: Skipping proper noun entry without surface or gloss: ${JSON.stringify(row)}`);
+                            // console.log(`dictionary.js: Skipping proper noun entry without surface or gloss: ${JSON.stringify(row)}`);
                             continue;
                         }
                         

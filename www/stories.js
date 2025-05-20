@@ -12,7 +12,7 @@
 let stories = [];
 
 // Define the eye icon as a variable for easy updating
-const EYE_ICON =  'ᘛ⁐̤ᕐᐷ'; //'👁'; 🧿 👀𖥂◉
+const EYE_ICON = '🍄'; //' '🙀'; // 🏵️  'ᘛ⁐̤ᕐᐷ'; //'👁'; 🧿 👀𖥂◉
 
 /**
  * Parse the stories.tsv file and organize stories
@@ -574,6 +574,14 @@ function setupWordClickHandlers() {
             const wordText = this.getAttribute('data-word');
             if (wordText) {
                 console.log(`stories.js: Word clicked: ${wordText}`);
+                
+                // Check if dictionary data is loaded before processing the click
+                if (!window.trevorese_dictionary || Object.keys(window.trevorese_dictionary.vocabs).length === 0) {
+                    console.log('stories.js: Click detected but dictionary not fully loaded yet. Please wait a moment and try again.');
+                    return;
+                }
+                
+                console.log('stories.js: Click detected in stories container on: ' + wordText);
                 showWordInfoPopup(event, wordText);
             }
         });

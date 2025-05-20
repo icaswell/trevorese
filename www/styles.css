@@ -59,6 +59,14 @@ body {
 .tab-content.active {
     display: flex; /* Use flexbox for layout */
 }
+
+/* Override for videos tab */
+#videos.tab-content.active {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
 .tab-content-inner-container {
     display: flex;
     width: 100%; /*needed to fill out the tab-content div*/
@@ -636,6 +644,52 @@ body .subprinciple {
 /* Stories Tab Styles */
 .stories-container {
     padding: 20px;
+}
+
+/* Videos Tab Styles */
+#videos.tab-content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    display: none; /* Hide by default */
+    position: relative;
+    height: calc(100vh - 120px);
+    overflow: hidden;
+}
+
+/* Only show when active */
+#videos.tab-content.active {
+    display: block;
+}
+
+#videos .video-header {
+    padding: 10px 20px;
+    background-color: #004d4d;
+    color: white;
+    z-index: 10;
+}
+
+#videos .video-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+#videos .video-fullsize {
+    position: absolute;
+    top: 50px; /* Height of the header */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+#videos .video-fullsize iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
 
 .stories-container h2 {
