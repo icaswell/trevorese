@@ -1,6 +1,13 @@
+/* Set the main font for the entire site */
+:root {
+    --main-font: 'Nunito', sans-serif;
+    --header-weight: 600; /* Semibold instead of bold */
+    --code-font: 'Courier New', monospace; /* Font for code elements */
+}
+
 body {
     background-color: #008080; /* Teal */
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--main-font);
     color: #333;
     margin: 0;
     padding: 0;
@@ -27,7 +34,7 @@ body {
     /* top, right, bottom, left */
     margin: -20px -20px 20px -20px;
     font-size: 2.8em; /* Slightly larger than h1 */
-    font-weight: bold;
+    font-weight: var(--header-weight);
 }
 
 .tabs {
@@ -100,7 +107,7 @@ textarea, #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated, #sideB
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box; /* Include padding and border in width */
-    font-family: 'Roboto', sans-serif; /* Consistent font */
+    font-family: var(--main-font); /* Consistent font */
 }
 
 textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated { 
@@ -499,7 +506,7 @@ body .subprinciple {
 
 /* Tutorial page styles */
 .tutorial-body, .about-body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--main-font);
     line-height: 1.6;
     max-width: 100%;
     margin: 0;
@@ -520,6 +527,7 @@ body .subprinciple {
     border-radius: 8px 8px 0 0;
     /* top, right, bottom, left */
     margin: 0px -20px 20px -20px; /* Zero top margin */
+    font-weight: var(--header-weight);
 }
 
 .tutorial-body h2 {
@@ -765,7 +773,7 @@ body .subprinciple {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    font-family: sans-serif;
+    font-family: var(--main-font);
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     width: 100%; /* Ensure it takes container width */
@@ -808,7 +816,7 @@ body .subprinciple {
     border-collapse: collapse;
     margin: 25px auto; /* Center the table if container is wider */
     font-size: 0.9em;
-    font-family: sans-serif;
+    font-family: var(--main-font);
     min-width: 600px; /* Adjust as needed */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     width: auto; /* Allow table to size based on content, up to container width */
@@ -954,12 +962,12 @@ body .subprinciple {
 .test-query {
     background-color: #f5f5f5;
     padding: 8px 12px;
-    font-family: monospace;
+    font-family: var(--code-font);
     border-bottom: 1px solid #ddd;
 }
 .test-result {
     padding: 12px;
-    font-family: monospace;
+    font-family: var(--code-font);
     overflow-x: auto;
 }
 .test-result pre {
