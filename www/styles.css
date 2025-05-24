@@ -4,7 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    padding-top: 30px; /* Add extra space at the top to make the teal section taller */
+    padding-top: 40px; /* Add extra space at the top to make the teal section taller */
 }
 
 .container {
@@ -498,7 +498,7 @@ body .subprinciple {
         }
 
 /* Tutorial page styles */
-.tutorial-body {
+.tutorial-body, .about-body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     max-width: 100%;
@@ -507,11 +507,15 @@ body .subprinciple {
     background-color: #fff;
 }
 
+.about-body {
+    padding-top: 6px; /* Reduce the space above h1 elements to 30% of original */
+}
+
 .tutorial-body h1,
 .about-body h1 {
     text-align: center;
     color: #fff;
-    background-color: #008484; /* was #004d4d; dark teal */
+    background-color: #008080; /* was #004d4d; dark teal */
     padding: 10px 0;
     border-radius: 8px 8px 0 0;
     /* top, right, bottom, left */
