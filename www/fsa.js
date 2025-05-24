@@ -103,7 +103,7 @@ function getProperNounGloss(s) {
 }
 
 /**
- * Tokenize a string into Trevorese tokens, handling proper nouns
+ * Tokenize a string into Sesowi tokens, handling proper nouns
  * @param {string} s - The string to tokenize
  * @param {boolean} checkProperNouns - Whether to check for proper nouns
  * @returns {Array<string>} Array of tokens

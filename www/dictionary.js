@@ -70,7 +70,7 @@ const DEFINITION_FIELDS = [
 
 class VocabEntry {
     /**
-     * Represents a vocabulary entry in the Trevorese dictionary
+     * Represents a vocabulary entry in the Sesowi dictionary
      * Handles both atomic words and compound words (with single or double hyphens)
      * Note: this tries to handle normal compounds ("of-back-go") and phrases ("go so of-back") both.
      * This is WAI, but I think the implementation is wrong.
@@ -89,7 +89,7 @@ class VocabEntry {
         // e.g., { "noun/pronoun": ["person", "human"], "verb": ["to be"] }
         this.facets = {}; 
         
-        // gloss: String representing the Trevorese gloss (e.g., "of-back-go--animal")
+        // gloss: String representing the Sesowi gloss (e.g., "of-back-go--animal")
         this.gloss = rawGloss;
         
         // Calculate hyphen_indices and gloss_parts
@@ -101,7 +101,7 @@ class VocabEntry {
         // atomic: Boolean indicating if this is an atomic word (single gloss part, not starting with u_)
         this.atomic = this.gloss && this.gloss_parts.length === 1 && !this.gloss.startsWith("u_");
         
-        // surface: String representing the Trevorese surface form
+        // surface: String representing the Sesowi surface form
         // For atomic words, this is set directly from the TSV
         // For compounds, this will be calculated later in Dictionary.surface_all_molecules()
         this.surface = "";
@@ -362,7 +362,7 @@ class VocabEntry {
 }
 
 /**
- * Represents the complete Trevorese dictionary
+ * Represents the complete Sesowi dictionary
  * Manages vocabulary entries and provides methods for lookup, surface generation, and more
  */
 class Dictionary {
@@ -458,7 +458,7 @@ class Dictionary {
     }
 
     get_dictionary_lines_inverted_dict() {
-        // Aka get English -> Trevorese entries
+        // Aka get English -> Sesowi entries
         const english_to_trevor = {}; // { english_def: [ "(pos) gloss", ... ] }
         for (const gloss in this.vocabs) {
             const vocab = this.vocabs[gloss];
@@ -587,11 +587,11 @@ class Dictionary {
     }
 
     /**
-     * Converts a Trevorese gloss to its surface form
+     * Converts a Sesowi gloss to its surface form
      * Handles both atomic words and compound words with special handling for double hyphens
      * 
      * @param {string|VocabEntry} sentence - The gloss or VocabEntry to convert to surface form
-     * @returns {string} The Trevorese surface form
+     * @returns {string} The Sesowi surface form
      */
     get_surface(sentence) {
         // hyphenIndices: Array of indices in the gloss_parts where double hyphens occur
@@ -1136,7 +1136,7 @@ async function loadDictionaryData() {
             console.error("Could not find topBox element to attach listener.");
         }
 
-        console.log("dictionary.js: Trevorese dictionary and related data loaded and assigned to window.");
+        console.log("dictionary.js: Sesowi dictionary and related data loaded and assigned to window.");
         console.log("dictionary.js: window.trevorese_dictionary:", window.trevorese_dictionary);
         console.log("dictionary.js: window.atomgloss_to_surface count:", Object.keys(window.atomgloss_to_surface).length);
         console.log("dictionary.js: window.compounds count:", Object.keys(window.compounds).length);

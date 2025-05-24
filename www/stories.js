@@ -1,5 +1,5 @@
 /**
- * Stories module for Trevorese
+ * Stories module for Sesowi
  * Loads and displays stories from stories.tsv
  */
 
@@ -55,7 +55,7 @@ function parseStories(tsvContent) {
         const english = columns.length > 1 ? columns[1].trim() : "";
         const notes = columns.length > 2 ? columns[2].trim() : "";
         
-        // Skip lines with empty Trevorese (additional check)
+        // Skip lines with empty Sesowi (additional check)
         if (!trevorese) continue;
         
         // If we don't have a current story, this line is a title

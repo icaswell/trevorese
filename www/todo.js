@@ -345,7 +345,7 @@ async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
             const columns = line.split('\t');
             const trevorese = columns[0] ? columns[0].trim() : "";
             
-            // Skip lines with empty Trevorese
+            // Skip lines with empty Sesowi
             if (!trevorese) continue;
             
             // If we don't have a current story, this line is a title
@@ -353,7 +353,7 @@ async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
                 currentStory = trevorese;
             }
             
-            // Process the Trevorese text
+            // Process the Sesowi text
             // Use a regex to tokenize the line into words and non-words
             const tokens = trevorese.match(/[\w-]+|[^\w\s-]+|\s+/g) || [];
             

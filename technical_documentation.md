@@ -1,37 +1,37 @@
-# Trevorese Dictionary Technical Documentation
+# Sesowi Dictionary Technical Documentation
 
-This document provides a comprehensive overview of the Trevorese Dictionary application codebase.
+This document provides a comprehensive overview of the Sesowi Dictionary application codebase.
 
-## Introduction to Trevorese
+## Introduction to Sesowi
 
-Trevorese is a constructed language designed to be the simplest possible language to learn while remaining fully capable of expressing any idea. The language features an uninflecting grammar that relies on word order and part-of-speech markers. Important terminology:
+Sesowi is a constructed language designed to be the simplest possible language to learn while remaining fully capable of expressing any idea. The language features an uninflecting grammar that relies on word order and part-of-speech markers. Important terminology:
 
 
-- **Atoms**: The basic building blocks of Trevorese vocabulary, consisting of under 200 core words from which all other words are built. Atoms typically have the form consonant+vowel[+optional ng], such as `ma`, `su`, or more complex forms like `yau`, `kwe`, or `nang`. Atoms function as a cloud of meaning that can serve as verbs, nouns, or adjectives depending on context.
+- **Atoms**: The basic building blocks of Sesowi vocabulary, consisting of under 200 core words from which all other words are built. Atoms typically have the form consonant+vowel[+optional ng], such as `ma`, `su`, or more complex forms like `yau`, `kwe`, or `nang`. Atoms function as a cloud of meaning that can serve as verbs, nouns, or adjectives depending on context.
 
-- **Compounds**: Most Trevorese words are compounds composed of multiple atoms. For example, the word for "dog" (`deyagoboi`) is a compound of the atoms for "of", "back", "go", and "animal", conceptually meaning "a following/loyal animal". Compounds are written with hyphens in the gloss form, but the surface form is written without hyphens -- except for compounds longer than four atoms, where hyphens are often introduced to improve readability. In such cases, the gloss will have a double dash, e.g. `big-plant-place--of-back-go-animal`.
+- **Compounds**: Most Sesowi words are compounds composed of multiple atoms. For example, the word for "dog" (`deyagoboi`) is a compound of the atoms for "of", "back", "go", and "animal", conceptually meaning "a following/loyal animal". Compounds are written with hyphens in the gloss form, but the surface form is written without hyphens -- except for compounds longer than four atoms, where hyphens are often introduced to improve readability. In such cases, the gloss will have a double dash, e.g. `big-plant-place--of-back-go-animal`.
 
-- **Gloss**: The representation of Trevorese words using English approximations. For example, the gloss `of-back-go-animal` represents the Trevorese word for "dog". Glosses make it easier to understand the meaning and structure of Trevorese words.
+- **Gloss**: The representation of Sesowi words using English approximations. For example, the gloss `of-back-go-animal` represents the Sesowi word for "dog". Glosses make it easier to understand the meaning and structure of Sesowi words.
 
-- **Surface**: The actual phonetic form of Trevorese words as they would be spoken or written in the language. For example, the surface form of the gloss `of-back-go-animal` is `deyagoboi`.
+- **Surface**: The actual phonetic form of Sesowi words as they would be spoken or written in the language. For example, the surface form of the gloss `of-back-go-animal` is `deyagoboi`.
 
 ## Website Features
 
-The Trevorese Dictionary application consists of several tabs, each serving a specific purpose in helping users learn and interact with the language:
+The Sesowi Dictionary application consists of several tabs, each serving a specific purpose in helping users learn and interact with the language:
 
-Throughout the website, any Trevorese word in a span of class "surface" or "gloss" is clickable, bringing up a box showing its meaning, pronuncuation, etc.
+Throughout the website, any Sesowi word in a span of class "surface" or "gloss" is clickable, bringing up a box showing its meaning, pronuncuation, etc.
 
 ### About
-Provides an introduction to the Trevorese language, explaining its principles, phonology, and design philosophy.
+Provides an introduction to the Sesowi language, explaining its principles, phonology, and design philosophy.
 
 ### Periodic Table
-Displays a visual representation of the atomic words in Trevorese, organized in a format similar to the periodic table of elements.
+Displays a visual representation of the atomic words in Sesowi, organized in a format similar to the periodic table of elements.
 
 ### Tutorial
-Offers a step-by-step guide to learning Trevorese, divided into multiple parts covering sounds, atoms, compounds, grammar, and more.
+Offers a step-by-step guide to learning Sesowi, divided into multiple parts covering sounds, atoms, compounds, grammar, and more.
 
 ### Dictionary
-Allows users to search for words in Trevorese (either surface or gloss form) and English. The dictionary displays comprehensive information about each entry, including its surface form, gloss, part of speech, and usage examples.
+Allows users to search for words in Sesowi (either surface or gloss form) and English. The dictionary displays comprehensive information about each entry, including its surface form, gloss, part of speech, and usage examples.
 
 ### Typing Tool
 Provides a conversion tool that allows users to input text in either gloss or surface form and see the corresponding outputs. The tool displays:
@@ -42,22 +42,22 @@ Provides a conversion tool that allows users to input text in either gloss or su
 The tool also suggests potential glosses for non-gloss words entered and identifies compound words not in the dictionary.
 
 ### Todo
-Displays issues and notes related to the development of the Trevorese language, including supergloss decomposition problems and words with pending notes. This tab is primarily for developers and contributors to the language.
+Displays issues and notes related to the development of the Sesowi language, including supergloss decomposition problems and words with pending notes. This tab is primarily for developers and contributors to the language.
 
 ### Stories
-Presents stories written in Trevorese, allowing users to practice reading and understanding the language in context.
+Presents stories written in Sesowi, allowing users to practice reading and understanding the language in context.
 
 ## JavaScript Files
 
 ### dictionary.js
 
-The core module of the Trevorese Dictionary application, responsible for parsing and managing the dictionary data.
+The core module of the Sesowi Dictionary application, responsible for parsing and managing the dictionary data.
 
 #### Key Components:
 
-- **`parseTSV(tsvData)`**: Parses trevorese.tsv, which contains core data about the Trevorese language
+- **`parseTSV(tsvData)`**: Parses trevorese.tsv, which contains core data about the Sesowi language
 
-- **`VocabEntry` Class**: Represents a vocabulary entry in the Trevorese dictionary.
+- **`VocabEntry` Class**: Represents a vocabulary entry in the Sesowi dictionary.
   - Handles both atomic words and compound words (with single or double hyphens)
   - Key methods:
     - `calculateHyphenIndices(gloss)`: Calculates indices where double hyphens occur
@@ -67,13 +67,13 @@ The core module of the Trevorese Dictionary application, responsible for parsing
     - `short_def()`: Returns a short definition
     - `update(new_vocab)`: Updates the entry with new data
 
-- **`Dictionary` Class**: Represents the complete Trevorese dictionary.
+- **`Dictionary` Class**: Represents the complete Sesowi dictionary.
   - Key methods:
     - `add_vocab(vocab)`: Adds a vocabulary entry to the dictionary
     - `get_atoms_to_molecules()`: Maps atomic words to compound words that use them
     - `get_atoms()`: Returns all atomic words
     - `tokenize(s)`: Tokenizes a string into words and punctuation
-    - `get_surface(sentence)`: Converts a Trevorese gloss to its surface form
+    - `get_surface(sentence)`: Converts a Sesowi gloss to its surface form
     - `surface_all_molecules()`: Generates surface forms for all compound words
     - `calculateAllComplexities()`: Calculates complexity for all entries
     - `computeDescendants()`: Computes descendant relationships between words
@@ -106,7 +106,7 @@ Handles input/output operations for the dictionary, including text processing an
 
 ### fsa.js
 
-Implements a Finite State Automaton (FSA) for parsing Trevorese surface forms.
+Implements a Finite State Automaton (FSA) for parsing Sesowi surface forms.
 
 #### Key Components:
 
@@ -114,11 +114,11 @@ Implements a Finite State Automaton (FSA) for parsing Trevorese surface forms.
   - Methods:
     - `addChild(surface)`: Adds a child node
 
-- **`buildFSA()`**: Builds the FSA for parsing Trevorese words.
+- **`buildFSA()`**: Builds the FSA for parsing Sesowi words.
   - Defines valid phonological patterns
   - Creates a tree structure of possible syllables
 
-- **`chomp_tokens(s)`**: Tokenizes a surface string into valid Trevorese syllables.
+- **`chomp_tokens(s)`**: Tokenizes a surface string into valid Sesowi syllables.
   - Uses the FSA to validate and segment input
   - Handles special cases like "ng" digraph
 
@@ -168,7 +168,7 @@ displays unit tests to user
 
 ### stories.js
 
-Manages the loading and display of stories written in Trevorese.
+Manages the loading and display of stories written in Sesowi.
 
 #### Key Components:
 
@@ -200,10 +200,10 @@ The application uses several global window variables to store and access diction
 | `window.atomgloss_to_surface` | Object mapping gloss strings to their surface forms. Used for converting gloss to surface. |
 | `window.surface_to_gloss` | Object mapping surface strings to their gloss forms. Used for converting surface to gloss. |
 | `window.compounds` | Object mapping compound glosses to their supergloss (meaning). Contains annotations for compound words showing their meaning. |
-| `window.english_to_gloss` | Object mapping English words to their Trevorese gloss equivalents. Used for suggestions when unknown words are entered. |
+| `window.english_to_gloss` | Object mapping English words to their Sesowi gloss equivalents. Used for suggestions when unknown words are entered. |
 | `window.atomgloss_to_surface_hypertrevorese` | Alternative mapping for the "hypertrevorese" flavor of the language. |
 | `window.gloss_to_supercompound` | Object mapping glosses to their supercompound forms. Used for showing the hierarchy of compound words. |
-| `window.currentFlavor` | String indicating the current flavor of Trevorese being used (standard or hypertrevorese). |
+| `window.currentFlavor` | String indicating the current flavor of Sesowi being used (standard or hypertrevorese). |
 | `window.showAnnotations` | Boolean flag indicating whether to show annotations for words. |
 
 These window variables are initialized in the `loadDictionaryData()` function in dictionary.js and are used throughout the application for various conversion and display operations.

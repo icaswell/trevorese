@@ -225,7 +225,7 @@ function processSurfaceMode(doc, isSurfaceMode) {
                         span.className = 'gloss-notfound';
                     }
                     
-                    // Join the surface parts without dashes (as per Trevorese rules)
+                    // Join the surface parts without dashes (as per Sesowi rules)
                     span.textContent = surfaceParts.join('');
                     
                 } else {
@@ -851,8 +851,8 @@ document.addEventListener('keydown', function(event) {
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~ INITIALIZATION ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-// Function to display Trevorese -> English results
-function displayTrevoreseResults(results) {
+// Function to display Sesowi -> English results
+function displaySesowiResults(results) {
     const treveroseToEnglishResults = document.getElementById('treveroseToEnglishResults');
     treveroseToEnglishResults.innerHTML = ''; // Clear previous results
 
@@ -861,7 +861,7 @@ function displayTrevoreseResults(results) {
             const entryDiv = document.createElement('div');
             entryDiv.className = 'dictionary-entry';
 
-            // Trevorese word (surface and gloss)
+            // Sesowi word (surface and gloss)
             const wordDiv = document.createElement('div');
             wordDiv.className = 'word';
             if (result.entry.surface) {
@@ -904,11 +904,11 @@ function displayTrevoreseResults(results) {
             treveroseToEnglishResults.appendChild(entryDiv);
         });
     } else {
-        treveroseToEnglishResults.innerHTML = '<p>No Trevorese matches found.</p>';
+        treveroseToEnglishResults.innerHTML = '<p>No Sesowi matches found.</p>';
     }
 }
 
-// Function to display English -> Trevorese results
+// Function to display English -> Sesowi results
 function displayEnglishResults(results, query) {
     const englishToTreveroseResults = document.getElementById('english-to-trevorese');
     englishToTreveroseResults.innerHTML = ''; // Clear previous results
@@ -960,7 +960,7 @@ function displayEnglishResults(results, query) {
             }
             entryDiv.appendChild(wordDiv);
 
-            // Trevorese translation (definition part)
+            // Sesowi translation (definition part)
             const translationDiv = document.createElement('div');
             translationDiv.className = 'definition';
             
