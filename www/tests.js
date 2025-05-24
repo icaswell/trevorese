@@ -29,7 +29,6 @@ function runGlobalTests() {
         { query: "window.english_to_gloss['forest']", accessor: () => window.english_to_gloss['forest'] },
 
         { query: "window.atomgloss_to_surface['big']", accessor: () => window.atomgloss_to_surface['big'] },
-        { query: "window.atomgloss_to_surface_hypertrevorese['big']", accessor: () => window.atomgloss_to_surface_hypertrevorese['big'] },
 
         { query: "window.gloss_to_supercompound['big-plant-place']", accessor: () => window.gloss_to_supercompound['big-plant-place'] },
 

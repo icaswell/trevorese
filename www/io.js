@@ -6,7 +6,7 @@ function detectInputType(inputText) {
 // --- Gloss to Surface (Modified to handle all three output boxes) ---
 function get_surface_single_word(word, notFoundWords) {
   const glosses = word.split("-");
-  const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
+  const data = window.atomgloss_to_surface;
 
   // Check if this is a proper noun gloss
   if (window.proper_noun_glosses && window.proper_noun_glosses.has(word)) {
@@ -81,7 +81,7 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
   const regex = /([-a-zA-Z_]+|^)|([^-a-zA-Z_]*)/g;
   const lines = gloss.split("\n");
   console.log(`io.js: Processing gloss: '${gloss}'`); // DEBUG
-  const data = (window.currentFlavor === 'hypertrevorese') ? window.atomgloss_to_surface_hypertrevorese : window.atomgloss_to_surface;
+  const data = window.atomgloss_to_surface;
   let surfaceResult = "";
   let annotatedSurfaceResult = "";
 

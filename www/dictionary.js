@@ -1028,34 +1028,11 @@ async function loadDictionaryData() {
              window.english_to_gloss[cleanedEn] = firstGloss;
          }
 
-        // Hypertrevorese Calculation
-        const ONSETS = 'wmpktnsy';
-        const VOWELS_IU = 'iu';
-        const VOWELS_A = 'a';
-        const MONO_ATOMS = [];
-        for (const c of ONSETS) { for (const v of VOWELS_IU) { MONO_ATOMS.push(c + v); } }
-        const HYPERCODES = [];
-        for (const c of ONSETS) { for (const v of VOWELS_A) { HYPERCODES.push(c + v); } }
-        const HYPERORDER = [...MONO_ATOMS];
-        for (const h of HYPERCODES) {
-            for (const a of [...HYPERCODES, ...MONO_ATOMS]) {
-                HYPERORDER.push(h + a);
-            }
-        }
-        
-        window.atomgloss_to_surface_hypertrevorese = {};
+        // Atoms sorted by number for reference
         const atomsSorted = all_vocabs.get_atoms().sort((a, b) => {
             const numA = parseInt((a.facets['a'] && a.facets['a'][0]) || '0');
             const numB = parseInt((b.facets['a'] && b.facets['a'][0]) || '0');
             return numA - numB;
-        });
-        
-        atomsSorted.forEach((a, i) => {
-            if (i < HYPERORDER.length) {
-                 window.atomgloss_to_surface_hypertrevorese[a.gloss] = HYPERORDER[i];
-            } else {
-                 console.warn(`Ran out of hyperorder codes for atom: ${a.gloss}`);
-            }
         });
 
         // Debug: Check if supercompound column is being recognized in the TSV
@@ -1141,7 +1118,7 @@ async function loadDictionaryData() {
         console.log("dictionary.js: window.atomgloss_to_surface count:", Object.keys(window.atomgloss_to_surface).length);
         console.log("dictionary.js: window.compounds count:", Object.keys(window.compounds).length);
         console.log("dictionary.js: window.english_to_gloss count:", Object.keys(window.english_to_gloss).length);
-        console.log("dictionary.js: window.atomgloss_to_surface_hypertrevorese count:", Object.keys(window.atomgloss_to_surface_hypertrevorese).length);
+
         
         // Calculate complexity for all entries after dictionary is fully loaded
         window.trevorese_dictionary.calculateAllComplexities();
@@ -1234,7 +1211,7 @@ async function loadDictionaryData() {
         window.atomgloss_to_surface = {};
         window.compounds = {};
         window.english_to_gloss = {};
-        window.atomgloss_to_surface_hypertrevorese = {};
+
         window.gloss_to_supercompound = {};
         window.proper_nouns = {};
         window.proper_noun_glosses = new Set();

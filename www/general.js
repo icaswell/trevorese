@@ -74,30 +74,10 @@ let periodicTableLoaded = false; // Flag to track if table is loaded
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SLIDER LOGIC~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 // Global variables
-window.currentFlavor = 'standard';
 window.showAnnotations = false;
 
 // Get the slider elements
-const flavorSlider = document.getElementById('flavor-slider');
 const annotationsSlider = document.getElementById('annotations-slider');
-
-// Event listener for the flavor slider
-flavorSlider.addEventListener('click', () => {
-    flavorSlider.classList.toggle('active');
-    if (flavorSlider.dataset.flavor === 'std') {
-        window.currentFlavor = 'hypertrevorese';
-        flavorSlider.dataset.flavor = 'hyp';
-        flavorSlider.classList.add('flavor-hyp');
-    } else {
-        window.currentFlavor = 'standard';
-        flavorSlider.dataset.flavor = 'std';
-        flavorSlider.classList.remove('flavor-hyp');
-    }
-    console.log('Flavor:', currentFlavor); // For debugging
-
-    // Trigger the existing event listeners
-    topBox.dispatchEvent(new Event('input'));
-});
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SURFACE MODE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
