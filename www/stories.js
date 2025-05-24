@@ -91,6 +91,53 @@ function parseStories(tsvContent) {
 }
 
 /**
+ * Process text to convert it to surface form with proper spans
+ * @param {string} text - The text to process
+ * @returns {string} HTML with surface spans
+ */
+function processTextToSurface(text) {
+    // Use a regex to tokenize the text into words and non-words
+    const tokens = text.match(/[\w-]+|[^\w\s-]+|\s+/g) || [];
+    
+    // Process each token
+    let html = '';
+    
+    tokens.forEach(token => {
+        // Check if token is a word (contains alphanumeric characters)
+        if (/[\w-]/.test(token)) {
+            // It's a word or compound word
+            if (token.includes('-')) {
+                // For compound words, use the dictionary tokenizer
+                const [words, punct] = window.trevorese_dictionary.tokenize(token);
+                
+                // Build HTML for compound word
+                for (let i = 0; i < words.length; i++) {
+                    html += punct[i];
+                    // Check if the word is glossable
+                    const isGlossable = isWordGlossable(words[i]);
+                    const cssClass = isGlossable ? 'surface' : 'surface-notfound';
+                    html += `<span class="${cssClass}" data-word="${words[i]}">${words[i]}</span>`;
+                }
+                html += punct[words.length] || '';
+            } else {
+                // Regular word - check if it's glossable
+                const isGlossable = isWordGlossable(token);
+                const cssClass = isGlossable ? 'surface' : 'surface-notfound';
+                html += `<span class="${cssClass}" data-word="${token}">${token}</span>`;
+            }
+        } else if (/\s+/.test(token)) {
+            // It's whitespace - preserve it
+            html += token;
+        } else {
+            // It's punctuation or other non-word characters
+            html += token;
+        }
+    });
+    
+    return html;
+}
+
+/**
  * Check if a word can be properly tokenized and glossed
  * @param {string} word - The word to check
  * @returns {boolean} True if the word can be tokenized and all tokens can be mapped to glosses
@@ -155,15 +202,61 @@ function createStoryHTML(story, index) {
         
         // Check if this line is an image directive (starts with "images:")
         if (trevorese.trim().toLowerCase().startsWith('images:')) {
-            // Extract image filenames from the line
+            // Extract image specifications from the line
             const imagesPart = trevorese.trim().substring(7); // Remove "images:" prefix
-            const imageFiles = imagesPart.split(',').map(img => img.trim());
             
-            // Add valid image files to the storyImages array
-            imageFiles.forEach(img => {
-                if (img) {
-                    console.log(`stories.js: Adding image ${img} to story`);
-                    storyImages.push(img);
+            // Split by commas, but respect quotes for captions
+            let currentSpec = '';
+            let inQuotes = false;
+            const imageSpecs = [];
+            
+            for (let i = 0; i < imagesPart.length; i++) {
+                const char = imagesPart[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                    currentSpec += char;
+                } else if (char === ',' && !inQuotes) {
+                    // End of a spec, add it to the array
+                    if (currentSpec.trim()) {
+                        imageSpecs.push(currentSpec.trim());
+                    }
+                    currentSpec = '';
+                } else {
+                    currentSpec += char;
+                }
+            }
+            
+            // Add the last spec if there is one
+            if (currentSpec.trim()) {
+                imageSpecs.push(currentSpec.trim());
+            }
+            
+            // Process each image specification
+            imageSpecs.forEach(spec => {
+                // Parse the format: filename.png:"caption"
+                const colonIndex = spec.indexOf(':');
+                
+                if (colonIndex !== -1) {
+                    // We have a filename with a caption
+                    const imgFile = spec.substring(0, colonIndex).trim();
+                    let caption = spec.substring(colonIndex + 1).trim();
+                    
+                    // Remove surrounding quotes from caption if present
+                    if (caption.startsWith('"') && caption.endsWith('"')) {
+                        caption = caption.substring(1, caption.length - 1);
+                    }
+                    
+                    if (imgFile) {
+                        console.log(`stories.js: Adding image ${imgFile} to story with caption: ${caption}`);
+                        storyImages.push({ file: imgFile, caption: caption });
+                    }
+                } else {
+                    // Just a filename without a caption
+                    if (spec) {
+                        console.log(`stories.js: Adding image ${spec} to story without caption`);
+                        storyImages.push({ file: spec, caption: null });
+                    }
                 }
             });
             
@@ -230,11 +323,29 @@ function createStoryHTML(story, index) {
     let imagesHTML = '';
     if (storyImages.length > 0) {
         // Add padding to the content if there are images
-        const imageContainerStyle = 'position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 10px;';
+        const imageContainerStyle = 'position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 20px;';
         
         imagesHTML = `<div style="${imageContainerStyle}">`;
         storyImages.forEach(img => {
-            imagesHTML += `<img src="img/${img}" alt="Story image" style="width: 300px; height: auto;">`;
+            // Check if img is a string (old format) or an object with file and caption
+            if (typeof img === 'string') {
+                imagesHTML += `<div class="story-image-container">
+                    <img src="img/${img}" alt="Story image" style="width: 300px; height: auto;">
+                </div>`;
+            } else {
+                // New format with potential caption
+                imagesHTML += `<div class="story-image-container">
+                    <img src="img/${img.file}" alt="Story image" style="width: 300px; height: auto;">`;
+                
+                // Add caption if it exists
+                if (img.caption) {
+                    // Process the caption to convert it to surface form
+                    const captionHTML = processTextToSurface(img.caption);
+                    imagesHTML += `<div class="image-caption" style="text-align: center; font-style: italic; margin-top: 5px;">${captionHTML}</div>`;
+                }
+                
+                imagesHTML += `</div>`;
+            }
         });
         imagesHTML += '</div>';
     }
