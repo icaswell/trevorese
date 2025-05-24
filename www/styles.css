@@ -4,6 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    padding-top: 30px; /* Add extra space at the top to make the teal section taller */
 }
 
 .container {
@@ -17,14 +18,16 @@ body {
     flex-direction: column;
 }
 
-.container > h1 {
+.page-title {
     text-align: center;
-    color: #fff;
-    background-color: #004d4d; /* Darker teal */
-    padding: 10px 0;
+    color: #fafafa;
+    background-color: #009c36;
+    padding: 15px 0;
     border-radius: 8px 8px 0 0;
     /* top, right, bottom, left */
-    margin: -20px -20px 20px -20px; 
+    margin: -20px -20px 20px -20px;
+    font-size: 2.8em; /* Slightly larger than h1 */
+    font-weight: bold;
 }
 
 .tabs {
@@ -508,7 +511,7 @@ body .subprinciple {
 .about-body h1 {
     text-align: center;
     color: #fff;
-    background-color: #004d4d; /* Darker teal */
+    background-color: #008484; /* was #004d4d; dark teal */
     padding: 10px 0;
     border-radius: 8px 8px 0 0;
     /* top, right, bottom, left */
