@@ -101,11 +101,8 @@ flavorSlider.addEventListener('click', () => {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SURFACE MODE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-// Get the surface mode checkbox
-const surfaceModeCheckbox = document.getElementById('surface-mode-checkbox');
-
 // Global variable to track surface mode state
-window.surfaceMode = true; // Default to checked (true)
+window.surfaceMode = true; // Always enabled by default
 
 // Function to convert gloss spans to surface spans
 function toggleSurfaceMode(isSurfaceMode) {
@@ -263,18 +260,12 @@ function processSurfaceMode(doc, isSurfaceMode) {
     }
 }
 
-// Event listener for the surface mode checkbox
-surfaceModeCheckbox.addEventListener('change', () => {
-    console.log('Checkbox changed:', surfaceModeCheckbox.checked);
-    toggleSurfaceMode(surfaceModeCheckbox.checked);
-});
-
-// Initialize surface mode based on checkbox default state
+// Initialize surface mode on page load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing surface mode');
     // Wait a bit for iframes to load
     setTimeout(() => {
-        toggleSurfaceMode(surfaceModeCheckbox.checked);
+        toggleSurfaceMode(true); // Always enable surface mode
     }, 1000);
 });
 
@@ -285,7 +276,7 @@ document.querySelectorAll('.tab').forEach(tab => {
         if (tabId === 'tutorial' || tabId === 'about') {
             // Wait a bit for iframe content to be accessible
             setTimeout(() => {
-                toggleSurfaceMode(surfaceModeCheckbox.checked);
+                toggleSurfaceMode(true); // Always enable surface mode
             }, 500);
         }
     });
@@ -421,21 +412,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Add event listeners for tab clicks to maintain collapse state
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        const tabId = tab.dataset.tab;
-        if (tabId === 'tutorial' || tabId === 'about' || tabId === 'phonology') {
-            // Wait a bit for iframe content to be accessible
-            setTimeout(() => {
-                const collapseCheckbox = document.getElementById('collapse-checkbox');
-                if (collapseCheckbox) {
-                    toggleAllCollapsibleSections(collapseCheckbox.checked);
-                }
-            }, 500);
-        }
-    });
-});
+// We don't need to reset collapse state when switching tabs
+// This allows users to maintain their manually expanded/collapsed sections
+// The initial state is still applied when the page first loads
 
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ WORD INFO POPUP LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

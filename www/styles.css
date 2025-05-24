@@ -200,24 +200,6 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
     background-color: teal;
 }
 
-/* Surface mode checkbox styles */
-.checkbox-wrapper {
-    margin-left: 15px;
-}
-
-.checkbox-with-labels {
-    display: flex;
-    align-items: center;
-}
-
-#surface-mode-checkbox {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-
 /* Styling for specific classes */
 .bold { font-weight: bold; }
 .partofspeech { color: grey; font-size: 11px; }
