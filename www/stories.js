@@ -680,7 +680,21 @@ function setupWordClickHandlers() {
     
     console.log(`stories.js: Setting up click handlers for ${surfaceWords.length} words in stories`);
     
+    // First remove any existing click handlers to prevent duplicates
     surfaceWords.forEach(word => {
+        // Clone the node to remove all event listeners
+        const oldWord = word;
+        const newWord = oldWord.cloneNode(true);
+        if (oldWord.parentNode) {
+            oldWord.parentNode.replaceChild(newWord, oldWord);
+        }
+    });
+    
+    // Re-select the words after replacing them
+    const refreshedWords = document.querySelectorAll('#stories-container .surface, #stories-container .surface-notfound');
+    
+    // Add new click handlers
+    refreshedWords.forEach(word => {
         word.addEventListener('click', function(event) {
             const wordText = this.getAttribute('data-word');
             if (wordText) {
@@ -710,6 +724,10 @@ document.addEventListener('DOMContentLoaded', function() {
         storiesTab.addEventListener('click', function() {
             if (stories.length === 0) {
                 loadStories();
+            } else {
+                // If stories are already loaded, just reapply the click handlers
+                console.log('stories.js: Stories already loaded, reapplying click handlers');
+                setupWordClickHandlers();
             }
         });
         

@@ -529,7 +529,7 @@ function showWordInfoPopup(event, surface) {
     }
     
     // Check if this is the same element that was clicked before
-    if (lastClickedWordElement === event.target && wordInfoPopup.style.display === 'block') {
+    if (lastClickedWordElement === event.target && wordInfoPopup && wordInfoPopup.style.display === 'block') {
         // If clicking the same word again, hide the popup
         hideWordInfoPopup();
         lastClickedWordElement = null;
@@ -678,6 +678,11 @@ document.querySelectorAll('.tab').forEach(tab => {
                 addSurfaceClickListeners();
             }, 500);
         }
+        
+        // Reset the lastClickedWordElement when switching tabs
+        // This prevents issues with popup positioning when returning to a tab
+        lastClickedWordElement = null;
+        hideWordInfoPopup();
     };
 });
 
