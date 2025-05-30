@@ -1,3 +1,12 @@
+// Timing utility function for performance measurement
+function timeOperation(operationName, fn) {
+    const startTime = performance.now();
+    const result = fn();
+    const endTime = performance.now();
+    console.log(`general.js: TIMING: ${operationName} took ${(endTime - startTime).toFixed(2)}ms`);
+    return result;
+}
+
 // Tab switching logic
 document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -10,12 +19,18 @@ document.querySelectorAll('.tab').forEach(tab => {
 
         // Activate clicked tab and corresponding content
         tab.classList.add('active');
-        document.getElementById(tabId).classList.add('active');
+        timeOperation(`Activate tab ${tabId}`, () => {
+            document.getElementById(tabId).classList.add('active');
+            return null;
+        });
 
         // Load periodic table content if this tab is clicked and not already loaded
         if (tabId === 'periodic-table') {
             if (!periodicTableLoaded) {
-                loadPeriodicTable();
+                timeOperation('Load periodic table', () => {
+                    loadPeriodicTable();
+                    return null;
+                });
             }
             // Add click listeners to gloss spans in the periodic table
             setTimeout(() => {
@@ -87,7 +102,7 @@ window.surfaceMode = true; // Always enabled by default
 // Function to convert gloss spans to surface spans
 function toggleSurfaceMode(isSurfaceMode) {
     window.surfaceMode = isSurfaceMode;
-    console.log('Surface mode toggled:', isSurfaceMode);
+    console.log('general.js: Surface mode toggled:', isSurfaceMode);
     
     // Only apply to tutorial and about tabs
     const tutorialFrame = document.querySelector('#tutorial iframe');
@@ -98,7 +113,10 @@ function toggleSurfaceMode(isSurfaceMode) {
         try {
             // Try to access the contentDocument
             const tutorialDoc = tutorialFrame.contentDocument || tutorialFrame.contentWindow.document;
-            processSurfaceMode(tutorialDoc, isSurfaceMode);
+            timeOperation('Process surface mode for tutorial', () => {
+                processSurfaceMode(tutorialDoc, isSurfaceMode);
+                return null;
+            });
         } catch (e) {
             console.error('Error accessing tutorial iframe:', e);
         }
@@ -109,7 +127,10 @@ function toggleSurfaceMode(isSurfaceMode) {
         try {
             // Try to access the contentDocument
             const aboutDoc = aboutFrame.contentDocument || aboutFrame.contentWindow.document;
-            processSurfaceMode(aboutDoc, isSurfaceMode);
+            timeOperation('Process surface mode for about', () => {
+                processSurfaceMode(aboutDoc, isSurfaceMode);
+                return null;
+            });
         } catch (e) {
             console.error('Error accessing about iframe:', e);
         }
@@ -242,7 +263,7 @@ function processSurfaceMode(doc, isSurfaceMode) {
 
 // Initialize surface mode on page load
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing surface mode');
+    console.log('general.js: DOM loaded, initializing surface mode');
     // Wait a bit for iframes to load
     setTimeout(() => {
         toggleSurfaceMode(true); // Always enable surface mode
@@ -281,7 +302,10 @@ function toggleAllCollapsibleSections(collapsed) {
     if (tutorialFrame) {
         try {
             const tutorialDoc = tutorialFrame.contentDocument || tutorialFrame.contentWindow.document;
-            toggleCollapsibleInDoc(tutorialDoc, collapsed);
+            timeOperation('Toggle collapsible sections in tutorial', () => {
+                toggleCollapsibleInDoc(tutorialDoc, collapsed);
+                return null;
+            });
         } catch (e) {
             console.error('Error accessing tutorial iframe:', e);
         }
@@ -291,7 +315,10 @@ function toggleAllCollapsibleSections(collapsed) {
     if (aboutFrame) {
         try {
             const aboutDoc = aboutFrame.contentDocument || aboutFrame.contentWindow.document;
-            toggleCollapsibleInDoc(aboutDoc, collapsed);
+            timeOperation('Toggle collapsible sections in about', () => {
+                toggleCollapsibleInDoc(aboutDoc, collapsed);
+                return null;
+            });
         } catch (e) {
             console.error('Error accessing about iframe:', e);
         }
@@ -301,7 +328,10 @@ function toggleAllCollapsibleSections(collapsed) {
     if (phonologyFrame) {
         try {
             const phonologyDoc = phonologyFrame.contentDocument || phonologyFrame.contentWindow.document;
-            toggleCollapsibleInDoc(phonologyDoc, collapsed);
+            timeOperation('Toggle collapsible sections in phonology', () => {
+                toggleCollapsibleInDoc(phonologyDoc, collapsed);
+                return null;
+            });
         } catch (e) {
             console.error('Error accessing phonology iframe:', e);
         }
@@ -404,11 +434,24 @@ let wordInfoPopup, popupWord, popupContent, popupClose;
 
 // Function to initialize popup elements
 function initPopupElements() {
+    console.log('general.js: Initializing popup elements');
     // Get the popup elements
     wordInfoPopup = document.getElementById('word-info-popup');
     popupWord = document.getElementById('popup-word');
     popupContent = document.getElementById('popup-content');
     popupClose = document.querySelector('.popup-close');
+    
+    if (!wordInfoPopup) {
+        console.error('general.js: Could not find word-info-popup element!');
+        return;
+    }
+    
+    console.log('general.js: Found popup elements:', {
+        popup: wordInfoPopup ? 'found' : 'not found',
+        word: popupWord ? 'found' : 'not found',
+        content: popupContent ? 'found' : 'not found',
+        close: popupClose ? 'found' : 'not found'
+    });
     
     // Add event listeners if elements exist
     if (popupClose) {
@@ -431,10 +474,12 @@ function initPopupElements() {
 
 // Function to populate the popup with word information
 function populateWordInfoPopup(surface) {
+    const startTime = performance.now();
     const result = findVocabEntryBySurface(surface);
     if (!result) {
         popupWord.innerHTML = `<span class="surface">${surface}</span> (not found)`;
         popupContent.innerHTML = '<p>No information available for this word.</p>';
+        console.log(`general.js: TIMING: populateWordInfoPopup for "${surface}" took ${(performance.now() - startTime).toFixed(2)}ms`);
         return;
     }
     
@@ -461,6 +506,7 @@ function populateWordInfoPopup(surface) {
     // Clear and set the content
     popupContent.innerHTML = '';
     popupContent.appendChild(entryDiv);
+    console.log(`general.js: TIMING: populateWordInfoPopup for "${surface}" took ${(performance.now() - startTime).toFixed(2)}ms`);
 }
 
 // Track the currently clicked word element
@@ -468,6 +514,20 @@ let lastClickedWordElement = null;
 
 // Function to show the popup at the clicked position
 function showWordInfoPopup(event, surface) {
+    console.log(`general.js: showWordInfoPopup called for surface: ${surface}`);
+    
+    // Make sure popup elements are initialized
+    if (!wordInfoPopup) {
+        console.log('general.js: Popup elements not initialized, initializing now');
+        initPopupElements();
+        
+        // If still not found, create a warning and return
+        if (!wordInfoPopup) {
+            console.error('general.js: Could not initialize popup elements!');
+            return;
+        }
+    }
+    
     // Check if this is the same element that was clicked before
     if (lastClickedWordElement === event.target && wordInfoPopup.style.display === 'block') {
         // If clicking the same word again, hide the popup
@@ -497,6 +557,7 @@ function showWordInfoPopup(event, surface) {
     
     // Show the popup
     wordInfoPopup.style.display = 'block';
+    console.log('general.js: Popup displayed at position:', { top, left });
 }
 
 // Function to hide the popup
@@ -518,6 +579,7 @@ document.addEventListener('click', (event) => {
 
 // Function to add click listeners to surface spans in iframes and tabs
 function addSurfaceClickListeners() {
+    const startTime = performance.now();
     // Get the iframe documents
     const tutorialFrame = document.querySelector('#tutorial iframe');
     const aboutFrame = document.querySelector('#about iframe');
@@ -539,10 +601,12 @@ function addSurfaceClickListeners() {
     if (periodicTableTab) {
         addClickListenersToDoc(document);
     }
+    console.log(`general.js: TIMING: addSurfaceClickListeners took ${(performance.now() - startTime).toFixed(2)}ms`);
 }
 
 // Function to add click listeners to surface and gloss spans in a document
 function addClickListenersToDoc(doc) {
+    const startTime = performance.now();
     // Find all surface and gloss spans
     const spans = doc.querySelectorAll('.surface, .surface-emph, .gloss');
     
@@ -554,6 +618,7 @@ function addClickListenersToDoc(doc) {
         // Add new click listener
         span.addEventListener('click', spanClickHandler);
     });
+    console.log(`general.js: TIMING: addClickListenersToDoc added listeners to ${spans.length} elements in ${(performance.now() - startTime).toFixed(2)}ms`);
 }
 
 // Click handler for both surface and gloss spans
@@ -618,6 +683,7 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 // Initialize click listeners when the page loads
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('general.js: DOM content loaded, initializing popup elements');
     // Initialize popup elements
     initPopupElements();
     
@@ -626,6 +692,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.surfaceMode) {
             addSurfaceClickListeners();
         }
+        
+        // Ensure the stories tab has the popup functionality
+        const storiesTab = document.querySelector('.tab[data-tab="stories"]');
+        if (storiesTab) {
+            storiesTab.addEventListener('click', function() {
+                console.log('general.js: Stories tab clicked, ensuring popup elements are initialized');
+                // Re-initialize popup elements when switching to stories tab
+                setTimeout(() => {
+                    initPopupElements();
+                }, 500);
+            });
+        }
     }, 1500);
 });
 
@@ -633,6 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /*~~~~~~~~~~~~~~~~~~~~~ PERIODIC TABLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 async function loadPeriodicTable() {
+    const startTime = performance.now();
     const tableContainer = document.getElementById('periodic-table');
     tableContainer.innerHTML = 'Loading table...'; // Show loading indicator
     console.log('loadPeriodicTable function started.'); // DEBUG
@@ -706,10 +785,10 @@ async function loadPeriodicTable() {
         tableHTML += '</tbody></table></div>';
         tableContainer.innerHTML = tableHTML;
         periodicTableLoaded = true; // Set flag to true after successful load
-        console.log('Periodic table HTML generated and inserted.'); // DEBUG
+        console.log('general.js: Periodic table HTML generated and inserted.'); // DEBUG
 
     } catch (error) {
-        console.error('Error loading or parsing periodic table:', error); // Log the specific error
+        console.error('general.js: Error loading or parsing periodic table:', error); // Log the specific error
         tableContainer.innerHTML = `<span style="color: red;">Error loading periodic table: ${error.message}. Check console for details.</span>`;
     }
 }
@@ -730,11 +809,11 @@ async function loadPeriodicTable() {
         // Use the Clipboard API for modern browsers
         if (navigator.clipboard) {
             navigator.clipboard.writeText(text).then(() => {
-                console.log("Text copied to clipboard: " + text);
+                console.log("general.js: Text copied to clipboard: " + text);
                 // Optional: Show a brief "Copied!" message.
                 // You could add a small <span> next to the button and toggle its visibility.
             }).catch(err => {
-                console.error('Failed to copy text: ', err);
+                console.error('general.js: Failed to copy text: ', err);
                 fallbackCopyText(text); // Fallback for older browsers
             });
         } else {
@@ -751,9 +830,9 @@ async function loadPeriodicTable() {
         try {
             const successful = document.execCommand('copy');
             const msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Fallback: Copying text command was ' + msg);
+            console.log('general.js: Fallback: Copying text command was ' + msg);
         } catch (err) {
-            console.error('Fallback: Oops, unable to copy', err);
+            console.error('general.js: Fallback: Oops, unable to copy', err);
         }
         document.body.removeChild(textarea);
 
@@ -812,6 +891,7 @@ document.addEventListener('keydown', function(event) {
 
 // Function to display Sesowi -> English results
 function displaySesowiResults(results) {
+    const startTime = performance.now();
     const treveroseToEnglishResults = document.getElementById('treveroseToEnglishResults');
     treveroseToEnglishResults.innerHTML = ''; // Clear previous results
 
@@ -865,10 +945,12 @@ function displaySesowiResults(results) {
     } else {
         treveroseToEnglishResults.innerHTML = '<p>No Sesowi matches found.</p>';
     }
+    console.log(`general.js: TIMING: displaySesowiResults for ${results.length} results took ${(performance.now() - startTime).toFixed(2)}ms`);
 }
 
 // Function to display English -> Sesowi results
 function displayEnglishResults(results, query) {
+    const startTime = performance.now();
     const englishToTreveroseResults = document.getElementById('english-to-trevorese');
     englishToTreveroseResults.innerHTML = ''; // Clear previous results
 
@@ -973,4 +1055,5 @@ function displayEnglishResults(results, query) {
     } else {
         englishToTreveroseResults.innerHTML = '<p>No English matches found.</p>';
     }
+    console.log(`general.js: TIMING: displayEnglishResults for ${results.length} results took ${(performance.now() - startTime).toFixed(2)}ms`);
 }
