@@ -1,3 +1,8 @@
+fix how this is looking up the gloss
+<li>gloss: <span class="gloss">me back do see cat like dark-color</span></li>
+
+
+
 fix how styes are inherited in about.html -- principles div seems not to be used
 make tests tab do more things, like read i dictionary
 rename window.compounds ot window.compound_gloss_to_supercompound (check this)
