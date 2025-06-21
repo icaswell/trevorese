@@ -1,3 +1,9 @@
+some glosses are not being emphed, e.g.
+
+<span class="gloss-emph">flat-thing</span></td>
+
+--------------------------------------------------------------------------------
+
 decide: do i/a unambiguously singularize, e.g. zh zhege, or not, e.g. id toko-ini?
 
 --------------------------------------------------------------------------------
