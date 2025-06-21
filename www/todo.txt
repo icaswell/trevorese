@@ -1,13 +1,19 @@
+still need to decide on whether to make the plural marker a suffix. It's against the Sesowi logic, but better matches ALL the major languages.
+
+--------------------------------------------------------------------------------
+
 fix how this is looking up the gloss
 <li>gloss: <span class="gloss">me back do see cat like dark-color</span></li>
 
 
+--------------------------------------------------------------------------------
 
 fix how styes are inherited in about.html -- principles div seems not to be used
 make tests tab do more things, like read i dictionary
 rename window.compounds ot window.compound_gloss_to_supercompound (check this)
 rename io.js to typing_tools.js
 
+--------------------------------------------------------------------------------
 
 write a script to process all tutorial_part_* and output a single text file called "tutorial_combined.txt". The processing that needs to be done is:
   1. for any word in the "gloss" class span, look it up in the trevorese dictionary and replace it with the surface form
