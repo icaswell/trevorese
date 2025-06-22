@@ -6,6 +6,8 @@ some glosses are not being emphed, e.g.
 
 decide: do i/a unambiguously singularize, e.g. zh zhege, or not, e.g. id toko-ini?
 
+decide: does swa for emphasis come before or after?
+
 --------------------------------------------------------------------------------
 
 still need to decide on whether to make the plural marker a suffix. It's against the Sesowi logic, but better matches ALL the major languages.
