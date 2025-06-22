@@ -25,6 +25,11 @@ class TabNavigator {
         window.addEventListener('popstate', (event) => {
             this.handlePopState(event);
         });
+        
+        // Listen for window resize to handle mobile/desktop switching
+        window.addEventListener('resize', () => {
+            this.handleResize();
+        });
     }
     
     checkInitialState() {
@@ -32,7 +37,14 @@ class TabNavigator {
         const tabParam = urlParams.get('tab');
         
         if (tabParam) {
-            this.enterSingleView(tabParam);
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                // Only enter single view on mobile
+                this.enterSingleView(tabParam);
+            } else {
+                // On desktop, just switch to the tab normally
+                this.switchTab(tabParam);
+            }
         }
     }
     
@@ -56,19 +68,49 @@ class TabNavigator {
                 return;
             }
             
-            // Check if we're already in single view mode
-            if (this.isSingleView) {
-                // If clicking the same tab, do nothing
-                if (this.currentTab === tabId) {
-                    return;
+            // Check if we're on mobile (screen width <= 768px)
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // On mobile, enter single view mode
+                if (this.isSingleView) {
+                    // If clicking the same tab, do nothing
+                    if (this.currentTab === tabId) {
+                        return;
+                    }
+                    // If clicking a different tab, switch to it
+                    this.enterSingleView(tabId);
+                } else {
+                    // In multi-tab view, enter single view mode
+                    this.enterSingleView(tabId);
                 }
-                // If clicking a different tab, switch to it
-                this.enterSingleView(tabId);
             } else {
-                // In multi-tab view, enter single view mode
-                this.enterSingleView(tabId);
+                // On desktop, use traditional tab switching
+                this.switchTab(tabId);
             }
         });
+    }
+    
+    switchTab(tabId) {
+        // Traditional tab switching behavior
+        // Deactivate all tabs and content
+        document.querySelectorAll('.tab, .tab-content').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // Activate clicked tab and corresponding content
+        const clickedTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+        if (clickedTab) {
+            clickedTab.classList.add('active');
+        }
+        
+        const tabContent = document.getElementById(tabId);
+        if (tabContent) {
+            tabContent.classList.add('active');
+        }
+
+        // Handle special tab functionality
+        this.handleSpecialTabFunctionality(tabId);
     }
     
     enterSingleView(tabId) {
@@ -228,6 +270,15 @@ class TabNavigator {
         
         if (tabId === 'tests' && typeof runTests === 'function') {
             runTests();
+        }
+    }
+    
+    handleResize() {
+        const isMobile = window.innerWidth <= 768;
+        
+        // If we're in single view mode but now on desktop, exit single view
+        if (this.isSingleView && !isMobile) {
+            this.exitSingleView();
         }
     }
 }
