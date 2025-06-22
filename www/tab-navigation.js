@@ -96,6 +96,10 @@ class TabNavigator {
         // Deactivate all tabs and content
         document.querySelectorAll('.tab, .tab-content').forEach(el => {
             el.classList.remove('active');
+            // Reset display to default for tab contents
+            if (el.classList.contains('tab-content')) {
+                el.style.display = '';
+            }
         });
 
         // Activate clicked tab and corresponding content
@@ -106,6 +110,7 @@ class TabNavigator {
         
         const tabContent = document.getElementById(tabId);
         if (tabContent) {
+            tabContent.style.display = 'flex';
             tabContent.classList.add('active');
         }
 
@@ -209,10 +214,12 @@ class TabNavigator {
             this.originalTabsContainer.style.display = 'flex';
         }
         
-        // Reset all tab contents
+        // Reset all tab contents properly
         this.originalTabContents.forEach(content => {
-            content.style.display = 'none';
+            // Remove any inline styles that might have been set
+            content.style.display = '';
             content.classList.remove('single-view');
+            content.classList.remove('active');
         });
         
         // Show the default active tab (about) and activate it
