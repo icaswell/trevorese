@@ -29,7 +29,7 @@ class TabNavigator {
         // Listen for window resize to handle mobile/desktop switching
         window.addEventListener('resize', () => {
             this.handleResize();
-        });
+        }, { passive: true });
     }
     
     checkInitialState() {

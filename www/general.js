@@ -435,7 +435,7 @@ function initPopupElements() {
             console.log('general.js: ESC key pressed, hiding word info popup');
             hideWordInfoPopup();
         }
-    });
+    }, { passive: true });
 }
 
 // FIELD_DISPLAY_ORDER is now defined in display.js
@@ -498,6 +498,14 @@ function showWordInfoPopup(event, surface) {
         }
     }
     
+    // Debug: Check if popup elements exist
+    console.log('general.js: Popup elements check:', {
+        wordInfoPopup: wordInfoPopup ? 'found' : 'not found',
+        popupWord: popupWord ? 'found' : 'not found',
+        popupContent: popupContent ? 'found' : 'not found',
+        popupClose: popupClose ? 'found' : 'not found'
+    });
+    
     // Check if this is the same element that was clicked before
     if (lastClickedWordElement === event.target && wordInfoPopup && wordInfoPopup.style.display === 'block') {
         // If clicking the same word again, hide the popup
@@ -521,13 +529,38 @@ function showWordInfoPopup(event, surface) {
     const top = rect.bottom + scrollTop + 5; // 5px below the word
     const left = rect.left + scrollLeft + (rect.width / 2) - (wordInfoPopup.offsetWidth / 2);
     
+    // Debug: Log positioning information
+    console.log('general.js: Positioning debug:', {
+        rect: rect,
+        scrollTop: scrollTop,
+        scrollLeft: scrollLeft,
+        calculatedTop: top,
+        calculatedLeft: left,
+        popupWidth: wordInfoPopup.offsetWidth,
+        popupHeight: wordInfoPopup.offsetHeight,
+        viewportWidth: window.innerWidth,
+        viewportHeight: window.innerHeight
+    });
+    
     // Set the position
     wordInfoPopup.style.top = `${top}px`;
     wordInfoPopup.style.left = `${left}px`;
     
     // Show the popup
     wordInfoPopup.style.display = 'block';
+    wordInfoPopup.style.visibility = 'visible';
+    wordInfoPopup.style.zIndex = '1000';
+    
     console.log('general.js: Popup displayed at position:', { top, left });
+    console.log('general.js: Popup display style:', wordInfoPopup.style.display);
+    console.log('general.js: Popup visibility:', wordInfoPopup.style.visibility);
+    console.log('general.js: Popup z-index:', wordInfoPopup.style.zIndex);
+    console.log('general.js: Popup computed styles:', {
+        display: window.getComputedStyle(wordInfoPopup).display,
+        visibility: window.getComputedStyle(wordInfoPopup).visibility,
+        zIndex: window.getComputedStyle(wordInfoPopup).zIndex,
+        position: window.getComputedStyle(wordInfoPopup).position
+    });
 }
 
 // Function to hide the popup
@@ -703,62 +736,17 @@ async function loadPeriodicTable() {
         const rows = tsvData.trim().split('\n');
         console.log('TSV parsed into', rows.length, 'rows.'); // DEBUG
 
-        let tableHTML = '<div class="table-container"><table id="trevorese-periodic-table">';
-
-        rows.forEach((row, rowIndex) => {
-            // console.log(`Processing row ${rowIndex}`); // DEBUG (can be noisy)
-            const cells = row.split('\t');
-            if (rowIndex === 0) {
-                tableHTML += '<thead><tr><th></th>'; // Add empty top-left header cell
-                cells.forEach(cell => {
-                    const cellContent = cell.trim();
-                    const headerClass = cellContent.length > 1 ? 'pt-header-long' : '';
-                    tableHTML += `<th class="${headerClass}">${cellContent}</th>`;
-                });
-                tableHTML += '</tr></thead><tbody>';
-            } else {
-                tableHTML += '<tr>';
-                cells.forEach((cell, cellIndex) => {
-                    const cellContent = cell.trim();
-                    let cellClass = '';
-                    let processedContent = cellContent; // Content to display inside TD
-
-                    // Apply special classes first
-                    if (cellContent.includes('()')) {
-                        cellClass += ' pt-grey';
-                    }
-                    if (cellContent === '\\') {
-                        cellClass += ' pt-black';
-                    }
-
-                    // Handle first column styling
-                    if (cellIndex === 0) {
-                        cellClass += ' pt-first-col';
-                        if (cellContent.length > 1) {
-                            cellClass += ' pt-header-long';
-                        }
-                    } else { // Apply surface style to data cells (not first column)
-                        // Only apply surface styling if not grey/black cell
-                        if (!cellClass.includes('pt-grey') && !cellClass.includes('pt-black')) {
-                            const parenIndex = cellContent.indexOf('(');
-                            if (parenIndex !== -1) {
-                                const surfacePart = cellContent.substring(0, parenIndex).trim();
-                                const restPart = cellContent.substring(parenIndex);
-                                processedContent = `<span class="surface">${surfacePart}</span> ${restPart}`;
-                            } else if (cellContent) { // Don't wrap empty cells
-                                processedContent = `<span class="surface">${cellContent}</span>`;
-                            }
-                        }
-                    }
-
-                    tableHTML += `<td class="${cellClass.trim()}">${processedContent}</td>`;
-                });
-                tableHTML += '</tr>';
-            }
-        });
-
-        tableHTML += '</tbody></table></div>';
-        tableContainer.innerHTML = tableHTML;
+        // Check if we're on mobile
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Use mobile-friendly card layout
+            tableContainer.innerHTML = generateMobilePeriodicTable(rows);
+        } else {
+            // Use traditional table layout
+            tableContainer.innerHTML = generateDesktopPeriodicTable(rows);
+        }
+        
         periodicTableLoaded = true; // Set flag to true after successful load
         console.log('general.js: Periodic table HTML generated and inserted.'); // DEBUG
 
@@ -768,6 +756,168 @@ async function loadPeriodicTable() {
     }
 }
 
+function generateMobilePeriodicTable(rows) {
+    // Parse the data to extract atoms - use the same logic as desktop table
+    const atoms = [];
+    const headerCells = rows[0].split('\t');
+    const vowels = headerCells.slice(0); // Skip empty first column, include all vowel columns
+    // const vowels = headerCells.slice(1); // Skip empty first column, include all vowel columns
+    
+    // Process data rows (skip header row) - exactly like desktop table
+    for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].split('\t');
+        const consonant = cells[0].trim();
+        
+        // Process each vowel combination
+        for (let j = 1; j < cells.length; j++) {
+            const cellContent = cells[j].trim();
+            const vowel = vowels[j - 1];
+            
+            // Use the same logic as desktop table for determining valid cells
+            if (cellContent && cellContent !== '\\' && !cellContent.includes('()')) {
+                const atom = consonant + vowel;
+                
+                // Extract meaning from parentheses - same as desktop
+                const parenIndex = cellContent.indexOf('(');
+                let meaning = '';
+                if (parenIndex !== -1) {
+                    meaning = cellContent.substring(parenIndex + 1, cellContent.length - 1).trim();
+                }
+                
+                // Debug: Log the first few atoms to verify mapping
+                if (atoms.length < 5) {
+                    console.log(`Mobile table: ${consonant} + ${vowel} = ${atom}, meaning: "${meaning}"`);
+                }
+                
+                atoms.push({
+                    atom: atom,
+                    consonant: consonant,
+                    vowel: vowel,
+                    meaning: meaning
+                });
+            }
+        }
+    }
+    
+    // Group atoms by consonant, preserving original order
+    const groupedAtoms = {};
+    const consonantOrder = []; // Track order of consonants as they appear
+    
+    atoms.forEach(atom => {
+        if (!groupedAtoms[atom.consonant]) {
+            groupedAtoms[atom.consonant] = [];
+            consonantOrder.push(atom.consonant);
+        }
+        groupedAtoms[atom.consonant].push(atom);
+    });
+    
+    // Generate HTML
+    let html = '<div class="mobile-periodic-table">';
+    html += '<h2>Sesowi Atoms</h2>';
+    html += '<p>Click any atom to see its details</p>';
+    
+    // Use original consonant order (don't sort)
+    consonantOrder.forEach(consonant => {
+        html += `<div class="consonant-group">`;
+        html += `<h3 class="consonant-header">${consonant}</h3>`;
+        html += `<div class="atoms-grid">`;
+        
+        groupedAtoms[consonant].forEach(atom => {
+            html += `<div class="atom-card" data-atom="${atom.atom}" data-meaning="${atom.meaning}">`;
+            html += `<div class="atom-surface">${atom.atom}</div>`;
+            if (atom.meaning) {
+                html += `<div class="atom-meaning">${atom.meaning}</div>`;
+            }
+            html += `</div>`;
+        });
+        
+        html += `</div></div>`;
+    });
+    
+    html += '</div>';
+    
+    // Add click event listeners after the HTML is inserted
+    setTimeout(() => {
+        addMobilePeriodicTableListeners();
+    }, 100);
+    
+    return html;
+}
+
+function addMobilePeriodicTableListeners() {
+    const atomCards = document.querySelectorAll('.atom-card');
+    atomCards.forEach(card => {
+        card.addEventListener('click', (event) => {
+            const atom = card.dataset.atom;
+            // Use the standard word info popup instead of custom modal
+            showWordInfoPopup(event, atom);
+        });
+    });
+}
+
+function generateDesktopPeriodicTable(rows) {
+    let tableHTML = '<div class="table-container"><table id="trevorese-periodic-table">';
+
+    rows.forEach((row, rowIndex) => {
+        // console.log(`Processing row ${rowIndex}`); // DEBUG (can be noisy)
+        const cells = row.split('\t');
+        if (rowIndex === 0) {
+            tableHTML += '<thead><tr><th></th>'; // Add empty top-left header cell
+            cells.forEach(cell => {
+                const cellContent = cell.trim();
+                const headerClass = cellContent.length > 1 ? 'pt-header-long' : '';
+                tableHTML += `<th class="${headerClass}">${cellContent}</th>`;
+            });
+            tableHTML += '</tr></thead><tbody>';
+        } else {
+            tableHTML += '<tr>';
+            cells.forEach((cell, cellIndex) => {
+                const cellContent = cell.trim();
+                let cellClass = '';
+                let processedContent = cellContent; // Content to display inside TD
+
+                // Apply special classes first
+                if (cellContent.includes('()')) {
+                    cellClass += ' pt-grey';
+                }
+                if (cellContent === '\\') {
+                    cellClass += ' pt-black';
+                }
+
+                // Handle first column styling
+                if (cellIndex === 0) {
+                    cellClass += ' pt-first-col';
+                    if (cellContent.length > 1) {
+                        cellClass += ' pt-header-long';
+                    }
+                } else { // Apply surface style to data cells (not first column)
+                    // Only apply surface styling if not grey/black cell
+                    if (!cellClass.includes('pt-grey') && !cellClass.includes('pt-black')) {
+                        const parenIndex = cellContent.indexOf('(');
+                        if (parenIndex !== -1) {
+                            const surfacePart = cellContent.substring(0, parenIndex).trim();
+                            const restPart = cellContent.substring(parenIndex);
+                            processedContent = `<span class="surface">${surfacePart}</span> ${restPart}`;
+                            
+                            // Debug: Log the first few surface parts to verify mapping
+                            if (rowIndex === 1 && cellIndex <= 3) {
+                                console.log(`Desktop table: surfacePart="${surfacePart}", restPart="${restPart}"`);
+                            }
+                        } else if (cellContent) { // Don't wrap empty cells
+                            processedContent = `<span class="surface">${cellContent}</span>`;
+                        }
+                    }
+                }
+
+                tableHTML += `<td class="${cellClass.trim()}">${processedContent}</td>`;
+            });
+            tableHTML += '</tr>';
+        }
+    });
+
+    tableHTML += '</tbody></table></div>';
+    return tableHTML;
+}
 
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ HIDING AND COPYING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -1032,3 +1182,24 @@ function displayEnglishResults(results, query) {
     }
     console.log(`general.js: TIMING: displayEnglishResults for ${results.length} results took ${(performance.now() - startTime).toFixed(2)}ms`);
 }
+
+// Listen for window resize to handle mobile/desktop switching
+window.addEventListener('resize', () => {
+    // If periodic table is loaded, check if we need to switch layouts
+    if (periodicTableLoaded) {
+        const currentIsMobile = window.innerWidth <= 768;
+        const tableContainer = document.getElementById('periodic-table');
+        
+        // Check if current layout doesn't match screen size
+        const hasMobileLayout = tableContainer.querySelector('.mobile-periodic-table');
+        const hasDesktopLayout = tableContainer.querySelector('.table-container');
+        
+        if (currentIsMobile && hasDesktopLayout) {
+            // Switch to mobile layout
+            loadPeriodicTable();
+        } else if (!currentIsMobile && hasMobileLayout) {
+            // Switch to desktop layout
+            loadPeriodicTable();
+        }
+    }
+}, { passive: true });

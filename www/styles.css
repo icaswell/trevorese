@@ -1045,3 +1045,98 @@ body .subprinciple {
         font-size: 12px !important;
     }
 }
+
+/* Mobile Periodic Table Styles */
+.mobile-periodic-table {
+    padding: 20px;
+}
+
+.mobile-periodic-table h2 {
+    text-align: center;
+    color: #009c36;
+    margin-bottom: 10px;
+}
+
+.mobile-periodic-table p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.consonant-group {
+    margin-bottom: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.consonant-header {
+    color: #009c36;
+    font-size: 1.5em;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #009c36;
+    text-align: center;
+}
+
+.atoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.atom-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.atom-card:hover {
+    border-color: #009c36;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.atom-card:active {
+    transform: translateY(0);
+}
+
+.atom-surface {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #009c36;
+    margin-bottom: 5px;
+}
+
+.atom-meaning {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 480px) {
+    .atoms-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 8px;
+    }
+    
+    .atom-card {
+        padding: 10px;
+    }
+    
+    .atom-surface {
+        font-size: 1.1em;
+    }
+    
+    .atom-meaning {
+        font-size: 0.8em;
+    }
+}

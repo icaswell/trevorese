@@ -566,7 +566,7 @@ function setupLongPressHandlers() {
             console.log('stories.js: ESC key pressed, hiding translation popup');
             hideTranslationPopup();
         }
-    });
+    }, { passive: true });
      
     
     //𓁼 ◉👁  
