@@ -372,6 +372,16 @@ body .subprinciple {
     color: #009879;
 }
 
+.dictionary-entry .gloss-emph {
+    color: rgb(229, 0, 111);
+    font-weight: bold;
+}
+
+.dictionary-entry .surface-emph {
+    color: rgb(0, 202, 135);
+    font-weight: bold;
+}
+
 .dictionary-entry .supergloss {
     color: #009879;
     font-style: italic;

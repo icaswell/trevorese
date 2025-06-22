@@ -155,6 +155,7 @@ function processSurfaceMode(doc, isSurfaceMode) {
                 // Store original class and content if not already stored
                 if (!span.dataset.originalClass) {
                     span.dataset.originalClass = span.className;
+                    console.log('Storing original class:', span.className, 'for text:', span.textContent);
                 }
                 if (!span.dataset.originalContent) {
                     span.dataset.originalContent = span.textContent;
@@ -184,8 +185,14 @@ function processSurfaceMode(doc, isSurfaceMode) {
                     
                     // Update class and content based on whether all parts were found
                     if (allPartsFound) {
-                        if (span.className.includes('gloss-emph')) {
+                        // Check if the original class contains 'gloss-emph'
+                        const originalClass = span.dataset.originalClass || span.className;
+                        const isEmph = originalClass.includes('gloss-emph');
+                        
+                        // Force the class to be only 'surface-emph' or 'surface' without any other classes
+                        if (isEmph) {
                             span.className = 'surface-emph';
+                            console.log('Setting surface-emph for compound:', glossText);
                         } else {
                             span.className = 'surface';
                         }
@@ -202,10 +209,15 @@ function processSurfaceMode(doc, isSurfaceMode) {
                     
                     if (window.atomgloss_to_surface && gloss in window.atomgloss_to_surface) {
                         const surface = window.atomgloss_to_surface[gloss];
-                        // Change class to surface or surface-emph
-                        if (span.className.includes('gloss-emph')) {
+                        // Check if the original class contains 'gloss-emph'
+                        const originalClass = span.dataset.originalClass || span.className;
+                        const isEmph = originalClass.includes('gloss-emph');
+                        
+                        // Force the class to be only 'surface-emph' or 'surface' without any other classes
+                        if (isEmph) {
                             span.className = 'surface-emph';
-                        } else if (span.className.includes('gloss')) {
+                            console.log('Setting surface-emph for atomic:', gloss);
+                        } else {
                             span.className = 'surface';
                         }
                         // Update content
@@ -219,6 +231,7 @@ function processSurfaceMode(doc, isSurfaceMode) {
             } else {
                 // Restore original class and content
                 if (span.dataset.originalClass) {
+                    console.log('Restoring original class:', span.dataset.originalClass, 'for text:', span.textContent);
                     span.className = span.dataset.originalClass;
                 }
                 if (span.dataset.originalContent) {
@@ -816,11 +829,6 @@ function generateMobilePeriodicTable(rows) {
                     meaning = cellContent.substring(parenIndex + 1, cellContent.length - 1).trim();
                 }
                 
-                // Debug: Log the first few atoms to verify mapping
-                if (atoms.length < 5) {
-                    console.log(`Mobile table: ${consonant} + ${vowel} = ${atom}, meaning: "${meaning}"`);
-                }
-                
                 atoms.push({
                     atom: atom,
                     consonant: consonant,
@@ -1027,10 +1035,6 @@ function generateDesktopPeriodicTable(rows) {
                             const restPart = cellContent.substring(parenIndex);
                             processedContent = `<span class="surface">${surfacePart}</span> ${restPart}`;
                             
-                            // Debug: Log the first few surface parts to verify mapping
-                            if (rowIndex === 1 && cellIndex <= 3) {
-                                console.log(`Desktop table: surfacePart="${surfacePart}", restPart="${restPart}"`);
-                            }
                         } else if (cellContent) { // Don't wrap empty cells
                             processedContent = `<span class="surface">${cellContent}</span>`;
                         }
