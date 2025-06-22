@@ -442,30 +442,37 @@ function initPopupElements() {
 
 // findVocabEntryBySurface is now defined in display.js
 
-// Function to populate the popup with word information
-function populateWordInfoPopup(surface) {
+// Function to generate word info content - shared between popups
+function generateWordInfoContent(surface) {
     const startTime = performance.now();
     const result = findVocabEntryBySurface(surface);
+    
+    // Return object with header and content
+    const contentData = {
+        headerHTML: '',
+        contentHTML: '',
+        contentElement: null
+    };
+    
     if (!result) {
-        popupWord.innerHTML = `<span class="surface">${surface}</span> (not found)`;
-        popupContent.innerHTML = '<p>No information available for this word.</p>';
-        console.log(`general.js: TIMING: populateWordInfoPopup for "${surface}" took ${(performance.now() - startTime).toFixed(2)}ms`);
-        return;
+        contentData.headerHTML = `<span class="surface">${surface}</span> (not found)`;
+        contentData.contentHTML = '<p>No information available for this word.</p>';
+        console.log(`general.js: TIMING: generateWordInfoContent for "${surface}" took ${(performance.now() - startTime).toFixed(2)}ms`);
+        return contentData;
     }
     
     const { entry, gloss, index } = result;
     
-    // Set the header using the standardized header display function
-    popupWord.innerHTML = createDictionaryHeaderDisplay({
+    // Generate the header HTML
+    contentData.headerHTML = createDictionaryHeaderDisplay({
         surface: surface,
         gloss: gloss,
         showIndex: true,
         index: index
     });
     
-    // Use the unified display function to create the entry display
-    // Hide the word header since we're showing it in the popup header
-    const entryDiv = createDictionaryEntryDisplay(entry, {
+    // Generate the content element
+    contentData.contentElement = createDictionaryEntryDisplay(entry, {
         gloss: gloss,
         surface: surface,
         showIndex: true,
@@ -473,10 +480,24 @@ function populateWordInfoPopup(surface) {
         hideWordHeader: true  // Hide the word header since it's in the popup header
     });
     
-    // Clear and set the content
+    console.log(`general.js: TIMING: generateWordInfoContent for "${surface}" took ${(performance.now() - startTime).toFixed(2)}ms`);
+    return contentData;
+}
+
+// Function to populate the popup with word information
+function populateWordInfoPopup(surface) {
+    const contentData = generateWordInfoContent(surface);
+    
+    // Set the header
+    popupWord.innerHTML = contentData.headerHTML;
+    
+    // Set the content
     popupContent.innerHTML = '';
-    popupContent.appendChild(entryDiv);
-    console.log(`general.js: TIMING: populateWordInfoPopup for "${surface}" took ${(performance.now() - startTime).toFixed(2)}ms`);
+    if (contentData.contentElement) {
+        popupContent.appendChild(contentData.contentElement);
+    } else if (contentData.contentHTML) {
+        popupContent.innerHTML = contentData.contentHTML;
+    }
 }
 
 // Track the currently clicked word element
@@ -546,10 +567,21 @@ function showWordInfoPopup(event, surface) {
     wordInfoPopup.style.top = `${top}px`;
     wordInfoPopup.style.left = `${left}px`;
     
-    // Show the popup
+    // Show the popup with improved visibility
     wordInfoPopup.style.display = 'block';
     wordInfoPopup.style.visibility = 'visible';
-    wordInfoPopup.style.zIndex = '1000';
+    wordInfoPopup.style.zIndex = '9999'; // Increased z-index to ensure visibility
+    wordInfoPopup.style.position = 'absolute'; // Ensure absolute positioning
+    
+    // Check if this is from the mobile periodic table and apply additional styles if needed
+    const isMobileTable = event.target.closest('.mobile-periodic-table') !== null;
+    if (isMobileTable) {
+        console.log('general.js: Click from mobile periodic table detected, applying special styling');
+        // Apply additional styles for mobile periodic table context
+        wordInfoPopup.style.backgroundColor = 'white';
+        wordInfoPopup.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)'; // Enhanced shadow
+        wordInfoPopup.style.border = '2px solid #009c36'; // Green border to match the table theme
+    }
     
     console.log('general.js: Popup displayed at position:', { top, left });
     console.log('general.js: Popup display style:', wordInfoPopup.style.display);
@@ -836,8 +868,21 @@ function generateMobilePeriodicTable(rows) {
     
     html += '</div>';
     
-    // Add click event listeners after the HTML is inserted
+    // Ensure the popup element exists and is properly initialized before adding listeners
     setTimeout(() => {
+        // Make sure popup is initialized first
+        initPopupElements();
+        
+        // Ensure the word-info-popup has the correct z-index and is positioned properly
+        const wordInfoPopup = document.getElementById('word-info-popup');
+        if (wordInfoPopup) {
+            // Set explicit styles to ensure visibility
+            wordInfoPopup.style.position = 'absolute';
+            wordInfoPopup.style.zIndex = '9999'; // Higher z-index to ensure it's on top
+            console.log('Mobile periodic table: Popup element prepared for visibility');
+        }
+        
+        // Now add the click listeners
         addMobilePeriodicTableListeners();
     }, 100);
     
@@ -846,12 +891,95 @@ function generateMobilePeriodicTable(rows) {
 
 function addMobilePeriodicTableListeners() {
     const atomCards = document.querySelectorAll('.atom-card');
+    
+    // Create a dedicated mobile popup if it doesn't exist
+    let mobilePopup = document.getElementById('mobile-word-info-popup');
+    if (!mobilePopup) {
+        mobilePopup = document.createElement('div');
+        mobilePopup.id = 'mobile-word-info-popup';
+        mobilePopup.className = 'word-info-popup mobile-popup';
+        mobilePopup.innerHTML = `
+            <div class="popup-header">
+                <span id="mobile-popup-word"></span>
+                <span class="popup-close">&times;</span>
+            </div>
+            <div id="mobile-popup-content" class="popup-content"></div>
+        `;
+        
+        // Add the popup to the document body
+        document.body.appendChild(mobilePopup);
+        
+        // Add close button functionality
+        const closeBtn = mobilePopup.querySelector('.popup-close');
+        closeBtn.addEventListener('click', () => {
+            mobilePopup.style.display = 'none';
+        });
+        
+        console.log('Created dedicated mobile popup:', mobilePopup);
+    }
+    
+    // Add click listeners to atom cards
     atomCards.forEach(card => {
         card.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent event bubbling
+            
             const atom = card.dataset.atom;
-            // Use the standard word info popup instead of custom modal
-            showWordInfoPopup(event, atom);
+            
+            // Get popup elements
+            const popupWord = document.getElementById('mobile-popup-word');
+            const popupContent = document.getElementById('mobile-popup-content');
+            
+            // Use the shared content generation function
+            const contentData = generateWordInfoContent(atom);
+            
+            // Set the header
+            popupWord.innerHTML = contentData.headerHTML;
+            
+            // Set the content
+            popupContent.innerHTML = '';
+            if (contentData.contentElement) {
+                popupContent.appendChild(contentData.contentElement.cloneNode(true));
+            } else if (contentData.contentHTML) {
+                popupContent.innerHTML = contentData.contentHTML;
+            }
+            
+            // Position the popup
+            const rect = card.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            
+            // Position popup below the atom card
+            const top = rect.bottom + scrollTop + 10;
+            const left = rect.left + scrollLeft + (rect.width / 2) - 125; // Assuming popup width ~250px
+            
+            // Apply styles to ensure visibility
+            mobilePopup.style.display = 'block';
+            mobilePopup.style.visibility = 'visible';
+            mobilePopup.style.zIndex = '9999';
+            mobilePopup.style.position = 'absolute';
+            mobilePopup.style.top = `${top}px`;
+            mobilePopup.style.left = `${left}px`;
+            mobilePopup.style.width = '250px';
+            mobilePopup.style.backgroundColor = 'white';
+            mobilePopup.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)';
+            mobilePopup.style.border = '2px solid #009c36';
+            
+            console.log('Mobile popup displayed at:', { top, left });
+            console.log('Mobile popup styles:', {
+                display: mobilePopup.style.display,
+                visibility: mobilePopup.style.visibility,
+                zIndex: mobilePopup.style.zIndex,
+                position: mobilePopup.style.position
+            });
         });
+    });
+    
+    // Close popup when clicking outside
+    document.addEventListener('click', (event) => {
+        const mobilePopup = document.getElementById('mobile-word-info-popup');
+        if (mobilePopup && !event.target.closest('.atom-card') && !event.target.closest('#mobile-word-info-popup')) {
+            mobilePopup.style.display = 'none';
+        }
     });
 }
 
