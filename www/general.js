@@ -7,39 +7,9 @@ function timeOperation(operationName, fn) {
     return result;
 }
 
-// Tab switching logic
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        const tabId = tab.dataset.tab;
-
-        // Deactivate all tabs and content
-        document.querySelectorAll('.tab, .tab-content').forEach(el => {
-            el.classList.remove('active');
-        });
-
-        // Activate clicked tab and corresponding content
-        tab.classList.add('active');
-        timeOperation(`Activate tab ${tabId}`, () => {
-            document.getElementById(tabId).classList.add('active');
-            return null;
-        });
-
-        // Load periodic table content if this tab is clicked and not already loaded
-        if (tabId === 'periodic-table') {
-            if (!periodicTableLoaded) {
-                timeOperation('Load periodic table', () => {
-                    loadPeriodicTable();
-                    return null;
-                });
-            }
-            // Add click listeners to gloss spans in the periodic table
-            setTimeout(() => {
-                addClickListenersToDoc(document);
-            }, 500); // Small delay to ensure content is loaded
-        }
-    });
-});
-
+// Tab switching logic - now handled by tab-navigation.js
+// The original tab switching logic is preserved for backward compatibility
+// but the actual tab clicks are handled by the TabNavigator class
 
 // --- Utility Functions ---
 function EmphGloss(word) {

@@ -58,6 +58,33 @@ body {
     border-bottom: 1px solid #fff; /* Hide bottom border for active tab */
 }
 
+/* Mobile responsive styles for tabs */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .tab {
+        margin: 0;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .tab.active {
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .slider-container {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
+
 .tab-content {
     display: none; /* Hide all content by default */
     padding: 20px;
@@ -984,4 +1011,37 @@ body .subprinciple {
 .test-undefined, .test-null {
     background-color: #ffffd0;
     font-style: italic;
+}
+
+/* Single View Mode Styles */
+.tab-content.single-view {
+    margin-top: 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.back-to-tabs {
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.back-to-tabs:hover {
+    background-color: #007a2a !important;
+    transform: translateX(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+.back-to-tabs:active {
+    transform: translateX(0);
+}
+
+/* Mobile responsive styles for back button */
+@media (max-width: 768px) {
+    .back-to-tabs {
+        top: 10px !important;
+        left: 10px !important;
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
 }
