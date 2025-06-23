@@ -275,6 +275,14 @@ body .subprinciple {
     border-radius: 3px; /* Rounded corners */
 }
 
+body .subsubprinciple {
+    background-color: rgb(155, 93, 241);
+    font-size: 14px;
+    color: white; /* Added for readability */
+    padding: 0.1em 0.3em; /* Add some padding */
+    border-radius: 3px; /* Rounded corners */
+}
+
 .highlight { background-color: red; }
 
         /* Add styles for hiding/showing and the copy button */
@@ -806,6 +814,13 @@ body .subprinciple {
 } */
 
 /* New Pretty Table Styles */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+    margin-bottom: 15px;
+}
+
 .table-container table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -827,8 +842,11 @@ body .subprinciple {
 .table-container table td {
     padding: 12px 15px;
     border: 1px solid #dddddd; /* Add visible cell borders */
-    word-wrap: break-word; /* Keep word wrap */
+    word-wrap: break-word; /* Enable word wrapping */
+    word-break: break-word; /* Break words to prevent overflow */
+    overflow-wrap: break-word; /* Modern property for word wrapping */
     text-align: left; /* Keep text alignment */
+    hyphens: auto; /* Enable hyphenation for long words */
 }
 
 .table-container table tbody tr {
@@ -1046,13 +1064,29 @@ body .subprinciple {
     transform: translateX(0);
 }
 
-/* Mobile responsive styles for back button */
+/* Mobile responsive styles for back button and tables */
 @media (max-width: 768px) {
     .back-to-tabs {
         top: 10px !important;
         left: 10px !important;
         padding: 8px 12px !important;
         font-size: 12px !important;
+    }
+    
+    /* Responsive table styles for mobile */
+    .table-container table {
+        font-size: 0.85em; /* Slightly smaller font on mobile */
+    }
+    
+    .table-container table th,
+    .table-container table td {
+        padding: 8px 10px; /* Reduce padding on mobile */
+    }
+    
+    /* Make the first column slightly wider for better readability */
+    .table-container table th:first-child,
+    .table-container table td:first-child {
+        width: 40%;
     }
 }
 

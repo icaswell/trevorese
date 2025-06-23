@@ -719,7 +719,7 @@ class Dictionary {
         const gloss_to_supercompound = {};
         let supercompoundCount = 0;
         let vocabsCount = Object.keys(this.vocabs).length;
-        console.log(`dictionary.js: Checking ${vocabsCount} vocab entries for supercompound facets...`);
+        // console.log(`dictionary.js: Checking ${vocabsCount} vocab entries for supercompound facets...`);
         
         // Debug: Check a few vocab entries to see if they have supercompound facets
         const sampleVocabs = Object.entries(this.vocabs).slice(0, 5);
@@ -739,16 +739,16 @@ class Dictionary {
                 supercompoundCount++;
                 
                 // Log the first few entries we find
-                if (supercompoundCount <= 3) {
-                    console.log(`dictionary.js: Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
-                }
+                // if (supercompoundCount <= 3) {
+                //     console.log(`dictionary.js: Found supercompound for '${gloss}':`, v.facets.supercompound[0]);
+                // }
             }
         }
         
         // Assign to window variable for global access
         window.gloss_to_supercompound = gloss_to_supercompound;
-        console.log(`dictionary.js: Created gloss_to_supercompound map with ${supercompoundCount} entries:`, 
-                   supercompoundCount > 0 ? Object.keys(gloss_to_supercompound).slice(0, 10) : 'EMPTY');
+        // console.log(`dictionary.js: Created gloss_to_supercompound map with ${supercompoundCount} entries:`, 
+                //    supercompoundCount > 0 ? Object.keys(gloss_to_supercompound).slice(0, 10) : 'EMPTY');
         
         if (supercompoundCount === 0) {
             console.warn('WARNING: No supercompound facets found in any vocab entries!');
@@ -1158,7 +1158,7 @@ async function loadDictionaryData() {
                             throw new Error("Invalid propernouns.tsv header: missing 'surface' or 'gloss'.");
                         }
                         properNounsHeaderFound = true;
-                        console.log("dictionary.js: Proper nouns indices mapped:", properNounsIndices);
+                        // console.log("dictionary.js: Proper nouns indices mapped:", properNounsIndices);
                     } else if (properNounsHeaderFound) {
                         // This is a proper noun entry row
                         const surface = row[properNounsIndices["surface"]]?.trim();
@@ -1186,19 +1186,19 @@ async function loadDictionaryData() {
                         properNounsCount++;
                         
                         // Log a few examples for debugging
-                        if (properNounsCount <= 5) {
-                            console.log(`dictionary.js: Added proper noun: surface='${surface}', gloss='${gloss}'`);
-                        }
+                        // if (properNounsCount <= 5) {
+                        //     console.log(`dictionary.js: Added proper noun: surface='${surface}', gloss='${gloss}'`);
+                        // }
                     }
                 }
                 
-                console.log(`dictionary.js: Added ${properNounsCount} proper nouns to the dictionary`);
-                console.log(`dictionary.js: window.proper_nouns count: ${Object.keys(window.proper_nouns).length}`);
-                console.log(`dictionary.js: window.proper_noun_glosses count: ${window.proper_noun_glosses.size}`);
+                // console.log(`dictionary.js: Added ${properNounsCount} proper nouns to the dictionary`);
+                // console.log(`dictionary.js: window.proper_nouns count: ${Object.keys(window.proper_nouns).length}`);
+                // console.log(`dictionary.js: window.proper_noun_glosses count: ${window.proper_noun_glosses.size}`);
                 
-                if (properNounsCount > 0) {
-                    console.log('Sample proper nouns:', Object.entries(window.proper_nouns).slice(0, 5));
-                }
+                // if (properNounsCount > 0) {
+                //     console.log('Sample proper nouns:', Object.entries(window.proper_nouns).slice(0, 5));
+                // }
             }
         } catch (error) {
             console.error('Failed to load or process proper nouns data:', error);

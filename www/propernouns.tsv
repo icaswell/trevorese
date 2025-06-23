@@ -1,393 +1,399 @@
-theme	P(L)	P(I):	surface	gloss	i	a	COMMENTS/TODOS	noun/pronoun	adj/adv	verb	quantifier	conjunction	preposition	affix	interjection	fn
-people			kalala	u_clara												
-			kakaka	u_laugh												
-animal: more complex				u_antelope	230			antelope								
-animal: more complex				u_elk	231			elk								
-animal: more complex				u_reindeer	232			caribou; reindeer								
-animal: more complex				u_buffalo	233			buffalo								
-animal: more complex				u_butterfly	234			butterfly								
-animal: more complex				u_crocodile	235			crocodile								
-animal: more complex				u_dolphin	236			dolphin								
-animal: more complex				u_dormouse	237			dormouse								
-animal: more complex				u_gorilla	238			gorilla								
-animal: more complex				u_jellyfish	239			jellyfish								
-animal: more complex				u_koala	240			koala								
-animal: more complex				u_leopard	241			leopard								
-animal: more complex				u_monkey	243			monkey								
-animal: more complex				u_newt	244			newt								
-animal: more complex				u_ocelot	245			ocelot								
-animal: more complex				u_otter	246			otter								
-animal: more complex				u_parrot	247			parrot								
-animal: more complex				u_robin	248			robin								
-animal: more complex				u_scorpion	249			scorpion								
-animal: more complex				u_turkey	251			turkey								
-foods				u_apricot-hard	408			almond								
-foods				u_oak-hard	414			acorn								
-foods			pinya	u_pineapple	708			pineapple								
-foods				u_kingchi	516			kimchi								
-foods				u_kongbucha	517			kombucha								
-people		2	aisaka	u_isaac	1013			Isaac								
-people		2	lisa	u_lisa	1014			Lisa								
-people		2	teba	u_trevor	1015			Trevor!								
-people			lamang	u_raman	1016			Raman								
-people			odisa	u_odis	1017			Odis								
-people			isabela	u_isabel	1018			Isabel								
-people			daniyela	u_daniel	1019			Daniel								
-people			pusupa	u_puspa	1020			Puspa								
-people			nika	u_nick	1021			Nick								
-people			abi	u_abby	1022			Abby								
-people			yuta	u_utah	1023			Utah								
-foods				u_apricot	1024											
-countries				u_country_Afghanistan	3001											
-countries				u_country_Albania	3002											
-countries				u_country_Algeria	3003											
-countries				u_country_Andorra	3004											
-countries				u_country_Angola	3005											
-countries				u_country_Antigua_and_Barbuda	3006											
-countries				u_country_Argentina	3007											
-countries				u_country_Armenia	3008											
-countries				u_country_Australia	3009											
-countries				u_country_Austria	3010											
-countries				u_country_Azerbaijan	3011											
-countries				u_country_Bahamas	3012											
-countries				u_country_Bahrain	3013											
-countries				u_country_Bangladesh	3014											
-countries				u_country_Barbados	3015											
-countries				u_country_Belarus	3016											
-countries				u_country_Belgium	3017											
-countries				u_country_Belize	3018											
-countries				u_country_Benin	3019											
-countries				u_country_Bhutan	3020											
-countries				u_country_Bolivia	3021											
-countries				u_country_Bosnia_and_Herzegovina	3022											
-countries				u_country_Botswana	3023											
-countries				u_country_Brazil	3024											
-countries				u_country_Brunei	3025											
-countries				u_country_Bulgaria	3026											
-countries				u_country_Burkina_Faso	3027											
-countries				u_country_Burundi	3028											
-countries				u_country_Cabo_Verde	3029											
-countries				u_country_Cambodia	3030											
-countries				u_country_Cameroon	3031											
-countries				u_country_Canada	3032											
-countries				u_country_Central_African_Republic	3033											
-countries				u_country_Chad	3034											
-countries				u_country_Chile	3035											
-countries				u_country_China	3036											
-countries				u_country_Colombia	3037											
-countries				u_country_Comoros	3038											
-countries				u_country_Congo,_Democratic_Republic_of_the	3039											
-countries				u_country_Congo,_Republic_of_the	3040											
-countries				u_country_Costa_Rica	3041											
-countries				u_country_Ivory_Coast	3042											
-countries				u_country_Croatia	3043											
-countries				u_country_Cuba	3044											
-countries				u_country_Cyprus	3045											
-countries				u_country_Czechia	3046											
-countries				u_country_Denmark	3047											
-countries				u_country_Djibouti	3048											
-countries				u_country_Dominica	3049											
-countries				u_country_Dominican_Republic	3050											
-countries				u_country_Ecuador	3051											
-countries				u_country_Egypt	3052											
-countries				u_country_El_Salvador	3053											
-countries				u_country_Equatorial_Guinea	3054											
-countries				u_country_Eritrea	3055											
-countries				u_country_Estonia	3056											
-countries				u_country_Eswatini	3057											
-countries				u_country_Ethiopia	3058											
-countries				u_country_Fiji	3059											
-countries				u_country_Finland	3060											
-countries				u_country_France	3061											
-countries				u_country_Gabon	3062											
-countries				u_country_Gambia	3063											
-countries				u_country_Georgia	3064											
-countries				u_country_Germany	3065											
-countries				u_country_Ghana	3066											
-countries				u_country_Greece	3067											
-countries				u_country_Grenada	3068											
-countries				u_country_Guatemala	3069											
-countries				u_country_Guinea	3070											
-countries				u_country_Guinea_Bissau	3071											
-countries				u_country_Guyana	3072											
-countries				u_country_Haiti	3073											
-countries				u_country_Vatican_City	3074											
-countries				u_country_Honduras	3075											
-countries				u_country_Hungary	3076											
-countries				u_country_Iceland	3077											
-countries				u_country_India	3078											
-countries				u_country_Indonesia	3079											
-countries				u_country_Iran	3080											
-countries				u_country_Iraq	3081											
-countries				u_country_Ireland	3082											
-countries				u_country_Israel	3083											
-countries				u_country_Italy	3084											
-countries				u_country_Jamaica	3085											
-countries				u_country_Japan	3086											
-countries				u_country_Jordan	3087											
-countries				u_country_Kazakhstan	3088											
-countries				u_country_Kenya	3089											
-countries				u_country_Kiribati	3090											
-countries				u_country_Korea	3091											
-countries				u_country_Kuwait	3092											
-countries				u_country_Kyrgyzstan	3093											
-countries				u_country_Laos	3094											
-countries				u_country_Latvia	3095											
-countries				u_country_Lebanon	3096											
-countries				u_country_Lesotho	3097											
-countries				u_country_Liberia	3098											
-countries				u_country_Libya	3099											
-countries				u_country_Liechtenstein	3100											
-countries				u_country_Lithuania	3101											
-countries				u_country_Luxembourg	3102											
-countries				u_country_Madagascar	3103											
-countries				u_country_Malawi	3104											
-countries				u_country_Malaysia	3105											
-countries				u_country_Maldives	3106											
-countries				u_country_Mali	3107											
-countries				u_country_Malta	3108											
-countries				u_country_Marshall_Islands	3109											
-countries				u_country_Mauritania	3110											
-countries				u_country_Mauritius	3111											
-countries				u_country_Mexico	3112											
-countries				u_country_Micronesia	3113											
-countries				u_country_Moldova	3114											
-countries				u_country_Monaco	3115											
-countries				u_country_Mongolia	3116											
-countries				u_country_Montenegro	3117											
-countries				u_country_Morocco	3118											
-countries				u_country_Mozambique	3119											
-countries				u_country_Myanmar	3120											
-countries				u_country_Namibia	3121											
-countries				u_country_Nauru	3122											
-countries				u_country_Nepal	3123											
-countries				u_country_Netherlands	3124											
-countries				u_country_New_Zealand	3125											
-countries				u_country_Nicaragua	3126											
-countries				u_country_Niger	3127											
-countries				u_country_Nigeria	3128											
-countries				u_country_North_Macedonia	3129											
-countries				u_country_Norway	3130											
-countries				u_country_Oman	3131											
-countries				u_country_Pakistan	3132											
-countries				u_country_Palau	3133											
-countries				u_country_Palestine,_State_of	3134											
-countries				u_country_Panama	3135											
-countries				u_country_Papua_New_Guinea	3136											
-countries				u_country_Paraguay	3137											
-countries				u_country_Peru	3138											
-countries				u_country_Philippines	3139											
-countries				u_country_Poland	3140											
-countries				u_country_Portugal	3141											
-countries				u_country_Qatar	3142											
-countries				u_country_Romania	3143											
-countries				u_country_Russia	3144											
-countries				u_country_Rwanda	3145											
-countries				u_country_Saint_Kitts_and_Nevis	3146											
-countries				u_country_Saint_Lucia	3147											
-countries				u_country_Saint_Vincent_and_the_Grenadines	3148											
-countries				u_country_Samoa	3149											
-countries				u_country_San_Marino	3150											
-countries				u_country_Sao_Tome_and_Principe	3151											
-countries				u_country_Saudi_Arabia	3152											
-countries				u_country_Senegal	3153											
-countries				u_country_Serbia	3154											
-countries				u_country_Seychelles	3155											
-countries				u_country_Sierra_Leone	3156											
-countries				u_country_Singapore	3157											
-countries				u_country_Slovakia	3158											
-countries				u_country_Slovenia	3159											
-countries				u_country_Solomon_Islands	3160											
-countries				u_country_Somalia	3161											
-countries				u_country_South_Africa	3162											
-countries				u_country_South_Sudan	3163											
-countries				u_country_Spain	3164											
-countries				u_country_Sri_Lanka	3165											
-countries				u_country_Sudan	3166											
-countries				u_country_Suriname	3167											
-countries				u_country_Sweden	3168											
-countries				u_country_Switzerland	3169											
-countries				u_country_Syria	3170											
-countries				u_country_Tajikistan	3171											
-countries				u_country_Tanzania	3172											
-countries				u_country_Thailand	3173											
-countries				u_country_Timor_Leste	3174											
-countries				u_country_Togo	3175											
-countries				u_country_Tonga	3176											
-countries				u_country_Trinidad_and_Tobago	3177											
-countries				u_country_Tunisia	3178											
-countries				u_country_Turkey	3179											
-countries				u_country_Turkmenistan	3180											
-countries				u_country_Tuvalu	3181											
-countries				u_country_Uganda	3182											
-countries				u_country_Ukraine	3183											
-countries				u_country_United_Arab_Emirates	3184											
-countries				u_country_United_Kingdom	3185											
-countries				u_country_United_States	3186											
-countries				u_country_Uruguay	3187											
-countries				u_country_Uzbekistan	3188											
-countries				u_country_Vanuatu	3189											
-countries				u_country_Venezuela	3190											
-countries				u_country_Vietnam	3191											
-countries				u_country_Yemen	3192											
-countries				u_country_Zambia	3193											
-countries				u_country_Zimbabwe	3194											
-countries				u_country_Abkhazia	3195											
-countries				u_country_Kosovo	3196											
-countries				u_country_Kurdistan	3197											
-countries				u_country_Western_Sahara	3198											
-countries				u_country_Somaliland	3199											
-countries				u_country_South_Ossetia	3200											
-countries				u_country_Taiwan	3201											
-countries				u_country_Transnistria	3202											
-countries				u_language_Mandarin_Chinese	4001											
-countries				u_language_English	4002											
-countries				u_language_Spanish	4003											
-countries				u_language_Hindi	4004											
-countries				u_language_Arabic	4005											
-countries				u_language_Russian	4006											
-countries				u_language_Bengali	4007											
-countries				u_language_Portuguese	4008											
-countries				u_language_French	4009											
-countries				u_language_Indonesian	4010											
-countries				u_language_Urdu	4011											
-countries				u_language_Swahili	4012											
-countries				u_language_German	4013											
-countries				u_language_Japanese	4014											
-countries				u_language_Javanese	4015											
-countries				u_language_Cantonese	4016											
-countries				u_language_Hausa	4017											
-countries				u_language_Telugu	4018											
-countries				u_language_Korean	4019											
-countries				u_language_Malay	4020											
-countries				u_language_Tamil	4021											
-countries				u_language_Marathi	4022											
-countries				u_language_Turkish	4023											
-countries				u_language_Vietnamese	4024											
-countries				u_language_Italian	4025											
-countries				u_language_Fulah	4026											
-countries				u_language_Maithili	4027											
-countries				u_language_Thai	4028											
-countries				u_language_Bhojpuri	4029											
-countries				u_language_Lingala	4030											
-countries				u_language_Persian	4031											
-countries				u_language_Pashto	4032											
-countries				u_language_Yoruba	4033											
-countries				u_language_Fulani	4034											
-countries				u_language_Min_Nan_Chinese	4035											
-countries				u_language_Gujarati	4036											
-countries				u_language_Kannada	4037											
-countries				u_language_Filipino	4038											
-countries				u_language_Burmese	4039											
-countries				u_language_Polish	4040											
-countries				u_language_Nigerian_Pidgin	4041											
-countries				u_language_Awadhi	4042											
-countries				u_language_Odia	4043											
-countries				u_language_Ukrainian	4044											
-countries				u_language_Malayalam	4045											
-countries				u_language_Uzbek	4046											
-countries				u_language_Sundanese	4047											
-countries				u_language_Lao	4048											
-countries				u_language_Tamazight	4049											
-countries				u_language_Hakka_Chinese	4050											
-countries				u_language_Punjabi	4051											
-countries				u_language_Igbo	4052											
-countries				u_language_Amharic	4053											
-countries				u_language_Sindhi	4054											
-countries				u_language_Malagasy	4055											
-countries				u_language_Romanian	4056											
-countries				u_language_Oromo	4057											
-countries				u_language_Azerbaijani	4058											
-countries				u_language_Dutch	4059											
-countries				u_language_Marwari	4060											
-countries				u_language_Dari	4061											
-countries				u_language_Saraiki	4062											
-countries				u_language_Cebuano	4063											
-countries				u_language_Afrikaans	4064											
-countries				u_language_Khmer	4065											
-countries				u_language_Sinhala	4066											
-countries				u_language_Nepali	4067											
-countries				u_language_Somali	4068											
-countries				u_language_Kurmanji_Kurdish	4069											
-countries				u_language_Rangpuri	4070											
-countries				u_language_Assamese	4071											
-countries				u_language_Zhuang	4072											
-countries				u_language_Magahi	4073											
-countries				u_language_Bambara	4074											
-countries				u_language_NKo	4075											
-countries				u_language_Czech	4076											
-countries				u_language_Greek	4077											
-countries				u_language_Albanian	4078											
-countries				u_language_Tsonga	4079											
-countries				u_language_Kazakh	4080											
-countries				u_language_Hungarian	4081											
-countries				u_language_Swedish	4082											
-countries				u_language_Chichewa	4083											
-countries				u_language_Zulu	4084											
-countries				u_language_Sylheti	4085											
-countries				u_language_Twi	4086											
-countries				u_language_Uyghur	4087											
-countries				u_language_Kinyarwanda	4088											
-countries				u_language_Catalan	4089											
-countries				u_language_Ilocano	4090											
-countries				u_language_Quechua	4091											
-countries				u_language_Kalenjin	4092											
-countries				u_language_Rundi	4093											
-countries				u_language_Ga	4094											
-countries				u_language_Serbian	4095											
-countries				u_language_Shona	4096											
-countries				u_language_Xhosa	4097											
-countries				u_language_Tswana	4098											
-countries				u_language_Bulgarian	4099											
-countries				u_language_Tajik	4100											
-countries				u_language_Tigrinya	4101											
-countries				u_language_Haitian_Creole	4102											
-countries				u_language_Baluchi	4103											
-countries				u_language_Sorani_Kurdish	4104											
-countries				u_language_Slovak	4105											
-countries				u_language_Madurese	4106											
-countries				u_language_Turkmen	4107											
-countries				u_language_Kikuyu	4108											
-countries				u_language_Croatian	4109											
-countries				u_language_Kongo	4110											
-countries				u_language_Tshiluba	4111											
-countries				u_language_Santali	4112											
-countries				u_language_Umbundu	4113											
-countries				u_language_Hiligaynon	4114											
-countries				u_language_Finnish	4115											
-countries				u_language_Sesotho	4116											
-countries				u_language_Kashmiri	4117											
-countries				u_language_Danish	4118											
-countries				u_language_Minang	4119											
-countries				u_language_Sukuma	4120											
-countries				u_language_Kituba	4121											
-countries				u_language_Hebrew	4122											
-countries				u_language_Mongolian	4123											
-countries				u_language_Tatar	4124											
-countries				u_language_Norwegian	4125											
-countries				u_language_Armenian	4126											
-countries				u_language_Mooré	4127											
-countries				u_language_Betawi	4128											
-countries				u_language_Kyrghyz	4129											
-countries				u_language_Guarani	4130											
-countries				u_language_Sepedi	4131											
-countries				u_language_Sicilian	4132											
-countries				u_language_Afar	4133											
-countries				u_language_Kanuri	4134											
-countries				u_language_Luo	4135											
-countries				u_language_Bemba	4136											
-countries				u_language_Luganda	4137											
-countries				u_language_Wolof	4138											
-countries				u_language_Kimbundu	4139											
-countries				u_language_Konkani	4140											
-countries				u_language_Hmong	4141											
-countries				u_language_Georgian	4142											
-countries				u_language_Ewe	4143											
-countries				u_language_Romani	4144											
-countries				u_language_Acehnese	4145											
-countries				u_language_Balinese	4146											
-countries				u_language_Shan	4147											
-countries				u_language_Soga	4148											
-countries				u_language_Lithuanian	4149											
-countries				u_language_Garhwali	4150											
-countries				u_language_Aymara	4151											
+theme	P(L)	P(I):				surface	gloss	i	a	COMMENTS/TODOS	noun/pronoun	adj/adv	verb	quantifier	conjunction	preposition	affix	interjection	fn
+fruits and vegetables						putaupa	u_grape				grape								
+						kasawela	u_name_caswell				Caswell								
+						deba	u_name_dave				Dave								
+						esepelangto	u_name_esperanto				Esperanto								
+						elopa	u_name_europe				Europe								
+						pwaneta	u_language_planeta				Planeta (name)								
+						sesowi	u_trevorese												
+people						kalala	u_clara												
+						kakaka	u_laugh												
+animal: more complex							u_antelope	230			antelope								
+animal: more complex							u_elk	231			elk								
+animal: more complex							u_reindeer	232			caribou; reindeer								
+animal: more complex							u_buffalo	233			buffalo								
+animal: more complex							u_butterfly	234			butterfly								
+animal: more complex							u_crocodile	235			crocodile								
+animal: more complex							u_dolphin	236			dolphin								
+animal: more complex							u_dormouse	237			dormouse								
+animal: more complex							u_gorilla	238			gorilla								
+animal: more complex							u_jellyfish	239			jellyfish								
+animal: more complex							u_koala	240			koala								
+animal: more complex							u_leopard	241			leopard								
+animal: more complex							u_monkey	243			monkey								
+animal: more complex							u_newt	244			newt								
+animal: more complex							u_ocelot	245			ocelot								
+animal: more complex							u_otter	246			otter								
+animal: more complex							u_parrot	247			parrot								
+animal: more complex							u_robin	248			robin								
+animal: more complex							u_scorpion	249			scorpion								
+animal: more complex							u_turkey	251			turkey								
+foods							u_apricot-hard	408			almond								
+foods							u_oak-hard	414			acorn								
+foods						pinya	u_pineapple	708			pineapple								
+foods							u_kingchi	516			kimchi								
+foods							u_kongbucha	517			kombucha								
+people		2				aisaka	u_isaac	1013			Isaac								
+people		2				lisa	u_lisa	1014			Lisa								
+people		2				teba	u_trevor	1015			Trevor!								
+people						lamang	u_raman	1016			Raman								
+people						odisa	u_odis	1017			Odis								
+people						isabela	u_isabel	1018			Isabel								
+people						daniyela	u_daniel	1019			Daniel								
+people						pusupa	u_puspa	1020			Puspa								
+people						nika	u_nick	1021			Nick								
+people						abi	u_abby	1022			Abby								
+people						yuta	u_utah	1023			Utah								
+foods							u_apricot	1024											
+countries			apaganisitang	/afɣɑːnɪˈstɑːn/	The simplified orthography for Afghanistan is taken from the user's example, which follows specific, non-generalizable rules for epenthesis for this particular name.		u_country_Afghanistan	3001											
+countries			tikipali	/ʃcipəˈɾi/	Albanian endonym: Shqipëri		u_country_Albania	3002											
+countries			alidadaidaila	/al.d͡ʒa.ˈzaː.ʔir/	Arabic endonym: الجزائر (al-Jazāʾir)		u_country_Algeria	3003											
+countries			anidola	/anˈdɔrə/	Catalan endonym: Andorra		u_country_Andorra	3004											
+countries			anigola	/ɐnˈɡɔlɐ/	Portuguese endonym: Angola		u_country_Angola	3005											
+countries			anitigiwabalibuda	/ænˈtiːɡwə ænd bɑːrˈbuːdə/	English is the official language. Simplified by concatenating 'Antigua' and 'Barbuda' pronunciations.		u_country_Antigua_and_Barbuda	3006											
+countries			alikenititina	/aɾxenˈtina/	Spanish endonym: Argentina		u_country_Argentina	3007											
+countries			ayastitang	/hɑjɑsˈtɑn/	Armenian endonym: Հայաստան (Hayastan)		u_country_Armenia	3008											
+countries			otilileyia	/ɒˈstɹeɪl.jə/	English is the official language.		u_country_Australia	3009											
+countries			oitetelaiit	/ˈøːstəˌʁaɪç/	German endonym: Österreich		u_country_Austria	3010											
+countries			aaderbaijadan	/ɑːzærbɑjˈd͡ʒɑn/	Azerbaijani endonym: Azərbaycan		u_country_Azerbaijan	3011											
+countries			badamaidada	/bəˈhɑːməz/	English is the official language.		u_country_Bahamas	3012											
+countries			balibelein	/bɑːɹeɪn/	English is official, Arabic is official. Using common English IPA, related to Arabic Al-Bahrayn		u_country_Bahrain	3013											
+countries			balangladet	/baŋlaˈdɛʃ/	Bengali endonym: বাংলাদেশ (Bangladesh)		u_country_Bangladesh	3014											
+countries			balibelidos	/bɑːrˈbeɪdɒs/	English is the official language.		u_country_Barbados	3015											
+countries			belilaru	/bʲɛɫaˈrus/	Belarusian endonym: Беларусь (Biełaruś)		u_country_Belarus	3016											
+countries			belidigiam	/ˈbɛl.ɡi.jəm/	Multiple official languages; using common English pronunciation for the name.		u_country_Belgium	3017											
+countries			belidida	/bɛˈliːz/	English is the official language.		u_country_Belize	3018											
+countries			benin	/bɛˈnin/	French endonym: Bénin		u_country_Benin	3019											
+countries			dukiyula	/ɖuk̚.juːl/	Dzongkha endonym: འབྲུག་ཡུལ་ (Druk Yul)		u_country_Bhutan	3020											
+countries			bolibiya	/boˈliβja/	Spanish endonym: Bolivia		u_country_Bolivia	3021											
+countries			botinaikilitetigobibina	/bôsna i xěrt͡seɡoʋina/	Serbo-Croatian endonym: Босна и Херцеговина (Bosna i Hercegovina). Processed as 'Bosna' and 'Hercegovina'.		u_country_Bosnia_and_Herzegovina	3022											
+countries			botitana	/bɔtˈswana/	Tswana endonym: Botswana		u_country_Botswana	3023											
+countries			balida	/bɾaˈziw/	Portuguese endonym: Brasil		u_country_Brazil	3024											
+countries			bulunai	/ˈbruːnaɪ/	Malay is the official language. Using common English pronunciation for 'Brunei'.		u_country_Brunei	3025											
+countries			buligaliba	/bʊlˈɡarijɐ/	Bulgarian endonym: България (Bǎlgariya)		u_country_Bulgaria	3026											
+countries			bulikinaipasi	/buʁkina faˈso/	French and local languages. Using French pronunciation, concatenated parts.		u_country_Burkina_Faso	3027											
+countries			bulundita	/buˈɾundi/	Kirundi endonym: Burundi		u_country_Burundi	3028											
+countries			kabubelide	/ˈkabu ˈvɛrde/	Portuguese endonym: Cabo Verde. Concatenated parts.		u_country_Cabo_Verde	3029											
+countries			kampukia	/kɑmˈpu.ciə/	Khmer endonym: កម្ពុជា (Kampuchea)		u_country_Cambodia	3030											
+countries			kamalun	/ˌkæməˈɹuːn/	English and French are official languages. Using common English pronunciation.		u_country_Cameroon	3031											
+countries			kanada	/ˈkænədə/	English and French are official languages. Using common English pronunciation.		u_country_Canada	3032											
+countries			tentalipalikeinilepubilik	/sɑ̃tɾafʁikɛn ʁepyblik/	French endonym: République centrafricaine. Concatenated simplified pronunciations of 'centrafricaine' and 'République'.		u_country_Central_African_Republic	3033											
+countries			tada	/tʃaːd/	Arabic and French are official languages. Using a common IPA, which is similar in both.		u_country_Chad	3034											
+countries			tile	/ˈtʃile/	Spanish endonym: Chile		u_country_Chile	3035											
+countries			tolungkuoa	/tʂʊŋ.ku̯ɔ/	Mandarin Chinese endonym: 中国 (Zhōngguó)		u_country_China	3036											
+countries			kolombia	/koˈlombja/	Spanish endonym: Colombia		u_country_Colombia	3037											
+countries			komolota	/koˈmɔːrəs/	Comorian, Arabic, French. Using common English IPA.		u_country_Comoros	3038											
+countries			kongo	/kɔnɡo/	Using Lingala endonym: Kongo. Full name is complex.		u_country_Congo,_Democratic_Republic_of_the	3039											
+countries			kongo	/kɔnɡo/	Using French endonym: Congo. Full name is complex.		u_country_Congo,_Republic_of_the	3040											
+countries			kotatalika	/ˈkosta ˈrika/	Spanish endonym: Costa Rica. Concatenated parts.		u_country_Costa_Rica	3041											
+countries			kotidibal	/kot divwaʁ/	French endonym: Côte d'Ivoire. Concatenated simplified pronunciations.		u_country_Ivory_Coast	3042											
+countries			kelibadatitakaa	/xř̩ʋaːtskaː/	Croatian endonym: Hrvatska		u_country_Croatia	3043											
+countries			kubaba	/ˈkuβa/	Spanish endonym: Cuba		u_country_Cuba	3044											
+countries			kipilot	/ˈkipros/	Greek endonym: Κύπρος (Kýpros). Also Turkish: Kıbrıs.		u_country_Cyprus	3045											
+countries			tetikija	/ˈtʃɛxɪja/	Czech endonym: Česko		u_country_Czechia	3046											
+countries			tenimatak	/ˈtɛn.mɑk/	Danish endonym: Danmark		u_country_Denmark	3047											
+countries			dibuuti	/dʒiˈbuːti/	Arabic and French are official languages. Using common English IPA.		u_country_Djibouti	3048											
+countries			domitika	/ˌdɒmɪˈniːkə/	English is the official language.		u_country_Dominica	3049											
+countries			lipubilikaidominikana	/reˈpuβlika ðomiˈnikana/	Spanish endonym: República Dominicana. Concatenated simplified pronunciations.		u_country_Dominican_Republic	3050											
+countries			ekuwadol	/ekwaˈðoɾ/	Spanish endonym: Ecuador		u_country_Ecuador	3051											
+countries			mitilata	/ˈmi.sˤr/	Arabic endonym: مصر (Miṣr)		u_country_Egypt	3052											
+countries			elitalibaladola	/el salβaˈðoɾ/	Spanish endonym: El Salvador. Concatenated simplified pronunciations.		u_country_El_Salvador	3053											
+countries			ekuwatolitaligenia	/e̞kwatoˈɾjal ˈɣine̞a/	Spanish endonym: Guinea Ecuatorial. Concatenated simplified pronunciations.		u_country_Equatorial_Guinea	3054											
+countries			elitelaija	/ɛrɪˈtɾeɪjɑ/	Tigrinya, Arabic, English. Using common English IPA.		u_country_Eritrea	3055											
+countries			eti	/ˈesti/	Estonian endonym: Eesti		u_country_Estonia	3056											
+countries			etuwatainai	/ɛswɑˈtiːni/	Swazi endonym: Eswatini		u_country_Eswatini	3057											
+countries			itijopija	/i.tjo.pʼja/	Amharic endonym: ኢትዮጵያ (ʾItyoṗṗya)		u_country_Ethiopia	3058											
+countries			pidigi	/ˈfiːdʒi/	English, Fijian, and Fiji Hindi are official languages. Using common English pronunciation.		u_country_Fiji	3059											
+countries			tuomi	/ˈsuo̯mi/	Finnish endonym: Suomi		u_country_Finland	3060											
+countries			palanti	/fʁɑ̃s/	French endonym: France		u_country_France	3061											
+countries			gabono	/ɡaˈbɔ̃/	French endonym: Gabon		u_country_Gabon	3062											
+countries			gamibia	/ˈɡambja/	English is the official language.		u_country_Gambia	3063											
+countries			takadalitibalela	/sɑkʰɑrtʰvɛlɔ/	Georgian endonym: საქართველო (Sakartvelo)		u_country_Georgia	3064											
+countries			doiaitilant	/ˈdɔʏtʃlant/	German endonym: Deutschland		u_country_Germany	3065											
+countries			ganana	/ˈɡɑːnə/	English is the official language.		u_country_Ghana	3066											
+countries			eladada	/eˈlaða/	Greek endonym: Ελλάδα (Elláda)		u_country_Greece	3067											
+countries			gelinada	/ɡrɪˈneɪdə/	English is the official language.		u_country_Grenada	3068											
+countries			guatemala	/gwateˈmala/	Spanish endonym: Guatemala		u_country_Guatemala	3069											
+countries			gineia	/ˈɡiːneə/	French is the official language.		u_country_Guinea	3070											
+countries			ginelibitawa	/ɡiˈne βiˈsaw/	Portuguese endonym: Guiné-Bissau. Concatenated simplified pronunciations.		u_country_Guinea_Bissau	3071											
+countries			gailana	/ɡaɪˈɑːnə/	English is the official language.		u_country_Guyana	3072											
+countries			haiti	/haj.ti/	Haitian Creole and French are official languages. Using common Haitian Creole IPA.		u_country_Haiti	3073											
+countries			batikan	/ˈvatikan/	Italian is official. Using common Italian pronunciation of 'Vaticano'.		u_country_Vatican_City	3074											
+countries			onidulat	/onˈduɾas/	Spanish endonym: Honduras		u_country_Honduras	3075											
+countries			malidalolitaag	/ˈmɒɟɒrorˌsaːɡ/	Hungarian endonym: Magyarország		u_country_Hungary	3076											
+countries			itilant	/ˈistlant/	Icelandic endonym: Ísland		u_country_Iceland	3077											
+countries			badilat	/ˈbʱaːɾət̪/	Hindi endonym: भारत (Bhārat)		u_country_India	3078											
+countries			indonesia	/ɪndoˈnesɪa/	Indonesian endonym: Indonesia		u_country_Indonesia	3079											
+countries			ilana	/iːˈɾɒn/	Persian endonym: ایران (Īrān)		u_country_Iran	3080											
+countries			iladaq	/ʕiˈrɑːq/	Arabic endonym: العراق (al-ʿIrāq)		u_country_Iraq	3081											
+countries			aililand	/ˈaɪrland/	Irish and English are official languages. Using English pronunciation.	ayalang	u_country_Ireland	3082											
+countries			yitaliel	/jisʁaˈʔel/	Hebrew endonym: ישראל (Yisra'el)		u_country_Israel	3083											
+countries			italija	/iˈtalja/	Italian endonym: Italia		u_country_Italy	3084											
+countries			dameika	/dʒəˈmeɪkə/	English is the official language.		u_country_Jamaica	3085											
+countries			nihongo	/nihoɴɡo/	Japanese endonym: 日本 (Nihon/Nippon). Using 'Nihon'.		u_country_Japan	3086											
+countries			uludun	/ˈurdun/	Arabic endonym: الأردن (Al-ʾUrdun)		u_country_Jordan	3087											
+countries			kadadiakitatan	/ˌqɑzɑqˈstɑn/	Kazakh endonym: Қазақстан (Qazaqstan)		u_country_Kazakhstan	3088											
+countries			kenia	/ˈkɛnjə/	Swahili and English are official languages. Using common English pronunciation.		u_country_Kenya	3089											
+countries			kilibati	/ˌkɪrɪˈbæs/	Gilbertese endonym: Kiribati		u_country_Kiribati	3090											
+countries			hanguk	/ˈhanɡuk̚/	Korean endonym for South Korea: 한국 (Hanguk)		u_country_Korea	3091											
+countries			kuweit	/kʊˈweɪt/	Arabic endonym: الكويت (Al-Kuwait)		u_country_Kuwait	3092											
+countries			kiligititan	/ˌkərɡɪzˈstɑn/	Kyrgyz endonym: Кыргызстан (Kyrgyzstan)		u_country_Kyrgyzstan	3093											
+countries			lao	/laːw/	Lao endonym: ລາວ (Lāo)		u_country_Laos	3094											
+countries			latibaia	/ˈlatvija/	Latvian endonym: Latvija		u_country_Latvia	3095											
+countries			libanan	/lɪbˈnɑːn/	Arabic endonym: لبنان (Lubnān)		u_country_Lebanon	3096											
+countries			litutu	/lɪˈsuːtuː/	Sesotho endonym: Lesotho		u_country_Lesotho	3097											
+countries			libilia	/laɪˈbɪəriə/	English is the official language.		u_country_Liberia	3098											
+countries			libia	/ˈlɪbiə/	Arabic endonym: ليبيا (Lībiyā)		u_country_Libya	3099											
+countries			likitenitain	/ˈlɪçtn̩ˌʃtaɪn/	German endonym: Liechtenstein		u_country_Liechtenstein	3100											
+countries			litubaniaija	/lʲɪtʊˈʋɐnʲɪjɐ/	Lithuanian endonym: Lietuva		u_country_Lithuania	3101											
+countries			luktambulk	/ˈlʊksəmbuʀk/	Luxembourgish, French, and German are official languages. Using common French pronunciation.		u_country_Luxembourg	3102											
+countries			madagatakal	/mædəˈɡæskər/	Malagasy and French are official languages. Using common English pronunciation.		u_country_Madagascar	3103											
+countries			malawia	/məˈlɑːwi/	Chichewa and English are official languages. Using common English pronunciation.		u_country_Malawi	3104											
+countries			maleidia	/məˈleɪʒə/	Malay endonym: Malaysia		u_country_Malaysia	3105											
+countries			malidibida	/ˈmældɪvz/	Dhivehi is the official language. Using common English pronunciation for 'Maldives'.		u_country_Maldives	3106											
+countries			mali	/maˈli/	French endonym: Mali		u_country_Mali	3107											
+countries			malita	/ˈmal.ta/	Maltese and English are official languages. Using Maltese pronunciation.		u_country_Malta	3108											
+countries			malitialailande	/ˈmɑːrʃəl ˈaɪləndz/	Marshallese and English are official languages. Using common English pronunciation, concatenated parts.		u_country_Marshall_Islands	3109											
+countries			molitenia	/mɔːrɪˈteɪniə/	Arabic is the official language. Using common English pronunciation for the name.		u_country_Mauritania	3110											
+countries			molitiu	/mɔːˈrɪʃəs/	English, French, and Mauritian Creole are official languages. Using common English pronunciation.		u_country_Mauritius	3111											
+countries			meiko	/ˈme.xiko/	Spanish endonym: México		u_country_Mexico	3112											
+countries			maikolonidia	/ˌmaɪkroʊˈniːʒə/	English is the official language.		u_country_Micronesia	3113											
+countries			molodoba	/molˈdova/	Romanian endonym: Moldova		u_country_Moldova	3114											
+countries			monako	/mɔˈnako/	French endonym: Monaco		u_country_Monaco	3115											
+countries			mongo	/mɔŋˈɡɔl/	Mongolian endonym: Монгол (Mongol)		u_country_Mongolia	3116											
+countries			telanagora	/ˈt͡sr̩naː ˈɡoɾa/	Montenegrin endonym: Crna Gora. Concatenated simplified pronunciations.		u_country_Montenegro	3117											
+countries			alimagilib	/al.maɣ.ɾib/	Arabic endonym: المغرب (al-Maghrib)		u_country_Morocco	3118											
+countries			modambik	/mɔzamˈbikɨ/	Portuguese endonym: Moçambique		u_country_Mozambique	3119											
+countries			miyama	/mjəmà/	Burmese endonym: မြန်မာ (Myanma)		u_country_Myanmar	3120											
+countries			namibia	/nəˈmɪbiə/	English is the official language.		u_country_Namibia	3121											
+countries			naulu	/ˈnaʊru/	Nauruan and English are official languages. Using common English pronunciation.		u_country_Nauru	3122											
+countries			nepal	/neˈpal/	Nepali endonym: नेपाल (Nepāl)		u_country_Nepal	3123											
+countries			nedalant	/ˈneːdərlɑnt/	Dutch endonym: Nederland		u_country_Netherlands	3124											
+countries			nijuilande	/ˌnjuː ˈziːlənd/	English and Māori are official languages. Using common English pronunciation, concatenated parts.		u_country_New_Zealand	3125											
+countries			nikalagua	/nikaˈɾaɣwa/	Spanish endonym: Nicaragua		u_country_Nicaragua	3126											
+countries			nidel	/niʒɛʁ/	French endonym: Niger		u_country_Niger	3127											
+countries			naidileria	/naɪˈdʒiːriə/	English is the official language.		u_country_Nigeria	3128											
+countries			makelonija	/ˈmakɛdɔnijɐ/	Macedonian endonym: Македонија (Makedonija)		u_country_North_Macedonia	3129											
+countries			nolebeia	/ˈnɔrveɪ/	Norwegian endonym: Norge		u_country_Norway	3130											
+countries			uuman	/ˈuːmɑːn/	Arabic endonym: عمان (ʿUmān)		u_country_Oman	3131											
+countries			pakitan	/ˈpaːkɪstɑːn/	Urdu endonym: پاکستان (Pākistān)		u_country_Pakistan	3132											
+countries			pelau	/pəˈlaʊ/	Palauan and English are official languages. Using common English pronunciation.		u_country_Palau	3133											
+countries			pilatitin	/filasˈtˤiːn/	Arabic endonym: فلسطين (Filasṭīn)		u_country_Palestine,_State_of	3134											
+countries			panama	/paˈnama/	Spanish endonym: Panamá		u_country_Panama	3135											
+countries			papuanijuginia	/ˌpæpuːə ˌnjuː ˈɡɪni/	English is the official language. Concatenated simplified pronunciations.		u_country_Papua_New_Guinea	3136											
+countries			palaguai	/paɾaˈɣwaj/	Spanish and Guarani are official languages. Using common Spanish pronunciation.		u_country_Paraguay	3137											
+countries			pelu	/ˈpeɾu/	Spanish endonym: Perú		u_country_Peru	3138											
+countries			pilipinit	/ˌfɪlɪˈpiːnəs/	Filipino and English are official languages. Using common English pronunciation.		u_country_Philippines	3139											
+countries			polika	/ˈpɔlska/	Polish endonym: Polska		u_country_Poland	3140											
+countries			pulitugal	/puɾtuˈɣal/	Portuguese endonym: Portugal		u_country_Portugal	3141											
+countries			katala	/ˈqatˤɑr/	Arabic endonym: قطر (Qaṭar)		u_country_Qatar	3142											
+countries			lomunija	/roˈmɨnija/	Romanian endonym: România		u_country_Romania	3143											
+countries			latoija	/rɐˈsʲijə/	Russian endonym: Россия (Rossiya)		u_country_Russia	3144											
+countries			luanda	/ɾwaːˈnda/	Kinyarwanda endonym: Rwanda		u_country_Rwanda	3145											
+countries			teintkitanidaiteinibit	/seɪnt ˈkɪts ænd ˈniːvɪs/	English is the official language. Concatenated simplified pronunciations.		u_country_Saint_Kitts_and_Nevis	3146											
+countries			teintlutia	/seɪnt ˈluːʃə/	English is the official language. Concatenated simplified pronunciations.		u_country_Saint_Lucia	3147											
+countries			teintbitenitanididaigelenadin	/seɪnt ˈvɪnsənt ænd ðə ˌɡrɛnəˈdiːnz/	English is the official language. Concatenated simplified pronunciations.		u_country_Saint_Vincent_and_the_Grenadines	3148											
+countries			tamola	/səˈmoʊ.ə/	Samoan and English are official languages. Using common English pronunciation.		u_country_Samoa	3149											
+countries			tanimalino	/san maˈriːno/	Italian endonym: San Marino. Concatenated simplified pronunciations.		u_country_San_Marino	3150											
+countries			taoitoomeiepilitipe	/ˈsaʊ ˈto.mɨ e ˈpɾĩ.sɨ.pɨ/	Portuguese endonym: São Tomé e Príncipe. Concatenated simplified pronunciations.		u_country_Sao_Tome_and_Principe	3151											
+countries			ataudiiah	/asˌsaʕuːdɪjːah/	Arabic endonym: المملكة العربية السعودية. Using a common IPA for the short form.		u_country_Saudi_Arabia	3152											
+countries			tenelagal	/seneˈɡal/	French endonym: Sénégal		u_country_Senegal	3153											
+countries			telibija	/ˈsrbija/	Serbian endonym: Србија (Srbija)		u_country_Serbia	3154											
+countries			teitielid	/seɪˈʃɛlz/	English, French, and Seychellois Creole are official languages. Using common English pronunciation.		u_country_Seychelles	3155											
+countries			tilelalileon	/siˈɛrə lɪˈoʊn/	English is the official language. Concatenated simplified pronunciations.		u_country_Sierra_Leone	3156											
+countries			tinigalapola	/ˈsɪŋəpɔːr/	English, Malay, Mandarin, and Tamil are official languages. Using common English pronunciation.		u_country_Singapore	3157											
+countries			tolabeniko	/ˈslɔʋɛnskaː ˈrɛpublɪka/	Slovak endonym: Slovensko		u_country_Slovakia	3158											
+countries			tolobenija	/slɔˈʋeːnijɐ/	Slovene endonym: Slovenija		u_country_Slovenia	3159											
+countries			tolomonaailande	/ˈsɒləmən ˈaɪləndz/	English is the official language. Concatenated simplified pronunciations.		u_country_Solomon_Islands	3160											
+countries			tomalia	/sɔmɑːˈlijɑ/	Somali and Arabic are official languages. Using common Somali pronunciation.		u_country_Somalia	3161											
+countries			tauadilepika	/ˌsaʊθ ˈæfrɪkə/	English is one of many official languages. Using common English pronunciation, concatenated parts.		u_country_South_Africa	3162											
+countries			taututudan	/ˌsaʊθ suːˈdɑːn/	English is the official language. Concatenated simplified pronunciations.		u_country_South_Sudan	3163											
+countries			etipana	/esˈpaɲa/	Spanish endonym: España		u_country_Spain	3164											
+countries			tilililanka	/ˌsriː ˈlaŋkə/	Sinhala and Tamil are official languages. Using a common English pronunciation, concatenated parts.		u_country_Sri_Lanka	3165											
+countries			tudan	/suˈdɑːn/	Arabic is the official language.		u_country_Sudan	3166											
+countries			tulename	/syriˈnaːmə/	Dutch endonym: Suriname		u_country_Suriname	3167											
+countries			tebanitaka	/ˈsvɛn.skɑ/	Swedish endonym: Sverige		u_country_Sweden	3168											
+countries			tewaiit	/ˈʃvaɪts/	German endonym: Schweiz (among multiple official languages)		u_country_Switzerland	3169											
+countries			tulija	/suːˈɾijja/	Arabic endonym: سورية (Sūriyyah)		u_country_Syria	3170											
+countries			todikititan	/tɔːd͡ʒikɪˈstɔn/	Tajik endonym: Тоҷикистон (Tojikiston)		u_country_Tajikistan	3171											
+countries			tanadanija	/tænˈzɑːniə/	Swahili and English are official languages. Using common English pronunciation.		u_country_Tanzania	3172											
+countries			palatitai	/pratʰeːt tʰaj/	Thai endonym: ประเทศไทย (Prathet Thai). Concatenated simplified pronunciations.		u_country_Thailand	3173											
+countries			timolete	/ˈtimɔr ˈlɛʃtɨ/	Portuguese and Tetum are official languages. Using Portuguese pronunciation, concatenated parts.		u_country_Timor_Leste	3174											
+countries			togou	/ˈtoːɡoʊ/	French endonym: Togo		u_country_Togo	3175											
+countries			tonga	/ˈtoŋa/	Tongan and English are official languages. Using common English pronunciation.		u_country_Tonga	3176											
+countries			tilinidaideitobego	/ˈtrɪnɪdæd ænd toʊˈbeɪɡoʊ/	English is the official language. Concatenated simplified pronunciations.		u_country_Trinidad_and_Tobago	3177											
+countries			tunida	/tuˈniːsja/	Arabic endonym: تونس (Tūnis)		u_country_Tunisia	3178											
+countries			tulukije	/ˈtyɾcije/	Turkish endonym: Türkiye		u_country_Turkey	3179											
+countries			tulukemanititan	/tyɾkmeniˈstɑn/	Turkmen endonym: Türkmenistan		u_country_Turkmenistan	3180											
+countries			tuvalu	/tuːˈvɑːluː/	Tuvaluan and English are official languages. Using common English pronunciation.		u_country_Tuvalu	3181											
+countries			juganda	/juˈɡændə/	English is the official language. Swahili and Luganda are national languages. Using common English pronunciation.		u_country_Uganda	3182											
+countries			ukelanaina	/ʊkrɐˈjinɐ/	Ukrainian endonym: Україна (Ukraina)		u_country_Ukraine	3183											
+countries			alimalatiialalibijaalmutahida	/alˈʔimaraːt alˈʕarabijja alˈmuttaħida/	Arabic endonym: الإمارات العربية المتحدة. Concatenated simplified pronunciations of parts.		u_country_United_Arab_Emirates	3184											
+countries			junaiitidikingdom	/juˈnaɪtɪd ˈkɪŋdəm/	English is the official language. Concatenated simplified pronunciations.		u_country_United_Kingdom	3185											
+countries			junaiitiditeit	/juˈnaɪtɪd ˈsteɪts/	English is the de facto national language. Concatenated simplified pronunciations.		u_country_United_States	3186											
+countries			uluaguai	/uɾuˈɣwai/	Spanish endonym: Uruguay		u_country_Uruguay	3187											
+countries			udebikititan	/uzbekɪˈstɑn/	Uzbek endonym: Oʻzbekiston		u_country_Uzbekistan	3188											
+countries			banuatu	/ˌvɑːnuˈɑːtuː/	Bislama, English, and French are official languages. Using common English pronunciation.		u_country_Vanuatu	3189											
+countries			benetuwela	/beneˈswela/	Spanish endonym: Venezuela		u_country_Venezuela	3190											
+countries			biatnam	/viət̚˨˩˧ naːm˧˧/	Vietnamese endonym: Việt Nam (simplified tone marks).		u_country_Vietnam	3191											
+countries			yamen	/ˈjæmæn/	Arabic endonym: اليمن (al-Yaman)		u_country_Yemen	3192											
+countries			dambija	/ˈzæmbiə/	English is the official language.		u_country_Zambia	3193											
+countries			dimibabeia	/zɪmˈbɑːbweɪ/	English is the official language.		u_country_Zimbabwe	3194											
+countries			apitaikuwa	/apʰsxʷa/	Abkhaz endonym: Аԥсны (Apsny). Unrecognized state.		u_country_Abkhazia	3195											
+countries			kotobo	/ˈkɔsɔvɔ/	Albanian and Serbian are official. Using common pronunciation. Partially recognized state.		u_country_Kosovo	3196											
+countries			kulidititan	/kʊrdɪˈstɑːn/	Kurdish endonym: کوردستان (Kurdistan). Autonomous region.		u_country_Kurdistan	3197											
+countries			taladilaaligabija	/ˈsˤɑħraːʔ el ɣarbijja/	Arabic endonym: الصحراء الغربية. Disputed territory.		u_country_Western_Sahara	3198											
+countries			tomaliilande	/sɔmɑːlɪlænd/	Somali endonym: Soomaaliland. Unrecognized state.		u_country_Somaliland	3199											
+countries			tilakinibal	/t͡sʼkhinˈval/	Ossetian endonym (short form often used in IPA context): Цхинвал (Tsxinval). Partially recognized state.		u_country_South_Ossetia	3200											
+countries			taiwana	/taɪˈwɑːn/	Mandarin Chinese endonym: 臺灣 (Táiwān). Complex political status.		u_country_Taiwan	3201											
+countries			talatinitilia	/transˈnistri.a/	Russian and Moldovan (Romanian) are official languages. Using common English pronunciation for the name. Unrecognized state.		u_country_Transnistria	3202											
+langauges			pututungkua	/pʰù.tʰʊ́ŋ.xwâ/	Standard Mandarin endonym: 普通话 (Pǔtōnghuà)	sinose	u_language_mandarin_chinese	4001											
+langauges			inigilit	/ˈɪŋɡlɪʃ/	Common English endonym	englisa	u_language_English	4002											
+langauges			etipaniol	/espaˈɲol/	Common Spanish endonym: español		u_language_Spanish	4003											
+langauges			hinidi	/ˈɦɪn.d̪iː/	Hindi endonym: हिन्दी (Hindī)		u_language_Hindi	4004											
+langauges			alialabija	/al.ʕa.raˈbiː.ja/	Arabic endonym: العربية (al-ʿArabīyah)		u_language_Arabic	4005											
+langauges			lulikitijik	/ˈruskʲɪj jɪˈzɨk/	Russian endonym: русский язык (russkiy yazyk)		u_language_Russian	4006											
+langauges			bangla	/ˈbaŋla/	Bengali endonym: বাংলা (Bangla)		u_language_Bengali	4007											
+langauges			pulituge	/puɾtuˈɡeʃ/	Portuguese endonym: português		u_language_Portuguese	4008											
+langauges			palanti	/fʁɑ̃sɛ/	French endonym: français		u_language_French	4009											
+langauges			bahataindonesia	/baˈhasa ɪndoˈnesija/	Indonesian endonym: Bahasa Indonesia		u_language_Indonesian	4010											
+langauges			uludu	/ˈʊrd̪uː/	Urdu endonym: اردو (Urdu)		u_language_Urdu	4011											
+langauges			kitihili	/kiswaˈhili/	Swahili endonym: Kiswahili		u_language_Swahili	4012											
+langauges			doitit	/dɔʏtʃ/	German endonym: Deutsch		u_language_German	4013											
+langauges			nihongo	/nihonɡo/	Japanese endonym: 日本語 (Nihongo)		u_language_Japanese	4014											
+langauges			botodowo	/bɔsɔ d͡ʒɔwɔ/	Javanese endonym: Basa Jawa		u_language_Javanese	4015											
+langauges			kuoongtungwaa	/kʷɔ̌ːŋ.tʊ́ŋ.wáː/	Cantonese endonym: 廣東話 (Gwongdungwa)		u_language_Cantonese	4016											
+langauges			hausa	/ˈhausa/	Hausa endonym: Hausa		u_language_Hausa	4017											
+langauges			telugu	/ˈt̪eluɡu/	Telugu endonym: తెలుగు (Telugu)		u_language_Telugu	4018											
+langauges			hanguga	/ˈhanɡuɡʌ/	Korean endonym: 한국어 (Hangugeo)		u_language_Korean	4019											
+langauges			bahatamalayu	/baˈhasa məˈlaju/	Malay endonym: Bahasa Melayu		u_language_Malay	4020											
+langauges			tamili	/ˈt̪amiɻ/	Tamil endonym: தமிழ் (Tamiḻ)	tamila	u_language_Tamil	4021											
+langauges			malati	/məˈɾaʈʰiː/	Marathi endonym: मराठी (Marāṭhī)	malati	u_language_Marathi	4022											
+langauges			tulikite	/ˈtyɾkt͡ʃe/	Turkish endonym: Türkçe		u_language_Turkish	4023											
+langauges			tiengbiat	/tiəŋ˧˥ viət̚˧˩˨/	Vietnamese endonym: Tiếng Việt		u_language_Vietnamese	4024											
+langauges			italiano	/itaˈljano/	Italian endonym: italiano	italiano	u_language_Italian	4025											
+langauges			maitili	/ˈmɛtʰɪliː/	Maithili endonym: मैथिली (Maithilī)		u_language_Maithili	4027											
+langauges			patatai	/pʰaː.sǎː.tʰaj/	Thai endonym: ภาษาไทย (Phasa Thai)	taise	u_language_Thai	4028											
+langauges			bodipuli	/ˈbʱod͡ʒpuɾiː/	Bhojpuri endonym: भोजपुरी (Bhojpurī)		u_language_Bhojpuri	4029											
+langauges			linguala	/liᵑɡála/	Lingala endonym: Lingála		u_language_Lingala	4030											
+langauges			palati	/fɒːrˈsiː/	Persian endonym: فارسی (Fârsî)		u_language_Persian	4031											
+langauges			patito	/paʂˈto/	Pashto endonym: پښتو (Paṣ̌to)	pasato	u_language_Pashto	4032											
+langauges			yoruba	/jo.ˈɾu.bá/	Yoruba endonym: Yorùbá	yoluba	u_language_Yoruba	4033											
+langauges			pula	/pular/	Fulani endonym: Pular (common alternative for Fulah)	pula	u_language_Fulani	4034											
+langauges			banulamigi	/ban˧˥ lam˧˥ ɡi˧˥/	Min Nan Chinese endonym: 閩南語 (Bân-lâm-gí)		u_language_Min_Nan_Chinese	4035											
+langauges			guditilarati	/ɡud͡ʒəˈɾɑːt̪iː/	Gujarati endonym: ગુજરાતી (Gujarātī)		u_language_Gujarati	4036											
+langauges			kanada	/ˈkɐnːɐɖa/	Kannada endonym: ಕನ್ನಡ (Kannaḍa)		u_language_Kannada	4037											
+langauges			pilipino	/ˌfɪlɪˈpiːno/	Filipino endonym: Filipino	pilipino	u_language_Filipino	4038											
+langauges			miamabaada	/mjəmà bàðà/	Burmese endonym: မြန်မာဘာသာ (Myanma bhasa)		u_language_Burmese	4039											
+langauges			poliki	/ˈpɔlskʲi/	Polish endonym: polski		u_language_Polish	4040											
+langauges			naidilirianipidigin	/naɪˈdʒɪriən ˈpɪdʒɪn/	Common English-based Creole in Nigeria		u_language_Nigerian_Pidgin	4041											
+langauges			abadahi	/əˈʋəd̪ʱiː/	Awadhi endonym: अवधी (Avadhī)	awadi	u_language_Awadhi	4042											
+langauges			odija	/oˈɖia/	Odia endonym: ଓଡ଼ିଆ (Oḍiā)		u_language_Odia	4043											
+langauges			ukelanaiitikanamobaba	/u.krɐˈjinʲ.sʲkɐ ˈmɔ.ʋɐ/	Ukrainian endonym: українська мова (ukrayinsʹka mova)		u_language_Ukrainian	4044											
+langauges			malayalam	/mɐlɐˈjaːɭɐm/	Malayalam endonym: മലയാളം (Malayāḷaṁ)		u_language_Malayalam	4045											
+langauges			odebikilitili	/ozˈbek tili/	Uzbek endonym: Oʻzbek tili		u_language_Uzbek	4046											
+langauges			batatunida	/basa sunda/	Sundanese endonym: Basa Sunda		u_language_Sundanese	4047											
+langauges			patalao	/pʰaː.sǎː.láːw/	Lao endonym: ພາສາລາວ (Phasa Lao)		u_language_Lao	4048											
+langauges			tamegidet	/tæmæˈziɣt/	Central Atlas Tamazight endonym: Tamaziɣt		u_language_Tamazight	4049											
+langauges			hakaapa	/hak̚.kâ.fa/	Hakka Chinese endonym: 客家話 (Hak-kâ-fa)		u_language_Hakka_Chinese	4050											
+langauges			panidabi	/pənˈdʒɑːbi/	Punjabi endonym: ਪੰਜਾਬੀ (Pañjābī)		u_language_Punjabi	4051											
+langauges			igubo	/ˈiɡ͡bʷo/	Igbo endonym: Igbo (Asụsụ Igbo)	ibo	u_language_Igbo	4052											
+langauges			amalinya	/amarɨɲɲa/	Amharic endonym: አማርኛ (Amarəñña)		u_language_Amharic	4053											
+langauges			tinidi	/ˈsɪndʱiː/	Sindhi endonym: سنڌي (Sindhī)	singdi	u_language_Sindhi	4054											
+langauges			malagaty	/malaˈɡasʲ/	Malagasy endonym: Malagasy	malagasi	u_language_Malagasy	4055											
+langauges			lomina	/roˈmɨnə/	Romanian endonym: română		u_language_Romanian	4056											
+langauges			apanoomoo	/ʔaˈfaːn ɔrɔˈmoː/	Oromo endonym: Afaan Oromoo		u_language_Oromo	4057											
+langauges			adadbaijadanidili	/ɑzæɾbɑjˈd͡ʒɑn dili/	Azerbaijani endonym: Azərbaycan dili		u_language_Azerbaijani	4058											
+langauges			nedelilant	/ˈneːdərˌlɑnts/	Dutch endonym: Nederlands		u_language_Dutch	4059											
+langauges			mabalali	/ˈmɑːɾʋɑːɽiː/	Marwari endonym: मारवाड़ी (Mārvāṛī)	mawali	u_language_Marwari	4060											
+langauges			dalili	/dɑˈɾi/	Dari endonym: دری (Darī)	dali	u_language_Dari	4061											
+langauges			talaiiki	/səˈɾaɪki/	Saraiki endonym: سرائیکی (Sarāikī)		u_language_Saraiki	4062											
+langauges			tinugubuanon	/sinugˈbwaːnɔn/	Cebuano endonym: Sinugboanon		u_language_Cebuano	4063											
+langauges			apilikaan	/afriˈkaːns/	Afrikaans endonym: Afrikaans		u_language_Afrikaans	4064											
+langauges			piataakaame	/pʰiə.saː kʰmae/	Khmer endonym: ភាສາខ្មែរ (Phéasa Khmêr)		u_language_Khmer	4065											
+langauges			tingala	/ˈsiŋhala/	Sinhala endonym: සිංහල (Siṁhala)	singala	u_language_Sinhala	4066											
+langauges			nepali	/neˈpali/	Nepali endonym: नेपाली (Nepālī)	nepali	u_language_Nepali	4067											
+langauges			tomailiga	/soːmaːˈliɡa/	Somali endonym: Soomaaliga	somaliga	u_language_Somali	4068											
+langauges			kulimanidi	/kuɾmanˈd͡ʒi/	Kurmanji Kurdish endonym: Kurmancî		u_language_Kurmanji_Kurdish	4069											
+langauges			langpuli	/raŋpuɾi/	Rangpuri endonym: রংপুরী (Rangpuri)		u_language_Rangpuri	4070											
+langauges			otokomija	/ɔxɔˈmija/	Assamese endonym: অসমীয়া (Asamiya)	okomiya	u_language_Assamese	4071											
+langauges			tueng	/tɕuɛŋ˧/	Zhuang endonym: Cuengh		u_language_Zhuang	4072											
+langauges			magahi	/məˈɡɑːhiː/	Magahi endonym: मगही (Magahī)		u_language_Magahi	4073											
+langauges			bamanankan	/bamanankan/	Bambara endonym: Bamanankan		u_language_Bambara	4074											
+langauges			ngko	/ŋko/	NKo endonym: ߒߞߏ (N'Ko)	engko	u_language_NKo	4075											
+langauges			tetitina	/ˈtʃɛʃcɪna/	Czech endonym: čeština		u_language_Czech	4076											
+langauges			elinika	/eliniˈka/	Greek endonym: Ελληνικά (Elliniká)		u_language_Greek	4077											
+langauges			tikipa	/ʃcip/	Albanian endonym: shqip		u_language_Albanian	4078											
+langauges			titongiga	/ʃit͡sɔŋɡa/	Tsonga endonym: Xitsonga	songa	u_language_Tsonga	4079											
+langauges			kadalakitili	/qɑˈzɑq tiˈli/	Kazakh endonym: қазақ тілі (qazaq tili)	kasaka	u_language_Kazakh	4080											
+langauges			magial	/ˈmɒɟɒr/	Hungarian endonym: magyar	magala	u_language_Hungarian	4081											
+langauges			tibenika	/ˈsvɛn.skɑ/	Swedish endonym: svenska	swengsaka	u_language_Swedish	4082											
+langauges			tilitibiba	/tʃitʃeˈβwa/	Chichewa endonym: Chicheŵa	titewa	u_language_Chichewa	4083											
+langauges			itidulu	/isiˈzuːlu/	Zulu endonym: isiZulu	sulu	u_language_Zulu	4084											
+langauges			tileti	/sileʈi/	Sylheti endonym: সিলেটী (Sileṭi)	sileti	u_language_Sylheti	4085											
+langauges			tiwi	/tɕʷi/	Twi endonym: Twi	twi	u_language_Twi	4086											
+langauges			uilugutite	/uɪˈʁʊrt͡ʃɛ/	Uyghur endonym: ئۇيغۇرچە (Uyghurche)	wigula	u_language_Uyghur	4087											
+langauges			kinialawanda	/kinjaɾˈwaːnda/	Kinyarwanda endonym: Kinyarwanda	lwangda	u_language_Kinyarwanda	4088											
+langauges			katala	/kətəˈla/	Catalan endonym: català	katala	u_language_Catalan	4089											
+langauges			ilokano	/iloˈkano/	Ilocano endonym: Ilokano	ilokano	u_language_Ilocano	4090											
+langauges			kikitawatimi	/ˈqʰɪtʃwa ˈsɪmɪ/	Quechua endonym: Qhichwa simi	lunasimi	u_language_Quechua	4091											
+langauges			kalenidin	/kɑlɛnˈd͡ʒin/	Kalenjin endonym: Kalenjin		u_language_Kalenjin	4092											
+langauges			kilundi	/kiˈɾundi/	Rundi endonym: Kirundi	kilundi	u_language_Rundi	4093											
+langauges			gang	/ɡaŋ/	Ga endonym: Gaŋ	gang	u_language_Ga	4094											
+langauges			tilipikijidikit	/ˈsr̩pskiː jɛˈzɪk/	Serbian endonym: српски језик (srpski jezik)		u_language_Serbian	4095											
+langauges			titona	/tʃiˈʃoːna/	Shona endonym: chiShona	sona	u_language_Shona	4096											
+langauges			itikosa	/isiˈkǁʰoːsa/	Xhosa endonym: isiXhosa (clicks not represented in simplified orthography)		u_language_Xhosa	4097											
+langauges			tetitwana	/sɛtˈswana/	Tswana endonym: Setswana		u_language_Tswana	4098											
+langauges			baligalikiik	/ˈbɤlɡɐrski ˈɛzik/	Bulgarian endonym: български език (bǎlgarski ezik)		u_language_Bulgarian	4099											
+langauges			todiki	/tɔːd͡ʒiˈki/	Tajik endonym: тоҷикӣ (Tojikī)		u_language_Tajik	4100											
+langauges			tigilinia	/tɪɡrɪˈɲa/	Tigrinya endonym: ትግርኛ (Təgrəñña)		u_language_Tigrinya	4101											
+langauges			kelilolaaitien	/kɣejɔl ajisjɛ̃/	Haitian Creole endonym: Kreyòl ayisyen		u_language_Haitian_Creole	4102											
+langauges			baloiti	/bɐˈloːt͡ʃi/	Baluchi endonym: بلوچی (Balochi)		u_language_Baluchi	4103											
+langauges			tolarani	/soːɾanˈi/	Sorani Kurdish endonym: سۆرانی (Soranî)		u_language_Sorani_Kurdish	4104											
+langauges			tolobentitina	/ˈslɔʋɛntʃina/	Slovak endonym: slovenčina		u_language_Slovak	4105											
+langauges			batamadura	/basa madura/	Madurese endonym: Basa Madura		u_language_Madurese	4106											
+langauges			tulikemenidili	/tyɾkˈmen dili/	Turkmen endonym: Türkmen dili		u_language_Turkmen	4107											
+langauges			gikoyo	/ɣeˈkojo/	Kikuyu endonym: Gĩkũyũ	gikoyo	u_language_Kikuyu	4108											
+langauges			kelibatiiki	/xř̩ʋaːtskiː/	Croatian endonym: hrvatski		u_language_Croatian	4109											
+langauges			kikongo	/kiˈkoŋɡo/	Kongo endonym: Kikongo		u_language_Kongo	4110											
+langauges			tiluba	/tʃiˈluba/	Tshiluba endonym: Tshiluba	luba	u_language_Tshiluba	4111											
+langauges			tali	/santali/	Santali endonym: সান্তালি (Sāntāli)	sangtali	u_language_Santali	4112											
+langauges			umubundu	/uⁿˈbʷundu/	Umbundu endonym: Umbundu	umubundu	u_language_Umbundu	4113											
+langauges			hiligainon	/hiligaɪˈnɔn/	Hiligaynon endonym: Hiligaynon	ilonggo	u_language_Hiligaynon	4114											
+langauges			tuomi	/ˈsuo̯mi/	Finnish endonym: suomi		u_language_Finnish	4115											
+langauges			tetutu	/seˈsutʰu/	Sesotho endonym: Sesotho		u_language_Sesotho	4116											
+langauges			katul	/kaːʃur/	Kashmiri endonym: کٲشُر (Kạ̄šur)		u_language_Kashmiri	4117											
+langauges			danit	/dansk/	Danish endonym: dansk		u_language_Danish	4118											
+langauges			bataminang	/basa minang/	Minang endonym: Baso Minang		u_language_Minang	4119											
+langauges			kitukuma	/kisukuma/	Sukuma endonym: Kisukuma		u_language_Sukuma	4120											
+langauges			kituba	/kiˈtuba/	Kituba endonym: Kituba		u_language_Kituba	4121											
+langauges			ibigilit	/ivˈʁit/	Hebrew endonym: עברית (ʿIvrit)		u_language_Hebrew	4122											
+langauges			mongolikel	/mɔŋˈɡɔɮ xɛl/	Mongolian endonym: Монгол хэл (Mongol khel)		u_language_Mongolian	4123											
+langauges			tatalta	/tɑˈtɑrt͡ʃɑ/	Tatar endonym: татарча (tatarça)		u_language_Tatar	4124											
+langauges			nolik	/nɔrsk/	Norwegian endonym: norsk		u_language_Norwegian	4125											
+langauges			ayelen	/hɑjɛˈɾɛn/	Armenian endonym: հայերեն (hayeren)		u_language_Armenian	4126											
+langauges			moole	/moɔre/	Mooré endonym: Mooré		u_language_Mooré	4127											
+langauges			betaawi	/bəˈtawi/	Betawi endonym: Betawi		u_language_Betawi	4128											
+langauges			kiligititita	/kɪrˈɡɪz.t͡ʃɑ/	Kyrghyz endonym: кыргызча (kyrgyzcha)		u_language_Kyrghyz	4129											
+langauges			abanienge	/aʋaɲeˈʔẽ/	Guarani endonym: Avañe'ẽ		u_language_Guarani	4130											
+langauges			tepedi	/sɛˈpɛdi/	Sepedi endonym: Sepedi		u_language_Sepedi	4131											
+langauges			titilijano	/sitʃiˈljanu/	Sicilian endonym: sicilianu		u_language_Sicilian	4132											
+langauges			apara	/afaraf/	Afar endonym: Afaraf		u_language_Afar	4133											
+langauges			kanuli	/kɑˈnuri/	Kanuri endonym: Kanuri		u_language_Kanuri	4134											
+langauges			doluo	/d̪ɔˈluɔ/	Luo endonym: Dholuo		u_language_Luo	4135											
+langauges			ititibemiba	/itʃiˈbɛmba/	Bemba endonym: Ichibemba		u_language_Bemba	4136											
+langauges			luganda	/luˈɡanda/	Luganda endonym: Luganda		u_language_Luganda	4137											
+langauges			wolop	/wɔlɔf/	Wolof endonym: Wolof		u_language_Wolof	4138											
+langauges			kimbundu	/kiˈmbundu/	Kimbundu endonym: Kimbundu		u_language_Kimbundu	4139											
+langauges			kongkani	/koŋkəɳi/	Konkani endonym: कोंकणी (Koṅkaṇī)		u_language_Konkani	4140											
+langauges			mong	/m̥ɔ̃ŋ/	Hmong endonym: Hmoob		u_language_Hmong	4141											
+langauges			kalituli	/kʰɑrtʰuli/	Georgian endonym: ქართული (kartuli)		u_language_Georgian	4142											
+langauges			ebe	/eʋe/	Ewe endonym: Eʋe		u_language_Ewe	4143											
+langauges			lomanitib	/romani tʃʰib/	Romani endonym: Romani ćhib		u_language_Romani	4144											
+langauges			bataatike	/basa at͡ʃeh/	Acehnese endonym: Basa Acèh		u_language_Acehnese	4145											
+langauges			batabali	/basa bali/	Balinese endonym: Basa Bali	basabali	u_language_Balinese	4146											
+langauges			kuamutai	/kwaːm˥ taj˦/	Shan endonym: ၵႂၢမ်းတႆး (kwáam tāj)		u_language_Shan	4147											
+langauges			lutoga	/luˈsoɡa/	Soga endonym: Lusoga		u_language_Soga	4148											
+langauges			lietubukaaliba	/lʲɪɛˈtʊʋʲuː kɐlˈbɐ/	Lithuanian endonym: lietuvių kalba (lietuvių kalba)		u_language_Lithuanian	4149											
+langauges			galibalali	/ɡɐɽʰʋɐɭi/	Garhwali endonym: गढ़वळि (Gaṛhwaḷi)		u_language_Garhwali	4150											
+langauges			aimalaalu	/ajˈmaɾa ˈaɾu/	Aymara endonym: Aymar aru		u_language_Aymara	4151											
