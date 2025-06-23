@@ -10,6 +10,7 @@
 
 // Global variables
 let stories = [];
+let isLoadingStories = false;
 
 // Define the eye icon as a variable for easy updating
 const EYE_ICON = '🍄'; //' '🙀'; // 🏵️  'ᘛ⁐̤ᕐᐷ'; //'👁'; 🧿 👀𖥂◉
@@ -20,6 +21,9 @@ const EYE_ICON = '🍄'; //' '🙀'; // 🏵️  'ᘛ⁐̤ᕐᐷ'; //'👁'; �
  */
 function parseStories(tsvContent) {
     console.log("stories.js: Parsing stories from TSV...");
+
+    // Clear the existing stories array before parsing
+    stories = [];
     
     // Split the content into lines
     const lines = tsvContent.split('\n');
@@ -368,10 +372,16 @@ function createStoryHTML(story, index) {
  * Load and display the stories
  */
 function loadStories() {
+    if (isLoadingStories) {
+        console.log("stories.js: Story loading already in progress.");
+        return;
+    }
+    isLoadingStories = true;
     console.log("stories.js: Loading stories...");
     
-    // Get the stories container
+    // Get the stories container and clear it
     const storiesContainer = document.getElementById('stories-container');
+    storiesContainer.innerHTML = '<p class="loading-message">Loading stories...</p>';
     
     // Add cache busting parameter to prevent browser caching
     const cacheBuster = `?t=${Date.now()}`;
@@ -404,6 +414,9 @@ function loadStories() {
         .catch(error => {
             console.error("stories.js: Error loading stories:", error);
             storiesContainer.innerHTML = `<p>Error loading stories: ${error.message}</p>`;
+        })
+        .finally(() => {
+            isLoadingStories = false;
         });
 }
 
