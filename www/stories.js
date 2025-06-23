@@ -732,7 +732,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Also load stories if the stories tab is active by default
-        if (storiesTab.classList.contains('active')) {
+        if (storiesTab.classList.contains('active') && stories.length === 0) {
             loadStories();
         }
     }
