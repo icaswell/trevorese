@@ -269,8 +269,8 @@ document.querySelectorAll('.tab').forEach(tab => {
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ COLLAPSE SECTIONS LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-// Initialize collapse state
-let collapseState = true; // Default to collapsed (checked)
+// Collapsible sections functionality
+// Note: Collapse checkbox has been removed, but we keep the collapsible section functionality
 
 // Function to toggle all collapsible sections
 function toggleAllCollapsibleSections(collapsed) {
@@ -385,29 +385,13 @@ function toggleCollapsibleInDoc(doc, collapsed) {
     }
 }
 
-// Initialize collapse checkbox
+// Initialize collapsible sections when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    const collapseCheckbox = document.getElementById('collapse-checkbox');
-    
-    if (collapseCheckbox) {
-        // Set initial state
-        collapseState = collapseCheckbox.checked;
-        
-        // Add event listener for checkbox change
-        collapseCheckbox.addEventListener('change', () => {
-            toggleAllCollapsibleSections(collapseCheckbox.checked);
-        });
-        
-        // Apply initial state after iframes load
-        setTimeout(() => {
-            toggleAllCollapsibleSections(collapseState);
-        }, 1000);
-    }
+    // Apply initial state after iframes load - keep sections collapsed by default
+    setTimeout(() => {
+        toggleAllCollapsibleSections(true); // true = collapsed
+    }, 1000);
 });
-
-// We don't need to reset collapse state when switching tabs
-// This allows users to maintain their manually expanded/collapsed sections
-// The initial state is still applied when the page first loads
 
 /*----------------------------------------------------------------------*/
 /*~~~~~~~~~~~~~~~~~~~~~ WORD INFO POPUP LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
