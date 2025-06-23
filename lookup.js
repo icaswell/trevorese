@@ -157,6 +157,14 @@ function searchDictionary(query) {
             
             dictionaryResults.appendChild(entryDiv);
         });
+        
+        // Add click listeners to the newly added dictionary entries
+        if (typeof addClickListenersToDoc === 'function') {
+            console.log('lookup.js: Adding click listeners to dictionary search results');
+            addClickListenersToDoc(document);
+        } else {
+            console.error('lookup.js: addClickListenersToDoc function not available');
+        }
     } else {
         dictionaryResults.innerHTML = '<p>No matches found.</p>';
     }
