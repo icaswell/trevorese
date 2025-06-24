@@ -761,6 +761,49 @@ body .subsubprinciple {
     margin-bottom: 20px;
 }
 
+/* Story image styles */
+.story-image-container {
+    margin: 20px 0;
+    text-align: center;
+    clear: both; /* Ensure images don't float alongside text */
+}
+
+.story-image {
+    width: 280px; /* Slightly smaller than before */
+    height: auto;
+    max-width: 90%; /* Prevent overflow on all screen sizes */
+    display: block;
+    margin: 0 auto; /* Center the image */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Mobile-specific image styles */
+@media (max-width: 768px) {
+    .story-image {
+        width: 95%; /* Almost full width but with small margins */
+        max-width: 500px; /* Cap the maximum size */
+    }
+    
+    .story-image-container {
+        margin: 15px 0;
+    }
+    
+    /* Ensure proper spacing between images and text */
+    .story-line + .story-image-container,
+    .story-image-container + .story-line {
+        margin-top: 15px;
+    }
+}
+
 /* Story content */
 
 /* Translation eye icon */

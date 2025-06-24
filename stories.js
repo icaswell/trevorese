@@ -323,49 +323,77 @@ function createStoryHTML(story, index) {
         }
     });
     
-    // Generate HTML for story images if any were found
-    let imagesHTML = '';
-    if (storyImages.length > 0) {
-        // Add padding to the content if there are images
-        const imageContainerStyle = 'position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 20px;';
-        
-        imagesHTML = `<div style="${imageContainerStyle}">`;
-        storyImages.forEach(img => {
-            // Check if img is a string (old format) or an object with file and caption
-            if (typeof img === 'string') {
-                imagesHTML += `<div class="story-image-container">
-                    <img src="img/${img}" alt="Story image" style="width: 300px; height: auto;">
-                </div>`;
-            } else {
-                // New format with potential caption
-                imagesHTML += `<div class="story-image-container">
-                    <img src="img/${img.file}" alt="Story image" style="width: 300px; height: auto;">`;
-                
-                // Add caption if it exists
-                if (img.caption) {
-                    // Process the caption to convert it to surface form
-                    const captionHTML = processTextToSurface(img.caption);
-                    imagesHTML += `<div class="image-caption" style="text-align: center; font-style: italic; margin-top: 5px;">${captionHTML}</div>`;
-                }
-                
-                imagesHTML += `</div>`;
-            }
-        });
-        imagesHTML += '</div>';
+    // Process story content and insert images at appropriate positions
+    let processedStoryContent = '';
+    let imageIndex = 0;
+    const storyLines = storyContent.split('</div>');
+    
+    // Insert first image at the top if available
+    if (storyImages.length > 0 && imageIndex < storyImages.length) {
+        processedStoryContent += createImageHTML(storyImages[imageIndex]);
+        imageIndex++;
     }
+    
+    // Insert the rest of the images after every 4 lines
+    let lineCounter = 0;
+    storyLines.forEach((line, index) => {
+        if (line.trim()) {
+            processedStoryContent += line + '</div>';
+            lineCounter++;
+            
+            // Insert an image after every 4 lines if available
+            if (lineCounter % 4 === 0 && imageIndex < storyImages.length) {
+                processedStoryContent += createImageHTML(storyImages[imageIndex]);
+                imageIndex++;
+            }
+        }
+    });
+    
+    // Replace the original story content with the processed one
+    storyContent = processedStoryContent;
     
     // Return the complete story HTML using the same structure as tutorial tab
     return `
         <div class="section-h2">
             <div class="collapsible-header" data-story-id="${index}">${storyTitle}</div>
             <div class="collapsible-content">
-                <div class="story-content"${storyImages.length > 0 ? ' style="position: relative; padding-right: 320px;"' : ''}>
+                <div class="story-content">
                     ${storyContent}
-                    ${imagesHTML}
                 </div>
             </div>
         </div>
     `;
+}
+
+/**
+ * Create HTML for an image
+ * @param {Object|string} img - Image object with file and caption or just the filename
+ * @returns {string} - HTML for the image
+ */
+function createImageHTML(img) {
+    let html = '';
+    
+    // Check if img is a string (old format) or an object with file and caption
+    if (typeof img === 'string') {
+        html = `<div class="story-image-container">
+            <img src="img/${img}" alt="Story image" class="story-image">
+        </div>`;
+    } else {
+        // New format with potential caption
+        html = `<div class="story-image-container">
+            <img src="img/${img.file}" alt="Story image" class="story-image">`;
+        
+        // Add caption if it exists
+        if (img.caption) {
+            // Process the caption to convert it to surface form
+            const captionHTML = processTextToSurface(img.caption);
+            html += `<div class="image-caption">${captionHTML}</div>`;
+        }
+        
+        html += `</div>`;
+    }
+    
+    return html;
 }
 
 /**
