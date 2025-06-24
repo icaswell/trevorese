@@ -802,6 +802,25 @@ body .subsubprinciple {
     .story-image-container + .story-line {
         margin-top: 15px;
     }
+    
+    /* Reduce left padding in stories tab for mobile */
+    #stories .collapsible-header {
+        padding-left: 20px; /* Reduced padding */
+    }
+    
+    #stories .collapsible-content {
+        padding-left: 0px; /* Minimal padding on mobile */
+    }
+    
+    /* Ensure nested sections don't add additional padding */
+    #stories .collapsible-content .collapsible-content {
+        padding-left: 0px;
+    }
+    
+    /* Reduce padding for story lines on mobile */
+    #stories .story-line {
+        padding-left: 5px;
+    }
 }
 
 /* Story content */
