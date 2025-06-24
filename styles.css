@@ -669,6 +669,22 @@ body .subsubprinciple {
     overflow: hidden;
 }
 
+/* Mobile styles for collapsible sections */
+@media (max-width: 768px) {
+    .collapsible-header {
+        padding-left: 20px; /* Reduced padding */
+    }
+    
+    .collapsible-content {
+        padding-left: 0px; /* Minimal padding on mobile */
+    }
+    
+    /* Ensure nested sections don't add additional padding on mobile */
+    .collapsible-content .collapsible-content {
+        padding-left: 0px;
+    }
+}
+
 .collapsible-content.open {
     display: block;
 }
