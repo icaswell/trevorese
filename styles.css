@@ -848,7 +848,7 @@ body .subsubprinciple {
     margin: 25px 0;
     font-size: 0.9em;
     font-family: var(--main-font);
-    min-width: 400px;
+    min-width: 400px; /* Default for desktop */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     width: 100%; /* Ensure it takes container width */
     table-layout: fixed; /* Ensure columns are respected */
@@ -1098,17 +1098,28 @@ body .subsubprinciple {
     /* Responsive table styles for mobile */
     .table-container table {
         font-size: 0.85em; /* Slightly smaller font on mobile */
+        min-width: 0; /* Remove min-width constraint on mobile */
+        width: 100%; /* Full width of container */
+        table-layout: auto; /* Allow table to determine optimal column widths */
     }
     
     .table-container table th,
     .table-container table td {
-        padding: 8px 10px; /* Reduce padding on mobile */
+        padding: 6px 8px; /* Further reduce padding on mobile */
+        word-break: break-word; /* Allow words to break to prevent overflow */
+        font-size: 0.8em; /* Smaller text on mobile */
     }
     
     /* Make the first column slightly wider for better readability */
     .table-container table th:first-child,
     .table-container table td:first-child {
-        width: 40%;
+        width: 30%;
+    }
+    
+    /* Add horizontal scrolling only when absolutely necessary */
+    .table-container {
+        overflow-x: auto;
+        max-width: 100%;
     }
 }
 
