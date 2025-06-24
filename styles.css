@@ -98,6 +98,12 @@ body {
 }
 
 /* Override for videos tab */
+#periodic-table.tab-content.active {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 #videos.tab-content.active {
     display: block;
     width: 100%;
@@ -1093,6 +1099,8 @@ body .subsubprinciple {
 /* Mobile Periodic Table Styles */
 .mobile-periodic-table {
     padding: 20px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .mobile-periodic-table h2 {
