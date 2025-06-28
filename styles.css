@@ -565,6 +565,25 @@ body .subsubprinciple {
     background-color: #fff;
 }
 
+/* Sesowi intro section styles */
+.sesowi-intro {
+    color: rgb(255, 143, 15);
+}
+
+.sesowi-intro-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.sesowi-intro-text {
+    font-size: 1.2em;
+    color: rgb(35, 46, 58);
+}
+
+.sesowi-development-note {
+    color: red;
+}
+
 .about-body {
     padding-top: 6px; /* Reduce the space above h1 elements to 30% of original */
 }
