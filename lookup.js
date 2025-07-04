@@ -56,9 +56,12 @@ function searchDictionary(query) {
                 matchReason = 'surface';
             }
             
-            // 3. Check if any English definition contains the query
+            // 3. Check if any English definition contains the query (excluding notes field)
             if (entry.facets) {
                 for (const field in entry.facets) {
+                    // Skip the notes field
+                    if (field === 'COMMENTS/TODOS') continue;
+                    
                     const definitions = entry.facets[field];
                     if (Array.isArray(definitions)) {
                         for (const definition of definitions) {
