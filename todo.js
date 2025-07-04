@@ -8,6 +8,7 @@ function populateTodoTab() {
     const missingGlossesTable = document.getElementById('missing-glosses-table').querySelector('tbody');
     const unrecognizedCompoundsTable = document.getElementById('unrecognized-compounds-table').querySelector('tbody');
     const unglossableSurfacesTable = document.getElementById('unglossable-surfaces-table').querySelector('tbody');
+    const missingEnglishWordsTable = document.getElementById('missing-english-words-table').querySelector('tbody');
     
     // Clear existing content
     superglossProblemsTable.innerHTML = '';
@@ -15,6 +16,7 @@ function populateTodoTab() {
     missingGlossesTable.innerHTML = '';
     unrecognizedCompoundsTable.innerHTML = '';
     unglossableSurfacesTable.innerHTML = '';
+    missingEnglishWordsTable.innerHTML = '';
     
     // Arrays to store issues
     const superglossIssues = [];
@@ -22,6 +24,7 @@ function populateTodoTab() {
     const missingGlosses = [];
     const unrecognizedCompounds = [];
     const unglossableSurfaces = [];
+    const missingEnglishWords = [];
     
     // Check if dictionary is loaded
     if (!window.trevorese_dictionary || !window.trevorese_dictionary.vocabs) {
@@ -134,6 +137,9 @@ function populateTodoTab() {
         // Scan stories.tsv for unrecognized compounds and unglossable surfaces
         return scanStoriesFile(unrecognizedCompounds, unglossableSurfaces);
     }).then(() => {
+        // Check top English words against the dictionary
+        checkTopEnglishWords(missingEnglishWords);
+        
         // Sort missing glosses by location
         missingGlosses.sort((a, b) => a.location.localeCompare(b.location));
         
@@ -421,6 +427,115 @@ async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
     } catch (error) {
         console.error('Error scanning stories.tsv:', error);
     }
+}
+
+// Function to check top English words against the dictionary
+function checkTopEnglishWords(missingEnglishWords) {
+    console.log("Checking top English words...");
+    
+    // Fetch the top_english.txt file
+    fetch('top_english.txt')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch top_english.txt: ${response.status} ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(text => {
+            // Split the text into lines and process each word
+            const lines = text.trim().split('\n');
+            
+            // Process each word
+            lines.forEach((word, index) => {
+                // Clean the word (remove any numbers or extra whitespace)
+                const cleanWord = word.trim().toLowerCase();
+                
+                // Skip empty lines
+                if (!cleanWord) return;
+                
+                // Check if the word exists in the dictionary
+                let wordExists = false;
+                
+                // Check in English definitions
+                for (const gloss in window.trevorese_dictionary.vocabs) {
+                    const entry = window.trevorese_dictionary.vocabs[gloss];
+                    
+                    // Check each facet for the English word
+                    for (const field in entry.facets) {
+                        // Skip non-definition fields
+                        if (field === 'COMMENTS/TODOS' || field === 'notes' || field === 'supercompound') continue;
+                        
+                        const definitions = entry.facets[field];
+                        if (Array.isArray(definitions)) {
+                            for (const definition of definitions) {
+                                // Check if the definition contains the word as a whole word
+                                if (typeof definition === 'string') {
+                                    const regex = new RegExp(`\\b${cleanWord}\\b`, 'i');
+                                    if (regex.test(definition)) {
+                                        wordExists = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if (wordExists) break;
+                    }
+                    
+                    if (wordExists) break;
+                }
+                
+                // If the word doesn't exist in the dictionary, add it to the list
+                if (!wordExists) {
+                    missingEnglishWords.push({
+                        word: cleanWord,
+                        rank: index + 1 // 1-based ranking
+                    });
+                }
+            });
+            
+            // Update the UI with the missing words
+            const missingEnglishWordsTable = document.getElementById('missing-english-words-table').querySelector('tbody');
+            
+            if (missingEnglishWords.length > 0) {
+                // Sort by rank
+                missingEnglishWords.sort((a, b) => a.rank - b.rank);
+                
+                // Add rows to the table
+                for (const item of missingEnglishWords) {
+                    const row = document.createElement('tr');
+                    
+                    const wordCell = document.createElement('td');
+                    wordCell.textContent = item.word;
+                    row.appendChild(wordCell);
+                    
+                    const rankCell = document.createElement('td');
+                    rankCell.textContent = item.rank;
+                    row.appendChild(rankCell);
+                    
+                    missingEnglishWordsTable.appendChild(row);
+                }
+            } else {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.colSpan = 2;
+                cell.textContent = 'All top English words have definitions in Sesowi.';
+                row.appendChild(cell);
+                missingEnglishWordsTable.appendChild(row);
+            }
+        })
+        .catch(error => {
+            console.error("Error loading top_english.txt:", error);
+            
+            // Show error in the table
+            const missingEnglishWordsTable = document.getElementById('missing-english-words-table').querySelector('tbody');
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 2;
+            cell.textContent = `Error loading top_english.txt: ${error.message}`;
+            row.appendChild(cell);
+            missingEnglishWordsTable.appendChild(row);
+        });
 }
 
 // Function to find missing glosses and unrecognized compounds in tutorial files
