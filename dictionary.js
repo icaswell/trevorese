@@ -107,6 +107,12 @@ class VocabEntry {
         this.surface = "";
         if (this.atomic) {
             this.surface = row[indices["surface"]] || "";
+            
+            // display gloss: Optional string representing the display version of the gloss
+            // This is used in UI displays instead of the regular gloss when available
+            if (indices["display gloss"] !== undefined && row[indices["display gloss"]]) {
+                this.displayGloss = row[indices["display gloss"]].trim();
+            }
         }
 
     

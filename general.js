@@ -465,7 +465,8 @@ function generateWordInfoContent(surface) {
         surface: surface,
         gloss: gloss,
         showIndex: true,
-        index: index
+        index: index,
+        entry: entry // Pass the entry object to access displayGloss if available
     });
     
     // Generate the content element

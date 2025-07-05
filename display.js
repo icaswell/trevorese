@@ -10,7 +10,8 @@ function createDictionaryHeaderDisplay(options = {}) {
         surface = '',
         gloss = '',
         showIndex = false,
-        index = null
+        index = null,
+        entry = null
     } = options;
     
     let html = '';
@@ -26,8 +27,12 @@ function createDictionaryHeaderDisplay(options = {}) {
         const isCompound = gloss.includes('-');
         let glossDisplay = gloss;
         
+        // For atomic words, use display gloss if available
+        if (!isCompound && entry && entry.displayGloss) {
+            glossDisplay = entry.displayGloss;
+        }
         // For compound words, show supergloss > supercompound > gloss format
-        if (isCompound) {
+        else if (isCompound) {
             const superCompoundGloss = window.compounds && window.compounds[gloss] ? window.compounds[gloss] : null;
             const superSuperCompound = window.gloss_to_supercompound && window.gloss_to_supercompound[gloss] ? window.gloss_to_supercompound[gloss] : null;
             

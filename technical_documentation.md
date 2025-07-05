@@ -2,6 +2,59 @@
 
 This document provides a comprehensive overview of the Sesowi Dictionary application codebase.
 
+## Word Popups
+
+Throughout the website, Sesowi words are made interactive through a popup system that displays detailed information when users click on words. This system provides immediate access to word definitions, grammatical information, and related data without requiring navigation to the dictionary page.
+
+### Popup Implementation
+
+#### Triggering Popups
+- **Click Events**: Popups are triggered when users click on elements with the classes `.surface`, `.surface-emph`, or `.gloss`. The `spanClickHandler` function in `general.js` processes these clicks.
+- **Event Flow**: When a word is clicked, the click event is captured, the text content is extracted (with parentheses removed for gloss spans), and the `showWordInfoPopup` function is called.
+
+#### Popup Content Generation
+1. **Word Lookup**: The `generateWordInfoContent` function uses `findVocabEntryBySurface` to locate the word in the dictionary.
+2. **Header Creation**: The popup header is generated using `createDictionaryHeaderDisplay`, which shows:
+   - For atoms: The surface form and gloss (or display gloss if available)
+   - For compounds: The surface form and a hierarchical display of glosses (supergloss > supercompound > gloss)
+3. **Content Creation**: The popup content is generated using `createDictionaryEntryDisplay`, which displays all available facets of the word according to the `FIELD_DISPLAY_ORDER` defined in `display.js`.
+
+#### Display Fields
+The popup displays the following information when available:
+- Surface form (the Sesowi word)
+- Gloss (for atoms) or display gloss if specified
+- Part of speech information (noun/pronoun, verb, adj/adv, etc.)
+- Definitions and usage examples
+- Related words (descendants, cognates)
+- Notes (from the COMMENTS/TODOS field, if present)
+
+#### Differences Between Atoms and Compounds
+- **Atoms**: For atomic words, the popup displays the surface form and the gloss (or display gloss if available). The display gloss field takes precedence over the regular gloss for atoms.
+- **Compounds**: For compound words, the popup shows a hierarchical representation of glosses: supergloss > supercompound > gloss, helping users understand the word's composition.
+
+#### Mobile vs. Desktop Differences
+- **Mobile Periodic Table**: When popups are triggered from the mobile periodic table view, special styling is applied:
+  - White background
+  - Enhanced box shadow
+  - Green border to match the table theme
+- **Positioning**: On mobile devices, popups are positioned differently to ensure they remain visible on smaller screens.
+
+### Implementation Files
+- **general.js**: Contains the core popup functionality:
+  - `initPopupElements`: Initializes popup DOM elements
+  - `showWordInfoPopup`: Displays and positions the popup
+  - `hideWordInfoPopup`: Hides the popup
+  - `populateWordInfoPopup`: Populates the popup with content
+  - `generateWordInfoContent`: Generates the content for the popup
+  - `spanClickHandler`: Handles clicks on words
+  - `addClickListenersToDoc`: Adds click listeners to words
+- **display.js**: Contains functions for creating dictionary displays:
+  - `createDictionaryHeaderDisplay`: Creates the header for dictionary entries
+  - `createDictionaryEntryDisplay`: Creates the content for dictionary entries
+  - `findVocabEntryBySurface`: Finds a vocabulary entry by surface form
+- **stories.js**: Contains additional popup functionality for the stories tab:
+  - `setupWordClickHandlers`: Sets up click handlers for words in stories
+
 ## Introduction to Sesowi
 
 Sesowi is a constructed language designed to be the simplest possible language to learn while remaining fully capable of expressing any idea. The language features an uninflecting grammar that relies on word order and part-of-speech markers. Important terminology:
