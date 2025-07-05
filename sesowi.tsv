@@ -1,0 +1,1293 @@
+surface	gloss	supergloss	supercompound	display gloss	i	a	COMMENTS/TODOS	alt_gloss	noun/pronoun	adj/adv	verb	quantifier	conjunction	preposition	affix	interjection	fn	cognates	tok
+du	do			do/marks verb	2	0			a deed		to do sth; to become sth; to make sth						marks verb	du (en:1.0:do; zh:0.5:zuo; ru:0.2:дело; de:0.7:tun)	
+no	no			what	3	2			zero; nothingness			no; not; zero					question marker	no (en:1.0:no; hi:0.2:नहीं=no; ru:0.4:нет/ноль=not/zero; es:1.0:no; pt:0.8:não=not; it:0.8:non; fr:0.9:non; id:0.4:nol=zero; fi:0.4:nolla=zero; de:0.4:nicht/null; vi:0.1:không); bu (zh); la/le (ar, tok, ta)?	ala
+so	like			marks adjective	4	4	TODO consider replace with "of"										as (in the sense of "to dress up AS"); that/who (when introducing relative clause); marks adjective	so (en:0.8:so; zh:0.3:xiang=like; ru:0.7:ЧТО=that; hi:0.4:साsa/समान=like/-ish/resembling, pcm:0.4:se=that; id:0.2:sangat/serupa=very/similar/equal; ar:0.4:سَوَاء=equal; sw:0.4:sawa/sana=similar/very; yo:0.6:sosai=very; tr:0.1:çok=very); da (en:that's, de:dass); lang (tpi:long=of); se (pcm:se=that)	
+bi	be			be/if	5	6	DECISION: "unify with thing? or being/animal? probably not the latter." - person and animal cover that space. And "to thing sth" is more like "to do sth", not "to be sth"		existence; being	extant	to be sth; to exist; to show up		if					bi (en:1.0:be; ru:0.9:быть; ig:0.2:ịbụ)	
+de	of			of/from	6	8		from: anti-direction	posession		to own sth			of; from; away; genitive marker; intended for; about				de (es:1.0:de=of; pt:1.0:de=of; it:0.7:di/da=of; fr:0.7:de=of; id:0.6:dari=of; zh:0.4:de--note"de" is confusing bc it works backwards from zh); long (tpi:bilong); ya (sw:of); ke/ka/ki (hi)	tan
+i	this			this/he/she/it	7	10	"the cognate spects for this/that have higher numbers than the surfaces may seem to imply. Thsi is the case for langauges where i/a seems to regularly contrast proximal/distal, e.g.:
+id: sini/sana
+de:hier/da
+en:this/that
+es: aquí/acá
+fr:ici/là
+zh:zhei/na"		this; he; she; it; the	such; thusly		this					the	i (te:1.0:I=this; kri:0.7:i=he/she, en:0.6:he/'e=he; en:0.3:this; en:0.4:here; es:0.7:aquí; id:0.8:ini=this; id:0.7:ia=he/she; hi:0.5:yehयह=he/she/it/this; pt:0.7:qui; fr:0.8:ici; fr:0.7:il; sn:0.7:iye; sw:0.8:hii; ru:0.1:этот; es:0.1:este; fil:0.7:ito; zh:0.3:zhei; de:0.3:hier)	ni; ona
+a	that			that	8	12			that; he; she; it	such; thusly		that						a (te:1.0:a; zh:0.4:那; fil:0.4:na; ig:0.4:na; en:0.4:that; es:0.7:acá; de:0.4:da/das; hi:0.4:वह; ru:0.3:там; fr:0.6:là; pt:0.6:là; id:0.6:sana)	ni; ona
+lai	other			other/and	9	14	DECIDED: "consider either merge with different or turn into adjective." — "different" was merged into "change" IIRC.		another thing	other; different		other					and (when "and" doesn't mean "together", e.g. in lists)	lai (id:0.7:lain=other; zh:0.8:来lai=another; zh:0.5:另外lingwai=other; en:0.2:lie); ling (zh:ling; ms:lain=other); nye (zu)	
+mi	me			I	10	16			me; I									mi (en:1.0:me; es:1.0:mi; bci:1.0:mi; de:0.8:mir; ga:0.7:mé; hi:0.6:मैं; ru:0.6:мне; pt:0.5:meu; it:0.7:Me; fr:0.3:moi; fi:0.8:minä; sw:0.8:mimi; yo:0.8:emi; ha:0.3:ni; ig:0.1:mmecha=completion; te:0.5:ముగింపు=complete/end)	mi
+yu	you			you	11	18			you; thou									yu (en:1.0:you; de:0.4:du; es:0.2:tú)	sina
+swa	self			self	12	20	note: "even" is used to mean "even if" by many ESL speakers		self; themselves; themself	just (past)/just about to (future); barely			even if					swa (hi:1.0:swa=self; fr:1.0:soi=self; ga:0.6:-sa=stress clitic; zh:0.2:zi; ru:0.2:себя; fi:0.2:sarili; de:0.2:selbst; te:0.7:స్వీయ)	
+	other-self	eachother			12.5				eachother; each other										
+tu	direction			to/direction	13	24			direction					to; towards; in order to (para in spanish); por; to (physical or object); para; for the sake of; "this gift is TO you"				tu (en:1.0:to, te:1.0:tu=direction) ; pa (es: pa/para)	tawa
+ting	thing			thing	14	26		do	thing; deed; aspect; facet; characteristic; trait; step (aka measure); measure (aka step)	literal; concrete	to do things; to make sth; to treat (a person well); to do sth						anything	ting (en:0.9:thing; zh:0.6:dongxi; de:0.9:ding)	ijo
+yo	have			have	15	28			possession; property		to have sth; to hold sth; to carry sth; to bear sth [archaic]							yo (zh:1.0:yo=have; es:0.1:llevar)	jo
+pu	get			get	16	30	this could be deprecated to "hand" aka "grasp", though that conflates active and passive. It could also be "reverse-give". However, to be naturalistic, we have kept it an atom.	cause-have			to get sth; to obtain sth; to receive sth							po (sw:0.7:kupokea; ru:0.7:получать=get/obtain; te:07:పొందండి=get/obtain; hi:0.2:पाना=get) ; gau (zh:gao lai=get; en:get) ; chu (zh:0.9:qu)	
+ne	inside			in	17	32			inside; interior	interior	to enter sth; to go inside sth; to draw sth inside; to suck (e.g. this do inside air)			during (temporal); in; in (static location); inside; within				ne (zh:0.9:nei; ja:0.5:nai; th:0.5:nai; ko:0.5:ane; en:0.2:in; de:0.2:in; es:0.2:en=in; pt:0.1:em=in; it:0.2:In=in; sw:0.2:ndani=inside; zu:0.2:ngaphakathi=inside; ig:0.2:n'ime=inside); me (hi:mein); li/lo (te:lo; zh:li)	insa
+dai	use			use	18	34			use; purpose	useful; used	to use sth; to avail o.s. of sth; to take advantage of sth						marks instrumental case	yong (zh:1.0:yong=use; en:0.2:use)	kepeken; pona
+	against-more	less			18.4					less									
+mai	more			more	18.5	47	Telugu more = “మరి (mari) +‎ ఎంత (enta​)” = other-this-number	other-number		more; beyond; further; farther	to increase sth							mai (pt:0.8:mais=more; es:0.4:más=more; fil:0.4:mas=more; de:0.3:mehr=more; en:0.3:more; te:0.2:మరింత=more; fi:0.1:-mpi.=comparative suffix)	
+	over-more	too			18.6				excess; surplus	in excess of; too									
+ba	with			with/marks command	19	42	"TODO ""and"" as a conjunction should be ""also""; TODO consider merging with touch? (note: also considering merging ""surface"" or ""hand"" into touch)
+NOTE: ""ba"" is the only atom with two different meanings, the first being ""with"", and the second being ""please""/marking command"			together	to accompany sb; to be with sb		and	with; por (Spanish)		please	marks command	ba (fa:1.0:ba=with; mn:0.8:ба=and; id:0.2:bersama=together; tr:0.2:birlikte=together); da (chm); le (lus:leh; ga:le; tn:and; tr:ile=with); te (doi:ते); be (ff); na (tpi); ne (lg)	
+go	go			go	20	44			a trip; a journey		to go; to journey; to go swh; to attend sth; to visit swh		then; after					go (en:1.0:go; zh:0.7:过; sa:0.5:गा=go; nl:0.5:ga=go!; de:0.5:geh; tr:0.2:gitmek=go); se (vi:sẽ); wi (en:will)	tawa
+e	what			what/marks question	21	46	NOTE: what-energy could be merged in	which				what; which						e (te:1.0:E, yo:0.7:ewo?=what?; en:0.6:eh?; zh:0.6:e/nei; pcm:0.1:wetin; es:0.5:que; fr:0.5:quelle; it:0.5:che; pt:0.5:que; ha:0.5:me=what; ig:0.3:Kedu=what; tr:0.5:Ne=what), we (pcm:0.7:wetin)	seme
+nai	distance			distance	22	48			distance; difference	far	to get further away; to put distance between yourself and sth; to get further away from sth							nai (en:0.5:nigh; de:0.4:nahe; ha:0.4:nisa=distance) ; cha ( zh:cha=difference; id:jauh=far)	
+	u_				23	50												u (sw:0.4:u-=forms names of countries+class XI noun prefix denoting natural objects+extensions+abstract qualities or collections of small things; yo:0.2:ù=abstract or instrument nominalizing prefix; da:0.0:u-=prefix meaning reversing the meaning; nd:0.0:u-=class 11 nouns -- no clear semantics)	
+da	big			big/very	24	52	"has antonym
+note that there are many ""big"" words with 1) ""a"" as stem; and 2) ""b-"""		size; growth; swelling; parent	big; important; very; huge; large; major; great; quite; rather; really; a lot; very much	to swell; to enlarge sth; to make sth bigger; to expand sth; to grow sth (e.g. a plant); to raise sth (e.g. an animal); to cutivate sth (e.g. a habit or plants); to do something in a big way						very	da (zh:1.0:da=big; ono:0.3:; es:0.1:tamaño; hi:0.3:बड़ा)	suli
+wi	small			small	25	54	"has antonym
+note that many ""small"" words have ""i"" in the stem"	anti-big	smallness; child	small; little; subtle	to shrink sth; to summarize sth							wi (en:1.0:wee)	lili
+o	all			all/completely-	26	56	TODO: still not sure if completative (e.g. search—>find, think —> decide) should be all- or end-					all; each; every						o (en:0.6:all, sco:0.8:au, tpi:0.8:ol, pcm:0.8:ol, es:0.2:todo; pt:0.2:todo; it:0.7:ogni; fi:0.2:joka=every; sw:0.2:zote=all; zu:0.2:konke=all; sn:0.2:zvose=all; ha:0.1:kowane=every; yo:0.1:gbogbo=all/every; la:0.3:omne); au (en:0.6:all, sco:1.0:au, tpi:0.7:ol, pcm:0.7:ol, la:0.1:omne); me (zh:mei)	ale
+ku	hard			hard	27	58			stone; rock; hardness	stone-like; hard	to harden sth; to freeze sth							"ku (ono:0.7; zh:0.7:ku=bitter; vi:0.7:khó=difficult?; zu:0.5:kunzima=difficult; ru:0.2:камень=rock; id:0.2:keras=hard; zu:0.2:kanzima=hard; te:0.2:కష్టంkashtam=hard; zu:0.1:okubabayo=bitter; fi:0.2:kivi=stone; sn:0.7:kuoma=hardness; es:0.2:duro=hard; pt:0.2:duro=hard;	it:0.2:duro=hard; fr:0.1:dur=hard; hi:0.2:कठोरता=hardness); nwa (fr:noix)"	kiwen
+pau	end			end	28	60	"DONE check tip/point vs end (for an object). Maybe ""tip"" is just ""small-end"".
+Note: has antonym. This one seems pretty important.
+TODO: decide whether stay/wait need different after all?"	anti-start	end; ending; completion	complete; to completion (adv); ended; stopped	to finish sth; to complete sth; to end sth; to turn sth off; to close sth; to die; to kill sb/sth; to stop sth				prefix meaning to do something to completion;			pau (haw:1.0:pau=finished/done/destroyed; hwc:1.0:pau=done, finished, el:0.4:παύω=stop; pt:0.3:parar=stop; es:0.3:parar=stop; ru:0.6:пауза=pause; pl:0.6:pauza=pause; es:0.6:pausa=pause; pt:0.6:pausa=pause; it:0.6:pausa=pause; fr:0.4:pause=pause; ); dai (en:0.7:die, zh:0.5:歹/dai=die); mo (zh:0.9:mo=end; ar:0.3:مكتمل=complete; es:0.3:morir=to die; pt:0.3:morrer=to die; it:0.3:morire=to die; fr:0.3:mourir=to die; sw:0.2:mwisho=end; fil:0.1:mamatay=die); gwang (zh:0.9:guang=close); dau (zh:0.9:dao=completitive particle)	awen; pake
+ga	good			good	29	62			good	good; cool; awesome; nice	to fix sth; to repair sth; to do good							ga (ono:0.3; zh:0.4:hao; en:0.3:good; ar:0.2:جيد; de:0.3:gut; ha:0.5:gyara=repair); hau (zh:hao); bon (la); bang (zh:awesome+help); ku (en:cool); su (sa:good)	pona
+ge	give			give	30	64	Note: give and get are defined antonyms	could be the transitive form of "to have". but that is probably too much simplification	gift; transmission	giving	to give sth; to transmit sth; to deal (cards); to offer sth; to provide sth							ge (zh:1.0:给gei=give ; de:0.9:geb=give; en:0.5:give); de (pie:*deH; es:de; hi:de)	
+na	number			number/marks plural	31	66	"Merged in ""group"", the plural marker. The polysemy of ""number""=""whicth number in a group"" and ""number""=""a quantity"" is a little odd, but English has it too.
+There is a bit of an ambiguity of big-number = large group or big number, but prolly fine."		quantity; number; amount; extent (to which something is something); group; team	numerous; a number of	to count sth; to number sth	number; plural marker					number; plural marker	na (ga:0.8:na; de:0.2:-en; ak:0.3:n-; en:0.3:no/number; es:0.2:número; fr:0.2:nombre; fil:0.2:numero; id:0.2:nomor; sw:0.6:nambari; sn:0.6:nhamba; vi:0.4:nhóm=group); mwe (ki); su (zh:shu=number, la:summa=number, vi:số=number, yue:sou=number; tyv:сан=number, tr:sayı, tt:san, proto-turkic:*sā(j)-=to count, gn:su=thousand ); de (zh)	kulupu; mute; nanpa
+nang	can			can	32	68	"""I can do this"".
+""you mean other can you do this or self can you do this?""
+Note: In Chinese, 让 means both ""allow"" and ""make"" (he made me clean my room). This is simpler (more compressed) but strikes me as a bug in the language. On the other hand, collapsing ""allow"" and ""can"" seems more fine...in part because ""can"" is only intransitive, and ""allow"" is only transitive."		ability; permission		to allow sth; to permit sth; to let sth						can; may	nang (zh:0.5:neng=can); kang (en, de); ka (vi:có), pa (fr:peux, es:puede)	ken
+wa	one			one	33	70			whole; unity; one	single	to unify sth; to unite sth	one						wa (ar:0.6:واحد=one; en:0.4:one; te:0.1:ఒక/[w]oka=one)	wan
+do	two			two	34	72						two						do (ga:1.0:do; hi:1.0:दो; ru:0.6:два; es:0.7:dos; fr:0.5:deux; pt:0.6:dois; it:0.4:due; fil:0.2:dalawa; id:0.6:dua; en:0.1:two); dwa (ru:dva; id:dua)	tu
+ti	three			three	35	74						three						ti (en:0.5:three; ru:0.5:три; es:0.3:tres; it:0.3:tre; pt:0.3:três; fr:0.2:trois; fil:0.2:tatlo; sw:0.3:tatu; sn:0.3:tatu; id:0.7:tiga; ar:0.7:ثلاثة/tlieta; hi:0.7:tin); si (en:three)	san; tuli
+lu	place			place	36	76			place; area; field; land; region; yard; court		to put (sth swh); to place (sth swh); to set up sth			at; at (exact location); on (temporal)			anywhere	lu (fr:0.7:lieu; es:0.7:lugar; pt:0.7:lugar; fil:0.7:lugar; bm:0.3:la=place; zh:0.7:陆lu=land); zai (zh); tai (vi); pu (en:0.7:put; es:0.5:poner; ru:0.5:положить; te:0.3:పెట్టడానికి) fang (zh:fang)	
+we	way			way	37	78			way; method; solution; explanation; manner		to solve sth						how	we (en:1.0:way; de:0.7:Weg)	
+yau	want			want	40	80	TODO: consider changing to "wang" if there is danger of collision of "yau wiboi" / "ya i boi"		desire; want; intention	desirable; intentional	to want sth; to intend; to intend to do sth; to want to do sth							yau (zh:1.0:yao=want); shang (zh); wang (en);	wile
+	fruit-want	depend			40.2		aka result needs X		dependence		to depend on sth								
+tai	time			time(s)	41	84	"TODO: ""ever"" needs a better gloss
+TODO consider ""teng"" as surface?"		time; a time	times (used to make perfect)	to be time (for sth); to be time to do sth						anytime	tai (en:0.7:time; es:0.3:tiempo; fr:0.2:temps; it:0.3:tempo; pt:0.3:tempo; fi:0.2:aika; de:0.5:Zeit)	tenpo
+dwa	must			must	42	86			obligation		to have to do sth; to be obligated to do sth; to be supposed to do sth						must; should	dwa (fr:1.0:doi; hi:0.5:दायित्व=obligation; ru:0.2:должен=must/should; es:0.2:debe=must; pt:0.2:deve=must; it:0.2:dovere=must; fil:0.3:dapat=must/should; ha:0.3:dole=must; te:0.2:తప్పక=must); bi (zh)	
+wai	reason			reason	43	88		cause	reason; cause; behalf	causal; on behalf of	to cause sth; to incite sth			for (to fight for something)				wai (en:0.8:why; zh:0.7:为/wei=for; fr:0.4:raison); pa (ga:fáth; en:for); kau (es:causa)	
+pa	fruit			result/fruit	44	90			result; fruit									pa (ta:0.7:pazham=fruit; sa:0.7:phala=fruit; hi:0.7:फल/phal=fruit; hi:0.7:परिणाम/parinam=result; en:0.1:fruit=fruit; ig:0.2:pụta=result; te:0.7:ఫలితం=fruit; te:0.7:పండు=fruit)	kili
+be	front			front/marks future	45	92	has antonym	after	front; the future	facing forwards; forwards; after; beyond; then	to pass; to overtake; to go beyond		after (temporal);	in front of; before (location);			next (temporal); will (marks future)	be (tpi:0.7:bai=future tense marker; sw:0.6:mbele=front/forwards; zh:0.9:备bei=to prepare to; ru:0.4:передний=front; ru:0.4:вперед=forwards; zh:0.1:hui=future; zh:-0.7:bei=back) ; de (fr:devant; id:depan) ne (pie:nose); mua (iba)	sinpin
+se	talk			talk	46	94			talk; speech; story; tale; language	talkative	to say sth; tell sth; to call sb; to call sth sth; to tell (sb sth); to recount sth; to talk (about sth: of thing); to pronounce sth							se (en:1.0:say; zh:0.1:shuo=say; fi:0.2:sanoa=say; ru:0.2:сказать=say; tr:0.2:söyle=say; de:0.2:sprech=speak; yo:0.2:sọ=say; fil:0.2:sabihin=say; )	toki
+	back-talk	story			46.3				story; history	historical; legendary	to tell a story								
+	do talk of				46.5						to talk about sth; to talk of sth								
+ya	back			back/marks past	47	100	has antonym; "before" is an interesting word, because it literally means "in front". Thus "vorhersagen" etc really refer to time stretching in front of you. Therefore, "back" is a less confusing gloss. Note that this could be anti-front, but is seems too fundamental for that.	before;back; already; past: anti-front	back; the past	facing backwards; backwards; already; before (temporal); in the past; following; last (temporal; e.g. "last friday"); behind (location); ago (temporal)								ya (es:0.8:ya=already; es:0.7:-ía; it:0.5:già=already; fi:0.2:jo=already); ha (en:have, es:ha, de:habe); da (en:done); le (zh:le, fr:l'est); da (vi:đã), se (vi:“sẽ”, fr:s'est); la (zh:le, fr:l'a); ko (zh:hou=back); ba (en:back)	
+	back-time	before			47.5					before; back then									
+bo	body			body	48	104			body; trunk; stem; main part of sth; shape; form;	main; bodily	to form sth; to embody sth; to mould sth; to constitute sth; to make up sth							bo (en:0.4:body; id:0.6:bodi; fi:0.6:bodi; sw:0.6:bodi; id:0.2:badan=body; id:0.2:batang=trunk; fil:0.2:baul=trunk; es:0.0:cuerpo, id:0.1:tubuh); ku (some SEA languge si think; sw:ku=main); seng (zh:shen); ti (zh:ti); gan (zh:gan=trunk); mwi (sw:mwili=body)	sijelo
+me	middle			middle	49	106			middle; waist	middle; medium; fine; fair; average				among (multiple objects); between				me (fr:0.2:moyenne; en:0.5:medium/middle; es:0.6:medio=middle; pt:0.7:meio=middle; it:0.6:mezzo=middle; fr:0.2:milieu=middle; ru:0.6:между=between; de:0.2:Mitte; te:0.2:మధ్య=middle; hi:0.2:मध्य=middle); mwe (fr:0.7:moyenne; en:0.3:medium/middle; es:0.3:medio=middle; pt:0.3:meio=middle; it:0.3:mezzo=middle; fr:0.2:milieu=middle; ru:0.3:между=between; de:0.2:Mitte; te:0.2:మధ్య=middle)	meso
+bu	seek			seek/try	50	108			search; try; attempt		to try; to seek sth; to search for sth; to try to do sth; to attempt to do sth							bu (es:0.6:buscar); tai (en:try, sw:tafuta=search); chau (zh:zhao);	
+bai	light			light/white	51	110	has antonym		light; white; bright	white; light	to light sth (e.g. a room); to become white; to make sth white							bai (zh:1.0:bai=white; en:0.6:bright; ru:0.4:belyy; tr:0.4:beyaz; es:0.2:blanco; fr:0.2:blanc; de:0.3:Weiß; en:0.3:white); gwang (zh:guang=light; sw:mwanga=light)	suno;walo
+ni	dark			dark/black	52	112	has antonym	anti-light	darkness; blackness; shadow; shade	dark; black	to become black; to make sth black							ni (es:0.4:negro; en:0.3:night; fr:0.2:noir, fr:0.3:nuite; sw:0.3:nyeusi=black; sn:0.2:nhema=black; ig:0.2:nwa=black; te:0.2:నలుపుnalupu=black)	pimeja
+twa	through			through	53	114			hole; passage; tunnel		to go through swh			through				twa (ono:0.2); tang (zh:0.4:tong=through; en:0.2:tunnel; es:0.2:túnel; ru:0.2:туннель; fr:0.2:tunnel; ms:0.3:terowong; de:0.2:Tunnel; tr:0.2:tünel); tong (zh:0.6:tong=through; en:0.2:tunnel; es:0.2:túnel; ru:0.2:туннель; fr:0.2:tunnel; ms:0.3:terowong; de:0.2:Tunnel; tr:0.2:tünel)	
+twi	kind			type/kind	54	116			type; kind; genre	typical; usual; classic								twi (en:0.3:type; es:05:tipo; pt:05:tipo; it:05:tipo; ru:05:tip; fr:05:type; fi:05:tyyppi; tr:0.2:tür)	
+ta	over			up/over/top	55	118				over; up; above	to be on top of sth/sb; to pass sth/sb; to surpass sth/sb			over; up(direction); above				ta (en:0.8:top, id:0.7:atas=on top of; fil:0.7:itaas=top); sang (zh:shang); chu (sw:juu)	
+su	down			down	56	120	DECIDED: "really need to decide whether to split out top/bottom from over" — not merging for now at least	no-over	butt; bottom; base; ground; floor	down; fallen; base; fundamental	to fall; to knock over; to drop sth; to down sth; to fell sth; to sit sth. down			underneath (static); down(direction); under					anpa
+si	see			see	57	122			vision; sight; look	looking	to see sth; to sense sth; to look (at sth); to meet sb; to meet sb							si (en:1.0:see; es:0.5:Siento=I feel; pt:0.5:eu sinto=I feel; it:0.2:sento=I feel; fr:0.2:Je me sens=I feel; de:0.6:sehen)	lukin
+po	possibility			possible/may/might (with verb)	58	124			possibility	possibly	to doubt sth/sb; to suspect sth/sb						maybe; may; might; could	po (es:0.6:posible=possible; pt:0.6:possível=possible; it:0.6:possibile=possible; fr:0.6:possible=possible; fil:0.6:posible=possible; ); me (en:1.0:may; ru:0.2:может/мощь/мог=may/might; fil:0.2:maaari=may; de:0.2:mag)	
+li	energy			energy/feeling	59	126			energy; feeling; power; strength	energetic; feeling	to feel sth; to make someone do something; to force sb to do sth							li (zh:1.0:li力); chi (zh:qi)； mu (de:Mut)	pilin
+kai	start			start	60	128	DECIDED: "merge with 'opening'": — no need unless it feels right later	number-one	beginning; origin; source	original; originally; ur-;	to start sth; to begin sth				ur-			kai (zh:1.0:kai=start; pie:0.3:*ken=begin; es:0.2:comienzo=beginning; pt:0.2:começo=beginning; fr:0.2:commencer=begin; en:0.2:commence; sn:0.2:kutanga=begin; sw:0.2:kuanza=begin); ken (pie:*ken=begin); fang (de:fang=start; zh:fang=put)	open
+dwe	truth			truth	62	130			truth; reality; fact; correctness	correct; true; genuine; realistic; actual; actually; in fact; real	to be genuine; to correct sth/sb; to do sth correctly					yes; ok; okay; indeed; yeah		dwe (zh:1.0:dui=true; ru:0.2:да=yes; ig:0.1:ee=yes; vi:0.1:Đúng=yes); ba/be (de:wahr); sai (tr; es:si=yes); ya (de:ja)	
+	big-truth	real			62.5		"really-true" -- just a more emphatic form		authenticity	genuine; authentic; actually; really									
+to	head			head/main	63	134		top-part	head; bud; leader		to drive; to drive sth; to head sth; to lead sth							to (zh:1.0:tou; ru:0.2:голова; fr:0.2:tête; it:0.2:testa; id:0.2:tunas=bud; tr:0.5:tomurcuk=bud; te:0.2:తల=head; ha:0.5:toho=bud)	lawa
+	head-surface	hat			63.5		"topi" means hat in Indonesian!!	head-thing											
+kwi	fast			speed	64	138			speed	fast	to speed							kwi (zh:0.5:kuai; en:0.7:quick; id:0.2:kecepatan=speed; sw:0.2:kasi=speed)	
+gi	high			high/hill	65	140			hill; breast; bump; lump; height; level; degree	high; tall	to rise; to raise sth							gi (ce:1.0:гу; ga:0.6:cnoic/gcnoic, sw:0.8:kilima=hill; yo:0.2:ga=high; en:0.7:hill+high, ru:0.2:грудь; zh:0.3:高); hai (en:high); gwe (zh:gui; ce:гу; ga:cnoic, en:hill, en:high); *i (sounds like "hill"; has a "high" vowel so semi onomonopoeia);	sewi
+la	hot			hot	66	142			temperature; heat	hot	to get hotter; to heat sth (up)							la (zh:0.9:la=hot/spicy; hi:0.6:laal=red, zh:0.2:re=hot; fi:0.6:lämpöä); ko (zh:hou=fire)	seli
+lang	long			long	67	144			length	long	to elongate sth; to make sth longer							long (en:0.9:long, de:0.8:lang, es:0.8:longitud; hi:0.3:लंबा; pt:0.9:longo; it:0.7:lungo; fr:1.0:long); chang (zh:chang, id:panjang); dai (vi:dai=long); gau (totally random)	
+	long-time	longtime			67.5				age; aeon	for a long time; for ages									
+ping	flat			plat	68	148		level; flat; equal	level; a flat thing; evenness; levelness; equality; flatness; pitch (music); leaf; paper	flat; even; level; equal; fair; lying	to level; to equal sth; to flatten sth; to lay sth; to set sth;							ping (zh:1.0:ping=level, vi:0.1:bình=peace; ru:0.2:плоский=flat; es:0.2:plano/papel=flat/paper; pt:0.2:plano=flat; it:0.2:Piatto=flat; fr:0.2:plat=flat; fil:0.2:patag; yo:0.4:alapin=flat)	lipu
+	no-flat	rough			68.5					rough; course	to ruffle sth								
+nu	new			new	69	152	many languages differentiate "young" (animate) and "new" (inanimate)		youth; freshness; newness; novelty; news	new; early; fresh; novel; raw	to renew sth; to refresh sth; to rejuvinate sth							nu (en:1.0:new; de:0.5:neu; ru:0.5:новый; es:0.7:nuevo; it:0.7:nuovo; pt:0.5:novo; fr:0.8:nouveau; hi:0.2:नया)	sin
+bwa	opening			opening/mouth	70	154		mouth	opening; mouth; entrance; exit; hole; door; window	open; on (of a light); surprise	to make an opening; to open sth; to make an opening in sth; to turn sth on; to be surprised; to surprise sb							bwa (es:0.4:boca=mouth; pt:0.4:boca=mouth; it:0.4:bocca=mouth; fr:0.2:bouche=mouth; fil:0.2:bibig=mouth; ha:0.4:budewa=opening); bu (fr:bouche; zu: vula; ha: bude; id: membuka); mung (de:Mund)	lupa; open
+	container-opening	door			70.2				door										
+	light-opening	window			70.3				window										
+kwang	wide			wide	71	160	"TODO consider whether to deatomize into side-long
+link to ausbreiten = to become broad = to spread out; same with zh 播"	spread		wide; broad; thick	to spread sth; to spread sth out; to transmit sth; to disperse sth; to propagate sth							kwang (zh:0.7:广/guǎng=wide, zh:0.8:宽kuan=wide, th:1.0:kwang=wide; sw:0.4:kueneza=to spread)	
+gwa	easy			easy	72	162	convenient could also be "easy-do" or "fast-do"		ease; easiness; lightness; convenience; smoothness	easy; light; convenient; smooth	to smooth out; to smooth sth out							gwa (zh:1.0:guanghua光滑=smooth; ono:0.8; pl:0.8:gładki; ru:0.4:гладкий; es:0.3:suave=smooth; de:0.4:glatt=smooth); lai (en:light; es:ligero=light[weight]; id:ringan=light[weight]) ; *wa (zh:光滑=smooth; pt:suave=smooth; es:suave=smooth)	
+sai	side			side	73	164			side; bank (of river); edge; coast; sharpness									sai (en:0.7:side; as:0.2:ساحل=coast; tr:0.2:sahil=coast; ru:0.2:сторона=side; id:0.3:samping=side; ms:0.2:sebelah=side; de:0.7:Seite=side), s* (ono; en:sharp, vi:sắc=sharp; ru:ostryi=sharp;, ja:surudosa=sharpness;), beng (zh:bian)	poka
+pi	surface			surface/skin	74	166	NOTE: the atom "touch (mwa)" was merged into this	touch	surface; skin; bark; touch; contact	touching	to touch sth; to rub sth; to meet sth; to contact sth; to cross sth; to meet sth							pi (zh:1.0:pi=skin, es:0.8:piel=skin; ko:0.7:pibu=skin; th:0.8:phio=skin; ru:0.2:поверхность=surface; pt:0.3:pele=skin; it:3:pelle=skin; fr:0.2:peau=skin; ms:0.3:permukaan=surface; fi:0.6:pinta=surface; zu:0.2:phezulu=surface; sn:0.2:pamusoro=surface; en:0.5:peel) mwa (ono:0.5, zh:0.8:mo=touch; id:0.2:menyentuh=touch)	selo
+yang	color			color	75	168			color; ink; dye	colored; colorful	to color sth ; to ink sth; to dye sth							yang (zh:0.4:颜=color; hi:0.3:rang=color=color, te:0.3:rang=color, ar:0.3:rang=color; sw:0.2:rangi=color); lang (hi:0.8:rang, te:0.8:rang, ar:0.8:rang; sw:0.7:rangi=color; tr:0.5:renk=color)	kule
+kwa	four			four	76	170						four						ke (ga:0.8:ceathrar; es:0.2:cuatro; fr:0.2:quatre); kwa (ga:0.2:ceathrar; es:0.7:cuatro; fr:0.5:quatre; pt:0.7:quatro)	
+pai	five			five	77	172						five						pai (en:0.5:five; hi:0.5:पाँच; ru:0.3:пять)	
+lau	six			six	78	174						six						lau (zh:0.6:liu=six; yue:0.5:luk6=six; vi:0.4:sáu); sau (vi:sáu=six)	
+se	seven			seven	79	176						seven						se (en:0.5:seven; hi:0.2:सात; ar:0.2:سبعة; ru:0.7:Семь; es:0.5:siete; pt:0.6:sete; it:0.6:sete; fr:0.5:sept; fi:0.5:seitsemän; sw:0.2:saba; de:0.3:Sieben); seng (en:0.7:seven; hi:0.2:सात; ar:0.4:سبعة; ru:0.6:Семь; es:0.3:siete; pt:0.6:sete; it:0.6:sete; fr:0.6:sept; fi:0.6:seitsemän; sw:0.2:saba; de:0.3:Sieben); ki (zh:0.6:qi)	
+bang	eight			eight	80	178						eight						bang (zh:0.6:八ba=eight)	
+noi	nine			nine	81	180						nine						noi (ga:0.7:nui; de:0.7:neun; hi:0.2:नौ; es:0.5:nueve; pt:0.2:nove=nine; it:0.2:nove=nine; fr:0.2:neuf=nine; ); nyu (Tocharian:nyu, zh-en:nine+jiu)	
+bau	container			container	82	182	it may seem odd that "container" means "bread", but it is like Chinese bread = flour sack (and it is the same word: bau)	have-thing; have -- but a "have" is a belonging.	container; cavity; enclosure; box; bag; sack; bread		to hug; to contain sth; to enclose sth; to hug sb; to wrap sth							bau (zh:0.8:bao; vi:0.8:bao=bag; es:0.4:bolsa=bag; pt:0.4:bolsa=bag; it:0.4:borsa=bag; fr:0.5:boîte=box; de:0.6:bau; ms:0.2:bekas=container; en:0.2:box/bag; ); be (zh:bei=cup);	tomo
+	container-stuff	dough			82.3				dough										
+gu	stuff			stuff/material	83	186			stuff; material; fabric; flesh (of a fruit etc.)	material								gu ( en:0.6:goo); se (tr:Şey=thing; ar))	
+ki	air			air	84	188			air; gas; vapor; wind	airlike; gassy; windy (like big-air)	to evaporate; to vaporize sth; to blow on sth							ki (vi:1.0:khí; zh:0.6:qi)	kon
+lo	water			water	85	190			water; liquid	wet	to pee (on sth); to melt sth; to liquify sth; to water sth (a plant)							lo (ono:0.7:l*; fr:1.0:l'eau, tok:0.5:telo, en:0.2:liquid, te:0.4:illu; bnt:0.3:li; es:0.2:líquido; pt:0.2:líquido; it:0.2:liquido; fr:0.2:liquide; fil:0.2:likido; ha:0.2:ruwa); swe (zh:shui); di (bnt); su (?:juice);	telo
+swe	dirt			dirt	86	192			soil; earth; dirt									swe (es:0.8:suelo; en:0.3:soil; pt:0.3:solo; it:0.3:suolo; fr:0.3:sol;); soi (en:soil); mwa (karelian mua)	ma
+kwai	part			part/piece	87	194			part; piece; bit; fraction; degree; small thing; chunk; section; segment	a little; a bit; slightly; part	to separate sth; to part sth; to divide (by sth: with thing; into X parts: to X part); to partition sth; to split sth						fewer; part; some [smallish quantity]; less; fraction; rarely	kwai (zh:1.0:kuai=part; ru:0.3:кусок=piece) ; li (en:little, tpi:liklik, tok:lili), sau (xiao dogo petit chinna chhota cilik liklik mini üçük az, smol, -ito, -chen, -let,; pi (piece; petit), pi (fr, en petit, peu; chi (hi: chota, te: chinna, sn,kg: ch-); fi pieni)	
+di	move			move	90	196			movement	moving	to move sth							dong (zh:1.0:dong; ru:0.2:двигаться)	tawa
+	no-move	immobile			90.5				stillness	still; immobile	to immoiblize sth								
+ke	break			break	91	200	"DONE consider merging into ""part""
+DONE make sure ""cut"" sounds different"		break; damage; injury; tear; split;	broken; damaged; injured; torn	to break sth; to damage sth; to injure sb; to tear sth; to hurt sth; to cut sth; to split sth; to crack sth							ke (ono:0.7; tr:0.4:kırmak=break; es:0.7:quebrar; pt:0.7:quebrar; fr:0.3:casser; ha:0.3:karya; id:0.4:kerusakan=damage; zh:0.1:坏)	
+tau	jump			jump	92	202			hop; jump		to hop (over sth); to jump (over sth); to skip sth							tau (zh:0.8:tiao)	
+sang	sound			sound	93	204			noise; sound	noisy; sounding	to meow/woof/etc. (depends on lthe animal); to make a noise; to sound sth; to make a sound with sth							sang (es:0.4:sonido=sound; pt:0.3:som=sound; it:0.3:suono=sound; fr:0.3:son=sound; en:0.8:song/sound; zh:0.4:sheng; ar:0.2:صوت=sound; id:0.2:suara=sound; sw:0.3:sauti=sound; tr:0.2:ses); song (es:0.7:sonido=sound; pt:0.7:som=sound; it:0.6:suono=sound; fr:0.8:son=sound; en:0.8:song/sound; zh:0.6:sheng; ar:0.3:صوت=sound; id:0.2:suara=sound; sw:0.2:sauti=sound; tr:0.2:ses)	kalama; mu
+geng	against			against/but	94	206	"slightly odd that leaning against a wall is fighting a wall
+Lisa: Geng, cuz it sounds like against, gegen"	fight: seek-break	conflict; fight; resistance; attack; onslaught	against; counter	to fight; to argue; to quarrel; to lean against; to push against; to resist; to attack sth			but; though; although; however				geng (de:0.7:gegen; en:0.5:against; zh:0.8:抗=anti); mai (oc:1.0:mai; ig:0.7:ma; it:0.7:ma; pt:0.4:mas; fr:0.8:mais; fi:0.2:mutta; ha:0.2:amma); ba (en:but); dang (zh:dan)	utala
+	against-way	anti			94.5		DEPRECATED COMMENT: this should not be used too much, and it should only carry the meaning of "the opposite of". Most opposites can be formed with "no", e.g. "no-hot" and "no-good".; TODO all-		opposition; inversion; contradiction; inverse	opposite; anti; un-; inverse; inverted; reverse	to reverse sth; to negate sth; to inverse sth;							ang (en:un-); di (la:di)	
+gwai	bend			bend	95	210	"TODO: write decision on change vs differ
+TODO: clean up all the different definitions of ""different"""	new-direction	bend; curve; turn; inequality; difference; change; peculiarity; strangeness; weirdness	curved; bent; inequal; different; weird; strange; odd; peculiar;	to bend sth; to curve sth; to turn (to sth); to change (into sth: direction thing); to change sth; to become (sth: direction thing)							gwai (ono:0.7; zh:0.9:拐弯=bend; zh:0.6:改gai=change); gau (ono); gai (zh:gai=change); cha (es:cambiar=change, zh:cha=difference; sn:shanduko=change); che (en:change; zh:cha=difference)	ante
+	no-bend	straight			95.5					straight; direct; honest	to straighten sth out								
+kang	metal			metal/money	96	214			metal; money; cost; price; payment	metallic; shining	to gleam; to make sth shining; to shine; to spend; to buy sth; to sell sth; to pay sb; to rent sth; to hire sb; to employ sb; to cost sth							kang (ono:0.7; ltc:0.2:kim; en:0.4:clang; en:0.2:cash; id:0.5:uang=money; ms:0.5:wang=money; ha:0.2:karfe=metal; ha:0.2:kudi=money); ching (en: ka-ching; zh: jing)	mani
+	sound-metal	bell			96.2				bell; tuning fork										
+	flat-sound-metal	gong	flat-bell		96.4				gong										
+sa	life			life/experience/used for passive	97	220	"decided: don't unify with be
+TODO: add this as a passive marker ""it was conquered"" --> ""it lived a conquering"""	life-time/life-thing for experience	life; soul; experience	alive; living; lively; experienced	to live; to experience sth							sa (ce:1.0:са=life/soul, ing:1.0:са=soul; en:0.3:soul; zh:0.2:sheng, gl:0.6:sa=generation/litter/sowing; bg:1.0:са=is; fi:0.2:sielu; de:0.2:Seele; te:0.6:సజీవంగా; vi:0.3:sống)	
+pwa	plant			plant	98	222	"plant-water would be good for ""tea"" in the meaning of a tisane. But the plant ""tea"" needs a word, and that would be ""cha"". But if ""cha"" exists, then it may as well mean tisane as well...
+Lisa: chose ""su"" because it sounds like tree in southern chinese"		plant; vegetable									pwa (en:0.5:plant; es:0.5:planta; pt:0.5:planta=plant; it:0.2:pianta=plant; fr:0.5:plante; hi:0.3:पौधा=plant); mo/mu (te:mokka; bnt:mou); su (zh:tree)	kasi
+wang	yellow			yellow	99	224	"this is the only color with a bespoke atom. although the symmetry is not nice, Trevorese is above all a pragmatic language, and no other atom has a yellow color!
+Deprecated comment: Think ""banana color"". (Note that banana is the fundamental fruit in e.g. Tamil). This is the oddest of the color glosses. ""sun color"" was better, but sun was deprecated. energy-color is OK but then 3 colors start in l*. Yellow starting in ""pa-"" is good because it mirrors Telugu pasupu, Hindi pila."	sun-color	yellow	yellow	to become yellow; to make sth yellow							wang (zh:0.8:huang=yellow; yue:1.0:wong4=yellow)	
+boi	animal			animal	100	226	I would love "animal" and "human" to both be "being". But it's not pragmatic. humans fundamentally thing of animals as different. Furthermore, "small-being" wants to be both "child" and "bug" ....	being; other-being; be	animal									boi (en:0.9:boi=animal)	soweli
+ko	arm			arm/leg	101	228			arm; branch; branch (in a river); fork (in a river); protuberance		To hit something; to strike something							ko (tr:0.8:kol=arm, fi:0.2:käsivarsi=arm; ru:0.7:конечность=limb; sw:0.5:mkono=arm; te:0.6:kola=branch, te:0.6:kottadu=hit, ta:0.4:kai=hand); leng (id:leng; en:limb; en:long); che (te:che=arm); twe (zh:tui=leg); so (zh:shou); ling (en:limb; id:leng)	
+	long-arm	reach			101.5				reach		to reach sth; to reach for sth								
+mang	person			person	102	232		being	person; human									mang (id:0.8:mang=uncle; ig:0.2:mmadu=human; te:0.7:మానవుడు=human/మనిషి=man; sw:0.2:mtu; id:0.7:manusia; en:0.8:man; de:0.9:man; fil:0.8:mang=old man; id:01:orang); wang (en:one; id:orang); mu- (bnt)	jan
+nau	nose			nose	103	234		point; smell-part	nose		to smell sth							nau (en:0.4:nose; ono:0.4; es:0.3:nariz=nose; pt:0.3:nariz=nose; it:0.4:naso=nose; fr:0.2:nez=nose; ru:0.3:нос=nose; fi:0.2:nenä=nose; de:0.3:Nase=nose; hi:0.3:नाक=nose; ); ti (id:titik; en:titty; en:tip; hi:tikha); gang (zh:exact)	
+ka	eat			eat	104	236					to eat sth; to drink sth							ka (hi:0.9:kha; tpi:0.8:kaikai; id:0.3:makan, pcm:0.2:chop=eat; ar:0.1:yakul=eat, sw:0.5:kula=eat, es:0.5:comida=food; pt:0.5:comida=food; sn:0.4:kudya=eat; th:0.2:kin=eat; zh:0.1:喝/he=drink; fi:0.6:ruokaa=food); tin (te:tin); kai (tpi:kaikai); chi (zh:chi), cha (pcm:chop),	moku
+	eat-time	meal			104.2				meal; mealtime										
+	small-eat-time	breakfast	small-meal		104.4		could also be nutaikatai aka early meal, but the series of small medium big is nice here												
+	middle-eat-time	lunch	middle-meal		104.6														
+	big-eat-time	dinner	big-meal		104.8														
+pe	play			play/fun	105	246	TODO could be split to "good-time"	good-time; fun	play; game	playful; fun	to have fun; to play (with sth)							pe (en:0.7:play; ru:0.5:веселье=fun; id:0.6:permainan/bermain=game/play, fi:0.7:peli/pelata=game/play)	musi
+	no-play	serious			105.5				seriousness	serious; sobering									
+meng	think			think	106	250	"TODO: change to mind; think is mind-feel (or just feel). Also life-see for feel [emotionally] ?
+TODO: consider ""gai"" (from concept); also is more different from ""ming"" meaning"		thought; belief; feeling; opinion; mind; sense; common sense; reason (e.g. Vernünft)	theoretical; conceptual; abstract; figurative; thoughtful	to think sth; to think about sth; to believe sth; to feel sth; to opine sth; to consider sth; to reason abth sh; to conceptualize sth; to theorize							meng (es:0.5:mente=mind; pt:0.5:mente=mind; it:0.5:mente=mind; ar:0.2:معتقد=thought; ru:0.5:мнение=opinion; id:0.3:merasa=feeling; fi:0.2:mieleen=mind; sw:0.2:mawazo/imani/maoni/maana=thought/belief/opinion/sense); kwa (fr:croire=to believe)	
+	do think of				106.4						to think about sth; to think of sth								
+	think-thing	concept			106.5				idea; concept										
+swang	sour			sour	107	256			acid; sourness	sour; fermented								swang (zh:0.8:suan=sour; de:0.2:sauer=sour; en:0.2:sour; )	
+moi	salt			salt/savory	108	258	"Lisa: how about umami powder
+needs to have an ""m"" in it for savoring"	umami	salt; umami; savoriness	savory; salty								moi (vi:1.0:muối=salt; ar:0.2:ملح; hi:0.1:नमक; sn:0.3:munyu; ja:0.2:umami; en:0.2:umami; fil:0.2:maalat=salty; ms:0.2:masin)	
+swi	sugar			sweet	109	260	"TODO consider change to ""su""
+DONE consider change to ""tang"" aka make it the same as ""tongue""...and coincidentally sound like sweet in Chinese! decided: NO because then is ""sugar"" the ""tongue substance"" or some such???"		sugar; sweetness	sweet								swi (en:0.7:sweet, fr:0.2:sucre; ru:0.2:сахар; ar:0.2:سكر; sw:0.2:sukari); tipi (te)	suwi
+	flat-time	sleep			110			sleep(dau)	sleep; nap	sleepy; tired	to nap							dau (es:0.8:dormir, fr:0.7:dormir, pt:0.8:dormir, de:0.5:Traum=dream; zh:0.5:jiao=sleep)	lape
+mu	female			female	111	264			female; girl; yin; woman	female; feminine								mu (es:0.6:mujer=woman; zh:0.7:母mu=mother; de:0.5:Mutter=mother; pt:0.6:mulher=woman; hi:0.2:महिला=female; ar:0.2:امرأة=woman; sn:0.6:mukadzi=female; sn:0.6:musikana=girl; zh:0.3:nü=girl; vi:0.3:nữ; en:0.0:mother; ha:0.2:mace=female; ru:0.0:мать=mother); nyu (zh:nü; vi:nữ); kwi (en:queen, zh:qi/妻=wife)	meli
+gai	male			male	112	266			male; boy; yang; man	male; masculine								yang (zh:yang=masculine;goat); gai (en:1.0:guy, es:0.5:güe=ox/dude); boi (en:boy)	mije
+ma	love			love	114	268			love; affection; friendship; care	beloved; dear	to like sth; to love sth; to care for sth; to care about sth							ma (efi:1.0:má, anw:1.0:má, ar:0.6:maħbub=beloved; fil:0.6:mahal=beloved; ha:0.6:masoyi=beloved; sn:0.2:mudiwa=beloved; de:0.7:mag; pt:0.7:ama; it:0.7:ama; fil:0.7:mahalin=love; es:0.7:ama, sw:0.7:mapenzi=affection; sa:0.3:prema, id:0.2:mencintai=love, yrk-xx-tundra:0.1:nya=friend); nya (yrk-xx-tundra:friend)	olin
+	hard-love	care_for		#N/A	114.5		TODO not sure about this gloss				to look after sth; to care for sth; to tend sth								
+	self-think	meaning		meaning	115	272	tok has this as an atom		meaning		to mean sth							ming (en:0.8:mean; hi:0.2:मतलब; ar:0.7:معنى; sw:0.7:maana; ha:0.7:ma'ana; vi:0.1:nghĩa; fi:0.2:merkitys; ms:0.2:maksudnya)	
+	so have self-think				115.4				meaningfulness	meaningful									
+	so no have self-think	meaningless			115.5				meaninglessness	meaningless									
+mo	mark			mark	116	278	"DONE: ""make write different from represent"" —> write —> flat-symbol
+DONE: change core meaning to ""mark"""	symbol	mark; letter; sign; representation; fleck	written	to mark sth; to write sth							mo (fr:0.9:mot=word; te:0.2:maata=word; es:0.2:marca=mark; pt:0.2:marca=mark; it:0.2:marca?=mark; fr:0.2:marque=mark; fil:0.2:marka=mark; fi:0.2:merkki=mark; de:0.2:markieren=mark; fil:0.2:menulis=write; ar:0.2:مكتوب=written; )	
+	love-all-think	picky	love-decide		117	280	verbal compound; one of the few compounds with a V syllable in the middle	fixed-thought; what-thing-think		decisive; picky; choosy								chu (en:choose, sw:chagua=choose; vi:để chọn=to pick; th:thichalueak=to choose sth; th:thichalueak=to pick sth; th:chuchichukchik=choosy; zh:xuan; en:judge) ; swa (zh:xun; fr:choix); kwa/mwa (sw:kuamua)	
+ai	egg			egg	118	282			egg									ai (de:1.0:ei; ru:0.7:яйцо=egg; sw:0.9:yai=egg; sn:0.6:zai=egg; ha:0.6:kwai=egg)	
+mau	cat			cat	119	284	note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.		cat	catlike								mau (zh:1.0:猫mao=cat; ono:0.7:meow; en:0.7:meow; vi:0.6:mèo=cat)	
+kau	cow			cow	120	286	note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.		cow									kau (en:1.0:cow; hi:0.3:गाय=cow; ru:0.3:корова=cow; de:0.7:Kuh)	
+	what-talk	ask			121				request; ask; consultation; question; guess		to request sth; to ask (sth of sb); to consult sb; to question sth; to guess sth							pwi (en:0.7:please; hi:0.3:पूछना=ask; ru:0.2:просить=ask; es:0.2:preguntar=ask; pt:0.2:perguntar=ask; fi:0.2:pyytää=request), pi (en:please); ba (zh:ba)	
+	what-talk-time	interview	ask-time		121.4				interview; interrogation		to inverview; to interrogate								
+	what-talk-person	interviewer	ask-person		121.5				interviewer; reporter										
+	be-thing	condition			122				case; situation; condition; phenomenon;				if						
+	self-do	become			123		TODO: combine with self-way?		event; happening; process; course of events		to become sth; to happen (to sb: direction being)								
+	new-be	create			124		"new" as a verb would be "to refresh" etc.		creation		to build sth; to create sth; to make sth								
+	small-end	tip			125				point; tip; tree-top; angle; spike	sharp; prickly; pointy; pointed; precise; exact; at the precise location	to prick; to prickle								
+	no-life	die			126			life-end	death	dead	to die; to kill sb/sth								moli
+	time self				127					at that very time			as soon as						
+	hard-have	keep			128				possession; property		to keep sth;								
+	this-number	they			129			this-group	they; them										
+	that-number	themyonder			129			this-group	they; them										
+	me-number	we			130			me-group	we; us										
+	you-number	ye			131			you-group	ye; you (pl); y'all										
+	self-way	nature			132		cmp. 自然		nature; personality; characteristic; trait; peculiarity	natural; naturally; characteristic;	to naturalize sth					of course			
+	big-self-way	naturaleza	big-nature		132.5		cmp. 大自然		nature; the great outdoors; the wilds										
+	do-thing	device			133			self-do	machine; robot; mechanism		to mechanize sth								
+	self-do-thing	machine	self-device		134			self-do	machine; robot; mechanism		to mechanize sth								
+	see-do-thing	camera	see-device		135				camera; video-recorder; CCTV		to video-tape; to take a picture								
+	move-see	video			135.5				video; movie										
+	move-see-do-thing	videocamera	video-device		136				<disambiguation_form> video-recorder; CCTV		to video-tape								
+	no-do-thing	passive	no-do-thing		137					passive; idle									
+	think-self	selfish			138		verb-initial compound, like "want-X" or "have-X"		selfishness	selfish									
+	self-think-thing	computer	self-think-thing		139		aka thinking machine	think-self-do-thing	computer	computational	to compute sth								
+	no-good	bad			139				badness; evil	bad; evil; dastardly; mean	to wrong sb; to do sb wrong								ike
+	no-good-self-do	disaster	bad-become		140				disaster										
+	this-time-no	no_longer	now-no		141					no longer									
+	other-time	again			142				repetition; copy	repetitive; again	to repeat sth; to echo sth/sb; to do sth again						again		
+	other-thing	also			143		Note: this can be used to mean "and" in e.g. a list where you aren't saying that these things are together. DONE: consider deprecate in favor of other-thing			also; and; too; as well			or					wau (sw:au=or; ar:aw=or; en:or); ye (hi); to (ln, kg); wala (dyu, wo); abi (pcm); mala (ff);	anu
+	arm-have	grasp			144		to grasp something is the same as to understand sth in Englsish; same is true for zh 掌握 把握. Aka hand-have	anti-give	grip; grasp		to take sth (from sb: of person); to grab sth (from sb: of person); to seize sth (from sb: of person); to wrest sth (from sb: of person); to understand sb/sth; to catch sth; to clench hand; to grip sth; to grasp sth; to carry sth; to bring sth swh; to cope with sth; do deal with sth; to handle sth								
+	arm-end-have thing like small-distance				145						to cling to sth								
+	no-go	stop			146				stop	stopped	to stop sth; to halt sth; to desist; to discontinue sth; [ to do ] to stop doing sth								pake
+	do go see person				147						to visit sb								
+	this-go	come			148		used to be "go this place", but "go" feels so different from coming....		arrival		to come (to swh); to visit swh								
+	this-go-person	visitor	come-person		149				visitor										
+	place-be	wait			150				wait	waiting	to wait (for sth: direction thing); to stay swh								
+	all-do	success			151				success; match; perfect match; fit	succeeded; completed; fitting; suiting; perfect	to succeed (in doing sth); to complete sth; to fit sb/sth; to go well with sth; to suit sb/sth; to match sth								
+	no-do	failure			152		Note: merged "undo" and "fail"	no-truth-do; no-success	mistake; error; failure	failed; mistaken	to be mistaken; to mistake sth; to fail (at sth); to make a mistake; to fail to do sth; to undo sth; to remove sth; to take sth off								
+	no can no-end-do				153		; TODO all-			unmistakeable									
+	all-good	perfect			154		; TODO all-		perfection	perfect	to perfect sth								
+	no-thing	except			156				exception (?)				except			you're welcome			
+	thing-no-thing	contradiction	thing-no-thing		157		unexplicable note: "upside-down"	big-no; topno-top	contradiction; paradox	contradictory; paradoxical	to contradict sth								
+	one-one	eleven			158				eleven										
+	one-no	ten			159			ten				ten							
+	one-two	twelve			160				twelve										
+	new-think	idea			160				idea		to come up with sth; to invent sth								
+	inside-way	obstacle			161		aka it's in my way		obstacle; hindrance; block; blockage	blocked	to hinder sth; to block sth								
+	no-one-place	some/vague	no-specific		162				vagueness; obfuscity	vague; general; obfuscated; diluted; some; general	to obfuscate sth; to dilute sth	some					some		
+	small-distance	close			163		DONE: consider merging "area" into this; DONE almost and barely are the same —> barely is not "just"	no-distance	closeness; area	near; close; close by; almost	to get closer (to sth); to near sth			around (temporal); near (approximate location); about; around (spatial)					
+	of back				164					from the back									
+	of front				165					from the front									
+	of-back-go	follow	of-back-go		166		aka from back go		dog; chase; hunt; faithfulness	faithful; loyal; doglike	to follow sb/sth; to chase sb/sth; to be faithful (to sb)								alasa
+	big-good	dog			167		aka faithful (following) animal. with current glosses, this is deyago(mang), which sounds both like dog and 狗!!	of-back-go--animal	<disambiguation_form> dog	doglike									
+	time like front				168					<disambiguation_form> after									
+	big-big	giant			169				enormousness	huge; tremendous; enormous; gigantic; gargantuan; extremely important; giant									
+	big-part	majority			169.5				majority	mostly									
+	bend-light-thing	lens	bend-light-thing		170				lens										
+	big-number	many			170.5		In the less common sich where you would say "1000 is a big number" and you don't want to say "1000 is a group", you could say "1000 do be number like big", but this seems like it will rarely cause confusion anyways.	group like big; big-group	a large group; flock; collection; swarm; group; host	plenty; many; much; teeming	to swarm; to teem (with sth)	plenty; many; much							
+	middle-number	several			171					several; some									
+	small-number	few			171.5					few; a few; several; a couple (fight me)									
+	big-number-time	often	many-time		172			big-see; big-number-see; big-time	frequency	frequent; common; usual; a lot; often									
+	small-number-time	unusual	small-number-time		172.5		DECIDED: "deprecated in favor of "specific" ?" — no, they are OK being different		Oddity; Unusual event	rare; uncommon; infrequent; unusual	to behave oddly								
+	me-kind-animal	human	me-kind-animal		173			being-being	<disambiguation_term> human										
+	big-container-person	family	house-person		173.5		aka house-people; 家人		family									家人	
+	big-container-animal	pet	house-animal		174		aka house animal		pet									Haustier	
+	one-kind-love	gay	same-love		174.5			one-kind-love	gayness; homosexuality	gay; homosexual									
+	other-way	different			174.5				difference	different									
+	one-thing	only			175			no-more .. but more does not have a gloss	purity	only; pure; distilled	to purify sth; to distill sth							no-more (kri, es)	
+	one-place	specific		specific	175.3	424	was an atom, as "one-place" is a bit of a stretch. But it was not used in any compounds, and was therefore demoted.		density; precision; specificity	precise; individual; dense; specific; particular; 	to specify sth; to concentrate sth; to concentrate on sth (direction thing)							te (zh:0.6:te=particular; id:0.6:tertentu=particular, ja:0.2:tokutei=particular, vi:0.7:cụ thể=particular; fil:0.3:tiyak)	
+	one-person	alone			175.4		like 一个人												
+	one-way	same			175.5		TODO: share and copy should be different	one-kind	equivalent; imitation; copy	same; (in) common	to be the same; to imitate sb/sth; to copy sb/sth; to share sth							one-kind (tpi:wankain)	sama
+	no one-way				176		aka not same		differentness	different	to differ (from sth: direction thing)							other-kind (tpi:narakain)	
+	number one				187					first									
+	number six-seven				188					sixty-seventh									
+	number two				189					second									
+	number end				190					last									
+	one small one				191				1.1										
+	six small seven				192				6.7										
+	six part seven				193				6/7										
+	six-seven	sixty-seven			194				67										
+	talk-do	command			195				command; order		to command sb; to order sth								
+	truth-truth	truly			196		this is just duplicative strength			truly									
+	truth-thing	reality			197			truth-self-way	<disambiguation_form> reality; practice (vs theory)	real; realistic; pragmatic; genuine									
+	do think like truth-thing				198					pragmatic; realistic									
+	possibility-thing	outcome			199			order-think	outcome										
+	hard-do	work			200				work; job; task	worklike	to work (on sth); to operate sth							gong (zh:gong=work)	
+	number-time	usual			201		DECIDED: "merge with "kind" ?" — no			usual; customary; typical; normal; usually (used for habitual tenses); common; normal									
+	number-time-do	custom	usual-do		202		DONE: consider merging with "kind", aka "typical" ? merge in "frequent"		custom									chang (zh:chang=common, vi:chung=common; ru:часто=often)	
+	time-thing	clock			203				clock										
+	possibility-think	suspect			204				theory; suspicion		to suspect sth/sb								
+	small-possibility-think	doubt	small-suspect		205				doubt		to doubt sth/sb								
+	small-possibility	unlikely			206				small chance	doubtful; unlikely									
+	big-possibility	likely			207					probably; probable; likely									
+	end-number	sufficient			208		aka a complete amount; TODO all-		a sufficient quantity; qualifications	sufficient; enough; eligible; qualified	to be satisfied; to suffice (for sth); to qualify (for sth); to satisfy sb/sth							nyo (ga:gnó=enough; en:enough; ee:gno=sufficient)	
+	do link of thing				209						to hang from sth; to be suspended from sth								
+	order-time-thing	routine	order-time-thing		210			all-time; order-time	routine; regularity	regular; routined									
+	no-life-eat	poison	die-eat		211		; TODO all-		poison										
+	give no-life-eat direction person				212						to poison sb								
+	end-thing	conclusion			213		"finally" sort of wants to be "end-time" --- but let's unify unify unify		conclusion	final; finally	to conclude sth								
+	end-direction	target			214				goal; target; aim	goal; target	to target sth; to aim (at sth)								
+leng	link			connect	214.1	488		connection	link; joint; connection; relationship; bridge; attachment	connected; related; attached; bridged; linked; tied	to connect (to sth/sb); to join sth; to have a relationship with sb/sth; to tie sth; to bind sth							leng (fr:0.6:lian=link; zh:0.7:lian=link; en:0.8:link; vi:0.7:liên kết; fi:0.7:linkki; id:0.2:lampiran=attachment; fi:0.2:liittyvät=related; fi:0.3:liite=attachment; fi:0.2:liitos=joint; pt:0.3:ligar=to tie); pwe (es:puente=bridge); tai (en:tie)	
+	link-body	sex			215				sex	sexy; sexual	to have sex (with sb/sth); to have intercourse (with sb/sth)								unpa
+	no-link	release			216				release; freedom; relaxation; shot; projectile	wild; free	to free sth; to shoot sth; to release sth; to sling sth; to throw sth; to relax sth								
+	no-link-time	leisure	release-time		217				leisure; relaxation; free-time										
+kwe	order			order	217.1	496	"TODO: ""kwe"" is better for ""link"" or string
+DONE: could unify with ""string"". Decision: no!"		order; organization; arrangement	orderly; ordered; organized	to arrange sth; to organize sth; to set sth in order							kwe (en:0.1:queue, ms:0.2:kemas=neat/tidy; es:0.2:sequencia/acuerdo; de:0.2:Sequenz; fil:0.2:kaayusan=order; id:0.3:keteraturan=order; sn:0.2:kurongeka=order; te:0.1:క్రమబద్ధమైన=orderly; sw:0.2:kuamuru=ordered)	
+	self-order	pattern			217.11				structure; pattern; design	structured									
+	good-time-good-no-order	serendipity	good-time-luck		217.12		?? etymology?		serendipity	serendipitous									
+	no-order-play	lottery	random-play		217.13				lottery; game of chance										
+	no-order	random			217.14				accident; chance; chaos; tangle; mess	random; accidental; chance; chaotic; tangled	to randomize sth; to happen to do sth; to do sth by accident; to bet sth; to wager sth; to mess sth up								
+	good-no-order	luck	good-random		217.15				luck; fortune	lucky; fortunate									
+	no-good-no-order	bad_luck	no-luck		217.16				bad luck	unlucky									
+	no-order--four-side-body	dice	random-cube		217.17		aka random-cube		die/dice										
+le	law			official	217.18	512	TODO unify with law?	official	rule; law	official; legal								le (es:1.0:ley; en:0.2:law; zh:0.2:律/lü=law; pt:1.0:lei=law; it:0.6:legge=law; fr:0.2:loi=law; fi:0.2:lakia/laillinen=law/legal; vi:0.2:luật=law; de:0.2:Regel=rule; fil:0.5:legal=legal; id:0.5:legal=legal;); lai ( IE:l*); la (en:law);	
+	no-law	unofficial			217.19					unofficial									
+	law-energy	power			217.2				power (e.g. political power or jurisdiction); right (e.g. the right to do sth); control; governance	powerful	to govern sth/sb; to rule sth								
+	law-female	wife			217.21				wife										
+	law-male	husband			217.22				husband										
+	law-link-person	spouse	law-link-person		217.23			law-big-love-person	spouse; husband; wife										
+	law-person	employee			217.24				officer; employee										
+	law-number	company			217.25			law-group	company										
+	air-go-law-number	airline_company	flight-company		217.26			air-law-group	airline company										
+	law-no-new	seniority	law-old		217.27				seniority	senior									
+	law-flat-thing	counter	law-board		217.28		aka law table		counter										
+	law-place	province			217.29			accordingto-word-place	county; region; any sort of smaller official division; district; province										
+	big-law-place	country	big-province		217.3				country; nation	national									
+	through-see	transparent			218				transparency	see-through; transparent; clear; explained	to clarify sth; to resolve sth								
+	through-talk	explanation			219		aka clear-talk, 说明	through-see-talk	explanation; resolution; definition	defined	to explain sth; to explain how to do sth								
+	small-talk	summary			220				summary	summarized	to summarize sth								
+	of-have	lose			221		English sometimes has separate words for intentional vs unintentional things. "no-have" would likely be better, but i no du yo and i du noyo sound too similar so it might be confusing. TODO find other verbs starting with no- and analyze!	no-have	loss		to lose sth; to shed sth								
+	distance-talk	phone			222		"distance-talk-thing" could be used for the physical phone?		phone; telephone		to phone sb								
+	no-through-see	opaque	no-transparent		223					murky; opaque; obtuse									
+	no-can-through-talk	inexplicable	no-can-explanation		224			no-can-through-see	inexplicableness	inexplicable									
+	no-can-through-talk--energy	magic	inexplicable-energy		225				magic; a magical spell; an enchatment	magical; enchanting	to practice magic								
+	with-time	meeting			226				session; class; meeting; assembly										
+	with-do	project			227				project										
+	end--with-do	final_project	end-project		227.4				final project (e.g. in a class)										
+	with-person	partner			228				partner										
+	with-person-thing	gathering	with-person-thing		229				gathering; party										
+	with-have	gather			230		TODO: are the meanings too divergent?: "to gather sth; to collect sth; to share; to have in common"		collection; gathering	shared; (in) common	to gather sth; to collect sth; to share; to have in common								alasa
+	with-place	mix			231		aka to put sth together with sth else	with-put	mixture; combination; variation; diversity	mixed; combined	to add sth (into sth/direction thing); to mix (x and y: x with y); to combine (a and y x with y)								
+	no-with-place	homogeneity	no-mix		232			no-with-put	homogeneity	homogenous	to sort sth; to tidy up; to put sth in order								
+	back-front	oscilalte			233		Merged in direction-of and direction-of-move, which were weird glosses for vibration	back-front-go	swing; oscillation; vibration; round trip; wave	swinging; back and forth	to swing; to rock; to go back and forth; to move sth back and forth; to oscillate; to shake sth; to vibrate sth; to dither; to go back and forth; to waver; to vacillate ; to fluctuate; to oscillate								
+	do no-dirt like back-front	shake			234						to sweep sth; to brush sth; to scrub sth								
+	no-with	without			235									without					
+	of time				236									since					
+	place side				237					next to; by									
+	place all side				238									surrounding					
+	place other side				239									opposite (static); across (static)					
+	place two side				240									on either side of					
+	inside-place	instead			241									instead					
+	have self-talk	fame			242		have-name			famous									
+	person like have self-talk				243				celebrity; star										
+	have self-talk like no-good				244				infamity	infamous									
+	have-metal	rich			245				wealth	rich									
+	want metal	avarice			246				greed (for money); avarice	greedy									
+	over-want	greed			247				greed	greedy									
+	have-want	envy			248		aka want what [they] have	other-want	envy; jealousy	envious; jealous	to envy sb; to be jealous of sb								
+	want-link-body	horny	want-sex		249				horniness	horny									
+	want-think	interest			250				interest; interestingness	interesting; interested	to be interested (in sth)								
+	want-eat	hunger			251		this could also be "cute"....		hunger	hungry	to hunger (for sth)								
+	want-water	thirst			252			want-eat-water	thirst	thirsty	to thirst (for sth)								
+	can-love	cute			252.3		cognate: 可爱; adorable; lovable		cuteness	cute; adorable; lovable									
+	water-eat	drink			253				compound disambiguation form: drink										
+	inside-water	suck			254						to suck (a liquid)								
+	inside-water-animal	mammal	suck-animal		255		TODO (aka suck-animal)		mammal										
+	egg-air-animal	chicken	egg-bird		256		TODO atomize; Trevor: I feel like common sense would say all birds should be air-animals (Even though penguins, chickens, ostritches, etc. don't fly). I think chicken would be like "domestic air animal"		chicken										
+	water-air-animal	seabird	water-bird		257				waterbird; duck										
+	fast-big-animal	horse	fast-big-animal		258			fast-being	horse										
+	flat-eat-animal	herbivore	flat-eat-animal		259			deer	deer; herbivore										
+	light-flat-eat-animal	sheep	light-herbivore		260		aka white deer		sheep										
+	high-flat-eat-animal	goat	high-herbivore		261		aka mountain deer		goat	goaty; goatlike								me (ono; te:meka)	
+	light-water--flat-eat-animal	cow	milk-herbivore		262		aka milk deer	cow											
+	water-animal	fish			263		note: there is no such thing as a "fish", so this is better anyways. So whale is also a type of fish? Also it's a pity we can't use "Minu"		fish										kala
+	love-dirt-animal	pig	love-dirt-animal		264			middle-head-point-animal	pig										
+	small-animal	bug			265														
+	small-small-animal	ant	small-bug		266				ant										
+	no-see-small-animal	bacterium	no-see-bug		267														
+	air-small-animal	fly	air-bug		268				fly										
+	jump-small-animal	frog	jump-bug		269				frog										
+	eat-life-water--air-small-animal	mosquito	eat-blood-fly		270		aka drink-blood-fly; two-word compound (6+ syllables)		mosquito										
+	sugar-small-animal	bee	sugar-bug		271				bee										
+	small-animal-sugar	honey	bug-sugar		272				honey										
+	big-plant-animal	squirrel	tree-animal		272.3				squirrel										
+	hard-energy-animal	bear	strength-animal		273		Aka strong animal. TODO: to be etymologically aligned with Chinese, can-animal (capable animal) is very nice.	can-animal; soil-color-being	bear										
+	small--hard-energy-animal	procyonid	small-bear		274		aka Kleinbär		raccoon; procyonid										
+	do-no-dirt--hard-energy-animal	raccoon	do-cleanliness-bear		275		aka Wachbär, araiguma, 浣熊		<disambiguation form> raccoon										
+	big-plant-place--of-back-go-animal	wolf	forest-dog		276		aka forest-dog; the -animal is optional		wolf									forest-dog (sa:अरण्यश्वा)	
+	hot-of-back-go-animal	fox	hot-dog		277		aka red dog; the -animal is optional		fox										
+	water-of-back-go-animal	seal	water-dog		278		aka sea dog; the -animal is optional												
+	long-animal	snake			279		aka long boi		snake										akesi
+	arm-long-animal	lizard	arm-snake		280		aka leg snake		lizard; reptile										akesi
+	dirt-animal	land_animal			281				land animal										
+	water-dirt-animal	amphibian	mud-animal		282				amphibian										akesi
+	water-long-animal	eel	water-snake		283		aka water snake		eel										
+	dirt-long-animal	worm	dirt-snake		284		aka earth snake		worm		to worm								
+	eight-arm-animal	spider	eight-arm-animal		285			eight-leg-small-animal	arachnid										
+	water-eight-arm-animal	water-spider	water-spider		286		TODO crabs have 10 legs	pinch-hard-thing-bug	crab										
+	sound-part-animal	rabbit	ear-animal		287				rabbit; jump-animal										
+	hard-container-animal	crustacean	shell-animal		288				snail; crustacean										
+	hard-small-animal	rolypoly	hard-bug		289			all-side-hard-small-animal	sowbug; roly poly; any other shalled bug										
+	water-hard-small-animal	shrimp	water-rolypoly		290			water-all-side-hard-small-animal	shrimp; prawn										
+	big-water-hard-small-animal	lobster	big-shrimp		291			big-water-all-side-hard-small-animal	lobster; crayfish; crawdad										
+	long-hard-small-animal	millipede	long-rolypoly		292			long-all-side-hard-small-animal	millipede; centipede										
+	hard-container-water-animal	turtle	shell-fish		293			hard-thing-jump-small-animal	turtle; tortoise										
+	six-arm-animal	insect	six-arm-animal		294				insect										
+	air-animal	bird			295		"small being" is already child. Or should that be "new being"?		bird										waso
+	easy-move-animal	slug	slide-animal		296		aka slime creature; Trevor: Haha! Very German! If we are being picky with our syllables, I don't think we would have one for snail. But I might suggest "shell bug" or "home bug" and then "un-home bug" Haha!		snail; slug									naked-snail (de: Naktschnecke)	
+	hard-container--easy-move-animal	snail	shell-slug		297		aka shell slug;		<disambiguatio_form> slug										
+	big-flat-eat-animal	moose	big-herbivore		298				moose										
+	big-nose-animal	elephant	big-nose-animal		299		aka big-nose animal	big-big-animal	elephant										
+	have-small-end	spiky	have-tip		300					spiky									
+	no-want-move-animal	sloth	no-want-move-animal		301				sloth										
+	eat-life-water--eight-arm-animal	tick	eat-blood-spider		302		two-word compound (6+ syllables)		tick										
+	big-cat	lion			303				lion; big cat										
+	long-link-big-cat	tiger	string-lion		304		aka stripe-lion		tiger										
+	fast-big-cat	cheetah	fast-lion		305				cheetah										
+	no-new-time--big-animal	dinosaur	old-time-big-animal		306				dinosaur										
+	fast--no-new-time--big-animal	velociraptor	fast-dinosaur		307				velociraptor										
+	u_monkey				308		TODO atomize		monkey										
+	u_shark				309		TODO atomize		shark										
+	no-easy	difficult			310				difficulty; heaviness; inconvenience	heavy; difficult; inconvenient; thick; rough	to have difficulties; to make sth difficult; to scratch sth; to inconvenience sb; to do sth with difficulty;								
+	big-surface	thick			311			no-easy-surface		<disambiguation form> thick, e.g. of paper or a shell									
+	easy-move	slide			312		slick/graceful is a weird set of meanings but i think it is clear from context! also funny bc a slug becomes a graceful animal		slipperiness; slime; slidy	slippery; slick; greasy; slimy; not to be trusted; unreliable; crafty; devious; (of movement) graceful	to slip; to slide								
+	no-easy-move	clumsy	no-slide		313					clumsy									
+	dirt-easy-move	landslide	dirt-slide		314				landslide										
+	no-fast	slow			315				slowness	slow	to slow down; to slow sth down								
+	no-hard	soft			316				softness	soft; flaccid	to flaccidify; to make sth soft								
+	hard-thing	stone			317				challenge; trial; <disambiguation_form> rock; stone		to challenge								
+	hard-container	shell			318		aka surrounding rock	all-side-hard-thing	<disambiguation_form> shell										
+	no-high	valley			319				valley; indentation; shortness	short; low; shallow	to sink sth; to lower sth								
+	down-high	deep			320		按道理来说，这可以是跟高一样词，但是我觉得人会自然要不同的词		depth	deep; profound									
+	link-no-high	groove	link-valley		321				ditch; groove										
+	arm-high	foothills			322				foothills										
+	big-high	mountain			323				mountain	mountainous									
+	link-high	ridge			324				ridge										
+	have-high	hilly			325		consider have-X to 2 wd			hilly; curvaceous									
+	no-hot	cold			326				cold; coldness	cold	to cool down; to cool sth; to cool sth down								lete
+	hot-container	oven			327				oven		to bake (sth)								
+	hot-flat	pan			328				pan; frying pan		to fry (sth)								
+	hot-opening-container	pot	hot-opening-container		329				pot		to cook something in a pot								
+	no-hot-container	refrigerator	cold-container		330		TODO differentiate fridge and freezer?		refrigerator										
+	big-no-hot-container	freezer	freeze-container		330.4				freezer										
+	big-no-hot	freeze	big-cold							freezing	to freeze								
+	no-long	shortness			331				shortness	short	to shorten; to make sth shorter; to shorten								
+	no-new	old			332		id:tua		age	old	to get late; to age sth								majuna
+	front-time	future			333				future	late; futuristic				after; afterwards					
+	opening-energy	surprise			334				surprise; shock; sudden event	suddenly; surprisingly; surprised; sudden	to surprise sb; to shock sb								
+	no-opening	closed			335					closed; shut; off (of a light etc.)	to close sth; to shut sth; to turn sth off								
+	direction-inside-opening	entrance	direction-inside-opening		336				<disambiguation_term> entrance										
+	direction-no-inside-opening	exit	direction-no-inside-opening		337				<disambiguation_term> exit										
+	no-wide	narrow			338				thinness; narrowness	narrow; thin									
+	hot-high	degree			339			hot-part	degree (temperature)										
+	middle-hot	warm			340				warmth	warm	to warm sth								
+	middle-middle-hot	lukewarm	middle-warm		341				neutral temperature	neutral temperature									
+	small-thing	detail			342		DECIDED: "unify with complex?" —no!		detail	detailed									
+	big-number-part	system	many-part		343			big-number-link; big-group-part	system; complex thing; network	complex									
+	life-big-number-part	ecosystem	life-system		344				ecosystem; habitat										
+	link-big-number-part	graph	link-system		344.5				greaph (computing)										
+	small-number-part	simple	small-number-part		345			small-group-part	simplicity	simple									pona
+	long-hard	arduous			346					arduous									
+	do metal person				347		TODO: cpd vs 2 word difference				to pay sb								
+	do metal thing direction person				348						to sell sth to sb								
+	do metal thing of person				349						to buy sth from sb								
+	this-time-metal	cash	now-metal		350				cash										
+	yellow-metal	gold			351				gold										
+	give-metal	pay			352				[means 'pay' in compounds]										
+	give-metal-place	market	pay-place		353			give-metal-big-container	store; market; grocery										
+	big-give-metal-place	mall	big-market		353.4				mal; supermarket										
+	one-place-energy	focus	specific-energy		354				focus; attention	focused; concentrated	to focus on sth; to concentrate on sth; to pay attention to sth								
+	no-good-energy like one-place				355		aka focused pain		sting		to sting th								
+	color-water	paint			356			color-water-mark; color-water-give-see	paint		to paint sth								
+	do down water		down-water		357						to spill sth								
+	see-part	eye			358				eye									ai (en); mu (zh)	oko
+	sound-part	ear			359			sound-part; sound-see-part	ear										
+	life-water-part	heart	blood-part		360				heart										
+	new-do small-person				361						to breed								
+	do-big	grow			362				compound disambiguation form: grow]										
+	do-big--small-person-part	womb	grow-child-part		363				womb										
+	bend direction				364						to turn around								
+	other-direction	turn			365						to turn (e.g. one's head)								
+	over-number	waste			366		alt: now-no-need		waste; excess; extra; rest (e.g. the rest); leftover	extra; excess	to waste sth; to remain								
+	animal-dirt	poop			367			over-number-soil	poop; feces; BS	bullshit	to poop; to BS								
+	over-number-water	pee	waste-water		368				urine; pee; wee-wee		to urinate; to pee								
+	opening-water	saliva			369				spit; saliva		to spit							ln: twa	
+	life-water	blood			370				sap; blood	bloody; bloodlike	to bleed								
+	hard-link	pole			371			no-wide-thing	pole										
+	head-body	neck			372		aka trunk that holds the head		neck										
+	long-small-end	spear	long-tip		373			direction-stem	ray; spear									gai (ga:gae)	
+	plant-arm	branch			374				stick; branch									dang (hi:danda, te:danda, vi:dán)	
+	big-plant-arm	bough	tree-arm		374.5				bough (as in English, just "branch" is normally used)										
+	back-arm	tail			375				tail										
+	small-arm	finger			376		DONE: small-arm or small-end? small-end is odd because it has more of a "tip" meaning	small-arm; number	finger; twig		to point (at sth); to point to sth; to indicate sth; to show sth (to sb: direction person); to finger sb						point (decimal)	dwi (en:twig, fr:doigt; la:digit)	
+	like-thing-mark	image	like-thing-mark		377		DONE: merge with symbol etc?	flat-give-see; thing-mark	image; picture; depiction; drawing; painting		to depict sth; to draw sth; to paint sth								
+	think-mark	symbol			378		"note: ""word"" and ""law"" merged, and word is no longer ""talk part"".
+note 2: ""word"" and ""law"" have been de-merged. ""word"" has been changed to ""talk-symbol"". note 3: merged into symbol
+note 3: meaning-mark --> think-mark"	talk-symbol	symbol; word	symbolic; wordy	to represent sth; to symbolize sth								
+	no-side	ball			379		"NOTE: ""all-side"" aka osai sounds nice and circly, but it's bad to have a/i/e/o quantifiers in the middle of compounds.
+DECIDED: decide about the preposition for ""to wind sth AROUND sth"" — we'll re-use circle even though it feels redundant."	all-side; no-point-body	ball; circle; sphere; berry (of a plant); wheel; border; perimeter; rim; circle; ring	spherical; ball-like; circular; round; rounded	to circle; roll sth into a ball; to coil; to wind sth (around sth: all-side thing)							cho (ono:o; zh:qiu=ball)	sike
+	flat--no-side	circle	flat-ball		380		aka flat-ball	no-point	<disambiguitory_form> circle (if one needs to differentiate it from a ball)										
+	body-no-side	sphere	body-ball		381				<disambiguitory_form>ball/sphere										
+	no-side of small-arm				382				<disambiguitory_form> ring										
+	self--no-side	spin	self-ball		383						to spin sth								
+	hard-water	ice			384				ice										
+	over-hard-water	snow	over-ice		385				snow		to snow								
+	over-hard-water-part	snowflake	snow-part		386			hard-water-part	snowflake									snow-let (eo: neĝero a snowflake, from 'snow')	
+	metal-part	coin			387			metal-part	coin									money-let (eo: monero a coin, from 'money'))	
+	metal-link-part	chainlink	chain-part		388				chain link									chain-let (eo: ĉenero a link, from 'chain')	
+	hot-energy-part	spark	fire-part		389				spark									let (eo: fajrero (a spark, from 'fire')	
+	flat-stuff-link-part	stitch	thread-part		390				stitch										
+	go-part	step			391		NEED NEW DECISION...."FOOT". AS VB IS STEP OR STAND? REVERSED DECISION: "part"/bit should be thought of as both —> DONE: "part that does something" is better than "part" meaning "-ito". Need better gloss for latter. —> changed to "small"	go-part	step										
+	eat-stuff-part	crumb	food-part		391.4				crumb; kibble										
+	one-direction-link	ray	one-direction-link		392				ray (geometry)										
+	long-link	string			393		"used to be atomic
+TODO may have to differentiate e.g. hair and stripe, e.g. a zebra has stripes versus hair"	two-point; one-side	string; thread; sequence; row; tendon; sinew; line; strip; stripe; strap; ray; string; wire	sequential; stringy; sinewy	to put sth in a row								linja
+	high-no-side	cylinder	high-ball		394			no-point-line	cylinder										
+	no-inside--high-no-side	tube	empty-cylinder		395		aka hollow cylindar	no-inside-no-point-line	tube										
+	three-side--no-side	cone	triangle-ball		396		aka triangle-circle	three-point-no-point	cone; horn										
+	metal-long-link	wire	metal-string		397				wire										
+	two-side	angle			398				angle										
+	law-link	marriage			399			law-big-love	marriage	married	to marry sb								
+	four-side-body	cube	square-body		400		aka 3D square		cube; block (e.g. child's toy)										
+	three-side	triangle			401			three-point	triangle										
+	go--no-side-link	spiral	go-ball-link		402				spiral										
+	four-side	square			403			four-point; one-four-point	square; block (of a city); rectangle										leko
+	four-side like all-good				404		aka perfect square		<disambiguation_form> square										
+	four-side like no-all-good				405		aka imperfect square		<disambiguation_form> rectangle										
+	three-side-body	pyramid	triangle-body		406		aka 3D triangle		pyramid										
+	small-side	edge			407				edge; sharpness	sharp	to sharpen sth								
+	no-small-side	dullness	no-edge		408			no-point-side		dull									
+	through-go	cross			409			through-hit	cross; X		to cross sth; to intersect sth								
+	big-number-through-go	grid	many-cross		409.5				grid; lattice; matrix										
+	dirt-go	dig			409.5		TODO consider this could be "tunnel" too				to dig sth								
+	dirt-go-thing	shovel	dig-thing		409.6				shovel										
+	big-over	sky			410				sky										
+	direction-over	up			411									up(direction)					
+	over-energy	lift			412		aka hold up	direction-over-have	support	supportive	to carry sth; to lift sth [up]; to support sb/sth;								
+	over-thing	top			413		en: lay; German "es liegt darauf" for dependency		top; cap; covering; cover; hat	covered; top; most; -est	to cover sth						superlative		
+	down-thing	bottom			414				bottom; butt	bare; naked; uncovered	to bare sth; to uncover sth								
+	down-place	ground			415				ground; floor; field										
+	flat-go	crawl			416						to creep; to crawl								
+	flat-body	lie_flat			417					<disambiguation_term> lying (stressing that it's flat / not "sitting")	to lie; to lie down; to lay sth down								
+	down-body	sit			418					<disambiguation_term> sitting (stressing that it's "sitting up" not "lying" ; usually you'd just use "flat")	to sit; to sit down; to sit on sth								
+	over-go	ride			419				ride; drive		to ride sth; to drive sth								
+	do-flat-place	seat	do-flat-place		420				seat										
+	hard-surface	hit			421				strike; hit		to hit sth; to strike sth; to beat sth								
+	flat-surface	pat			422						to pat; to stroke; to pet								
+	head-front	face			423		face=expression: to pull a face is already the same as to make an expression. one could have face and front be the same. But then it gets weird when "back" is the opposite of "face". Compare to the difficulty one had with "top" vs "cover". that seems fine, but when you take the inverse, naked/bottom/butt are the same word, which is problematic.	front-thing	face; expression; flower	flowery; facial	to face sth; to confront sth/sb								
+	go-arm	leg			424			anti-top-arm	leg; root	leggy	to walk (to sth/swh)							twe (zh:tui); pe (:p*=foot)	
+	head-container	sinuses			425				sinuses										
+	arm-end	hand			426				hand		to clap; to hand sth to sb								luka
+	body-hard	bone			427		aka aka body-stone		bone										
+	body-stuff	flesh			428				flesh										
+	body-air	fart			428.4				fart; flatulance		to fart; to go gas								
+	side-one	left			429				the left side of sth					to the left					
+	side-two	right			430				the right side of sth					to the right					
+	go-arm-end	foot	go-hand		431				foot	standing; footlike	to stand up; to stand (sth. up)								
+	direction no-inside				432									out of					
+	direction inside				433									into (going into a place)					
+	arm-bend	elbow			434				elbow										
+	down-arm	forearm	down-arm		435				forearm										
+	down-go-arm	shin	down-leg		436				shin; calf; lower leg										
+	nose-water	snot			437				snot										
+	small-arm-bend	knuckle	finger-bend		438				knuckle										
+	go-arm-small-arm	toe	leg-finger		439				toe									foot-finger (many)	
+	head-link	hair			440				hair										
+	body-link	fur			441				fur; body hair	furry									
+	body-link like hard				442				disambiguation_form: hair (not fur)										
+	body-link like no-hard				443				disambiguation_form: fur (not hair)										
+	hot-body-water	sweat	hot-body-water		444			hot-life-water	sweat										
+	go-arm-bend	knee	leg-bend		445				knee		to kneel								
+	head-opening-side	lips	mouth-side		446				lips										
+	over-arm	upper_arm			447				upper arm										
+	over-go-arm	thigh	over-leg		448				thigh										
+	u_apricot-hard				449				almond										
+	big-plant	tree			450				tree										
+	plant-place	garden			451				garden										
+	big-plant-place	forest	tree-place		452			tree-big-number; pl-big-plant	forest; copse										
+	eat-big-plant-place	orchard	eat-forest		453				orchard										
+	middle-big-plant	bush	middle-big-plant		454				bush										
+	u_oak-hard				455				acorn										
+	plant-hard	nut			456				nut; seed										
+	dark-color	black			457				<disambiguation_form> blackness	<disambiguation_form> black									
+	light-color	white			458				<disambiguation_form> whiteness	<disambiguation_form> white									
+	dirt-color	brown			459				brown	brown	to become brown; to make sth brown							kape	kapesi
+	water-color	blue			460			over-color, aka sky-color	blue	blue	to become blue; to make sth blue								laso
+	plant-color	green			461				green	green	to become green; to make sth green								
+	hot-color	red			462				red	red	to blush; to make sth red								
+	light-hot-color	pink	light-red		462.2				pink	pink									
+	yellow-hot-color	orange	yellow-hot-color		463			sun-hot-color	orange	orange	to become orange; to make sth orange								
+	water-hot-color	purple	water-hot-color		464		aka aka blue-red aka sky-fire-color		purple	purple	to become purple; to make sth purple								unu
+	yellow-plant-color	yellow_green	yellow-plant-color		465			sun-plant-color	yellow-green	yellow green	to become yellow green; to make sth yellow green								
+	yellow-yellow-plant-color	extra_yellow_yellow_green	yellow-yellow_green		466			sun-sun-plant-color	extra yellow yellow-green	extra yellow yellow green	to become extra yellow yellow green; to make sth extra yellow yellow green								
+	light-dark-color	grey	light-dark-color		467				grey	grey	to become grey; to make sth grey								
+	light-light-dark-color	whitish_grey	light-light-dark-color		468				whitish grey	whitish grey	to become whitish grey; to make sth whitish grey								
+	no-truth-talk	lie	no-truth-talk		469				lie	deceitful	to lie (to sb)								
+	no-can	disallow			470		DECIDED: "consider no-allow instead of no-talk" — good idea; changed.	no-talk	refusal; ban	verboten; forbidden; disallowed	to refuse sth; to say no (to sth); to forbid sth; to ban sth; to disallow sth								
+	talk no direction person				471						to contradict sb								
+	no-talk	secret			472			no-talk-direction-person	secret	secret; secretive									
+	truth-talk	convince			473					convinced; persuaded	to persuade sb; to convince sb								
+	talk truth				474						to say yes (to sth)								
+	talk like no-truth				475						to say sth incorrect (maybe a lie, mayb a mistake)								
+	no-truth	falsehood			476				pretence; falsehood; fantasy; untruth	fake; false	to pretend; to pretend to be/do sth							lai (en:lie)	
+	no-truth like want				477		aka intentional anti-truth		lie										
+	give-talk	claim			479				proposal; claim		to propose sth; to claim sth								
+	good-sound-talk	poem	good-sound-talk		480				poetry; poem	poetic									
+	think like one-way	agreement			481			talk-truth-talk	agreement; consent		to consent (to sth); to agree (to sth)								
+	self-talk	name			483				name		to name sth								
+	wide-talk	rumor			484		aka aka transmit-talk		rumor; legend; myth	rumored; mythical; legendary	to spread rumors; to tell sb sth (as a rumor)								
+	good-energy-sound	laugh	happy-sound		485				laugh	funny	to laugh (at sth)								
+	good-energy-sound-talk	joke	laugh-talk		486				joke		to joke (abt sth)								
+	good-energy-head-front	smile	happy-face		487				smile		to smile (at sth/sb)								
+	two-think	pun			488				pun		to make a pun								
+	two-talk	doublespeak			489				doublespeak										
+	hard-talk	promise			490				claim; promise; commitment; oath	sworn; promised	to commit; to promise sth; to guarantee sth; to commit self to sth; to swear sth								
+	hard-sound	consonant			506				consonant										
+	no-hard-sound	vowel	soft-sound		507				vowel										
+	thing like truth				508			no-idea		concrete; physical									
+	think-stuff	information			509			thought? talk?	information		to inform ; to inform sb of sth								
+	think-think	figurative			510				the figurative meaning	figurative									
+	thing-think	literal			511				the literal meaning	literal									
+	good-talk	compliment			512				compliment; praise; laud; advice; recommendation; congratulations		to say good things; to compliment sb; to praise sb; to laud sth/sb; to commend sb; to recommend sth; to advise sth; to congratulate sb; to advise sb to do sth; to recommend sb to do sth								
+	over-good-talk	flattery	over-compliment		513				flattery		to flatter sb								
+	no-good-talk	criticism	bad-talk		514				criticism; complaint; blame	critical	to criticize sb; to scold sb; to badmouth sb; to slander sb; to complain about sth; to blame sth; to bemoan sth								
+	talk-part	word			515		odd that tongue and word are the same, but also ok		tongue; word		to tongue sth/sb; to make out (with sb)							tang (en:0.9:tongue; es:0.1:lengua; fr:0.2:langue)	toki
+	talk-part-seek	dictionary	word-seek		515.05				dictionary										
+	start-talk-part	rootword	start-word		515.06				root word; atom (Sesowi)										
+	do-talk-part	verb	do-word		515.1			do-talk-symbol	verb										
+	like-talk-part	adjective	like-word		515.2			like-talk-symbol	adjective										
+	thing-talk-part	noun	thing-word		515.3			thing-talk-symbol	noun										
+	me-you-talk-part	pronoun	me-you-word		515.4			me-you-talk-symbol	pronoun										
+	talk-place	translation			516				translation		to translate sth								
+	talk-place-person	translator	translation-person		517				translator										
+	see-part-water	cry	eye-water		518				tears; tear	teary	to cry (about sth); to lament sth; to bemoan sth; to complain about sth; to weep								
+	big-person	adult			519				adult; parent		to grow?								mama
+	small-person	child			520			new-person	kid; child (son or daughter)	childlike									
+	small-small-person	baby	small-child		520.4				baby	baby									
+	male-energy	masculinity			521				masculinity	masculine									
+	female-energy	feminity			522				feminity	feminine									
+	female-part	vagina			523				vagina	vaginal; yonic									
+	male-part	penis			524				penis	phallic									
+	female-big	mother			525		I like that female-big is "muda" ! For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		mother										
+	male-big	father			526		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		father										
+	with-small	sibling			527		aka aka with-child or co-child; For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		sibling									nwa (ak:nua)	
+	female-with-small	sister	female-sibling		528		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		sister										
+	male-with-small	brother	male-sibling		529		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		brother										
+	big-female-with-small	jiejie	big-sister		529.2				big sister										
+	big-male-with-small	gege	big-brother		529.4				big brother										
+	small-female-with-small	meimei	small-sister		529.6				little sister										
+	small-male-with-small	didi	small-brother		529.8				little brother										
+	female-small	daughter			530		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		daughter										
+	male-small	son			531		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		son										
+	with-small-big	uncle/aunt	sibling-big		532		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		uncle; aunt										
+	female-with-small-big	aunt	female-uncle/aunt		533		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		aunt										
+	male-with-small-big	uncle	male-uncle/aunt		534		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		uncle										
+	small of with-small				535		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		nibling										
+	jump-with-small	cousin	jump-sibling		536		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		cousin										
+	jump-big	grandparent			537		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		grandparent										
+	two-jump-big	great-grandparent	two-grandparent		538		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		great-grandparent										
+	three-jump-big	great-great-grandparent	three-grandparent		539		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		great-great-grandparent										
+	two-jump-with-small	second_cousin	two-jump-sibling		540		For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".		second cousin										
+	new-be eat-stuff				541						to cook food								
+	new-be-eat-person	cook	create-eat-person		542				cook										
+	hard--no-side	bean	hard-ball		543				bean										
+	big-hard--no-side	melon	big-bean		544				melon; gourd									zh:gua	
+	hard--no-side-plant	bean_plant	bean-plant		545				bean plant										
+	animal-stuff	meat			546			animal-eat	meat; flesh										
+	plant-water	tea			547				tea; tisane; broth										
+	energy-water	coffee			548			soil-color-water	coffee; gasoline; petrol										
+	hard-light-water	cheese	hard-milk		549			hard-cow-water	cheese										
+	u_rice				550		TODO atomize		rice										
+	sour-light-water	yoghurt	sour-milk		551			sour-cow-water	yoghurt										
+	hard-opening-see	bitterness	hard-taste		552				bitterness	bitter								ku (zh)	
+	no-water	dry			553				driness	dry; wry	to dry sth								
+	no-water-opening-see	astringency	dry-taste		554				astringency	astringent									
+	through-go--head-front-plant	brassica	cross-face-plant		555		aka aka cross-flower-plant; kola; note that head-front is flower (aka the plant's face)		brassica										
+	play-place	park			556				park; playground										
+	air-go-thing	airplane	flight-thing		557														
+	air-go-place	airport	flight-place		558				airport										
+	water-dirt-place	swamp	mud-place		559				wetland; swamp										
+	water-place	lake			560			big-water	lake										
+	big-water-place	ocean	big-lake		561			big-big-water	ocean										
+	big-direction	cardinal_direction			562				cardinal direction										
+	direction-one	north			563			over-direction; big-direction-one	north	north									
+	direction-two	east			564			right-direction; big-direction-two	east	east									
+	direction-three	south			565			anti-over-direction; big-direction-three	south	south									
+	direction-four	west			566			left-direction; big-direction-four	west	west									
+	side like direction-two of law-place				567				the east coast of the country										
+	eat-small-plant-place	pasture	eat-grass-place		568				grazing land; pasture		to graze (e.g. cows eating grass); to graze swh								
+	light-energy	electricity			569				electricity	electric	to electrify sth; to shock								
+	energy-long-water	electric_current	energy-river		570				electric current; electrical current										
+	long-water	river			571				river; current; current; river		to flow								
+	see-animal-place	zoo	see-animal-place		572				zoo										
+	small-water	pond			573				puddle/pond										
+	do place inside				574				insertion		to insert sth; to plug sth in								
+	place-inside	insert			575				insertion		to insert sth; to plug sth in								
+	place-inside-place	socket	insert-place		576				socket										
+	place-inside-thing	plug	insert-thing		577				plug										
+	of-me-thing	posession	of-me-thing		578				posession										
+	no-inside	empty			579			no-have-inside	space; emptiness	empty; hollow	to leave swh; to exit swh; to take sth outside (of sth else: of thing); to blow; to empty sth			outside (static)				wai (zh:wai)	
+	do no-inside air				580			anti-full			to blow air								
+	have-inside	full			581				fullness	full; filled	to fill sth; to fill sth up								
+	big-container	house			582			person-container	house; home; building		to house sth								
+	big-container-part	room	house-part		583				room										
+	eat-arm	fork			584				fork										
+	hot-energy	fire			585			hot? hot-air? hot-anti-do-thing?	fire; anger; rage; wrath	fiery; angry; burnt; burning	to madden; to ignite sth; to light sth on fire; to enrage sb; to burn								
+	hot-love-energy	passion	hot-love-energy		585.5				passion	passionate	to empassion								
+	big-dirt	earth			586				the Earth										
+	flat-stuff	cloth			587				cloth; clothes		to clothe; to get dressed; to dress sb/sth								len
+	big-plant-stuff	wood	tree-stuff		588				wood										
+	over-flat-stuff	shirt	over-cloth		589			top-cloth; over-body-cloth	shirt										
+	flat-time-flat-stuff	blanket	sleep-cloth		590			sleep-flat-stuff; do-hot-cloth?	blanket										
+	flat-time-flat-stuff like small				591			sleep-flat-stuff like small	<disambiguation_form> sheet										
+	hot-flat-stuff	jacket	hot-cloth		592				jacket; sweater; sweatshirt										
+	head-body-flat-stuff	scarf	neck-cloth		593				scarf										
+	go-arm-flat-stuff	pants	leg-cloth		594			leg-body-cloth	pants	pantslike									
+	go-arm-end--flat-stuff	shoe	foot-cloth		595		This could be flat-stuff of go-arm-end...the eternal question of what is a compound		shoe										
+	big-law-place--flat-stuff	flag	country-cloth		596		aka country cloth		flag										
+	flat-stuff of hard-side				597		aka cloth of the wall		wall hanging; tapestry										
+	down-place-flat-stuff	rug	ground-cloth		598		aka ground cloth		rug; carpet	ruglike									
+	water-flat-stuff	towel	water-cloth		599			no-water-cloth; against-water-thing; against-water-cloth	towel		to dry o.s. with a towel; to dry sth with a towel								
+	against-water-thing	umbrella	against-water-thing		600				umbrella										
+	hot-energy-water	alcohol	fire-water		601			fire-water, anger-water	alcohol										
+	fruit-water	juice			602				juice										
+	with-place-metal	alloy	mix-metal		603			with-put-metal	alloy										
+	can-body-dirt	clay	malleable-dirt		604				clay										
+	water-air	vapor			605				vapor; steam; water vapor; fog; mist		to evaporate								
+	water-dirt	mud			606				mud; paste; cream; 糊糊	muddy; pastey; creamy	to put mud/paste/cream on sth								
+	part-two	half			606.5				todo										
+	one-part-two	one_half	one-half		606.6				one half										
+	part-four	quarter			607				quarter	quarter									
+	one-part-four	one_quarter	one-quarter		608				one quarter										
+	three-part-four	¾	three-quarter		609				three quarters										
+	plant-egg	seed			610		obsolete:: it's slightly odd that a dot is a seed, but whatevs	small-part	seed; dot; point; grain (of sand); grain (of wheat); minority		to plant sth								
+	small-thing-stuff	powder	small-thing-stuff		611			small-part-stuff	powder; dust	powdered; dusty	to grind (into flour e.g.); to pulverize								
+	dirt-small-thing-stuff	dust	dirt-powder		612				<disambiguation_form> dust										
+	do no-do small-thing-stuff				613						to dust sth								
+	hot-energy--small-thing-stuff	ash	fire-powder		614				ash	ashy									
+	water-eat-stuff	soup	water-food		615				soup; beverage	soupy	to drink sth								
+	light-water	milk			616			cow-water	milk										
+	metal-see	shine			617		aka metallic appearance		shine	<disambiguation_form> shiny									
+	big-plant-stuff-part	splinter	wood-part		618				splinter									wood-let (eo: lignero a splinter, from 'wood')	
+	flat-stuff-link	thread	cloth-link		619				<disambiguation_form> thread; string; rope	sewn	to sew								
+	through-thing	hole			620			through-opening	hole (going all the way through)										
+	big-over-thing	summit	big-top		621			big-over-nose	summit (of a mountain)										
+	play-energy	silly			622					silly; fun									
+	no-play-energy	solemnity	no-silly		623				solemnity	serious; stern; solemn									
+	direction-energy	pressure			624				pressure; printing	pressured; pressurized; printed	to press sth; to pressurize sth; to put pressure on sth; to urge sb; to print sth; to urge sb to do sth								
+	two-side-energy	squeeze	two-side-energy		625						to squeeze sth; to pinch sth								
+	time-direction-energy	urgency	time-pressure		626		aka time pressure		urgency; emergency; time pressure	urgent									
+	hard-energy	strength			627				strength	strong; powerful	to push sth; to power through sth; to force sth								wawa
+	all-hard-energy	conquer	all-strength		627.5				conquest		to conquer sth; to take sth over; to control sth/sb;								
+	big-life-energy	enthusiasm	big-life-energy		628				enthusiasm	enthusiastic									
+	over-big-life-energy	frenzy	over-enthusiasm		629				frenzy	frenzied									
+	no-energy	tired			630				tiredness	tired; exhausted	to tire; to ennervate sth; to numb sth/sb; to anaesthetize sb/sth								
+	no-can-energy	weakness	no-can-energy		631		TODO: clean up the definitions between no-can-energy and no-energy		weakness; inability; lack of energy; indifference; numbness	weak; ennervated; insipid; indifferent; numb; emotionless; feelingless	to ennervate sth; to numb sth/sb; to anaesthetize sb/sth								
+	what-energy	confusion			632				confusion	confused; confusing; bewildered	to confuse (sb; A with B = A with B)								
+	what-think	wonder			633				wonder; wonderment		to wonder; to ponder								
+	of-energy	pull			634				pull; drag; attraction	attractive; enticing	to pull; to pull sth; to drag sth; to attract sth; to draw sth in; to entice								
+	can-do	opportunity			634.5				opportunity	opportune									
+	big-can-do	capability	big-can-do		635			big-can-do-energy	capability	capable									
+	mark-flat	paper			636			of-mark-flat	<disambiguation_form> paper										
+	plant-flat	leaf			637				<disambiguation_form> leaf										
+	flat-thing	board			638				board; table; any flat thing										
+	have-thing-flat-thing	table	have-thing-board		639		aka hold-things-flat-thing		table										
+	think no one-way direction number thing				640			talk no-one-way direction X			to differentiate [pl noun]; to tell [pl noun] apart; to discern [pl noun]								
+	flat-energy	peace			641				peace; stillness; evenness; levelness; equality	calm; peaceful; still; even; level	to be equal; to calm sb down; to equal sth							平静	
+	no-flat-energy	strife	no-peace		642				strife; agitation; nervousness	agitated; nervous	to agitate sb								
+	big-think	smart			643			edge-mind; point-think	intelligence; smartness	smart; intelligent; sharp (smart); sharp-witted	to be smart; to outwit sb								
+	small-think	stupidity			644			no-think	stupidity	foolish; dumb; silly; stupid									
+	think-energy	creativity			645				creativity; imagination	creative; imaginitive	to imagine sth								
+	all-way-think	ingenuity	all-way-think		646				ingenuity; genius (e.g. 'his genius')	ingenious									
+	no-good-talk-energy	badmouthing	criticism-energy		647				talks bad about people										
+	do-thing-energy	doing_things_energy	do-thing-energy		648				big doing things energy	doing things energy									
+	no-good-energy-air	sigh	hurt-air		649			no-good-energy-noise	sigh		to sigh								
+	want-go-energy	fear	want-go-energy		650				fear	afraid	to be frightened; to fear sth							pa (zh:pa, en:fear)	
+	good-energy	happy			651			good-feel	happiness; joy; glee	happy; joyful; gleeful; glad	to be happy; to make sb happy; to enjoy sth; to enjoy doing sth								
+	good-energy-time	celebration	happy-time		652				celebration	celebratory	to celebrate sth								
+	give good-energy				653						to please sb								
+	self-big	proud			654				pride; arrogance	proud; arrogant									
+	self-big-energy	pride	proud-energy		655			big-me; self-good-energy	pride; arrogance	proud; arrogant									
+	self-small	politeness			656			small-me; self-break (aka self-effacing)	politeness	polite									
+	over-self-big	arrogant	over-proud		657			over-big-me	arrogance	arrogant									
+	no-good-energy	hurt	no-happy		658		"it pains me" = I am sad	body-no-good	sadness; pain; hurt	sad; hurt; in pain; painful; hurtful	to be sad (about sth); to suffer; to pain sb; to hurt sth; to hurt sth/sb					sorry; excuse me			
+	long-no-good-energy	depression	long-hurt		659			big-no-good-energy	depression										
+	can-no-good	danger	can-bad		660				danger	dangerous									
+	no--can-no-good	non-dangerous	no-danger		660.5				safety	nondangerous; safe									
+	back-no-good-energy	regret	back-hurt		662				regret		to regret sth								
+	dark-through-no-good-energy	despair	dark-through-hurt		663		aka dark-hole bad mood; ??		despair	despairing	to despair								
+	no-link eat-stuff	vomit			664		aka release food; could be parsed as a compound or as a verbal phrase with an object. HencE: space is not important.		vomit	queasy; nauseated; disgusted	to vomit; to barf; to throw up								
+	no-link-eat-energy	disgust	release-eat-energy		665				disgust	queasy; nauseated; disgusted									
+	energy-move	exercise			666			move body	exercise		to exercise								
+	energy-stuff	muscle			667				muscle										
+	all-break	break_completely			668						to break sth completely; to destroy								
+	small-break	cut			669		DECIDED: break and cut should be the same but contrast with part; cut is disambiguated as small-break; break has the meaning of making something broken; part has the meaning of divide.		cut; slice	cut	to cut sth; to mow (grass); to slice sth;							k* (onom); ka (en:cut, en:crack, vi:cắt=to cut, sw:kukata=to cut) ; [ck][ie] (zh:切qie, ja:kiru=to cut, tr:kesmek=cut, yue:切cit3=cut); co (es:cortar=cut, vi:bẻ khóa=to crack)	
+	break like small				670				crack	cracked	to crack sth								
+	no-dirt	cleanliness			671				cleanliness		to clean sth; to wash sth							l* (es:lavar,limpio, en:clean, vi:làm sạch=to clean, vi:lau dọn=clean, ar:lel-tazyi3=to clean sth; ar:li-tafsi7=to clean, ja:arau=to wash)	
+	head-opening	mouth			672			big-new-energy; bite-place; love-touch (for kiss)	mouth		to kiss sb; to mouth sth							bwa (de:boah); la (zh:la)	uta
+deng	tooth			tooth	672.5	1474	TODO: consider reprecating to hard-thing or hard-eat-thing etc. note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.	head-opening; bite-thing	bite; tooth		to bite sth; to chew sth; to gnaw sth; to nibble sth							ku (ru:0.7:кусать=bite; hi:0.2:काटना=bite; fil 0.7:kumagat=bite; sw:0.7:kuuma=bite; te:0.3:కొరుకు=bite); meng (id:0.8:menggigit=bite); deng (pie:0.9:*denḱ-=bite, sq:0.7:dang=bite, es:0.2:diente=tooth; pt:0.2:dente=tooth; it:0.2:dente=tooth; fr:0.2:dent=tooth; hi:0.1:दाँत=tooth); dang (sq:1.0:dang=bite); nya (en:0.8:gnaw; vi:0.8:nhai=chew; ar:0.6:نخر=gnaw, de:0.7:nage; zh:0.1:yao; te:0.6:నమలడానికి=chew; fil:0.4:ngumunguya=chew); chu (en:chew); yao (zh:yao), keng (zh:0.7:啃咬=bite)	
+	small-tooth	nibble			673				nibble										
+	long-tooth	fang			673.4				fang										
+	tooth-animal	rodent			674		TOD collapsing bite and gnaw makes this a little weird...consider rename		mouse; rat; rodent										
+	big-tooth-animal	rat	big-rodent		675				rat										
+	small-tooth-animal	mouse	small-rodent		676				mouse										
+	move-have	carry			677				carry		to carry sth								
+	eat-stuff	food			678				food										
+	can eat				679					edible									
+	give eat				680						to feed sb								
+	self-see	appearance			681				appearance; reflection	apparently; apparent; -appearing	to appear; to arise; to reflect sth								jasima
+	self-see-thing	mirror	self-see-thing		682				mirror										
+	flat-time-place	bed	sleep-place		683			sleep-place	bed										
+	no-flat-time	awakeness	no-sleep		684			no-sleep	awakeness	awake; alert; watchful	to wake up; to awake								
+	flat-time-think	dream	sleep-think		685			sleep-think	dream		to dream (of sth)								
+	start flat-time				686			start sleep			to fall asleep								
+	no-link-thing	gun	release-thing		687				gun										
+	long-link--no-link-thing	bow	string-release-thing		688			bend-shoot-thing	bow										
+	use arm do no-link	throw	arm-release		689						to throw sth; to toss sth								
+	air-go	flight			690				flight		to fly sth; to fly to swh								
+	go-place	road			691			go-way	road; path; trail										
+	have-dirt	dirty			691				dirt	dirty; unclean	to make sth dirty								jaki
+	big-small-break-thing	sword	big-knife		694				sword		to use a sword; to cut sb down with a sword								
+	fast-go	run			695			fast-leg-go	run		to run (to swh)								
+	go of				696		aka away-go / go from		leave		to leave swh/sth								
+	arm-go	walk			697			go-arm-go	walk		<disambiguation_form> to walk (to sth/swh)								jalan
+	all-fast-go	sprint	all-run		698				sprint		to sprint (to swh)								
+	play-thing	toy			699				toy	toy-like	to toy with sth/play s.o (he played me)								
+	flat-play-thing	playing_card	flat-toy		700				playing card										
+	water-go	swim			702				swim		to swim (to swh)								
+	sound-see	hearing			703				hearing		to listen; to listen to sth; to hear sth; to obey sb								kute
+	good-sound	music			704				music; song		to make music; to sing								
+	good-sound-thing	instrument	music-thing		704.5														
+	big--good-sound-thing	piano	big-instrument		704.6														
+	body-sound	voice			705				voice	vocal	to vocalize; to sing								
+	cat-sound	meow			707				meow										
+	cat-eat	catfood			707.5				catfood										
+	cat-opening	catdoor			707.6				cat door										
+	no-hard-plant	fungus	soft-plant		708		aka aka soft-plant, just like "fungus" means "sponge"		fungus										soko
+	u_mint				709		TODO atomize		mint										
+	do-break--no-hard-plant	mold	do-break-fungus		710		aka decay-fungus		mold										
+	see-part-water-plant	onion	cry-plant		711				onion										
+	down-place-fruit	potato	ground-fruit		712		aka aka earth-fruit		potato										
+	hot-down-place-fruit	ginger	hot-ground-fruit		713		aka aka spicy earth-fruit		ginger										
+	small--see-part-water-plant	garlic	small-onion		714		aka aka small onion		garlic										
+	small-plant	grass			715		TODO bad gloss?	link-plant	grass										
+	hot-fruit	apple			716		a universal specific concept, hence its own gloss. Also "lapa" sounds sort of like "apel"!		apple										
+	yellow-fruit	banana			717		a universal specific concept, hence its own gloss		banana										
+	u_mango				718		TODO atomize		mango										
+	u_tomato				719		TODO atomize		tomato										
+	good-eat	yummy			720				good food	tasty; yummy								good-eat (zh:好吃)	
+	no-good-eat	yucky	no-yummy		721				bad food	bad-tasting									
+	big-eat	feast			722				feast										
+	small-eat	snack			723				snack		to snack (on sth)								
+	small-good-eat	treat	small-yummy		724				treat										
+	good-see	pretty			725				something beautiful	pretty									
+	no-good-see	ugly	no-pretty		726				something ugly or unpleasant to look at	ugly									
+	nose-see	smell			727				smell	smelling	to smell sth								
+	nose-see like no-good				728				stink	stinky	to stink								
+	surface-see	feel			729				feel; feeling	feeling	to feel sth								
+	opening-see	taste			730		TODO: break up tongue into mouth-part?		taste; flavor	tasting	to taste sth								
+	body-have	wear			731		TODO have on		wear		to wear sth								
+	number-one	win			732		aka get number-one		win; victory; first place	first-rate	to win sth								
+	no-number-one	lose(game)	no-win		733				lose		to lose sb/sth								
+	self-all-think	volunteer	self-decision		734		aka self choose		volunteer	volunteer	to volunteer sb; to volunteer to do sth								
+	distance-give	send			735				send		to send sth								
+	must-have	deserve			736				what s.o. deserves		to deserve sth								
+	must-give	owe			736.5				debt		to owe sth								
+	good-you	thank			736.6				thanks	thankful	to thank sb					thanks!			
+	other-other	continue			737		TODO ????		endurance; persistence; such-and-such	etc.; persistent	to continue sth; to persist in sth; to endure sth; to stand sth (in the sense of "can't stand"); [ to do ] to keep doing sth; [ to do ] to persist in doing sth; [ to do ] to still do sth; to proceed		still; yet; nevertheless;				etc.; et cetera	ki (en:keep)	
+	give-see	show			738		"TODO adj could also be ""choice"" or ""judgemental""
+TODO consider deprecating in favor of point/finger"		showing; demonstration; proof; appearance		to show sth; to demonstrate sth; to prove sth; to reveal sth; to appear; to seem to be sth; to appear (to be sth); to give the appearance of being sth							so (en:show)	
+	no move				739			certain	immobility	fixed; immobile	to immobilize; to fix sth (in the sense of to fix its location)							ding (zh:ding=fixed)	
+	against-against	defense			740			no-against; no-go-seek-break	defense; protection		to defend sth; to protect sth								
+	do against-against this of that				740.5						to protect this from that								
+	no-good-get	theft	bad-get		741				theft; robbery		to steal sth; to rob sb								
+	good-give	help			742		DECIDED: fix/repair is different from help.		help	helpful	to help sb/sth; to help to do sth								
+	small-big-energy	pulse	small-big-energy		743		aka short, powerful thing	small-long-power	pulse	pulsing	to pulsate								
+	light-small-big-energy	flash	light-pulse		744				flash	flashing	to flash								
+	sound-small-big-energy	beep	sound-pulse		745				beep	beeping	to beep								
+	over-small-big-energy	lightning	over-pulse		746				lightning	lightning-like	to have lightning								
+	no-see	hide			747				cache; hidden thing; privacy	hidden; private; invisible	to hide sth								len
+	no-can-see	blind	no-can-see		748				a blind person	blind; numb	to be blind (to sth); to blind sb								
+	no-can-see-sound	deaf	no-can-see-sound		749				a deaf person	deaf									
+	do go no-see				750						to disappear								
+	can-long-do	endurance	can-long-do		751				endurance; tolerance	tolerant	to tolerate sth ; to bear sth; to endure sth								
+	life-give	birth			752				birth	life-giving	to bear (a child); to birth; to give birth to; to animate (a non-living thing)								
+	have like law				753						to own								
+	be-think	aware			756				awareness; notification	aware	to be aware of sth; to inform sb (of sth: de ting)								
+	think-part	brain			758				brain; mind										
+	inside-energy	emotion			759			life-see? self-think? inside-think	emotion; feeling	feeling	to feel sth; to emote								
+	do think like direction inside				760				introspection	introspective	to introspect								
+	big-energy	big_energy			761					gregarious; big personality; takes up a lot of space									
+	head-front--want-go-energy	bravery	face-fear		762		aka aka face fear		bravery	brave; daring	to dare; to dare to do sth								
+	no-good-thing	problem	bad-thing		764		TODO what about general "issue"? consider changing to "ething"		problem	problematic	to cause problems								
+	body-no-good	sick	body-bad		765			anti-good-feel-state	sickness; disease; illness; infection	sick; ill	to get sick; to get sb. sick								
+	give-body-no-good	infect	give-sick		766				infection; transmission of disease	infectious	to infect sb								
+	no-break	repair			766.5					intact; unbroken; unharmed	to repair sth; to fix sth								
+	no-break-stuff	medicine	repair-stuff		767			good-give-thing; good-give-stuff	medicine; cure; remedy										misikeke
+	no-break-person	repairman	repair-person		768		aka repair-person	do-good-sick-person; good-give-person	doctor; repairman										
+	go-thing--no-break-person	mechanic	vehicle-repairman		769		aka vehicle repairman	go-thing--do-good-person; go-thing--good-give-person	mechanic										
+	person-no-break-person	doctor	person-repairman		770		aka person repairman	person-do-good-person; person-good-give-person	<disambiguation_form> doctor										
+	animal-no-break-person	veterinarian	animal-repairman		771		aka animal repairman	animal-do-good-sick-person [animal doctor]; animal-good-give-person	veterinarian										
+	with-no-good-energy	compassion	with-hurt		772		could be good-feel; but then anti-good-feel is both to dislike someone and to hurt them. Similarly, fondness or love could be "good", as Toki Pona does, but i thinkt aht collapses important distinctions.	no-good-feel with	compassion; pity	compassionate	to be compassionate (with sb); to pity sb							Mitleid (de)	
+	big-love	dear			773				love; romantic love	beloved; dear	to like; to like sth; to love sth								
+	love-person	friend			774				friend	friendly	to befriend sb								
+	love-person-time	friendship	friend-time		775				friendship										
+	big-love-person	beloved	dear-person		776				loved one; partner (romantic); one's love; beloved		to win sb over romantically; to seduce sb								
+	no-love	dislike			777				dislike	disliked	to dislike sth/sb								
+	big-no-love	hate	big-dislike		778				hate	hated	to hate sth/sb								
+	love-energy	friendliness			779				friendliness; lovingness	friendly; loving	to be friendly (with sb)								
+	no-love-energy	unfriendliness	dislike-energy		780				unfriendliness	unfriendly	to be unfriendly (with sb)								
+	big-no-love-energy	hatefulness	hate-energy		781				hatefulness	hateful	to treat sb hatefully								
+	truth-think	belief			782			big-energy-think	conviction; belief; determination; certainty; trust	certain; trusting	to believe sth; to be certain; to trust sb								
+	hard-energy-think	resolute	strength-think		782.4				determination; resolution	determined; resolute	to be determined; to believe sth; to be certain; to be determined to do sth								
+	all-think	decision			783		aka think to completion; "end think" without the dash is also fine. But it makes it a bit funnier when it is a noun. "this is my end think" means that "end" is a quantifier — or else adjectives can go before or after		decision; choice; judgement; conclusion; pick	sure; decided; certain	to decide sth; to conclude that; to choose sth; to judge sth/sb; to pick sth								
+	hard-think	know			784			truth-think	knowledge	knowledgeable	to know sth								sona
+	law-hard-think	diagnosis	law-know		785		aka official knowledge; Done: how to deal with "diagnose sb WITH sth"		diagnosis		to diagnose sb (with X: this do have X)								
+	energy-hard-think	familiarity	energy-know		786		aka feel-know		familiarity	familiar	to be familiar with sb/sth								
+	no-hard-think	ignorance	no-know		787			no-hard-think (but this should be "unknowing")	ignorance	ignorant									
+	think-hard-think	intellectual_knowledge	think-know		788		aka mind-know		<disambiguation_form> intellectual knowledge	knowledgeable	to know sth intellectually								
+	over-truth	sacred			789			over-know	Sacredness; the Divine	unknowable; sacred; divine; holy									
+	over-truth-person	god	sacred-person		790		aka beyond-comprehension-being	over-know-being; no-can-know-being; no-can-know-being	god; deity	godly; godlike									
+	talk direction over-truth				791		aka talk to the Divine		prayer		to pray (for sth)								
+	give-think	teach			792		TODO (unrelated to this word): see whether glosses with take/arm-end-have could use "get"	give-know	teachings		to teach sth								
+	get-think	study			793			get-know	learnings; study		to learn sth; to study sth								
+	get-think-person	student	study-person		794		aka study-person	hard-do-get-know-being	student										
+	order-seek-truth	science	order-seek-truth		795		aka the ordered process of seeking truth; TODO get —> all-seek		science	scientific									
+	do-wide	spread			796		merge into "wide"	do-wide			to spread sth; to sow seeds; to broadcast								
+	do wide hard-think				797			do-wide-know			to spread knowledge (about sth)								
+	seek-hard-think	research	seek-know		798			seek-know	research		to research sth								
+	good-think	goodthink			799				admiration; optimism	optimistic	to admire sb; to think good of sb; to be optimistic								
+	no-good-think	resentment	no-goodthink		800				resentment		to resent sb								
+	new-good-think	forgiveness	new-goodthink		801				forgiveness	forgiven	to forgive sb								
+	number-mark	text			802				text; note; message; letter; any written material										
+	energy-number-mark	email	energy-text		803				email; text message; any electronic written material		to email; to text								
+	small-number-mark	sentence	small-text		804		cognate: 短信		sentence; sms; short message										
+	number-mark-thing	book	text-thing		805			see-know; big-number-mark-thing	book; article; tome		to read sth								
+	hard--number-mark-thing	hard_copy	hard-book		806				<disambiguation_form> book; hard copy										
+	big-number person				807				crowd	crowded									
+	front-think-time	schedule	plan-time		808				schedule	scheduled	to book sth; to schedule sth								
+	like do person want-go-energy				809				?	frightening	to frighten sth								
+	big-number move-energy				810		aka renao			bustling with noise or excitement									
+	light-light	goodbye			810.4		"byebye" has become universal; a 'native' form would be 'other-see'		goodbye		to say goodbye					bye!			
+	life-long	hello			810.45		a phonetic loan from "salaam", not a true compound.	hard-hard (coucou); all-hot (ola); talk-long (selam)	hello							hi!			
+	other-time-see	review	again-see		811				review		to review sth								
+	front-see	predict			812		interesting that "predict" is to pre-talk, but "vorhersehen" is to pre-see		prediction; prognostication	predicted	to predict that								
+	can-front-see	predictable	can-predict		813					predictable									
+	no-can-front-see	unpredictable	no-predictable		814					unpredictable									
+	front-do	prepare			815		"Note: ""prepare"" = pre + do, and pre/post are a bit reversed in trevorese
+consider atome fo this semantic gap: prepare/ready/setup/install/construct/build"	front-do; back-do	preparation; installation; readiness	ready; prepared	to prepare sth; to set sth. up; to ready sth; to install sth								
+	front-think	plan			816		used to have anticipate and expect to be different		expectation; plan; theory		to expect sth; anticipate sth; to plan sth; to expect to do sth; to theorize sth							Vorfreude (de)	
+	back-think	memory			817			other-time-know	memory		to remember sth; to remind sb								
+	no-back-think	forget	no-memory		818				forgetfulness	forgetful	to forget sth								
+	front-want-go-energy	dread	front-fear		819				dread										
+	front-good-think	hope	front-goodthink		820			good-front-think	hope; anticipation	hopeful	to hope (for sth); to hope that sth; to look forward to sth; to anticipate sth								
+	break-front-good-think	dissapointment	break-hope		821				dissapointment; despair	disappointed	to be disappointed; to disappoint sb								
+	more-want	preference			822				preference		to prefer sth								
+	big-want	need			823				need		to need sth								
+	place-air	climate			824		slightly odd gloss, but like zh 天气	number-time-light-energy	climate										
+	down-water	rain			825			over-water	rain										
+	this light-time				826				today										
+	front-light-time	tomorrow	front-day		827				tomorrow										
+	back-light-time	yesterday	back-day		828				yesterday										
+	two-front-light-time	day_after_tomorrow	two-tomorrow		829				day after tomorrow										
+	two-back-light-time	day_before_yesterday	two-yesterday		830				day before yesterday										
+	new-time	morning			831				morning										
+	front-middle-time	afternoon	front-noon		832				afternoon										
+	middle-time	noon			833		TODO hour and noon being same is weird?		hour; noon										
+	back-middle-time	pre_noon	back-noon		834				pre-noon										
+	back-dark-time	evening	back-night		835		aka almost night	no-new-time	evening										
+	middle-dark-time	midnight	middle-night		835.5				midnight										
+	dark-time	night			836				night										
+	small-time	minute			837				minute	soon									
+	small-small-time	second	small-minute		838				second										
+	seven-time	week			839				week										
+	seven-time-end	weekend	week-end		840				weekend										
+	light-time	day			841				day										
+	light-time one				842				Monday										
+	light-time two				843				Tuesday										
+	light-time three				844				Wednesday										
+	light-time four				845				Thursday										
+	light-time five				846				Friday										
+	light-time six				847				Saturday										
+	light-time seven				848				Sunday										
+	dark-over-light--one	January	moon-one		849		the choict to write as one word instead of two is arbitrary/aesthetic.		January										
+	dark-over-light--two	February	moon-two		850		the choict to write as one word instead of two is arbitrary/aesthetic.		February										
+	dark-over-light--three	March	moon-three		851		the choict to write as one word instead of two is arbitrary/aesthetic.		March										
+	dark-over-light--four	April	moon-four		852		the choict to write as one word instead of two is arbitrary/aesthetic.		April										
+	dark-over-light--five	May	moon-five		853		the choict to write as one word instead of two is arbitrary/aesthetic.		May										
+	dark-over-light--six	June	moon-six		854		the choict to write as one word instead of two is arbitrary/aesthetic.		June										
+	dark-over-light--seven	July	moon-seven		855		the choict to write as one word instead of two is arbitrary/aesthetic.		July										
+	dark-over-light--eight	August	moon-eight		856		the choict to write as one word instead of two is arbitrary/aesthetic.		August										
+	dark-over-light--nine	September	moon-nine		857		the choict to write as one word instead of two is arbitrary/aesthetic.		September										
+	dark-over-light--one-no	October	moon-ten		858		the choict to write as one word instead of two is arbitrary/aesthetic.		October										
+	dark-over-light--one-one	November	moon-eleven		859		the choict to write as one word instead of two is arbitrary/aesthetic.		November										
+	dark-over-light--one-two	December	moon-twelve		860		the choict to write as one word instead of two is arbitrary/aesthetic.		December										
+	four-time	season			861		DONE: harmonize seasons vs months placement of nombers	four-dark-time-light-time [four-month]	season										
+	no-hot-four-time	winter	no-hot-season		862	anti-hot-four-moon-time; dirt-time-one; no-hot-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	anti-hot-four-moon-time; dirt-time-one	winter										
+	down-four-time	autumn	down-season		863	anti-up-four-moon-time; dirt-time-two; down-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	anti-up-four-moon-time; dirt-time-two	fall										
+	over-four-time	spring	over-season		864	leaf-four-moon-time; dirt-time-three; over-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	leaf-four-moon-time; dirt-time-three	spring										
+	hot-four-time	summer	hot-season		865	hot-four-moon-time; dirt-time-four; hot-four-time	the choict to write as one word instead of two is arbitrary/aesthetic.	hot-four-moon-time; dirt-time-four	summer										
+	big-dirt-time	year	earth-time		866		change to big-time?		year										
+	hot-number	temperature			867				temperature										
+	light-time-energy	weather	day-energy		868			light-time-energy e.g. day-energy	weather										
+	over-light	sun			869		although "over-light" is an excellent gloss, "sun" has too many children at present. Hence why it is atomic. [EDIT: most of these can be replaced with "light", so it is being deatomized!]	sun; sky-bright: over-light; sky-bright	sun; star	sunny									
+	small-time-person	youth	small-time-person		870				a youth; a child										
+	middle-time-person	middle_aged	middle-time-person		871				a middle-aged person										
+	big-time-person	elder	big-time-person		872				an old person										
+	one-no-time--person	teenager	ten-time-person		873				a teenager										
+	want-water--body-no-good	rabies	thirst-sick		874														
+	self-energy	act			875		note: self-do/self-energy = act/become		attitude		to act; to behave								
+	self-time	just			876					just (past); just about to (future); just now; right now									
+	with-time-person	classmate	meeting-person		877				classmate										
+	energy-link	internet			878				internet										
+	energy-link-place	website	internet-place		879				website										
+	small-light	flashlight			881				flashlight										
+	dark-over-light	moon	dark-sun		882		Previously: dark-time-over-light, aka night-sun, and then dark-time-light, aka night-light. But these got too long.	dark-time-light, aka night-light	moon; moonlight; month										mun
+	person-number	community			883		TODO: community vs culture?	consider being-???; being-group	community; culture; being-group; group of people; group identity; granfalloon									twa/twai (en:tribe; zh:tuan)	
+	talk-color	dialect			884			color-tongue	dialect; accent										
+	no-sound	silence			885				silence; quietness	silent; quiet	to be quiet								
+	flat-stuff of this-time-person-number				886			this-time-being-group-body-cloth	current fashion										
+	flat-stuff of person-number				887			being-group-body-cloth	fashion										
+	person-number-eat	cuisine	community-eat		888			being-group-eat	cuisine										
+	person-number-stuff	culture	community-stuff		889			being-group-stuff	culture										
+	go-thing	vehicle			890				vehicle										
+	distance-go	trip			891				trip; travel		to travel (to swh)								
+	container-go-thing	elevator	container-vehicle		892				elevator										
+	no-side-go-thing	car	ball-vehicle		893		aka wheel-go		car; wagon										
+	hot-energy-go-thing	train	fire-vehicle		894				train										
+	give-metal-go-thing	taxi	pay-vehicle		895				taxi										
+	flat-energy-go	vacation	peace-go		896				vacation		to go on vacation (to swh)								
+	direction-over-do-thing	stairs	direction-over-device		897				stairs										
+	self-go-direction-over--do-thing	escalator	self-go-stairs		898				escalator										
+	two--no-side-go-thing	bicycle	two-ball-vehicle		899			two-all-side	bicycle										
+	water-go-thing	boat	water-vehicle		900				boat										
+	other-way-go	return	other-way-go		901				return trip		to go back; to return								
+	other-talk	answer			902				answer		to answer sth/sb								
+	all-direction-break	explosion	all-direction-break		903			sudden-break; direction-anti-inside-break	explosion	burst									
+	back--all-think	prejudice	back-decision		904		already finished thinking about it	front--all-think	prejudice	biased; prejudiced	to act in a prejudiced way; to prejudice sb								
+	all-eat	eat_up			905		"end-eat" is also fine. But this seems less like it needs a bespoke verb, vs find/arrive, which feel more fundamental.	eat like end			to eat sth up								
+	all-go	arrival			906			all-go; go like all	arrival		to arrive swh								
+	all-seek	find			907		do correctly	good-all-do		found	to find sth								
+	all-want	get_by_wanting			908						to get sth by wanting; to manifest sth								
+	must-all-think-time	trial	must-decision-time		909		redo	think-front--all-think (everyone thinks and then decides); group-must--all-think-time; must-all-think-time	trial										
+	other-other go				910						to keep going swh								
+	other-other hard-surface				911				repeated hitting		to hit repeatedly; to hit sth repeatedly								
+	all-person	everyone			912				everyone; anyone										
+	all number				913														
+	all-place	everywhere			914				everywhere; anywhere										
+	all reason				915														
+	all-thing	everything			916				everything										
+	all-big-thing	world	all-big-thing		916.5			big-all-thing	the world; the universe	universal; global									
+	all-time	all_the_time			917				all the time; every time; always; any time										
+	all-possibility	any			174.3				anything; unending possibiliy	arbitrary; indetermate; some; any							marks interterminacy		
+	all way				918					anyway; anyways; whatever the case									
+	person like all-possibility				919			no-specific-person	someone	someone									
+	number like all-possibility				920			no-specific-number	some amount	some amount									
+	place like all-possibility				921			no-specific-place	somewhere; region	somewhere; region									
+	reason like all-possibility				922			no-specific-reason	for some reason	for some reason									
+	thing like all-possibility				923			no-specific-thing	something	something									
+	time like all-possibility				924			no-specific-time	sometime	sometime									
+	way like all-possibility				925			no-specific-way	somehow	somehow									
+	that number				927		TODO "that much" versus "them"		that much										
+	that-place	there			928				there										
+	that-reason	because2			929								because; thanks to						
+	that-time	then			931				then; while										
+	that-way	thus2			932				that way; like that; thus										
+	this number				934		TODO "this much" versus "them"		this much										
+	this-place	here			935				here										
+	this-reason	because			936				because; thanks to										
+	this-time	now			938				now										
+	this-time self				940				<disambiguation form> right now; this very moment (distinguishing from this-time meaning "then")										
+	this-way	thus			941				like this; thus										
+	what-person	who			942				who; whom										
+	what-number	how_much			943				how much										
+	what-place	where			944				where										
+	what-reason	why			945				why										
+	what-time	when			947				when										
+	what-way	how			948				how										
+	no person				949				no-one										
+	no number				950				none										
+	no place				951				nowhere										
+	no reason				952				for no reason										
+	no thing				953				nothing										
+	no time				954				never										
+	no way				955				no way										
+	give-reason	therefore			956			give reason	therefore; so										
+	use-thing	tool			957			do-thing	tool										ilo
+	small-break-thing	knife	cut-thing		958				knife										
+	do-mark-thing	pen	do-mark-thing		959				pen										
+	get-think-place	school	study-place		960			get-know-place	school										
+	get-think-time	lesson	study-time		960.2				lesson; class period										
+	big-get-think-place	university	big-school		961		大学	big-get-know-place	university										
+	think-way	ology			961.1				discpline (school of thought); bani (Carnatic music); -ology; school of thought										
+	life-think-way	biology	life-ology		961.2				biology										
+	think-think-way	psychology	think-ology		961.3				psychology										
+	self-way-think-way	discipline_of_philosophy	nature-ology		961.4				philosophy										
+	self-way-think	philosophy	nature-think		961.45				philosophy										
+	stuff-think-way	chemistry	stuff-ology		961.5				chemistry										
+	move-think-way	physics	move-ology		961.6		this isn't a great gloss---gumengwe could also be good...		physics										
+	big-self-way-think-way	earthscience	naturaleza-ology		961.7				earth sciences; ecology										
+	hard-thing-think-way	geology	stone-ology		961.8				geology										
+	no-new-think-way	archeology	old-ology		961.9				archeology										
+	back-time-think-way	history	before-ology		962				history										
+	new-be-eat-place	kitchen	create-eat-place		962				kitchen										
+	number-think-way	mathematics	number-ology		962.1				mathematics										
+	think-stuff-think-way	informatics	information-ology		962.2				informatics; computer science										
+	metal-think-way	economics	metal-ology		962.3				economics										
+	body-metal-think-way	metalurgy	body-metal-ology		962.4														
+	water-go-place	swimming_pool	swim-place		963				swimming pool										
+	hard-do-place	workplace	work-place		964				workplace; office										
+	hard-do-big-container	office_building	work-house		965		work-house		office building										
+	place direction do no-dirt flat-stuff	laundromat			966				laundromat										
+	eat-place	restaurant			967				restaurant										
+	water-eat-place	pub	drink-place		968				pub; tavern; watering hole										
+	good-move	dance			970				dance		to dance (with sb)								
+	good-move-place	club	dance-place		970.5				club										
+	good-move-person	dancer	dance-person		970.6				dancer										
+	through-see-hard	glass	transparent-hard		978		aka aka see-through stone; reduced supercompound from transparent-hard (context obviates; hi caffeine)		glass	glasslike; glassy									
+	water-container	cup			979				cup										
+	flat-stuff-container	bag	cloth-container		980				bag		to wrap sth (with cloth)								
+	back-flat-stuff-container	backpack	back-bag		981				backpack		to carry sth in a backpack								
+	big-plant-stuff-container	box	wood-container		982				box; cupboard; closet; drawer; chest of drawers										
+	metal-container	purse			983		aka money container		wallet; purse										
+	what-over	comparison			984				comparison; competition	competitive	to compare (X and Y: X with Y); to compete (with sb); to contrast; compete to do sth								
+	eat-animal-animal	predator	eat-animal-animal		985				predator	predatory									
+	eat-animal-air-animal	raptor	eat-animal-bird		986				raptor; bird of prey										
+	big-think-air-animal	corvid	smart-bird		987				corvid										
+	dark--big-think-air-animal	crow/raven	dark-corvid		988				crow;raven										
+	middle--dark-big-think--air-animal	crow	middle-crow/raven		989				crow										
+	big--dark-big-think--air-animal	raven	big-crow/raven		990				raven										
+	water-color--big-think-air-animal	jay	blue-corvid		991		aka blue smartbird		jay										
+	number-person-do	event	number-person-do		992			group-being-do	event		to have an event								
+	good-move-thing	dance_event	dance-thing		993			good-move-group-being-do; good-move--number-person-do	dance (dance event)										
+	eat-container	bowl			995			eat-stuff-container	bowl; cup; tupperware; tup										
+	flat-eat-container	plate	flat-bowl		995.5			eat-stuff-flat-thing; eat-flat-thing; food-board	<disambiguation_form> plate										
+	no-long-use	temporary	no-long-use		996					temporary									
+	give thing like no-long-use direction person				997						to lend sth to sb								
+	give thing like no-long-use of person				998						to borrow sth from sb								
+	high-do	respect			999				respect; honor	respectful; honorable	to respect sth/sb; to honor sth/sb								olin
+	self-hard-think	self_knowledge	self-know		1000			self-know	self knowledge										
+	think-can	confidence			1001			know-can	confidence	confident									
+	think-can of self				1002			know-can of self	self-confidence										
+	go see thing				1003				tour		to tour swh								
+	energy-energy	energetic			1004				energeticness	energetic									
+	flat-container	envelope			1005		aka paper-container		envelope										
+	other-time-sound	echo	other-time-sound		1006				echo; chorus (song)	echoey	to echo								
+	good-sound-part	verse	music-part		1007				verse (in a song)										
+	metal-link	chain			1008				chain										
+	hot-opening-see	spice	hot-taste		1009				spice	spicy									
+	no-want-move	laziness	no-want-move		1010				laziness	lazy	to loaf								
+	hard-side	wall			1011			do-no-go-thing	wall										
+	with-think	empathy			1012				empathy	empathetic	to show empathy (to sb)								
+	have-small-through	sponge	have-small-through		1013		aka has small holes	porous: many micro hole	sponge	porous									
+	direction-part-break	destruction	direction-part-break		1014		"DECIDED: annoying that there isnt really a way of expressing ""into"" in the sense of ""to break into parts"". But ""direction"" will fill this, e.g. ""break it to parts"".
+TODO: slow destroy is to decompose?"	digest, decompose: antiwhole?	destruction; decomposition;	shattered; broken	to destroy sth; to break sth into parts; to digest sth; to shatter sth; to decompose sth; to decay								
+	middle-part	belly			1015			direction-part-break-part (digest food part)	stomach; belly										
+	energy-part of middle-part				1016				abs										
+	person-place	settlement			1017				town; city; village; settlement; habitation		to settle swh								
+	person-place like start				1018				hometown										
+	small-person-place	village	small-settlement		1019				village										
+	big-person-place	city	big-settlement		1020				city										
+	order-play	chess			1021				chess; go; a strategy game like chess										
+	container-order-play	weiqi	container-chess		1022				go; weiqi; baduk		to play go/weiqi/baduk								
+	jump-order-play	checkers	jump-chess		1023				checkers		to play checkers								
+	direction-four-order-play	western_chess	west-chess		1024				chess (Western chess)		to play chess								
+	direction-two-order-play	chinese_chess	east-chess		1025				Chinese chess		to play Chinese chess								
+	no-order-order-play	RandomCopingChess	random-chess		1026				Random Coping Chess										
+	play-part	playing_piece			1027				piece (in a game)										
+	big-body	fat			1028				fatness	fat									
+	play-flat-thing	game_board	play-board		1029				board (in a game)										
+	big-against	war			1030			end-life-number-person-do	war		to go to war								
+	against-person-number	army	soldier-number		1031			conflict; fight	army; military										
+	love-against	aggressive			1032				aggression	aggressive									
+	no-love-against	docile	no-aggressive		1033				pacifism	pacifist; docile; peaceful									
+	hard-go	slog			1034				march; slog		to march; to slog								
+	end-life	kill			1034.4		TODO no-life ? does end-even need its own atom?				to kill sb; to murder sb; to assassinate sb								
+	end-life-person	killer	kill-person		1035				killer; assassin										
+	against-person	soldier			1036				fighter		to fight sb								
+	inside-arm-thing	example	inside-arm-thing		1037			like-this-thing	example										
+	back do be				1038						was; were								
+	do be				1039						is; are								
+	of me				1040					my; mine									
+	of you				1041					your; yours									
+	of this				1042					his									
+	of me-number				1043			of me-group		ours; our									
+	of this-number				1044			of this-group		their; theirs									
+	of-thing	topic							theme; topic; issue; matter	relevant; topical	to pertain to sth; concern								
+	small-of-thing	motif	small-topic						motif										
+	big-what-talk	beg	big-ask								to beg (for sth); to plead (for sth);								
+	big-sound	yell							loud noise; yell; shout		to yell at sb; to shout at sb								
+	talk-way	pronunciation							pronunciation; accent	accented									
+	mark-way	grammar							grammar	grammatical									
+	new-talk	introduction							introduction		to introduce sth								
+	small-no-side-fruit	berry	small-ball-fruit						berry										
+	get-jump-fruit	grape	put-jump-fruit				This is a cognate from Chinese		grape										
+	number-two	number_two					written together for ease			number two									
+	sour-container-stuff	sourdough	sour-dough						sourdough	sourdough									
+	two-kind-love	bisexual	two-kind-love						bisexual	bisexual; bi									
+	number-kind-love	polyamory	number-kind-love						polyamory	polyamorous									
+	other-kind-love	heterosexual	other-kind-love						straightness; heterosexuality	straight; heterosexual									
+	this-good-go	welcome	this-good-go				should be "good-this-go", but vowel-initials sink to bottom of word		welcome	welcoming	to welcome sb								
+	small-hard-side	fence	small-wall																
+	hard-no-opening	lock	hard-closed						lock	locked	to lock sth								
+	have time									sometimes									
+	have-big-number-thing	busy	have-many-thing						business	busy	to be busy; to busy about								
+	love-give	generosity							generosity	generous									
+	can-body	malleable					aka can-form			malleable; moldable									
+	self-metal	value					TODO bad gloss. big-think should be "to vlaue", but smart collision. big-thing? heart-gold? rare? kulibi? dayau? mengkang?		value; worth	valuable	to value sth; to treasure sth								
+	small-see	rare							rarity	rare									
+	small-see-thing	treasure	rare-thing						treasure										
+	one-over	one_times_ten_to_the																	
+	one-over-two	hundred	one_times_ten_to_the-two						one hundred										
+	one-over-three	thousand	one_times_ten_to_the-three						one thousand										
+	one-over-four	wan	one_times_ten_to_the-four						ten thousand										
+	one-over-five	lakh	one_times_ten_to_the-five						one hundred thousand										
+	one-over-six	million	one_times_ten_to_the-six						one million										
+	one-over-seven	crore	one_times_ten_to_the-seven						ten million										
+	one-over-eight	yi	one_times_ten_to_the-eight						100 million										
+	one-over-nine	billion	one_times_ten_to_the-nine						one billion										
+	one-over-one-no	arab	one_times_ten_to_the-ten						ten billion										
+	energy-arm	strike							strike; blow		to strike; to whip; to hit								
+	link-energy-arm	whip	link-strike						whip		to whip; to flog								
+	give-thing	gift							gift										
+	female-talk	mother_tongue							mother tongue										
+	good-life	good_life							the good life										
+	head-over	crest							crest; top of the head										
+	love-love	mama							mama										
+	no-arm-have	misunderstanding	no-grasp						misunderstanding; lack of understanding	misunderstood	to misunderstand sth								
+	one-one-five	115	one-one-five						one hundred and fifteen										
+	one-way-thing	equivalent	same-thing						equivalent										
+	talk-like-small	sesowi	talk-like-small						Sesowi										
+	that-four	that4								that #4									
+	that-three	that3								that #3									
+	that-two	that2								that #2									
+	water-arm-long-animal	salamander	water-lizard						salamander										
+	yellow-head-over-air-animal	golden_crowned_sparrow	yellow-crest-bird						Golden Crowned Sparrow										
+	yellow-hot-cat	Orangecat	orange-cat						Orange Cat (name)										
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			
+																			

@@ -860,14 +860,14 @@ class Dictionary {
 // --- Data Loading and Processing ---
 
 async function loadDictionaryData() {
-    console.log("dictionary.js: Fetching trevorese.tsv...");
+    console.log("dictionary.js: Fetching sesowi.tsv...");
     try {
         // Initialize window variables that will be used for both regular dictionary and proper nouns
         window.proper_nouns = {}; // Store proper nouns mapping: surface -> gloss
         window.proper_noun_glosses = new Set(); // Store set of proper noun glosses for quick lookup
         
         // Fetch and process the main dictionary file
-        const response = await fetch('./trevorese.tsv?v=' + Date.now()); // Cache bust
+        const response = await fetch('./sesowi.tsv?v=' + Date.now()); // Cache bust
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -912,7 +912,7 @@ async function loadDictionaryData() {
         }
         
         if (!headerFound) {
-             console.error("Header row not found in trevorese.tsv");
+             console.error("Header row not found in sesowi.tsv");
              throw new Error("Could not parse TSV header.");
         }
         

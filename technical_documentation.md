@@ -108,7 +108,7 @@ The core module of the Sesowi Dictionary application, responsible for parsing an
 
 #### Key Components:
 
-- **`parseTSV(tsvData)`**: Parses trevorese.tsv, which contains core data about the Sesowi language
+- **`parseTSV(tsvData)`**: Parses sesowi.tsv, which contains core data about the Sesowi language
 
 - **`VocabEntry` Class**: Represents a vocabulary entry in the Sesowi dictionary.
   - Handles both atomic words and compound words (with single or double hyphens)
@@ -134,7 +134,7 @@ The core module of the Sesowi Dictionary application, responsible for parsing an
 
 - **`loadDictionaryData()`**: Loads dictionary data from TSV files and initializes global window variables.
 
-### io.js
+### typing_tools.js
 
 Handles input/output operations for the dictionary, including text processing and display.
 
