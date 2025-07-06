@@ -1,0 +1,1559 @@
+
+## The Sesowi Word
+
+## Sounds
+
+Sesowi is pronounced just about the way it looks. The technically-minded can look at the Phonolgy tab for details. Just keep in mind that for a multi-syllabic word, don't get scared -- just pronounce it as the combination of its individual syllables!
+
+## Atoms
+
+There are under 200 basic words from which all other words are built. These are called atoms. They all have the form consonant+vowel[+optional ng]. The simplest atom would simply have consonant+vowel, e.g. ma, or su. Atoms representing slightly more complex concepts use more use of compound consonants, diphthongs, and the nasal coda, e.g. yau, kwe, or nang.
+
+There are four special atoms that start with a vowel, representing the most basic concepts of i, a, o, and e. These are usually not used in compound words.
+
+## Compounds
+
+Most words in Sesowi are compounds, composed of multiple atoms. It is always unambiguous what atoms a compound is made of. Here are some examples:
+
+  * en: animal
+  * sesowi: boi
+
+  * en: snake (long-animal)
+  * sesowi: langboi
+
+  * en: lizard (arm-snake)
+  * sesowi: kolangboi
+
+  * en: salamander (water-lizard)
+  * sesowi: lokolangboi
+
+If the compound is on the longer side, it can be written with a hyphen to show the etymology better:
+
+  * en: dog
+  * sesowi: daga
+
+  * en: forest
+  * sesowi: dapwalu
+
+  * en: wolf (forest-dog)
+  * sesowi: dapwaludaga
+
+Atoms themselves have broader meanings than English words, and if they are used by themselves they can be ambiguous. In this way they are more like Chinese characters. For example, ko has the default meaning of arm, but it can also refer to the hand, or the leg, or any limb. If context is not sufficient, you can use the explicit forms or disambiguation forms:
+
+  * en: limb/arm/leg/hand
+  * sesowi: ko
+
+  * en: hand (arm-end)
+  * sesowi: kopau
+
+  * en: leg (go-arm)
+  * sesowi: goko
+
+  * en: foot (leg-end)
+  * sesowi: gokopau
+
+  * en: sphere/circle
+  * sesowi: nosai
+
+  * en: sphere (3d-ball)
+  * sesowi: bonosai
+
+  * en: circle (flat-ball)
+  * sesowi: pingnosai
+
+Note to English speakers: A good number of the world's languages, e.g. Greek and Chinese, do not differentiate "hand" and "arm". So this level of ambiguity is quite natural!
+
+
+
+
+## Grammar 1: the basics
+
+The following introduces English, Gloss, and Sesowi forms. The gloss for a word is just an English word that approximates the Sesowi word's meaning, so it is easier to see exactly what’s going on. There may also be some loose literal translations in &lt;angle brackets&gt;. These are loose translations of the Sesowi into English so you can understand more or less how the construction words. For instance:
+
+## Nouns
+
+There is no distinction between a and the. Therefore:
+
+  * en: cat
+  * sesowi: mau
+
+  * en: a cat
+  * sesowi: mau
+
+  * en: the cat
+  * sesowi: mau
+
+If you want to specify a particular one, you can use quantifiers like i (this), a (that), and e:
+
+  * en: this cat
+  * sesowi: i mau
+
+  * en: that cat
+  * sesowi: a mau
+
+  * en: what cat?
+  * sesowi: e mau?
+
+Now let’s introduce a simple verb: bi. For any verb in the present tense, you need to use the word du to mark that it is a verb:
+
+  * en: this cat is a friend
+  * sesowi: i mau du bi mamang
+
+  * en: a dog is an animal
+  * sesowi: daga du bi boi
+
+To negate this, just add no right before the verb:
+
+  * en: that cat is not a friend
+  * sesowi: a mau no du bi mamang
+
+  * en: a dog is not an animal
+  * sesowi: daga no du bi boi
+
+## Plurals
+
+In Sesowi, the plural looks the same as the singular! Let's look at the examples we just saw, and show what alternate English translations could be:
+
+  * en: a dog is an animal
+  * sesowi: daga du bi boi
+
+  * en: dogs are animals
+  * sesowi: daga du bi boi
+
+If you speak a European language, you may think this will cause ambiguity. However, many of the world's languages, Like Indonesian, Chinese, Vietnamese, Balinese, etc. get along fine without separate plural forms! If there is any ambiguity you can use a quantifier to be extra clear. We have already seen the quantifiers i (this) and a (that), which are singular by default. Let's introduce two more quantifiers: na (plural/group) to explicitly mark the plural, and wa (one), which is literally just the number one, and can be used to unambiguously mark the singular.
+
+Let's see some examples:
+
+  * en: a dog / dogs (ambiguous)
+  * sesowi: daga
+
+  * en: one dog (unambiguous singular)
+  * sesowi: wa daga
+
+  * en: this/that dog (unambiguous singular)
+  * sesowi: i/a daga
+
+  * en: dogs (unambiguous plural)
+  * sesowi: na daga
+
+  * en: that dog is a friend (unambiguous singular)
+  * sesowi: a daga du bi mamang
+
+  * en: those dogs are friends
+  * sesowi: a na daga du bi mamang
+
+Linguist's corner: Many languages, e.g. Hindi, lack an indefinite article like "a" use "one" as the singularizer.
+
+## Adjectives 1
+
+Let’s look at some modifiers, aka adjectives/adverbs. In Sesowi, there is no difference between nouns and adjectives! You just say that a noun is “like” another noun with so.
+                  Another way of thinking about so is that it means who’s or that’s.
+
+Let's look at a few nouns:
+
+  * en: a cat
+  * sesowi: mau
+
+  * en: blackness
+  * sesowi: niyang
+
+  * en: a friend
+  * sesowi: mamang
+
+  * en: speech/talk
+  * sesowi: se
+
+Now let's turn them into adjectives with so :
+
+  * en: a cat
+  * loose: &lt;cat&gt;
+  * sesowi: mau
+
+  * en: a black cat
+  * loose: &lt;cat [who's] like blackness&gt;
+  * sesowi: mau so niyang
+
+  * en: a talkative cat
+  * loose: &lt;cat [who's] like talk&gt;
+  * sesowi: mau so se
+
+  * en: a friendly cat
+  * loose: &lt;cat [who's] like friend&gt;
+  * sesowi: mau so mamang
+
+  * en: a cat-like friend
+  * loose: &lt;friend [who's] like cat&gt;
+  * sesowi: mamang so mau
+
+More examples:
+
+  * en: the cat
+  * sesowi: mau
+
+  * en: the black cat
+  * sesowi: mau so niyang
+
+  * en: the cat is black
+  * sesowi: mau so niyang
+
+  * en: the cat is talkative
+  * sesowi: mau so se
+
+  * en: this cat is friendly
+  * sesowi: i mau so mamang
+
+  * en: that cat is not friendly
+  * sesowi: i mau no so mamang
+
+  * en: a friend is friendly
+  * sesowi: mamang so mamang
+
+  * en: what dog is cat-like?
+  * sesowi: e daga so mau?
+
+  * en: those dogs friendly
+  * sesowi: a na daga so mamang
+
+With multiple adjectives, put a so before each one:
+
+  * en: this cat is friendly, talkative, and doglike
+  * sesowi: i mau so mamang so se, so daga
+
+## Verbs 1
+
+We already saw the verb bi. Let’s talk more about verbs. There are not truly verbs in this language; you can just “do” a noun. Just like in English, you can substitute I squat with I do a squat, or I boop with I do a boop:
+
+  * en: the cat is talking
+  * loose: &lt;the cat is doin' a say&gt;
+  * sesowi: mau du se
+
+  * en: the cat is not talking
+  * loose: &lt;the cat is not doin' a say&gt;
+  * sesowi: mau no du se
+
+While we’re at it, let’s learn the tenses. You can express past/future by imagining that you are looking out and seeing the future actions in front of you and the past actions behind you, and use ya (back/behind), and be (front):
+
+  * en: the cat is talking / the cat talks
+  * sesowi: mau du se
+
+  * en: the cat talked
+  * sesowi: mau ya du se
+
+  * en: the cat will talk
+  * sesowi: mau be du se
+
+Past, present, future – that’s it!
+
+Now that we can form a full sentence, let’s look at how we can modify verbs. Adverbs are formed the exact some way as we just saw with adjectives, using so after the verb they modify. Let's practice adverbs + adjectives:
+
+  * en: the friendly cat is talking
+  * sesowi: mau so mamang du se
+
+  * en: the cat is talking friendlily/in a friendly way
+  * sesowi: mau du se so mamang
+
+  * en: that cat is talking unfriendlily
+  * sesowi: mau du se so no mamang
+
+  * en: the black dog is talking in a friendly, cat-like way
+  * sesowi: daga so niyang du se so mamang so mau
+
+  * en: he sings sweetly, like a small bird
+  * sesowi: i du gasang so swi, so kiboi so wi
+
+## Pronouns
+
+At this point we can talk about pronouns:
+
+  * en: I / me
+  * sesowi: mi
+
+  * en: you
+  * sesowi: yu
+
+  * en: he / she / him / her / it
+  * sesowi: i
+
+The plural forms of these are formed with na:
+
+  * en: we / us
+  * sesowi: mina
+
+  * en: you all
+  * sesowi: yuna
+
+  * en: they / them
+  * sesowi: ina
+
+Here are examples using them in sentences:
+
+  * en: I am a cat
+  * sesowi: mi du bi mau
+
+  * en: I am black
+  * sesowi: mi so niyang
+
+  * en: I am talking
+  * sesowi: mi du se
+
+You may notice that i means both he / she, as well as “this”! Therefore, the following are all valid translations, and need context to tell apart:
+
+  * en: he is a black cat
+  * sesowi: i du bi mau so niyang
+
+  * en: she is a black cat
+  * sesowi: i du bi mau so niyang
+
+  * en: this is a black cat
+  * sesowi: i du bi mau so niyang
+
+Note: this is the same as in e.g. Hindi, where "woh" means "he/she/that".
+
+Similarly, these two sentences are the same in Sesowi:
+
+  * en: this cat is black
+  * sesowi: i mau so niyang
+
+  * en: this black cat
+  * sesowi: i mau so niyang
+
+## Prepositions
+
+Prepositions are words that say how two things are related. For instance, you can say that the dog is behind the cat, over the cat, in the cat, for the cat; or that it is woofing at the cat, or with the cat, or by the cat.
+
+Sesowi has three "true" prepositions: de (of/from), tu (to; literally 'direction'), and ba (with). All location or movement prepositions are expressed with nouns saying what the location/direction is. The following sections give details about how common prepositions are used, starting with the "true" prepositions, and then going into the prepositions of movement/location.
+
+Let’s start with de, aka the word meaning belonging/possession. This word indicates possession:
+
+  * en: This is my dog
+  * sesowi: i du bi daga de mi
+
+  * en: This is my dog’s toy
+  * sesowi: i du bi peting de daga de mi
+
+The independent forms mine/yours/ours/hers/its/his/theirs are handled simply by dropping the subject, as in Chinese:
+
+  * en: This is mine
+  * sesowi: i du bi de mi
+
+  * en: This is my dog. Where is yours?
+  * sesowi: i daga du bi de mi. de yu e lu?
+
+This word can also mean "about" in the sense of talking about something, just as in English we can say "talk of":
+
+  * en: What are you talking about/talking of?
+  * sesowi: yu du se de e?
+
+  * en: Which person are you talking about/talking of?
+  * sesowi: yu du se de e mang?
+
+de can also mean “from”, as we will see in the next section.
+
+The word ba is very straightforward. It is used just as with or and in English, to mean that two things are together:
+
+  * en: The person is with the cat
+  * sesowi: mang du bi ba mau
+
+  * en: Come with me!
+  * sesowi: du go ba mi ba!
+
+  * en: I see a dog and a cat
+  * sesowi: mi du si daga ba mau
+
+  * en: he mixed water with soil
+  * sesowi: i ya du badu lo ba swe
+
+Note that English uses "with" to mean some things that are quite different, for example as the instrumental marker (indicating how you are using something to do something)! e.g.:
+
+  * en: he mixed water with a stick (he used a stick to mix water)
+  * sesowi: i ya du dai pwako du badu lo
+
+  * en: he mixed water with a stick (he and a stick were together mixing water, lol wat?)
+  * sesowi: i ya du badu lo ba pwako
+
+There are no true prepositions in Sesowi – everything is ultimately a noun. When you would use a preposition to describe where something is in English, just use the noun for corresponding location in Sesowi. If a dog is on the roof, you say that the dog is top the roof. If you are going to the store, you are going direction the store; and if you are going from the store, you are going de the store. If the dog jumps onto the roof, it jumps direction top the roof.
+
+English has a lot of prepositions for how two objects can be related. The snake can be in front of the dog, near the dog, inside the dog, above the dog, on the dog, or by the side of the dog. Some of these change if there is movement: for instance, after the snake goes into the dog it is inside the dog.
+
+In Sesowi, these prepositions are simply expressed as one of the basic prepositions of movement (usually tu) plus the location relative to the object. Let’s look at a few examples. In these examples, we’ll break them up by whether the movement is static (happening in one location), or as a movement to- or from that location:
+
+  * en: She drove to the store
+  * sesowi: i ya du tago tu gekanglu
+
+  * en: She drove from the store
+  * sesowi: i ya du tago de gekanglu
+
+  * en: She drove through the store
+  * sesowi: i ya du tago twa gekanglu
+
+  * en: She was driving at the store
+  * sesowi: i ya du tago lu gekanglu
+
+location noun: inside
+
+  * en: the snake is swimming inside the dog
+  * sesowi: langboi du logo ne daga
+  * direction: static
+
+  * en: the snake is swimming into the dog
+  * sesowi: langboi du logo tu ne daga
+  * direction: movement
+
+  * en: the snake is swimming out from the dog
+  * sesowi: langboi du logo de ne daga
+  * direction: rev. mvmnt.
+
+location noun: over
+
+  * en: the snake is swimming on/over the house
+  * sesowi: langboi du logo ta dabau
+  * direction: static
+
+  * en: the snake is swimming to the area on/over the house
+  * sesowi: langboi du logo tu ta dabau
+  * direction: movement
+
+  * en: the snake is swimming out from the area on/over the house
+  * sesowi: langboi du logo de ta dabau
+  * direction: rev. mvmnt.
+
+  * en: the snake is swimming over (through the space over) the house
+  * sesowi: langboi du logo twa ta dabau
+  * direction: through
+
+location noun: surface. This shows how you can use any spatial location as a preposition:
+
+  * en: the snake is swimming on the sruface of the house
+  * sesowi: langboi du logo pi dabau
+  * direction: static
+
+  * en: the snake is swimming onto the surface of the house
+  * sesowi: langboi du logo tu pi dabau
+  * direction: movement
+
+  * en: the snake is swimming out from on the surface of the house
+  * sesowi: langboi du logo de pi dabau
+  * direction: rev. mvmnt.
+
+location noun: winai
+
+  * en: the snake is swimming near the dog
+  * sesowi: langboi du logo winai daga
+  * direction: static
+
+  * en: the snake is swimming near to where the dog is
+  * sesowi: langboi du logo tu winai daga
+  * direction: movement
+
+  * en: the snake is swimming out from near where the dog is
+  * sesowi: langboi du logo de winai daga
+  * direction: rev. mvmnt.
+
+  * en: the snake is swimming past the dog
+  * sesowi: langboi du logo twa winai daga
+  * direction: through
+
+Prepositions of time are expressed with the same words as those of space. Imagine yourself as a box where the future stretches out in front of you and the past behind. Now imagine that you yourself are an event in time. You see another event in the future, in front of you. This event happens after you in time — so in this spatial metaphor, it happens in front of you. You happen before it — so, spatially, you happen behind it. Say there is another event that starts before you and ends after you. You happen during that event — spatially, you happen in it. And if you (the event) started at the same time as the other event and continue on forwards in time — aka you happen since that event — spatially, you happen starting at that event.1
+
+Many Indo-European verbs have prepositions built into them, and it causes considerable chaos for learners to master them. In Sesowi, these prepositions are generally absent:
+
+  * en: I worked on a project
+  * sesowi: mi ya du kudu badu
+
+  * en: he depends on me
+  * sesowi: i du payau mi
+
+  * en: She believes in God
+  * sesowi: i du dwemeng tadwemang
+
+  * en: Look at this!
+  * sesowi: yu du si i ba
+
+  * en: what are you looking for?
+  * sesowi: yu du bu e?
+
+  * en: They listen to music
+  * sesowi: i na du sangsi gasang
+
+  * en: I am coping with loss.
+  * sesowi: mi du koyo deyo
+
+An exception is verbs that take indirect objects with the preposition to or about, like talk to or talk about. "to" is explained in the section on indirect objects, and "about" was explained in the de section above.
+
+In some cases where English has different meanings for different prepositions, Sesowi has different verbs. In these cases you’ll notice that English also generally offers us easy synonyms:
+
+  * en: What are you looking at?
+  * sesowi: yu du si e ting?
+
+  * en: What are you looking for?
+  * sesowi: yu du bu e ting?
+
+  * en: What are youlooking up?
+  * sesowi: yu du bu e ting?
+
+In other cases there is some ambiguity:
+
+  * en: She believes me
+  * sesowi: i du dwemeng mi
+
+  * en: She believes in God
+  * sesowi: i du dwemeng tadwemang
+
+  * en: She believes in me
+  * sesowi: i du dwemeng mi
+
+Notice however that even in English, believe in has a different meaning when applied to God versus to me! Really, there is ambiguity everywhere in all languages, but context clears almost everything up!
+
+  * en: I walk on the street
+  * sesowi: mi du kogo top golu
+
+  * en: I talk to him out of necessity
+  * sesowi: mi se i wai dayau
+
+  * en: I lived here for three years
+  * sesowi: mi ya sa ilu ti daswetai
+
+  * en: I love him for his smile
+  * sesowi: mi du ma i wai galitobe de i
+
+  * en: I fight for my country
+  * sesowi: mi du geng wai lelu de mi
+
+  * en: I  for gay marriage
+  * sesowi: mi du tali watwima lema
+
+At this point, you already know most of the language's grammar!
+
+
+
+
+## Grammar 2: more basics
+
+## Commands and yes/no questions
+
+Questions and commands are formed by adding the particles e and ba at the end of the sentence:
+
+  * en: You talk to the cat.
+  * sesowi: yu du se tu mau
+
+  * en: Do you talk to the cat?
+  * sesowi: yu du se tu mau e?
+
+  * en: Talk to the cat!
+  * sesowi: yu  du  se tu mau ba!
+
+  * en: Let's talk to the cat!
+  * sesowi: mina du se tu mau ba!
+
+Comparative Linguist's corner: this formation of questions is extremely common across the world's languages, from Singlish (ma) to Japanese (か), although it is not always the final position, as in Turkish "mi", which follows the predicate. Even English has this to some degree, e.g. "you're a bit big for this now, eh?".
+
+As in most languages, you can leave off the "you"/ yu for a command:
+
+  * en: Talk to the cat!
+  * sesowi: du  se tu mau ba!
+
+## Quantifiers and the wh- words
+
+This e that we have been using to form questions is what is called (in Sesowi grammar) a quantifier. Quantifiers are little words that tell us something about the way that an object exists. They come before the noun. The quantifiers we have seen so far are i, a, e, na, no, and numbers, like wa or 67.
+
+There is one more of these fundamental quantifiers, namely o, meaning all/every/each or complete:
+
+  * en: You know everything
+  * sesowi: yu du kumeng o ting.
+
+  * en: You like all cats
+  * sesowi: yu du ma o mau
+
+  * en: You are like all cats
+  * sesowi: yu so o mau
+
+Two more words that fall in this category in English are some and any. For the most part these are entirely unnecessary in Sesowi:
+
+  * en: Someone is coming!
+                                  Anyone is coming!
+                                  A person is coming!
+  * sesowi: mang du igo!
+
+  * en: I want to live somewhere warm.
+                                  I want to live anywhere warm.
+                                  I want to live in a warm place.
+  * sesowi: mi du yau sa lu so mela
+
+  * en: You say something
+                                  You say anything
+                                  You say a thing
+  * sesowi: yu du se ting.
+
+However, if you need to stress the non-specificness of something, you can use opo:
+
+  * en: Which cat do you talk to?
+  * sesowi: yu du se tu e mau?
+
+  * en: Oh, just some [nonspecific] cat
+  * sesowi: a, swa mau so opo.
+
+With these in our arsenal, we can now express an amazing range of things. Let's introduce some more words:
+
+  * en: place
+  * sesowi: lu
+
+  * en: thing
+  * sesowi: ting
+
+  * en: time
+  * sesowi: tai
+
+  * en: reason
+  * sesowi: wai
+
+  * en: way
+  * sesowi: we
+
+  * en: amount/number
+  * sesowi: na
+
+  * en: person
+  * sesowi: mang
+
+These words are very powerful when combined with the quantifiers ! Let's see what happens when we combine them with the question word e:
+
+  * en: which? / what?
+  * sesowi: e?
+
+  * en: where?
+  * sesowi: e lu?
+
+  * en: what?
+  * sesowi: e ting?
+
+  * en: when?
+  * sesowi: e tai?
+
+  * en: why?
+  * sesowi: e wai?
+
+  * en: how?
+  * sesowi: e we?
+
+  * en: how much?
+  * sesowi: e na?
+
+  * en: who?
+  * sesowi: e mang?
+
+How might you answer these questions?
+
+  * en: here / there / somewhere
+  * sesowi: i lu / a lu / lu (so opo)
+
+  * en: this / that / something
+  * sesowi: i ting / a ting / ting (so opo)
+
+  * en: now / then / sometime
+  * sesowi: i tai / a tai / tai (so opo)
+
+  * en: because (for this reason) / because (for that reason) / just because (for some reason)
+  * sesowi: i wai / a wai / wai (so opo)
+
+  * en: this much / that much / some amount
+  * sesowi: i na / a na / na (so opo)
+
+  * en: thus (in this way) / thus (in that way) / somehow
+  * sesowi: i we / a we / we (so opo)
+
+  * en: this person / that person / someone
+  * sesowi: i mang / a mang / mang (so opo)
+
+Similarly, with the universal quantifier:
+
+  * en: everywhere
+  * sesowi: o lu
+
+  * en: everything
+  * sesowi: o ting
+
+  * en: every time / all the time
+  * sesowi: o tai
+
+  * en: for every reason
+  * sesowi: o wai
+
+  * en: ??
+  * sesowi: o na
+
+  * en: ??
+  * sesowi: o we
+
+  * en: everyone
+  * sesowi: o mang
+
+Look closely at these. In English, we have so many different words for these concepts, and it hides how similar they all are! It is common for a language to be like English in this way, and have some collection of concepts from different roots and languages, such that the true structure is hidden. However, several other languages actually make these relations perfectly clear — for instance Telugu, what uses exactly the structure described above!
+
+## an adjective can be a whole sentence! (relative clauses)
+
+Let's get back to adjectives. As you recall, adjectives are just formed by saying that a noun is like another noun:
+
+  * en: a cat
+  * sesowi: mau
+
+  * en: a black cat
+  * sesowi: mau so niyang
+
+  * en: a little baby
+  * sesowi: wiwimang so wi
+
+But what if you want to say that the cat is like something more complicated than a single noun? What if you want to say that the cat is like a little baby?
+
+  * en: a cat that is like a little baby
+  * sesowi: mau so wiwimang so wi
+
+You can do that too! In fact, you can put a full sentence in front of the so, as long as it describes how that cat is:
+
+  * en: The cat I saw yesterday
+  * sesowi: mau so mi ya du si (i) yabaitai
+
+  * en: the cat that is meowing sadly
+  * sesowi: mau so (i) du mausang so nogali
+
+  * en: the cat that is meowing sadly at me
+  * sesowi: mau so (i) du mausang so nogali tu mi
+
+  * en: the cat that I think is meowing sadly at me
+  * sesowi: mau so mi du meng du mausang so nogali tu mi
+
+  * en: the cat that I don't know where he is
+  * sesowi: mau so mi no du kumeng i du bi e lu
+
+Note that according to the "proper" English grammar, this last example is impossible to express. As you can see, so is a very powerful tool! It is used anywhere English uses "that" to start a relative clause.
+
+NB: The i is optional here; it is included in parentheses for completeness.
+
+## Comparative and Superlative
+
+Comparison is done with the special comparison word mai, meaning "more", and use tu to indicate the thing it is being compared to:
+
+  * en: That cat is sweet
+  * sesowi: That mau so swi
+
+  * en: That cat is sweeter
+  * sesowi: That mau so mai swi
+
+  * en: That cat is sweeter than this cat
+  * sesowi: That mau so mai swi tu i mau
+
+  * en: My cat is bigger than your dog
+  * sesowi: mau de mi so mai da tu daga de yu
+
+To express less than you can use gengmai, aka "anti-more"
+
+  * en: My cat is richer than your dog
+  * sesowi: mau de mi so mai yokang tu daga de yu
+
+  * en: My cat is less rich than your dog
+  * sesowi: mau de mi so gengmai yokang tu daga de yu
+
+Let's introduce two more words: wawe (same) and laiwe (different). This allows us to compare things that are the same or different, without having to specify if it is more or less:
+
+  * en: My cat is the same as your cat
+  * sesowi: mau de mi so wawe da tu mau de yu
+
+  * en: My cat is the same size as your cat
+  * sesowi: mau de mi so wawe da tu mau de yu
+
+  * en: My cat is different from your cat
+  * sesowi: mau de mi so laiwe da tu mau de yu
+
+  * en: My cat is a different size than your cat
+  * sesowi: mau de mi so laiwe da tu mau de yu
+
+In English, these comparisons use all sorts of different structures and prepositions to express these concepts. But Sesowi treats them all the same way: simple comparisons with tu.
+
+Consider the following argument between two people about which cat is sweeter:
+
+  * en: this cat is sweet
+  * sesowi: i mau so swi
+
+  * en: Yes, he is very sweet
+  * sesowi: dwe, i so da swi
+
+  * en: But that cat is sweeter than this cat
+  * sesowi: geng a mau so mai swi tu i mau
+
+  * en: That cat is sweeter
+  * sesowi: a mau so mai swi
+
+  * en: This cat is less sweet than that cat
+  * sesowi: i mau so gengmai swi tu a mau
+
+  * en: That cat is much sweeter than this cat
+  * sesowi: a mau so da mai swi tu i mau
+
+  * en: This cat is much less sweet than that cat
+  * sesowi: i mau so da gengmai swi tu a mau
+
+Hopefully, they will eventually reach a conclusion like the following:
+
+  * en: That cat is as sweet as this cat
+  * sesowi: a mau so wawe swi tu i mau
+
+On the other hand, they might start using the superlative:
+
+  * en: That cat is the sweetest
+  * sesowi: a mau so ta mai swi
+
+  * en: That cat is the least sweet
+  * sesowi: a mau so ta gengmai swi
+
+## Verbs 3: Verbs acting on other verbs: tenses and modals
+
+We have seen how to use a verb with a noun as its object:
+                  normal verb: I see a dog (the object of the verb see is the noun dog)
+                  Now let's talk about verbs that act on other verbs, which we can call "modal verbs":
+                  modal verb: I can sing (the object of the modal verb can is the verbsing,)
+
+The most common verbs that act on other verbs are a set of five or so verbs that actually can ONLY1 take verbs as objects. For instance, I can sing works, but I can the cat has no meaning. These obligate modals almost always work in funny and particular ways in a language.2 Here is their use in Sesowi:
+
+  * en: the cat can (is able to) talk
+  * sesowi: mau nang du se
+
+  * en: the cat may (is allowed to) talk
+  * sesowi: mau nang du se
+
+  * en: the cat should (ought to) talk
+  * sesowi: mau dwa du se
+
+  * en: the cat must (has to/needs to) talk
+  * sesowi: mau dwa du se
+
+  * en: the cat might (possibly will) talk
+  * sesowi: mau po du se
+
+Note that in Sesowi, as in English, nang can mean both "can" and "may", and dwa can mean "should" or "must".
+
+Then there are a lot of other verbs that can act on verbs OR nouns. In English/German/etc., these are treated differently; in Sesowi they are the same as the so-called "true modals":
+
+  * en: the cat wants to talk
+  * sesowi: mau yau du se
+
+  * en: the cat tries to talk
+  * sesowi: mau bu du se
+
+  * en: the cat likes to talk
+  * sesowi: mau ma du se
+
+Verbs that act on other verbs are incredibly powerful, and capture all the different ways you can perform a noun – including tense! When we told you about tenses before, we only told you half the story. What we didn't tell you is that the two tense markers we taught you — ya and be — are in fact themselves just a special case of verbs acting on verbs. Observe:
+
+  * en: the cat is talkingthe cat talks
+  * sesowi: mau du se
+
+  * en: the cat did talkthe cat talked
+  * sesowi: mau ya du se
+
+  * en: the cat will talkthe cat is going to talk
+  * sesowi: mau be du se
+
+All these constructions are all formed the same way! And indeed, in Sesowi, there is no difference between "tenses" and "modal verbs". The concept of a "tense" as it is usually conceived is based on how Indo-European languages work, where tenses are treated in a special way, but modals are treated more like verbs. However, in other languages, it's not so. In Chinese, Vietnamese, or Malay, tenses are expressed as adverbs, and in Telugu, tenses and modals are in the same category of suffixes!
+
+Reminder: every verb has exactly one du. It sticks to the main verb like a prefix, and other things, like modals or tenses, line up before it without a du of their own.
+
+Want to have multiple verbs acting on another verb? No problem!
+
+  * en: the cat may be able to talk
+  * sesowi: mau po nang du se
+
+  * en: the cat will be able to talk
+  * sesowi: mau be nang du se
+
+  * en: the cat should have talked
+  * sesowi: mau ya dwa du se
+
+  * en: the cat should be able to talk
+  * sesowi: mau dwa nang du se
+
+  * en: the cat should not be able to talk
+  * sesowi: mau no dwa nang du se
+
+  * en: the cat should not have been able to talk
+  * sesowi: mau no ya dwa nang du se
+
+  * en: the cat should not have been able to try to talk
+  * sesowi: mau no ya dwa nang bu du se
+
+Does this last sentence look a bit extreme? It's really not! consider this dialogue:
+                  A: "Hey, you said your organization was going to create a robot, right? How'd that go? Were you going to let it talk to other employees?"
+                  B: "It went terribly. It should not have been allowed to be able to try to talk to others. We shouldn't have let it even have the capability to initiate conversation."
+
+One small example should suffice to show how this is simpler in Sesowi:
+
+  * en: the cat should not be able to talk
+  * sesowi: mau no dwa nang du se
+
+  * en: the cat should not ever [even one time]  be able to talk
+  * sesowi: mau no dwa nang du se so wa tai
+
+This is the same story for any verb that can take a noun or a verb as its object, like "try", "like", "need", etc.
+
+Many languages have a special way of marking things when they are being used to do something. Sesowi, like Chinese, simply uses "use". It is just another case of a verb acting on another verb.
+
+  * en: He used a shovel to dig the hole.
+  * sesowi: i ya du dai swegoting du swego twating
+
+  * en: He dug the hole with a shovel.
+  * sesowi: i ya du dai swegoting du swego twating
+
+Note that the English "with" here is an instrumental marker in English, and actually a quite different meaning from the normal meaning. For the normal meaning of "with", this would mean "He and a shovel were digging a hole"!
+
+## Indirect objects
+
+Some verbs have two objects. Consider the verbs "give" , "say", "talk", and "throw". They can have a single object:
+
+  * en: He gives a gift.
+  * sesowi: i du ge geting
+
+  * en: He says a word
+  * sesowi: i du se sekwai
+
+  * en: He talks about work
+  * sesowi: i du se de kudu
+
+  * en: He throws a rock
+  * sesowi: i du noleng kuting
+
+  * en: He steals a rock
+  * sesowi: i du nogapu kuting
+
+However, you can also add a second object with a preposition like to or at. This second object is called the indirect object. Just as English, Sesowi marks these with the preposition "to" (aka tu)
+
+  * en: He gives a gift to me
+  * sesowi: i du ge geting tu mi
+
+  * en: He says a word to me
+  * sesowi: i du se sekwai tu mi
+
+  * en: He talks about work to me
+  * sesowi: i du se de kudu tu mi
+
+  * en: He yells at me
+  * sesowi: i du dasang tu mi
+
+  * en: He throws a rock to me
+  * sesowi: i du noleng kuting tu mi
+
+  * en: He steals a rock from me
+  * sesowi: i du nogapu kuting tu mi
+
+  * en: He puts bag on the table
+  * sesowi: i du lu bau tu ta pingting
+
+When speaking, we need some way to differentiate between these two objects. For example, "give me to the girl" and "give me the girl" are very different sentences. To an English speaker, this should be pretty straightforward: you just indicate the recipient of the verb phrase with tu. Why is it worth mentioning? First of all, other languages treat indirect objects differently (e.g. with the Dative case). Second of all, English has another way of marking the indirect object, just by using the word order:
+
+  * en: He gives me a gift
+  * sesowi: i du ge geting tu mi
+
+  * en: He talks to me about work
+  * sesowi: i du se de kudu tu mi
+
+  * en: He throws me a rock
+  * sesowi: i du noleng kuting tu mi
+
+In Sesowi, you can never omit the preposition tu for the indirect object.
+
+There are a few verbs in English that use "to" even when it appears to be a direct object. For instance, you talk to someone. However, in these cases this is because there is an implied indirect object: when you talk to someone, you are actually saying words (the direct object) to someone (the indirect object). The situation is the same for Sesowi: for these verbs with implied objects, we use the preposition tu:
+
+  * en: He writes a letter
+  * sesowi: i du mo namo
+
+  * en: He writes to me
+  * sesowi: i du mo tu mi
+
+  * en: He writes a letter about pigs
+  * sesowi: i du mo namo de masweboi
+
+  * en: He writes a letter to me about pigs
+  * sesowi: i du mo namo de masweboi tu mi
+
+  * en: Give [to] me the girl!
+  * sesowi: du ge mu tu mi ba !
+
+  * en: Give me to the girl!
+  * sesowi: du ge mi tu mu ba!
+
+This point should not pose problems for speakers of English: they should just translate "to" into tu. This should be familiar also to speakers of Chinese, where tu can be interpreted as 对: one can see that above, the treatment of to talk is the same as Chinese 说 vs 说对.
+
+Note 1: In Chinese, there is the exact same phenomenon, where if there is no particle, the first object is the indirect object and the second is direct (I give you a thing / 我给你一个东西). if you invert the order of the objects but want the same meaning, you need to add a particle (I give a thing to you / 我把一个东西给你). However, instead of marking the indirect object, Chinese marks the direct object.
+
+Note 2: Interestingly, in English there are also verbs where you are not allowed to use the word order, and you have to use a preposition. Consider the word say. While you can say Give me the cat, you can't say *Say me the thing.
+
+## Verbs 4: Infinitives and gerunds
+
+In Indo-European languages like English, verbs have a special form called the infinitive, which is used in certain situations when there isn't a subject doing the verb. In English, you can often use the gerund (-ing form) in similar ways.
+
+Many situations where IE languages use the infinitive is when you have a verb acting on another verb. We already saw how to do this:
+
+  * en: the cat wants the mouse to be here
+  * sesowi: mau yau dengboi du bi ilu
+
+  * en: She doesn't like walking / She doesn't like to walk
+  * sesowi: i no ma du kogo
+
+  * en: He thinks of talking
+  * sesowi: i meng du se
+
+Another situation where IE languages use an infinitive or gerund is when you are referring to the general state of a verb, as in "walking is good" or "It is good to walk." In this case, the verb has become a sort of noun, meaning "the state of walking". In Sesowi, we just need to add the "do" to show that it is a verb, and then you can use it like any other noun:
+
+  * en: Walking is good / It is good to walk.
+  * sesowi: du kogo so ga.
+
+  * en: He thinks talking is hard / it is hard to talk
+  * sesowi: i du meng du se so nogwa
+
+  * en: Being a student is fun / It is fun to be a student.
+  * sesowi: du bi pumengmang so pe
+
+  * en: You being here makes me happy.
+  * sesowi: yu du bi i lu du gali mi .
+
+  * en: The fact that you are here makes me happy.
+  * sesowi: yu du bi i lu du gali mi.
+
+Serendipitously, this ends up sounding similar to the English construction "to Verb"!
+
+Finally, there are situations in English where gerunds like being pop up just because English uses "to be" for adjectives as well:
+
+  * en: He was being cute
+  * sesowi: i ya so nangma
+
+  * en: She is being mean to me
+  * sesowi: i so noga tu mi
+
+## Verbs 5: Clauses and conjunctions
+
+The most basic way to make two clauses in Sesowi is to just put two sentences one after the other:
+
+
+
+
+## Grammar 3: fitting the complexity of natural languages into the grammar you have just finished learning
+
+## Parts of speech
+
+You may have noticed this already, but in Sesowi, all words are actually nouns. A verb is just “doing” (du) a noun, and an adjective is just being “like” (so) a noun. Let's look at all the different parts of speech for the atom lu and be:
+
+  * en: [noun] the place
+  * sesowi: lu
+
+  * en: [verb] He is putting a cat there.
+  * sesowi: i du lu mau a lu
+
+  * en: [adverb] He is putting a cat there.
+  * sesowi: i du lu mau a lu
+
+  * en: [preposition] He lives at the house
+  * sesowi: i du sa lu dabau
+
+  * en: [noun] the front of the house
+  * sesowi: be de dabau
+
+  * en: [verb] He is facing me
+  * sesowi: i du be mi
+
+  * en: [adjective] The front side of the house
+  * sesowi: sai so be de dabau
+
+  * en: [modal] He will go
+  * sesowi: i be du go
+
+  * en: [conjunction] after he goes
+  * sesowi: be i du go
+
+## Expressing other "tenses" with the power of time
+
+What is  verb "tense"? Well, "tense" just means "time", so it tells you about what time a verb was performed in. So at this point we introduce the Sesowi word tai (time):
+
+  * en: I fell
+  * sesowi: mi ya du su
+
+  * en: I fell once
+  * sesowi: mi ya du su so wa tai
+
+  * en: I fell twice
+  * sesowi: mi ya du su so do tai
+
+  * en: I fell 67 times
+  * sesowi: mi ya du su so lause tai
+
+  * en: I fell several times
+  * sesowi: mi ya du su so na tai
+
+If you use times without any quantifier, it just means “one or more times”:
+
+  * en: I fell some number of times
+  * sesowi: mi ya du su so tai
+
+However, English has a different way of expressing this: the perfect tense! Hence:
+
+  * en: I have fallen
+  * sesowi: mi ya du su like time
+
+  * en: I have walked to school
+  * sesowi: mi ya du kogo so tai tu pumenglu
+
+  * en: I have walked to school twice
+  * sesowi: mi ya du kogo so do tai tu pumenglu
+
+The "perfect" tense is common in Indo-European languages, and uses the auxiliarly verb (“have”)1 to mark it, as in the sentence “I have been to Germany” or “More people have been to Berlin than me”. All this is really conveying is that the action has, indeed, happened at least once, and likely many times, in contrast to a statement like “I went to Germany”, which just means you went a particular time. So in effect, the perfect is just saying that you went some time(s). And that indeed is how the Sesowi expresses it, as we have just seen.
+
+We have just learned how to express that something has happened at least once. What id you want to express that it is a habitual action, or has happened many times?  Just use natai (aka "multiple times")!
+
+  * en: I am walking to school
+  * sesowi: mi du kogo tu pumenglu
+
+  * en: I [usually] walk to school
+  * sesowi: mi du kogo so natai tu pumenglu
+
+  * en: I used to walk to school
+  * sesowi: mi ya du kogo so natai tu pumenglu
+
+  * en: I will be [regularly] walking to school
+  * sesowi: mi be du kogo so natai tu pumenglu
+
+Another thing you might want to express is something that happened in a time very close to the present, i.e. that has just happened or is just about to happen. This can be accomplished with swa (self):
+
+  * en: I am just now walking to school
+  * sesowi: mi swa du kogo tu pumenglu
+
+  * en: I just walked to school
+  * sesowi: mi swa ya du kogo  tu pumenglu
+
+  * en: I am just about to walk to school
+  * sesowi: mi swa be du kogo  tu pumenglu
+
+English also has the curiously named tense, the pluperfect (the “had verbed” tense). This is specifically used for things that happened in the past and were already completed before another thing happened in the past — it’s kind of like “the past with respect to the past”. However, there is also a much simpler way of expressing the same thing in English: “already”. Sesowi takes this approach, with ya:
+
+  * en: I had walked to school, but he didn’t know
+  * sesowi: mi ya du kogo tu pumenglu, geng i no du kumeng
+
+## Future Perfect Tense
+
+The future perfect tense, or “past within future”, is a feature of Indo-European languages that occurs in dependent clauses. In Sesowi, it is simply expressed with the past:
+
+  * en: Next year we will have bought two dogs
+  * loose: &lt;Next year we (already) bought two dogs&gt;
+  * sesowi: daswetai so be mina ya du kang do daga
+
+  * en: We will have bought two dogs
+  * loose: &lt;We future bought two dogs&gt;
+  * sesowi: mina be ya du kang do daga
+
+The context makes it clear that this “we did buy two dogs” is happening relative to the future, i.e. “next year”. Conversely, one can just as easily form the “future within past” tense!
+
+  * en: Last year we were going to buy two dogs
+  * loose: &lt;Last year we will buy two dogs&gt;
+  * sesowi: daswetai so ya mina be du kang do daga
+
+  * en: We were going to buy two dogs
+  * loose: &lt;We past will buy two dogs&gt;
+  * sesowi: mina ya be du kang do daga
+
+  * en: He said that he would sing
+  * loose: &lt;He said he will sing&gt;
+  * sesowi: i ya du se i be du gasang
+
+  * en: Next year we were going to buy two dogs, but we decided not to.
+  * loose: &lt;Next year we did will buy two dogs, but decide not to&gt;
+  * sesowi: daswetai so be, mina ya be du kang do daga, geng mina omeng no du
+
+The future-within-past in English has to be expressed with this rather cumbersome “were going to” construction, or the verb “would” which is ambiguous because “would” also has the separate meaning of the conditional mode.
+
+## Participles
+
+The past participle in English expresses that a verb happened to some noun. It is a special way of making a verb into an adjective. 
+              In Sesowi, this is treated no differently than any other adjective phrase:
+
+  * en: [past participle] A fallen apple
+  * loose: &lt;An apple that fell/falls&gt;
+  * sesowi: lapa so  du su
+
+  * en: [present participle] A falling apple
+  * loose: &lt;An apple that falls now&gt;
+  * sesowi: lapa so itai du su
+
+  * en: [adjective is often equivalent to p.p.] A fallen apple
+  * loose: &lt;An apple that fall&gt;
+  * sesowi: lapa so su
+
+In English, depending on the verb, past participles can either mean that the thing did the action itself, as above, or that something else did the action to it.  -->
+              The last form is the simplest and most natural -- it's just like saying "the apple that fall". However, in some cases this becomes ambiguous. For example, if you associate the word "eat" with an apple, you assume that means that this means that the apple is eaten, but if you associate it with a bear, you assume that it is the one doing the eating. If you need to be explicit, you can use the explicit form above, or the passive sa construction:
+
+  * en: An eaten apple
+  * sesowi: lapa so ka
+
+  * en: An eating apple (it's a living apple who's eating people!)
+  * sesowi: lapa so i du ka [mang]
+
+  * en: An eating bear
+  * sesowi: kuliboi so ka
+
+  * en: An eaten bear
+  * sesowi: kuliboi so du sa ka
+
+In English, past participles are a special construction only for the past participle of a verb. But in Sesowi, there is no difference between the past tense and other modals, so this same construction can be used for all the modals:
+
+  * en: An apple  that is about to fall
+  * sesowi: lapa so  be du su
+
+  * en: An apple that is about to be eaten
+  * sesowi: lapa so  be du ka
+
+  * en: An apple that can fall
+  * sesowi: lapa so  nang du su
+
+  * en: An edible apple
+  * sesowi: lapa so  nang du ka
+
+  * en: An apple that might be edible
+  * sesowi: lapa so  po nang du ka
+
+  * en: [random] A half-eaten apple
+  * sesowi: lapa so wakwaido ka
+
+  * en: [random] A half-eaten apple
+  * sesowi: lapa so ting ya du ka wakwaido [de i]
+
+Observe that English has all sorts of different constructions for these!
+
+## Counterfactuals
+
+The conditional is a special tense (or “mood” if you’re a purist) that crops up in some languages. It’s basically identical to talking about things that would happen. In English, it’s most noticeable when it changes “will” into “would”, meaning “will go, conditional on that first statement”.
+
+This is simple enough in Sesowi: we just use bi, which is identical to “if”. Essentially, it means “In the case that…”
+
+  * en: [future] if he sings, I will hear him
+  * sesowi: bi i be du gasang, mi be du sangsi i
+
+  * en: [present] if he is singing, I hear him
+  * sesowi: bi i du gasang, mi du sangsi i
+
+  * en: [past] if he were singing, I heard him
+  * sesowi: bi i ya du gasang, mi ya du sangsi i
+
+Note: the “sing” in “if you sing, I will hear you”, even though it looks like the present tense, is actually in the future. Sesowi treats it as such.
+
+The subjunctive happens when there is something that is happening counterfactually. For instance, in none of the sentences “If you were to come”, “If you had come”, and “I hope you come” did you actually come. Many languages, for instance Indo-European languages, have all sorts of complex ways of dealing with this situation. Sesowi, like Chinese, Telugu, Toki Pona, and so on, sidesteps this and leaves them ambiguous:
+
+  * en: [future] if he sings, I will hear him[future subj.] if he were to sing, I would hear him
+  * sesowi: bi i be du gasang, mi du sangsi i
+
+  * en: [present] if he is singing, I hear him[present subj.] if he were singing, I would hear him
+  * sesowi: bi i du gasang, mi du sangsi i
+
+  * en: [past] if he was singing, I heard him[past subj.] if he had been singing, I would have heard him[past subj.] if he had sung, I would have heard him[past subj.] if he would of sung, I would have heard him
+  * sesowi: bi i ya du gasang, mi du sangsi i
+
+Note that the second part of the clause would be, in English, in the conditional. Conditional and subjunctive go together like bread and butter! But as we already established, there is no conditional in Sesowi, so the second half of the clause is just in normal indicative.
+
+Now, in some cases, the fact that the subjunctive and the indicative are the same may be annoying. The default interpretation is that we are talking about a subjunctive event. If we really need to clarify, we can add “in fact” to be clear that the statement is in the indicative:
+
+  * en: [past] if he was singing, I heard him[past subj.] if he had been singing, I would have heard him
+  * sesowi: bi i ya du gasang, mi ya du sangsi i
+
+  * en: [past] if in fact he was singing, I heard him
+  * sesowi: bi so dwe i ya du gasang, mi ya du sangsi i
+
+## “It”: Passive voice
+
+The passive is a somewhat unusual construction that crops up in some form or other in many languages. It can either be used to omit a subject, or to take responsibility away from them. Let’s look at the first example first. Irish has its own conjugation, e.g. “déartear” – it is said. German uses even more “it: than English, e.g. “It gonged”, “It is whispered in the ear”. Spanish, Hebrew, and others just leave off the subject from the sentence. In short: any language needs some way to have sentences that don’t have a clear subject. Consider the following sentence:
+
+All this is saying is that someone or something spilled the milk, but the speaker is not saying who -- it's just someone or something. Sesowi uses a generic noun, equivalent to saying "Someone spilled the milk", but can also leave off the subject entirely:
+
+  * en: someone spilled the milk  the milk was spilled by someone
+  * sesowi: mang ya du su bailo
+
+  * en: something spilled the milk  the milk was spilled by something
+  * sesowi: ting ya du su bailo
+
+  * en: The milk was spilled
+  * sesowi: ya du su bailo
+
+  * en: The milk is spilling
+  * sesowi: du su bailo
+
+Now, what about the version of the passive that has a subject attached to it?
+
+The only difference between this and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions:
+
+  * en: the milk was spilled by Fred
+  * sesowi: Fred ya du su bailo
+
+  * en: Fred spilled the milk
+  * sesowi: Fred ya du su bailo
+
+  * en: Who was the milk spilled by?
+  * sesowi: e mang du su bailo?
+
+  * en: Who spilled the milk?
+  * sesowi: e mang du su bailo?
+
+  * en: Her nose likes being kissed
+  * sesowi: nau de i du gali mang du tobwa i
+
+  * en: Her nose likes being kissed by me
+  * sesowi: nau de i du gali mi du tobwa i
+
+  * en: *It is saying someone my name
+  * sesowi: du se swase de mi
+
+This last sentence is not grammatical in English, but it is normal in German!
+
+  * en: Her nose is being kissed
+  * loose: &lt;Her nose experiences kisses&gt;
+  * sesowi: nau de i du sa tobwa
+
+  * en: Her nose was being kissed
+  * loose: &lt;Her nose experienced kisses&gt;
+  * sesowi: nau de i ya du sa tobwa
+
+  * en: Her nose likes being kissed
+  * loose: &lt;Her nose likes to experience kisses&gt;
+  * sesowi: nau de i gali du sa tobwa
+
+  * en: Her nose likes being kissed by me
+  * loose: &lt;Her nose likes to experience my kisses&gt;
+  * sesowi: nau de i gali du sa tobwa de mi
+
+## “It”: Impersonal Aspect
+
+Similar to the passive, the impersonal aspect is another way to avoid saying the subject. This comes up when there isn’t a subject, for instance for weather. With it is raining or it is dark, there is not really anything that the it refers to, excepting perhaps the universe itself. The only reason that “it” is added is because the grammar of the language demands some subject for the verb. In a language like Spanish, where subjects are not necessary, the subject is simply omitted: llueve means it rains. You can’t say *él llueve or something like that. Hebrew is the same (pro-drop).
+
+Although grammarians tend to think of the impersonal aspect as different from the passive voice, the authors of this work contend that they are actually the same. The only difference is that for the impersonal aspect, one is forced to omit the subject because there isn’t a subject, whereas for the passive, you choose to, because you don’t know who the subject is (or don’t want to say).
+
+What do we do in Sesowi? We can omit the subject, as in the passive, or use i, in the sense of “this all is raining”. You can think of this use of “this” as someone gesturing in front of them and saying “all of this”.
+
+impersonal with verb:
+
+  * en: It is raining
+  * loose: &lt;this is doing rain&gt;
+  * sesowi: i du sulo du sulo
+
+  * en: It is getting dark
+  * loose: &lt;this is doing dark&gt;
+  * sesowi: i du nidu ni
+
+  * en: *It gongs  [a gong noise is happening]
+  * loose: &lt;this is doing gong&gt;
+  * sesowi: i du pingsangkang  du pingsangkang
+
+This last sentence is not grammatical in English, but it is normal in German!
+
+The impersonal with adjectives is really the same, but let's give examples for good measure:
+
+  * en: It is dark
+  * loose: &lt;this is dark&gt;
+  * sesowi: i so ni
+
+  * en: It is rainy
+  * loose: &lt;this is dark&gt;
+  * sesowi: i so sulo
+
+In some cases, using i may seem ambiguous, if there is already another i in the sentence, for instance a person. For instance, imagine we are talking about some guy:
+
+  * en: He walked into the room. It was dark.
+  * sesowi: &lt;this walked into room. this is dark&gt;
+
+  * en: It was raining as he walked.
+  * sesowi: &lt;this was raining as this walked.&gt;
+
+  * en: It walked into the room. It was dark.
+  * sesowi: &lt;this walked into room. this is dark&gt;
+
+  * en: It was raining as it walked.
+  * sesowi: &lt;this was raining as this walked.&gt;
+
+“There is” is expressed with yo, as in Chinese
+
+  * en: There are a lot of people in the mall
+  * sesowi: du yo dana mang ne dagekanglu
+
+
+
+## Grammar 4: focus on various more specific things that crop up in English
+
+## “Whether”
+
+“Whether” is a funny word in English. Basically, it just introduces a clause that is a yes-no question. Sesowi, like Chinese, does this much more simply.
+
+  * en: Do you know whether that’s a dog?
+  * sesowi: yu du kumeng i bi daga e?
+
+  * en: He asked whether it was a dog
+  * sesowi: i ya du ese i bi daga e?
+
+## Animacy
+
+Many languages treat nouns differently depending on whether they are animate (e.g. animals) or not (e.g. rocks), and may even have different articles. English uses the animate/inanimate distinction for some words, e.g. who vs what, him vs it, someone vs. something, young vs new. Sesowi does not make this distinction in any cases, but if clarity is needed, ting or mang can be added in:
+
+  * en: what/whom do you see?
+  * sesowi: yu du si e?
+
+  * en: what do you see? (inanimate)
+  * sesowi: yu du si e ting?
+
+  * en: whom do you see? (animate)
+  * sesowi: yu du si e mang?
+
+  * en: a young person wears a new hat
+  * sesowi: mang so nu du boyo topi so nu
+
+## “It” as “that”
+
+A special case of the impersonal are expressions like “it is a pig!”, when “it” basically means the same thing as “that” or “this”. Even in English, this is more or less the same as saying “This is a pig!”.
+
+  * en: What’s that? It’s a pig!
+  * loose: &lt;What is that? That’s a pig!&gt;
+  * sesowi: a du bi e? a du bi masweboi!
+
+  * en: Who’s at the door? It’s your mom!
+  * loose: &lt;What is at door? This is your mom&gt;
+  * sesowi: e mang du bi lu baubwa? i du bi muda de yu!
+
+  * en: It’s a boy!
+  * loose: &lt;This is a boy!&gt;
+  * sesowi: i du bi gai!
+
+## “It”/“you”/“They”: “People”
+
+They say that this “passive”/“impersonal” phenomenon is a deep conspiracy that cuts across all pronouns. It’s everywhere. You can’t get away from it. Whether one recognizes it or not, the spectrum of impersonal phenomena extends deep into the language…or so it is said.
+
+In reality, you can just translate these however you want. Just listing them here for completeness:
+
+## Yes and no
+
+Sesowi has one word for yes and one word for no:
+
+  * en: Are you happy?
+  * sesowi: yu so gali e?
+
+  * en: yes.
+  * sesowi: dwe
+
+  * en: no.
+  * sesowi: no
+
+These are the same as the words for “correct” and “incorrect”:
+
+  * en: Are you happy?
+  * sesowi: yu so gali e?
+
+  * en: correct.
+  * sesowi: dwe
+
+  * en: incorrect.
+  * sesowi: no
+
+English speakers or Spanish speakers may be confused as to why this gets its own section. How complex can “yes” and “no” be? However, “yes” and “no” are by no means a common phenomenon in language. Latin, Irish, Chinese, Toki Pona, and many others have no word for yes or no: they just repeat the verb. Hence why you see in Hiberno English, whose substrate is irish, exchanges like the following:
+
+There are also many languages with more than two words for yes or no. French uses the word si when saying yes and contradicting something. German uses the word doch to contradict the thing that was just said, so it can mean either yes or no depending on the context. Older English had four words: yea/nay/yes/no. Child English also has four: yes, no, yuh-huh, nuh-huh. (Note that these are different from “m-hm” and “m-m”, which are forms of “u-huh” and “uh-uh”, which simply mean “yes” and “no”.)
+
+In Sesowi, if you want to emphasize that you are contradicting a statement, you can add geng (“but”) before it:
+
+  * en: You are studying?
+  * sesowi: yu du pumeng e?
+
+  * en: yes.
+  * sesowi: dwe.
+
+  * en: You are studying Chinese, right?
+  * sesowi: yu du pumeng u_language_mandarin_chinese e?
+
+  * en: but no! I’m studying Sesowi.
+  * sesowi: [geng] no! mi du pumeng Sesowi.
+
+## Verbs with implied motion
+
+In many languages, like English, many verbs are identical save for the directionality, like come/go/leave, bring/take. In Sesowi, there is only one verb for each, and if context is needed, tu and de clarify the direction.
+
+  * en: she came to my house
+  * sesowi: i ya du go tu dabau de mi
+
+  * en: she went to my house
+  * sesowi: i ya du go tu dabau de mi
+
+  * en: she came from my house
+  * sesowi: i ya du go de dabau de mi
+
+  * en: she left from my house
+  * sesowi: i ya du go de dabau de mi
+
+  * en: she carried an apple
+  * sesowi: i ya du koyo lapa
+
+  * en: she brought an apple to the store
+  * sesowi: i ya du koyo lapa tu gekanglu
+
+  * en: she took an apple from the store
+  * sesowi: i ya du koyo lapa de gekanglu
+
+## verbing nouns
+
+In English, there are a variety of bespoke verbs to verbify different nouns. For instance, you play a violin, you do pushups, you sing a song. In Sesowi, these are all omitted. You just use the du particle to indicate that it is a verb:
+
+  * en: She plays piano
+  * sesowi: i du piano
+
+  * en: She does pushups
+  * sesowi: i du na pushup
+
+## To have, to want, to try
+
+These are verbs that are absent in many languages. Sesowi has them. We already talked about them.
+
+## too vs very contrast
+
+Several languages, like Hindi and Chinese, don’t differentiate “too” and “very”. This seems like an odd failing. Sesowi distinguishes them. “Too” is tamai (“overmore”), whereas "very" is da ("big").
+
+## “one” and “some”
+
+In English, we can use “one” to refer to something that has already been mentioned in conversation, or “some” to refer to a plural thing that has already been mentioned in conversation. In Sesowi, this is identical: wa and na are used:
+
+  * en: I saw a bird. Did you also see wa?
+  * sesowi: mi ya du si kiboi. yu laiting ya du si wa e?
+
+  * en: I saw one
+  * sesowi: mi ya du si wa
+
+  * en: I saw some
+  * sesowi: mi ya du si na
+
+## Alone, Only
+
+  * en: he is sitting alone
+  * sesowi: i du subo so wamang
+
+  * en: he is only sitting
+  * sesowi: i wating du subo
+
+  * en: I only talked to you
+  * sesowi: mi wating du se tu yu
+
+  * en: I only want one thing
+  * sesowi: mi wating du yau wa ting
+
+  * en: he washed himself alone
+  * sesowi: i ya du noswe swa so wamang
+
+## Beyond this and that
+
+Sometimes one needs to refer to two different subjects, and to differentiate them, you need to use “this” and “that”:
+
+  * en: which cat are you talking about? This one or that one?
+  * sesowi: yu du se e mau? i laiting a?
+
+However, if you have more than two subjects, this gets rather confusing to deal with in English, and we usually say use emphasis. In Sesowi you can simply say “that-two”, “that-three”, and so on:
+
+  * en: I see this cat, that cat, the other cat, and the other other cat
+  * sesowi: mi du si i mau, a mau, ado mau, ati mau
+
+  * en: this cat meowed at that cat, and then THAT cat meowed at that cat
+  * sesowi: i mau ya du mausang a mau, lai atai ado mau ya du mausang a mau
+
+
