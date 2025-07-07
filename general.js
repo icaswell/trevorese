@@ -155,7 +155,6 @@ function processSurfaceMode(doc, isSurfaceMode) {
                 // Store original class and content if not already stored
                 if (!span.dataset.originalClass) {
                     span.dataset.originalClass = span.className;
-                    console.log('Storing original class:', span.className, 'for text:', span.textContent);
                 }
                 if (!span.dataset.originalContent) {
                     span.dataset.originalContent = span.textContent;
@@ -216,7 +215,6 @@ function processSurfaceMode(doc, isSurfaceMode) {
                         // Force the class to be only 'surface-emph' or 'surface' without any other classes
                         if (isEmph) {
                             span.className = 'surface-emph';
-                            console.log('Setting surface-emph for atomic:', gloss);
                         } else {
                             span.className = 'surface';
                         }
