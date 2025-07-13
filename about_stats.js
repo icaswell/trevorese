@@ -6,19 +6,20 @@ function isDictionaryLoaded() {
            window.compounds && 
            window.proper_nouns && 
            window.english_to_gloss &&
-           Object.keys(window.atomgloss_to_surface).length > 0;
+           Object.keys(window.atomgloss_to_surface).length > 0 &&
+           Object.keys(window.proper_nouns).length > 0; // Ensure proper nouns are loaded
 }
 
 // Function to update the statistics in the about page
 function updateVocabStats() {
     // Wait for the dictionary data to be fully loaded
     if (!isDictionaryLoaded()) {
-        console.log('Dictionary data not yet loaded, waiting...');
+        console.log('about_stats.js: Dictionary data not yet loaded, waiting...');
         setTimeout(updateVocabStats, 500);
         return;
     }
     
-    console.log('Dictionary data loaded, updating statistics...');
+    console.log('about_stats.js: Dictionary data loaded, updating statistics...');
     
     // Get the counts from the window variables
     const atomCount = Object.keys(window.atomgloss_to_surface).length;
@@ -59,7 +60,7 @@ function updateVocabStats() {
     
     const englishWordCount = uniqueEnglishWords.size;
     
-    console.log(`Stats: ${atomCount} atoms, ${compoundCount} compounds, ${properNounCount} proper nouns, ${englishWordCount} unique English words`);
+    console.log(`about_stats.js: Stats: ${atomCount} atoms, ${compoundCount} compounds, ${properNounCount} proper nouns, ${englishWordCount} unique English words`);
     
     // Find the placeholder text in the about page
     const introText = document.querySelector('.sesowi-intro-text');
@@ -72,9 +73,9 @@ function updateVocabStats() {
         );
         
         introText.innerHTML = updatedText;
-        console.log('Statistics updated successfully');
+        console.log('about_stats.js: Statistics updated successfully');
     } else {
-        console.error('Could not find .sesowi-intro-text element');
+        console.error('about_stats.js: Could not find .sesowi-intro-text element');
     }
 }
 
@@ -91,7 +92,19 @@ window.addEventListener('load', function() {
     // If stats haven't been updated yet, try again
     const introText = document.querySelector('.sesowi-intro-text');
     if (introText && introText.innerHTML.includes('X atoms')) {
-        console.log('Stats not updated after page load, trying again...');
+        console.log('about_stats.js: Stats not updated after page load, trying again...');
         updateVocabStats();
     }
+    
+    // Add an additional check after a delay to catch late-loading proper nouns
+    setTimeout(function() {
+        const properNounCount = Object.keys(window.proper_nouns || {}).length;
+        const currentText = document.querySelector('.sesowi-intro-text')?.innerHTML || '';
+        
+        // If the text shows 0 proper nouns but we now have some, update again
+        if (properNounCount > 0 && currentText.includes('0 proper nouns')) {
+            console.log('about_stats.js: Proper nouns loaded after initial update, refreshing stats...');
+            updateVocabStats();
+        }
+    }, 2000); // Check again after 2 seconds
 });
