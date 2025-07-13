@@ -56,7 +56,8 @@ function searchDictionary(query) {
                 matchReason = 'surface';
             }
             
-            // 3. Check if any English definition contains the query (excluding notes field)
+            // 3. Check if any English definition exactly matches the query (highest priority)
+            // 4. Check if any English definition contains the query (lowest priority)
             if (entry.facets) {
                 for (const field in entry.facets) {
                     // Skip the notes field
@@ -65,18 +66,38 @@ function searchDictionary(query) {
                     const definitions = entry.facets[field];
                     if (Array.isArray(definitions)) {
                         for (const definition of definitions) {
-                            if (typeof definition === 'string' && definition.toLowerCase().includes(query)) {
-                                matchFound = true;
-                                matchReason = 'definition';
-                                break;
+                            if (typeof definition === 'string') {
+                                const lowerDef = definition.toLowerCase();
+                                
+                                // Check for exact match (highest priority)
+                                if (lowerDef === query) {
+                                    matchFound = true;
+                                    matchReason = 'exact_definition';
+                                    break;
+                                }
+                                // Check for partial match (lowest priority)
+                                else if (lowerDef.includes(query) && matchReason !== 'exact_definition') {
+                                    matchFound = true;
+                                    matchReason = 'definition';
+                                }
                             }
                         }
-                    } else if (typeof definitions === 'string' && definitions.toLowerCase().includes(query)) {
-                        matchFound = true;
-                        matchReason = 'definition';
+                    } else if (typeof definitions === 'string') {
+                        const lowerDef = definitions.toLowerCase();
+                        
+                        // Check for exact match (highest priority)
+                        if (lowerDef === query) {
+                            matchFound = true;
+                            matchReason = 'exact_definition';
+                        }
+                        // Check for partial match (lowest priority)
+                        else if (lowerDef.includes(query) && matchReason !== 'exact_definition') {
+                            matchFound = true;
+                            matchReason = 'definition';
+                        }
                     }
                     
-                    if (matchFound && matchReason === 'definition') break;
+                    if (matchFound && matchReason === 'exact_definition') break;
                 }
             }
             
@@ -137,11 +158,33 @@ function searchDictionary(query) {
     
     // Display all matches
     if (allMatches.length > 0) {
-        // Sort matches: surface matches first, then gloss matches, then definition matches
+        // Sort matches: exact definition matches first, then surface matches, then gloss matches, then partial definition matches
+        // Within each category, sort by ascending complexity
         allMatches.sort((a, b) => {
-            const reasonOrder = { 'surface': 0, 'gloss': 1, 'definition': 2 };
-            return reasonOrder[a.matchReason] - reasonOrder[b.matchReason];
+            const reasonOrder = { 'exact_definition': 0, 'surface': 1, 'gloss': 2, 'definition': 3 };
+            
+            // First sort by match reason
+            const reasonDiff = reasonOrder[a.matchReason] - reasonOrder[b.matchReason];
+            if (reasonDiff !== 0) return reasonDiff;
+            
+            // If same match reason, sort by complexity (ascending)
+            const entryA = window.trevorese_dictionary.vocabs[a.gloss];
+            const entryB = window.trevorese_dictionary.vocabs[b.gloss];
+            const complexityA = entryA ? entryA.complexity || 0 : 0;
+            const complexityB = entryB ? entryB.complexity || 0 : 0;
+            
+            return complexityA - complexityB;
         });
+        
+        console.log('lookup.js: Sorted matches by reason and complexity:', 
+            allMatches.map(m => {
+                const entry = window.trevorese_dictionary.vocabs[m.gloss];
+                return {
+                    reason: m.matchReason,
+                    gloss: m.gloss,
+                    complexity: entry ? entry.complexity : 'N/A'
+                };
+            }));
         
         allMatches.forEach(match => {
             // Use the unified display function
@@ -149,13 +192,14 @@ function searchDictionary(query) {
             const originalEntry = window.trevorese_dictionary.vocabs[match.gloss];
             const entry = {
                 facets: match.definitions,
-                descendants: originalEntry ? originalEntry.descendants : []
+                descendants: originalEntry ? originalEntry.descendants : [],
+                complexity: originalEntry ? originalEntry.complexity : 0
             };
             
             const entryDiv = createDictionaryEntryDisplay(entry, {
                 gloss: match.gloss,
                 surface: match.surface,
-                highlightQuery: match.matchReason === 'definition' ? query : null
+                highlightQuery: (match.matchReason === 'definition' || match.matchReason === 'exact_definition') ? query : null
             });
             
             dictionaryResults.appendChild(entryDiv);

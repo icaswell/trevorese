@@ -255,12 +255,13 @@ textarea,  #bottomBoxGloss, #bottomBoxSurface, #bottomBoxSurfaceAnnotated {
 .nosurface { color: gray; }
 .propernoun { color: blue; font-weight: bold; }
 .not-found-compound-asterisk { color: blue; }
-.gloss { color: rgb(156, 4, 156) }/*; font-weight: bold; */
-.gloss-emph { color: rgb(229, 0, 111); font-weight: bold; }
+/* Consolidated gloss styles */
+.gloss, .dictionary-entry .gloss { color: #009c36; }
+.gloss-emph, .dictionary-entry .gloss-emph { color: rgb(229, 0, 111); font-weight: bold; }
 .gloss-notfound { color: rgb(255, 0, 98); font-weight: bold; }
 .wrong { color: red; }  /* used for incorrect forms like *bwaing */ 
-.surface { color: teal } /*; font-weight: bold; */
-.surface-emph { color: rgb(0, 202, 135); font-weight: bold; }
+.surface, .dictionary-entry .surface { color: teal; }
+.surface-emph, .dictionary-entry .surface-emph { color: rgb(0, 202, 135); font-weight: bold; }
 .surface-notfound { color: rgb(255, 0, 98);}
 .annotation {
   font-size: 0.8em; /* Adjust the value to make it smaller, e.g., 0.7em or 0.9em */
@@ -295,7 +296,8 @@ body .subsubprinciple {
     border-radius: 3px; /* Rounded corners */
 }
 
-.highlight { background-color: red; }
+/* Consolidated highlight styles */
+.highlight { background-color: #ffff99; }
 
         /* Add styles for hiding/showing and the copy button */
 .hidden {
@@ -383,33 +385,16 @@ body .subsubprinciple {
     margin-top: 5px;
 }
 
-.dictionary-entry .surface {
-    color: teal;
-    /* font-weight: bold; */
-}
+/* Dictionary entry styles use consolidated selectors defined above */
 
-.dictionary-entry .gloss {
-    color: #009879;
-}
-
-.dictionary-entry .gloss-emph {
-    color: rgb(229, 0, 111);
-    font-weight: bold;
-}
-
-.dictionary-entry .surface-emph {
-    color: rgb(0, 202, 135);
-    font-weight: bold;
-}
+/* Surface-emph styles consolidated above */
 
 .dictionary-entry .supergloss {
     color: #009879;
     font-style: italic;
 }
 
-.highlight {
-    background-color: #ffff99;
-}
+/* Highlight styles consolidated above */
 
 /* Word Info Popup Styles */
 .word-info-popup {
