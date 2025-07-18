@@ -79,9 +79,11 @@ def format_entry(entry):
     lines = []
     
     # Format the header: surface (gloss)
-    # For compounds without a surface form, construct it from components
-    if not entry['surface'] and '-' in entry['gloss']:
-        # Build surface form from components
+    if entry['surface']:
+        # Use the existing surface form
+        header = entry['surface']
+    elif '-' in entry['gloss']:
+        # For compounds without a surface form, construct it from components
         components = entry['gloss'].split('-')
         surface_parts = []
         for component in components:
@@ -93,8 +95,21 @@ def format_entry(entry):
                 surface_parts.append(component)
         
         header = ''.join(surface_parts)
+    elif ' ' in entry['gloss']:
+        # For multiword entries like "all of", look up each word's surface form
+        words = entry['gloss'].split(' ')
+        surface_parts = []
+        for word in words:
+            word = word.strip()
+            if word in all_entries and all_entries[word]['surface']:
+                surface_parts.append(all_entries[word]['surface'])
+            else:
+                surface_parts.append(word)
+        
+        header = ' '.join(surface_parts)
     else:
-        header = entry['surface']
+        # Fallback to gloss if no surface form can be constructed
+        header = entry['gloss']
     
     # Determine what to show in parentheses
     if entry['display_gloss']:
@@ -132,12 +147,25 @@ def format_entry(entry):
         for desc_gloss in entry['descendants']:
             if desc_gloss in all_entries:
                 desc_entry = all_entries[desc_gloss]
-                if desc_entry['surface'] and desc_entry['supergloss']:
-                    formatted_descendants.append(f"{desc_entry['surface']} ({desc_entry['supergloss']})")
-                elif desc_entry['surface']:
-                    formatted_descendants.append(f"{desc_entry['surface']} ({desc_gloss})")
+                # Always use surface form for descendants
+                if desc_entry['surface']:
+                    formatted_descendants.append(desc_entry['surface'])
                 else:
-                    formatted_descendants.append(desc_gloss)
+                    # If no surface form exists, construct one for compounds
+                    if '-' in desc_gloss:
+                        # Build surface form from components
+                        components = desc_gloss.split('-')
+                        surface_parts = []
+                        for component in components:
+                            component = component.strip()
+                            if component in all_entries and all_entries[component]['surface']:
+                                surface_parts.append(all_entries[component]['surface'])
+                            elif component:
+                                surface_parts.append(component)
+                        formatted_descendants.append(''.join(surface_parts))
+                    else:
+                        # Fallback to gloss if no surface form can be constructed
+                        formatted_descendants.append(desc_gloss)
             else:
                 formatted_descendants.append(desc_gloss)
         
@@ -154,14 +182,17 @@ def format_entry(entry):
     return '\n'.join(lines)
 
 def sort_entries(entries):
-    """Sort entries by atom/compound and then by complexity"""
-    # Separate atoms and compounds
+    """Sort entries by atom/compound/phrase and then by complexity"""
+    # Separate atoms, compounds, and phrases
     atoms = []
     compounds = []
+    phrases = []
     
     for gloss, entry in entries.items():
         if '-' in gloss:
             compounds.append(entry)
+        elif ' ' in gloss:
+            phrases.append(entry)
         else:
             atoms.append(entry)
     
@@ -174,13 +205,42 @@ def sort_entries(entries):
         e['surface'] if e['surface'] else e['gloss']
     ))
     
-    return atoms, compounds
+    # Sort phrases by length and then by surface form
+    phrases.sort(key=lambda e: (
+        len(e['gloss'].split(' ')),
+        e['surface'] if e['surface'] else e['gloss']
+    ))
+    
+    return atoms, compounds, phrases
 
 def generate_dictionary_text(entries):
     """Generate the full dictionary text"""
-    atoms, compounds = sort_entries(entries)
+    atoms, compounds, phrases = sort_entries(entries)
     
-    lines = ["# Sesowi Dictionary", "", "## Atoms", ""]
+    # Create the header with description
+    lines = [
+        "# Sesowi Dictionary",
+        "",
+        "## How to Read This Dictionary",
+        "",
+        "Each entry in this dictionary follows this format:",
+        "",
+        "```",
+        "surface_form (gloss)",
+        "  * noun: meaning of this word as a noun",
+        "  * verb: meaning of this word as a verb",
+        "  * [...]",
+        "  * Descendants: words derived from this entry",
+        "```",
+        "",
+        "The dictionary is organized into three sections:",
+        "1. **Atoms**: Basic, indivisible words",
+        "2. **Compounds**: Words formed by combining two or more atoms",
+        "3. **Phrases**: Multi-word expressions",
+        "",
+        "## Atoms",
+        ""
+    ]
     
     # Add atoms
     for entry in atoms:
@@ -195,11 +255,20 @@ def generate_dictionary_text(entries):
         lines.append(format_entry(entry))
         lines.append("")
     
+    # Add phrases
+    lines.append("## Phrases")
+    lines.append("")
+    
+    for entry in phrases:
+        lines.append(format_entry(entry))
+        lines.append("")
+    
     return '\n'.join(lines)
 
 if __name__ == "__main__":
     # Load the dictionary
-    tsv_path = os.path.join(os.path.dirname(__file__), 'sesowi.tsv')
+    # Use the main project directory for the TSV file
+    tsv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'sesowi.tsv')
     all_entries = load_dictionary(tsv_path)
     
     if all_entries:
