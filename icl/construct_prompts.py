@@ -1,0 +1,235 @@
+
+DELIM="~"*80
+
+with open("dictionary.txt", "r") as f:
+  full_dictionary = f.read()
+with open("tutorial_combined.txt", "r") as f:
+  full_tutorial = f.read()
+with open("../stories.tsv", "r") as f:
+  stories = ""
+  for line in f:
+    if "images:" in line: continue
+    parts = line.split("\t")
+    if len(parts) >= 3:
+      parts[2] = "Note: "+parts[2]
+    stories += "\t".join(parts)
+
+
+FORMAT = """
+Each lesson should be output in the following json format:
+{{
+  "new_atoms": 2-6 new atoms to introduce to the user.
+  "new_atom_compounds": For every new atom, introduce 1-2 new compounds using it.
+  "old_atom_compounds": 4-8 new compounds composed of previous atoms
+  "grammar_points": 1-2 grammar points that will be covered this lesson. Lessons near the end may not have any 
+  "story_plot": a sentence summarizing the plot of the story for this section The story will be 1-3 paragraphs, and will be made later.
+}}
+"""
+
+
+FORMAT = """
+Output an html file. Each lesson outline should be a simple title and a bulleted list, like follows:
+
+<h3>Title of lesson</h3>
+<ul>
+    <li><b>new_atoms:</b> 2-6 new atoms to introduce to the user.</li>
+    <li><b>new_atom_compounds:</b>  For every new atom, introduce 1-2 new compounds using it.</li>
+    <li><b>old_atom_compounds:</b>  4-8 new compounds composed of previous atoms</li>
+    <li><b>grammar_points:</b>  1-2 grammar points that will be covered this lesson. Lessons near the end may not have any</li>
+    <li><b>story_plot:</b>  a sentence summarizing the plot of the story for this section The story will be 1-3 paragraphs, and will be made later.</li>
+</ul>
+"""
+
+
+LESSON_PLANNER_PROMPT = f"""You are going to make a outlines of lessons for learning the Sesowi language. Each lesson introduces 10-20 vocab words, 1-2 grammar points, and has a story using those words and grammar.
+
+I'm going to give you a tutorial introducing the language and its grammar, a full dictionary, and finally some stories in the language. Let's start with the tutorial:
+
+{DELIM}
+{full_tutorial}
+{DELIM}
+
+
+Now, here is the full dictionary of Sesowi words and definitions:
+
+
+{DELIM}
+{full_dictionary}
+{DELIM}
+
+
+Here are some example stories written in Sesowi:
+
+
+
+{DELIM}
+{stories}
+{DELIM}
+
+
+
+Now, you are going to make a outlines of lessons for learning Sesowi. Each lesson introduces 10-20 vocab words, 1-2 grammar points, and has a story using those words and grammar. For earlier lessons you will likely need to introduce more atoms and fewer compounds; as the lessons progress you may just introduce 2 atoms a lesson and many more compounds. For earlier lessons most of the compounds will be in the new_compounds section, and there may be very few review_compounds.  All compounds should only use atoms from this lesson or previous lessons. Remember that in the first few lessons, the learner won't have enough vocabulary for a real "story" per se.
+
+{FORMAT}
+
+Now, output a list of the first 100 lessons in Sesowi:
+"""
+
+
+
+
+
+
+LESSON_PLANNER_PROMPT = f"""You are going to make lessons for learning the Sesowi language. Each lesson introduces 10-20 vocab words, 1-2 grammar points, and has a short story using those words and grammar.
+
+I'm going to give you a tutorial introducing the language and its grammar, a full dictionary, and finally some stories in the language. Let's start with the tutorial:
+
+{DELIM}
+{full_tutorial}
+{DELIM}
+
+
+Now, here is the full dictionary of Sesowi words and definitions:
+
+
+{DELIM}
+{full_dictionary}
+{DELIM}
+
+
+Here are some example stories written in Sesowi:
+
+
+
+{DELIM}
+{stories}
+{DELIM}
+
+
+
+Now, you are going to make the lessons for learning Sesowi. Each lesson introduces 10-20 vocab words, 1-2 grammar points, and has a story using those words and grammar. For earlier lessons you will likely need to introduce more atoms and fewer compounds; as the lessons progress you may just introduce 2 atoms a lesson and many more compounds. All compounds should only use atoms from this lesson or previous lessons. Remember that in the first few lessons, the learner won't have enough vocabulary for a real "story" per se.
+
+Now, output a list of the first 20 lessons in Sesowi, as an HTML page:
+"""
+
+
+
+
+
+with open("lesson_planner_prompt.txt", "w") as f:
+  f.write(LESSON_PLANNER_PROMPT)
+
+
+
+#=====================================================================================================
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+#=====================================================================================================
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+#=====================================================================================================
+
+
+GENERAL_INTRO = """Sesowi is a language for everyone, everywhere, to learn. Unlike previous attempts at this, which are largely European languages in disguise, Sesowi is a universal common denominator, equally easy for people of all backgrounds. All Sesowi words are composed of only 115 atomic concepts -- for instance, "snake" is langboi (long animal), lizard is kolangboi (arm-snake), and salamander is lokolangboi (water-lizard) -- and yet Sesowi is a complete language. Finally, Sesowi does not take itself too seriously.
+
+Sesowi is meant to be the simplest possible language to learn, that is nonetheless fully capable of expressing any idea. It rides on the principles of simplicity and neutrality: not only is it easy to learn (simplicity), but it is easy to learn for speakers of all languages, and doesn't give an advantage to people with a particular native language (neutrality/universality).
+
+Wait, Hasn’t this been tried before? There have been a variety of attempted IALs (International Auxiliary Languages) over the years, most famously Esperanto. However, these all do not satisfy the basic criteria of universalty and neutrality. Well known IALs include Esperanto, Volupek, Interlingua, Interlingue, Ido, Novial, Lingua Franca Nova, and Idiom Neutral, all of which are essentially simplified versions of Latin. They have their own beauty, but they are far from universal. Even ones attempting to be more global, like Lingwa di Planeta, still have a fundamentally Indo-European phonology and structure. And Lojban is explicitly stated to be impossible to earn perfectly. All of these leave non European speakers — namely the majority of the world — at a heavy social disadvantage. Sesowi is a more global middle ground, positioned somewhere between Indo-European and Sinitic languages, with influence from Dravidian languages.
+
+There is, however, one language that does satisfy all these criteria, and very well at that: Toki Pona. Toki pona is a work of art done by someone with a deep and universal understanding of languages. However, it has no intention of being an IAL. Toki Pona is not capable of expressing many basic concepts (like “seven”), and its goal is more personal discovery than communication -- for example, it cannot express the concept of a "bad friend", sine a "friend" is just a "good person".
+
+Sesowi grammar is uninflecting and relies on word order and part-of-speech markers. It does away with any grammatical element that is not deemed necessary for communication, e.g. tenses, moods like the conditional, animacy, case systems, and gender. It is phonologically simple, lacking tricky elements like consonant clusters, final consonants, or rhotics. Needless to say, there are no grammatical exceptions, or nonsense around spelling.
+
+Much of the beauty of Sesowi is in its lexicon. Sesowi words themselves are more like a vague cloud of meaning, having a wide range of meanings, and a single word is often not clear without context. Importantly, these words do not have a specific part of speech, functioning as verb, noun, or adjective depending on grammatical role. There are only a few hundred of these atoms, but the language makes extensive use of compounding to make more complex concepts."""
+
+CORRECTION_PROMPT_MINIMAL = f"""I am working on a language called Sesowi. I want you to help me improve it and fix any mistakes I have made. I'm going to give you a tutorial introducing the language and its grammar, a full dictionary, and finally some stories in the language. 
+
+{GENERAL_INTRO}
+
+Let's start with the tutorial:
+
+{DELIM}
+{full_tutorial}
+{DELIM}
+
+
+Now, here is the full dictionary of Sesowi words and definitions:
+
+
+{DELIM}
+{full_dictionary}
+{DELIM}
+
+
+Here are some example stories written in Sesowi:
+
+
+
+{DELIM}
+{stories}
+{DELIM}
+
+
+
+Given what you have seen above, please give me a detailed report on anything that you think could be improved, or any mistakes you have found in the work above.
+"""
+
+with open("overall_corrections_minimal.txt", "w") as f:
+  f.write(CORRECTION_PROMPT_MINIMAL)
+
+#=====================================================================================================
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+#=====================================================================================================
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+#=====================================================================================================
+
+
+CORRECTION_PROMPT_STRUCTURED = f"""I am working on a language called Sesowi. I want you to help me improve it and fix any mistakes I have made. I'm going to give you a tutorial introducing the language and its grammar, a full dictionary, and finally some stories in the language. 
+
+{GENERAL_INTRO}
+
+Let's start with the tutorial:
+
+{DELIM}
+{full_tutorial}
+{DELIM}
+
+
+Now, here is the full dictionary of Sesowi words and definitions:
+
+
+{DELIM}
+{full_dictionary}
+{DELIM}
+
+
+Here are some example stories written in Sesowi:
+
+
+
+{DELIM}
+{stories}
+{DELIM}
+
+
+
+Given what you have seen above, please give me a detailed report on anything that you think could be improved, or any mistakes you have found in the work above. Include the following sections:
+
+1. Errors/Inconsistencies: the stories or examples in the tutorial might contradict the written grammar or rules of the language.
+2. TODOs: for any of the TODOs or "?"s I have, provide suggestions on how to resolve them.
+3. problems in the lexicon
+3a: bad compounds: are there compounds composed of sub-parts that don't make sense given the final meaning? What would a better compound be?
+3b: overly broad compounds: are there words that still mean too many things and will cause confusion in speech?
+3c: redundancies: Are there multiple words that have too much semantic overlap? How can this be resolved?
+3d. missing or extra atoms: are there any atoms that seem redundant given other atoms or compounds, and can be removed? Are there any atoms that are trying to do too much and would benefit from being split into two new atoms?
+3e. Surfaces: are the surface forms of the atoms (e.g. "di" for "move:) good? are there any improvements you'd suggest?
+4. Grammar:
+4a. is the grammar as outlined good? Are there problems or room for improvement?
+4b. Are there any major parts missing from the tutorial?
+5. General comments and suggestions for improvement?
+"""
+
+
+
+
+
+with open("overall_corrections_structured.txt", "w") as f:
+  f.write(CORRECTION_PROMPT_STRUCTURED)

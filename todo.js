@@ -448,7 +448,11 @@ function checkTopEnglishWords(missingEnglishWords) {
             // Process each word
             lines.forEach((word, index) => {
                 // Clean the word (remove any numbers or extra whitespace)
-                const cleanWord = word.trim().toLowerCase();
+                var cleanWord = word.trim().toLowerCase();
+                var noSWord = cleanWord;
+                if (cleanWord.endsWith('s')) {
+                    noSWord = cleanWord.substring(0, cleanWord.length - 1)
+                }
                 
                 // Skip empty lines
                 if (!cleanWord) return;
@@ -471,7 +475,8 @@ function checkTopEnglishWords(missingEnglishWords) {
                                 // Check if the definition contains the word as a whole word
                                 if (typeof definition === 'string') {
                                     const regex = new RegExp(`\\b${cleanWord}\\b`, 'i');
-                                    if (regex.test(definition)) {
+                                    const noSRegex = new RegExp(`\\b${noSWord}\\b`, 'i');
+                                    if (regex.test(definition) || noSRegex.test(definition)) {
                                         wordExists = true;
                                         break;
                                     }
