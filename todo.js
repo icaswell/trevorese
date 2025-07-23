@@ -434,7 +434,7 @@ function checkTopEnglishWords(missingEnglishWords) {
     console.log("Checking top English words...");
     
     // Fetch the top_english.txt file
-    fetch('top_english.txt')
+    fetch('top_english.txt?v=1' + Date.now())
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch top_english.txt: ${response.status} ${response.statusText}`);
