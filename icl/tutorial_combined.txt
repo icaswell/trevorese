@@ -180,7 +180,7 @@ Note: Italic text indicates a similar but not exact sound match in that language
 
 ## Atoms
 
-There are under 200 basic words from which all other words are built. These are called atoms. They all have the form consonant+vowel[+optional ng]. The simplest atom would simply have consonant+vowel, e.g. ma, or su. Atoms representing slightly more complex concepts use more use of compound consonants, diphthongs, and the nasal coda, e.g. yau, kwe, or nang.
+There are around 114 basic words from which all other words are built. These are called atoms. They all have the form consonant+vowel[+optional ng]. The simplest atom would simply have consonant+vowel, e.g. ma, or su. Atoms representing slightly more complex concepts use more use of compound consonants, diphthongs, and the nasal coda, e.g. yau, kwe, or nang.
 
 There are four special atoms that start with a vowel, representing the most basic concepts of i, a, o, and e. These are usually not used in compound words.
 
@@ -236,12 +236,39 @@ Atoms themselves have broader meanings than English words, and if they are used 
 
 Note to English speakers: A good number of the world's languages, e.g. Greek and Chinese, do not differentiate "hand" and "arm". So this level of ambiguity is quite natural!
 
+## Proper Nouns and Transition Metals
+
+Culturally universal words should all be represented by atoms or compounds. This includes specific concepts that are now known to all people, for example, rice or wheat. However, proper nouns or other culturally specific concepts are not given their unique atoms or compounds. Instead, they are written out phonetically using Sesowi atoms, e.g. banglase (the Bangla/Bengali language) or kiwipa (kiwi fruit). These have epiphenomenal meanings from the atoms that they are composed of ("eight hot language" and "air small fruit" in this case) that are purely coincidental, just as with proper nouns in Chinese.
+
+There is a similar phenomenon with atoms. Atoms are supposed to represent general, universal concepts, whereas compounds can be more complex. However, there are some more specific concepts that are given atoms just because it is pragmatically easier. For example, "cat" is not a fundamental building block of the information architecture of the world, but it is so naturally represented with the onomonopoetic mau that it would be a shame not to use that surface for it. We playfully call these atoms the Transition Metals.
+
+Here is a table summarizing all types of Sesowi words:
+
+  * en: animal
+  * sesowi: boi
+  * complexity level: fundamental
+  * class: atom (principle)
+
+  * en: cat
+  * sesowi: mau
+  * complexity level: universal
+  * class: atom (transition metal; could be a compound but the atom fit too well)
+
+  * en: bird
+  * sesowi: kiboi
+  * complexity level: universal
+  * class: compound (formed semantically for universal concept)
+
+  * en: crocodile
+  * sesowi: u_crocodile
+  * complexity level: culturally specific
+  * class: proper noun (formed phonetically for very specific concept)
 
 
 
 ## Grammar 1: the basics
 
-The following introduces English, Gloss, and Sesowi forms. The gloss for a word is just an English word that approximates the Sesowi word's meaning, so it is easier to see exactly what’s going on. There may also be some loose literal translations in &lt;angle brackets&gt;. These are loose translations of the Sesowi into English so you can understand more or less how the construction words. For instance:
+The following introduces English and Sesowi forms. There may also be some loose literal translations in &lt;angle brackets&gt;. These are loose translations of the Sesowi into English so you can understand more or less how the construction words. For instance:
 
 ## Nouns
 
@@ -684,7 +711,7 @@ Notice however that even in English, believe in has a different meaning when app
   * sesowi: mi se i wai dayau
 
   * en: I lived here for three years
-  * sesowi: mi ya sa ilu ti daswetai
+  * sesowi: mi ya du sa ilu ti daswetai
 
   * en: I love him for his smile
   * sesowi: mi du ma i wai galitobe de i
@@ -697,6 +724,47 @@ Notice however that even in English, believe in has a different meaning when app
 
 At this point, you already know most of the language's grammar!
 
+## Numbers
+
+Sesowi uses a base-10 system. The numbers 0-9 are atoms. Larger numbers are formed by simple concatenation.
+
+  * en: 0-9
+  * sesowi: no, wa, do, ti, kwa, pai, lau, se, bang, noi
+
+  * en: 10
+  * sesowi: wano
+
+  * en: 19
+  * sesowi: wanoi
+
+  * en: 20
+  * sesowi: dono
+
+  * en: 21
+  * sesowi: dowa
+
+  * en: 115
+  * sesowi: wawapai
+
+For larger numbers, ta (ta) is used for powers of ten. The format is `(coefficient)ta(exponent)`.
+
+  * en: one hundred/100 (1x102)
+  * sesowi: watado
+
+  * en: two hundred/100 (2x102)
+  * sesowi: dotado
+
+  * en: one thousand/1,000 (1x103)
+  * sesowi: watati
+
+  * en: two thousand/2,000 (2x103)
+  * sesowi: dotati
+
+  * en: one million / 1,000,000 (1x105)
+  * sesowi: watapai
+
+  * en: ninety-eight trillion / 98,000,000,000,000 (98x1012)
+  * sesowi: noibangwatawado
 
 
 
@@ -1205,6 +1273,121 @@ Finally, there are situations in English where gerunds like being pop up just be
 
 The most basic way to make two clauses in Sesowi is to just put two sentences one after the other:
 
+  * en: I told you
+  * sesowi: mi ya du se tu yu
+
+  * en: the cat breaks a cup
+  * sesowi: mau  du ke lobau
+
+  * en: I told you (that) the cat broke a cup
+  * sesowi: mi ya du se tu yu, mau du ke lobau
+
+  * en: I told you, but the cat broke the cup
+  * sesowi: mi du se tu  yu, geng mau du ke lobau
+
+  * en: I told you, and the cat broke the cup
+  * sesowi: mi du se tu  yu, laiting mau du ke lobau
+
+  * en: I told you, because the cat broke the cup
+  * sesowi: mi du se tu  yu, iwai mau du ke lobau
+
+  * en: I told you, so the cat broke the cup
+  * sesowi: mi du se tu  yu, gewai mau du ke lobau
+
+  * en: I told you before the cat broke the cup
+  * sesowi: mi du se tu  yu, yatai mau du ke lobau
+
+  * en: I told you while/when the cat broke the cup
+  * sesowi: mi du se tu  yu, tai mau du ke lobau
+
+  * en: I told you or the cat broke the cup
+  * sesowi: mi du se tu  yu, TODO mau du ke lobau
+
+  * en: I told you after the cat broke the cup
+  * sesowi: mi du se tu  yu, betai mau du ke lobau
+
+## Serial Verb Constructions
+
+To describe a sequence of actions by the same subject, multiple verbs can be "chained" or "serialized" one after another without any conjunctions. All verbs in the chain share the same subject and any preceding modals or tense markers.
+
+  * en: He stops, turns his head, and drinks.
+  * loose: &lt;He stops, turns head, drinks.&gt;
+  * sesowi: i du nogo, du laiwe  to, du loka.
+
+  * en: I want to go to the store, buy milk, and come back.
+  * loose: &lt;I want to go to store, buy milk, go back.&gt;
+  * sesowi: mi yau du go tu gekanglu, du kang bailo, du go laiwe.
+
+  * en: You should go find him.
+  * loose: &lt;You must go, find him.&gt;
+  * sesowi: yu dwa du go, du obu i.
+
+  * en: She ran home and ate.
+  * loose: &lt;She past went-fast to house, ate.&gt;
+  * sesowi: i ya du kwigo tu dabau, du ka.
+
+## other
+
+  * en: I saw a another cat
+  * sesowi: mi ya du si lai mau
+
+  * en: The other cat was smaller
+  * sesowi: lai mau so mai wi
+
+## Self, own, each other
+
+  * en: he washed the towel
+  * sesowi: i ya du noswe lopinggu
+
+  * en: he washed himself
+  * sesowi: i ya du noswe swa
+
+  * en: they washed themselves
+  * sesowi: ina ya du noswe swa
+
+  * en: he ate his own feces
+  * sesowi: i ya du ka boiswe de swa
+
+  * en: she didn't know her own name
+  * sesowi: i no ya du kumeng swase de swa
+
+  * en: they flog themselves
+  * sesowi: ina du lengliko swa
+
+  * en: they flog each other
+  * sesowi: ina du lengliko lai swa
+
+  * en: what did you say?
+  * sesowi: yu  du se e ting?
+
+  * en: You said WHAT?
+  * sesowi: yu  du se e ting swa?
+
+  * en: YOU said what?
+  * sesowi: yu swa du se e ting?
+
+  * en: even you said that.
+  * sesowi: swa  yu du se a
+
+  * en: you only said that. [Indian English]
+  * sesowi: yu swa  du se a
+
+  * en: you even said that
+  * sesowi: yu  du se swa a
+
+  * en: you said even that
+  * sesowi: yu  du se a swa
+
+## also, again
+
+  * en: I also saw a catI too saw a catI saw a cat as well
+  * sesowi: mi laiting ya du si mau
+
+  * en: The cat is also smallThe cat is small as well
+  * sesowi: mau laiting so wi
+
+  * en: I saw a cat again
+  * sesowi: mi laitai du si mau
 
 
 
@@ -1455,7 +1638,7 @@ All this is saying is that someone or something spilled the milk, but the speake
 
 Now, what about the version of the passive that has a subject attached to it?
 
-The only difference between this and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions:
+The only difference between this construction (passive+"by") and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions:
 
   * en: the milk was spilled by Fred
   * sesowi: Fred ya du su bailo
