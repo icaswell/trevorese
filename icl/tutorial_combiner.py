@@ -293,11 +293,13 @@ def process_tutorial_files():
     """Process all tutorial files"""
     try:
         # Load dictionary
-        load_dictionary(os.path.join(os.path.dirname(__file__), 'sesowi.tsv'))
+        # load_dictionary(os.path.join(os.path.dirname(__file__), 'sesowi.tsv'))
+        load_dictionary("/Users/icaswell/Documents/trevorese/sesowi.tsv")
         
         # Find all tutorial part files
-        tutorial_files = [f for f in os.listdir(os.path.dirname(__file__)) 
-                         if f.startswith('tutorial_part_') and f.endswith('.html')]
+        # tutorial_files = [f for f in os.listdir(os.path.dirname(__file__)) 
+        tutorial_files = [f for f in os.listdir("/Users/icaswell/Documents/trevorese/")  
+                         if 'tutorial_part_' in f and f.endswith('.html')]
         tutorial_files.sort()  # Sort to ensure correct order
         
         print(f"Found {len(tutorial_files)} tutorial files to process")
@@ -307,7 +309,8 @@ def process_tutorial_files():
         # Process each file
         for file in tutorial_files:
             print(f"Processing {file}...")
-            file_path = os.path.join(os.path.dirname(__file__), file)
+            # file_path = os.path.join(os.path.dirname(__file__), file)
+            file_path = os.path.join("/Users/icaswell/Documents/trevorese/", file)
             processed_content = process_html_file(file_path)
             combined_content += processed_content + "\n\n"
         

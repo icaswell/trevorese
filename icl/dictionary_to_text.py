@@ -268,7 +268,8 @@ def generate_dictionary_text(entries):
 if __name__ == "__main__":
     # Load the dictionary
     # Use the main project directory for the TSV file
-    tsv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'sesowi.tsv')
+    # tsv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'sesowi.tsv')
+    tsv_path =  '/Users/icaswell/Documents/trevorese/sesowi.tsv'
     all_entries = load_dictionary(tsv_path)
     
     if all_entries:

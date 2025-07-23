@@ -1,10 +1,19 @@
+from glob import glob
 
 DELIM="~"*80
 
+full_tutorial = []
+for fname in glob("../tutorial_part*html"):
+  with open(fname, "r") as f:
+    full_tutorial.append(f.read())
+full_tutorial = "\n\n\n".join(full_tutorial)
+
+full_dictionary = ""
 with open("dictionary.txt", "r") as f:
-  full_dictionary = f.read()
-with open("tutorial_combined.txt", "r") as f:
-  full_tutorial = f.read()
+  for line in f:
+    if "Descendants:" in line or "cognates" in line: continue
+  full_dictionary += line
+
 with open("../stories.tsv", "r") as f:
   stories = ""
   for line in f:
@@ -13,6 +22,7 @@ with open("../stories.tsv", "r") as f:
     if len(parts) >= 3:
       parts[2] = "Note: "+parts[2]
     stories += "\t".join(parts)
+
 
 
 GENERAL_INTRO = """Sesowi is a language for everyone, everywhere, to learn. Unlike previous attempts at this, which are largely European languages in disguise, Sesowi is a universal common denominator, equally easy for people of all backgrounds. All Sesowi words are composed of only 115 atomic concepts -- for instance, "snake" is langboi (long animal), lizard is kolangboi (arm-snake), and salamander is lokolangboi (water-lizard) -- and yet Sesowi is a complete language. Finally, Sesowi does not take itself too seriously.
@@ -27,17 +37,9 @@ Sesowi grammar is uninflecting and relies on word order and part-of-speech marke
 
 Much of the beauty of Sesowi is in its lexicon. Sesowi words themselves are more like a vague cloud of meaning, having a wide range of meanings, and a single word is often not clear without context. Importantly, these words do not have a specific part of speech, functioning as verb, noun, or adjective depending on grammatical role. There are only a few hundred of these atoms, but the language makes extensive use of compounding to make more complex concepts."""
 
-
-CORRECTION_PROMPT_STRUCTURED = f"""I am working on a language called Sesowi. I want you to help me improve it and fix any mistakes I have made. I'm going to give you a tutorial introducing the language and its grammar, a full dictionary, and finally some stories in the language. 
+CORRECTION_PROMPT_MINIMAL = f"""I am working on a language called Sesowi. I want you to help me write a few more sections. I'm going to give you a tutorial introducing the language and its grammar, a full dictionary, and finally some stories in the language. 
 
 {GENERAL_INTRO}
-
-Let's start with the tutorial:
-
-{DELIM}
-{full_tutorial}
-{DELIM}
-
 
 Now, here is the full dictionary of Sesowi words and definitions:
 
@@ -50,30 +52,30 @@ Now, here is the full dictionary of Sesowi words and definitions:
 Here are some example stories written in Sesowi:
 
 
-
 {DELIM}
 {stories}
 {DELIM}
 
 
+Finally, here are the existing sections in the tutorial:
 
-Given what you have seen above, please give me a detailed report on anything that you think could be improved, or any mistakes you have found in the work above. Include the following sections:
+{DELIM}
+{full_tutorial}
+{DELIM}
 
-1. Errors/Inconsistencies: the stories or examples in the tutorial might contradict the written grammar or rules of the language.
-2. TODOs: for any of the TODOs or "?"s I have, provide suggestions on how to resolve them.
-3. problems in the lexicon
-3a: bad compounds: are there compounds composed of sub-parts that don't make sense given the final meaning? What would a better compound be?
-3b: overly broad compounds: are there words that still mean too many things and will cause confusion in speech?
-3c: redundancies: Are there multiple words that have too much semantic overlap? How can this be resolved?
-3d. missing or extra atoms: are there any atoms that seem redundant given other atoms or compounds, and can be removed? Are there any atoms that are trying to do too much and would benefit from being split into two new atoms?
-3e. Surfaces: are the surface forms of the atoms (e.g. "di" for "move:) good? are there any improvements you'd suggest?
-4. Grammar:
-4a. is the grammar as outlined good? Are there problems or room for improvement?
-4b. Are there any major parts missing from the tutorial?
-5. General comments and suggestions for improvement?
+
+
+Now, I want you to write the following tutorial sections:
+
+1. Explain "Transition Metal" Atoms: The dictionary uses this term for words like `kau` (cow). This is internal jargon. Explain it in the dictionary's introduction, e.g., "For pragmatic reasons, a few common but culturally specific concepts are included as atoms. We call these 'transition words'."
+2. Conjunctions: A dedicated section on clausal conjunctions is needed, including geng, gewai, iwai, laiting and any others that come up in the stories
+3. Numbers: describe the ten atoms used for numbers (no, wa, do, ... noi), and how to form longer numbers (19=wanoi, 20=dono, 21=dowa, ....), and how to use "ta" for "to the power of" (100=watado, 1000=watati, 2000=dotati, etc)
+4. small section on Topic-Comment Structure
+5. small section on Serial Verb Constructions.
+6. Any other grammatic aspects that seem to be missing from the tutorial.
+
+All sections you write should be succinct, describing the concept with one or two small tables of examples, and no unnecessary verbiage.
 """
 
-
-
-with open("overall_corrections_structured.txt", "w") as f:
-  f.write(CORRECTION_PROMPT_STRUCTURED)
+with open("newsections.txt", "w") as f:
+  f.write(CORRECTION_PROMPT_MINIMAL)
