@@ -1,0 +1,149 @@
+*   **`bu` (seek) vs. `yau` (want):** "To seek" is often "to want to find." `obu` (find) is `all-seek`, which is excellent. But could `bu` be deprecated in favor of phrases like `yau obu` (want to find)?
+------
+
+
+    *   **Recommendation:** Change one of them. Looking at your cognates for "seven", you list `ki` (from Chinese `qī`). This would be an excellent replacement. `se` for "talk" is perfect (from "say").
+------
+ba: The dictionary notes that ba has two unrelated meanings ("with" and command marker). For a language striving for simplicity, this is not ideal. I suggest creating a new, simple atom for the command marker, perhaps ma or pa, to avoid ambiguity.
+
+------
+
+### VI. Example Stories & Texts
+
+The stories are the ultimate test, and they work beautifully. They demonstrate the language's capabilities and charm.
+
+
+*   **Clarity in "God of Isaac":**
+    *   `"wating a mang so du kudu i kigo nang du gwai kigo."`
+    *   (Only the people who operate this flight can change the flight.)
+    *   This is a perfect use of the `so` and `nang` markers. It's unambiguous and clear.
+
+--------
+2.  **Redundant or Overlapping Atoms:**
+    *   **`bu` (seek/try) vs. `obu` (find):** `obu` is `all-seek`. This is a perfect compound and `bu` works well as the atom. Good.
+    *   **`ge` (give) vs. `pu` (get):** You note `pu` could be "reverse-give." This would be more elegant. You could use a marker for reversal, like `gengwe` (anti). `gengwe-ge` (anti-give) -> `ge-geng`? or `gengge`? This might be too complex, and having `pu` is pragmatic. It's a trade-off.
+    *   **`pi` (surface/skin) vs. `touch`:** Your decision to merge "touch" into "surface/skin" was excellent. It simplifies the lexicon beautifully.
+------
+
+
+    *   **`gokopau` (foot):** `go-arm-end` (leg-hand). Excellent. But the verb form is "to stand up." This feels like a conceptual leap. "to stand" should probably be its own concept, perhaps `su-ping` (down-flat, i.e., sitting/standing on a flat surface) or something similar.
+
+
+-----------
+weak error: the following is only about passive+"by"
+
+The Passive Voice (sa): The tutorial has a major contradiction.
+The section “It”: Passive voice states, "The only difference between this and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions."
+However, the section on Participles introduces sa as a passive marker: kuliboi so du sa ka (An eaten bear). Later, the passive is explained again with sa: nau de i du sa tobwa (Her nose experiences kisses).
+
+------------
+# hallucination: there is no such note
+pwalo (tea/broth): The note about cha vs. pwalo.
+Suggestion: pwalo (plant-water) is a perfect compound for "herbal infusion/broth". You can introduce a specific, un-decomposable word like cha for the tea plant itself (camellia sinensis), just as you have kau for cow. Then "tea" (the drink) would be chalopwalo (tea-plant-water) or simply cha by convention.
+
+------------
+# there is a note about chu/swa/kwa as cognates, but no TODOs. and the suggestion is unrelated
+maomeng (picky/choosy): The note about chu/swa/kwa sounds.
+Suggestion: maomeng from ma (love) + omeng (decision) is a bit of a stretch. "Love-decision" for "picky" isn't intuitive. A better compound might be dayau so wi (wanting big for small things) or danoma witing (disliking details). However, if you want to keep maomeng, perhaps gloss it as "particular about what one loves."
+
+
+-------
+# doesn't understand "so" usage
+sesowi (Sesowi): se (talk) + so (like) + wi (small) = "talk-like-small". This is a bit opaque. "small-like talk"? A more direct name could be Gase (Good-talk), Ose (All-talk), or Winakwaise (Simple-talk). However, Sesowi has a nice sound and a unique identity, so keeping it is fine, but the etymology isn't its strongest point.
+
+-----
+Extra: se (seven) should be changed due to the homophone. It could become a compound like lau-wa (six-one) or have its surface changed (e.g., to sepa).
+
+
+
+
+-----
+A new atom, e.g., sin, for emotional feeling (from siento/sensation). Then gali (happy) could be ga-sin (good-feeling) and nogali (sad) could be noga-sin (bad-feeling). This would make the distinction between "tired" (noli) and "sad" (nogasin) clearer.
+
+
+
+------
+page numbers???
+The Issue: The passive marker sa is a major grammatical feature. However, it's introduced very late in the tutorial, almost as an afterthought. Core grammatical markers like du and so are introduced on page 3-4 of the tutorial, while sa doesn't appear until page 21.
+
+
+-------
+"Ground": The story "Opossum Song" uses suting (su-ting / down-thing) for "ground" (lo du bi lu suting). However, the dictionary lists sulu (su-lu / down-place) as the word for "ground". This is a direct contradiction. sulu seems more logical.
+
+>> in fact, the Opossum Song already had "lo du bi lu su". However, in an Odis story there was "du yo tai so odisa so gali so da, du ping lu suting, du nang mang du pingpi i."
+
+
+
+
+
+
+
+todo
+
+gi/ta
+
+    *   **Recommendation:** Re-evaluate `deyo`. Could "lose an object" be expressed differently? Perhaps `i ting go nosi` (the thing becomes lost/hidden) or `mi no yo i ting mai` (I don't have the thing anymore). This might be a place to simplify.
+
+This is a serial verb construction, 
+
+*   **Mistake in "Project Partners":**
+    *   `mamang so lai de mi, kalala, du se mamang de i lai du bi ne i batai, nang du kudu ba mi.`
+    *   (Another friend of mine, Clara, said her friend was also in the class, and could work with me.)
+    *   The second `lai` (other) is redundant. It should be: `...du se mamang de i **laiting** du bi ne i batai...` (...said her friend **also** was in the class...).
+
+1.  **Copula (to be) Omission:** In your examples, you sometimes omit the verb `bi` (to be) and its marker `du`.
+    *   `odisa du bi mang so...` (Odis is a person who...) - Correctly used.
+    *   `wating muse de yu de elopa.` (only if your mother tongue is from Europe) - Here, it should probably be `wating bi muse de yu **du bi** de elopa` for consistency.
+    *   **Recommendation:** Clarify the rule. Is the copula (`du bi`) omissible in certain contexts, or should it always be present for clarity? Sticking to the "verb marker" rule would make the grammar more rigid and easier to learn.
+
+
+    *   **Recommendation:** Formalize adverbial phrases. A good pattern would be to use a preposition like `ba` (with) or a noun for manner `we` (way).
+        *   `teba du tuli i pingpeting **ba nose**` (Trevor printed the cards **with secret/secrecy**).
+        *   `teba du tuli i pingpeting **ne we so nose**` (Trevor printed the cards **in a way that is secret**).
+        *   This makes the grammar more consistent and avoids ambiguity.
+
+
+
+1.  **CRITICAL: Fix Homophones.**
+    *   Change `se` (seven) to **`ki`**.
+    *   Split `ba` (with) and the command marker. Use a new word like **`pwi`** for "please/command".
+
+2.  **Standardize Grammar.**
+    *   Clarify the rule on omitting the copula (`du bi`). It's probably best to require it for consistency.
+    *   Formalize adverbial phrases using prepositions (`ba we so...` / `in a ... way`) to avoid ambiguity.
+
+3.  **Embrace Your Strengths.**
+    *   Be confident in the "un-logical" but pragmatic atoms (`kau`, `deng`).
+    *   Frame the "atom vs. compound" distinction (e.g., `ni` vs. `niyang`) as a feature for precision (abstract concept vs. specific instance).
+    *   Celebrate the Sinitic-style serial verb constructions.
+
+
+
+        *   **Use `de` (of) for relative clauses.** This is a common pattern in many world languages (e.g., pidgins/creoles). `mang de du go` (person of doing go). This might feel clunky but it is unambiguous.
+        *   **Use a compound for "like/as."** `we so i` (in the way of this) or `twi so a` (in the kind of that). `du pingpi i we so mau` (pat him in the way of a cat).
+
+    *   **`bangkoboi` (spider):** `eight-arm-animal`. Perfect. But then `lobangkoboi` (water-spider) is used for "crab," with a note that crabs have 10 legs. This is an internal contradiction. **Suggestion:** For crab, use `kubauboi so lo` (water crustacean) or `wano-ko-boi` (ten-leg-animal).
+
+        *   The story "Random Coping Chess" has `mina du yau pe de mina o du bi so peli!` (We want our games to all be fun!). This suggests `du bi so [adjective]` is the intended structure. If so, make this explicit in the tutorial.
+
+
+
+Conjunctions: A dedicated section on clausal conjunctions is needed. You have the words (geng, gewai, iwai, laiting), but they aren't explained in a structured way. Show how to link full sentences:
+mi du go, **geng** yu du sa. (I go, but you stay.)
+mi so noli, **gewai** mi be du pingtai. (I am tired, so I will sleep.)
+Numbers: The tutorial covers wa (one), but not how to form other numbers. The dictionary implies they are atoms (do, ti, kwa...). A short section on numbers 1-10 and how to form larger numbers (e.g., wano-wa for 11, do-wano for 20) would be very helpful. The dictionary has wawa for 11, which is a bit irregular. A systematic approach would be better.
+Topic-Comment Structure: Given the Sinitic influence, does Sesowi allow for topic-comment structures? E.g., i mau, niyang. (lit. "That cat, black.") or kagu, mi ya du ka. (lit. "The food, I ate it."). If so, this is a powerful, non-Eurocentric feature that should be included in the tutorial.
+
+The Issue: The passive marker sa is a major grammatical feature. However, it's introduced very late in the tutorial, almost as an afterthought. Core grammatical markers like du and so are introduced on page 3-4 of the tutorial, while sa doesn't appear until page 21.
+
+
+bought two dogs"). This is logical, consistent with the rest of the modal system, and powerful.
+Suggestion: I strongly recommend abandoning Method 1 (so tai). The modal stacking system (Method 2) is far superior and more in line with Sesowi's logical spirit. The idea of "having done something" can be conveyed by ya (already/past) and context, without needing a special construction. For habitual actions, so natai ("like many times") works perfectly and should be kept.
+
+
+The dai X du Y Instrumental Construction
+The Issue: The structure for using an instrument, i ya du dai pwako du badu lo ("he used a stick to mix water"), is a bit verbose. It reads like two separate clauses: "He did use a stick, [and] he did mix water."
+Suggestion: Consider streamlining this. A more common pattern in analytic languages is dai X Y (use X do Y). The sentence could become i ya du dai pwako badu lo. This would remove the second du, making the instrumental phrase a clearer modifier of the main verb. Test this structure to see if it feels more natural. If you keep the current structure, the tutorial should explain why it's two verb phrases.
+
+
+*   **Explain "Transition Metal" Atoms:** The dictionary uses this term for words like `kau` (cow). This is internal jargon. Explain it in the dictionary's introduction, e.g., "For pragmatic reasons, a few common but culturally specific concepts are included as atoms. We call these 'transition words'."
