@@ -331,6 +331,9 @@ async function scanStoriesFile(unrecognizedCompounds, unglossableSurfaces) {
         // Process each line
         for (let i = 1; i < lines.length; i++) {
             const line = lines[i].trim();
+            if (line.includes("images:")) {
+                continue
+            }
             
             // Skip empty lines
             if (!line) continue;
