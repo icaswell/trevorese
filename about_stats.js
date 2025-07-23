@@ -4,10 +4,8 @@
 function isDictionaryLoaded() {
     return window.atomgloss_to_surface && 
            window.compounds && 
-           window.proper_nouns && 
            window.english_to_gloss &&
-           Object.keys(window.atomgloss_to_surface).length > 0 &&
-           Object.keys(window.proper_nouns).length > 0; // Ensure proper nouns are loaded
+           Object.keys(window.atomgloss_to_surface).length > 0; // We no longer check for proper_nouns
 }
 
 // Function to update the statistics in the about page
@@ -21,17 +19,29 @@ function updateVocabStats() {
     
     console.log('about_stats.js: Dictionary data loaded, updating statistics...');
     
-    // Get the counts from the window variables
-    const atomCount = Object.keys(window.atomgloss_to_surface).length;
+    // Get the counts from the window variables, ignoring atoms with glosses starting with 'ATOM_'
+    let atomCount = 0;
+    for (const gloss in window.atomgloss_to_surface) {
+        if (!gloss.startsWith('ATOM_')) {
+            atomCount++;
+        }
+    }
     const compoundCount = Object.keys(window.compounds).length;
-    const properNounCount = Object.keys(window.proper_nouns).length;
+    
+    let properNounCount = 0;
+    for (const gloss in window.trevorese_dictionary.vocabs) {
+        const vocabEntry = window.trevorese_dictionary.vocabs[gloss];
+        if (vocabEntry.is_phonetic_noun) {
+            properNounCount++;
+        }
+    }
     
     // Count unique English words by splitting definition fields on punctuation
     const uniqueEnglishWords = new Set();
     
     // Definition fields to check
     const definitionFields = [
-        "noun/pronoun", "adj/adv", "verb", "quantifier", "conjunction",
+        "noun/pronoun", "phonetic noun", "adj/adv", "verb", "quantifier", "conjunction",
         "preposition", "affix", "interjection", "fn"
     ];
     
@@ -67,10 +77,21 @@ function updateVocabStats() {
     if (introText) {
         // Replace the placeholder text with actual counts
         const statsText = introText.innerHTML;
-        const updatedText = statsText.replace(
-            /Sesowi currently has X atoms, Y defined compound words, and Z proper nouns, covering a total of K English words./,
-            `Sesowi currently has ${atomCount} atoms, ${compoundCount} defined compound words, and ${properNounCount} proper nouns, covering a total of ${englishWordCount} English words.`
-        );
+        var updatedText = statsText.replace(
+            RegExp(/ATOMCOUNT/, 'g'),
+            atomCount); 
+        updatedText = updatedText.replace(
+            RegExp(/COMPOUNDCOUNT/, 'g'),
+            compoundCount); 
+        updatedText = updatedText.replace(
+            RegExp(/PHONETICCOUNT/, 'g'),
+            properNounCount); 
+        updatedText = updatedText.replace(
+            RegExp(/ENGLISHCOUNT/, 'g'),
+            englishWordCount); 
+        
+        //     `Sesowi currently has ${atomCount} atoms, ${compoundCount} defined compound words, and ${properNounCount} proper nouns, covering a total of ${englishWordCount} English words.`
+        // );
         
         introText.innerHTML = updatedText;
         console.log('about_stats.js: Statistics updated successfully');

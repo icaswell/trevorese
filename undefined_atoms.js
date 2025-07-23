@@ -14,8 +14,8 @@ function findCompoundsWithUndefinedAtoms() {
     for (const gloss in window.trevorese_dictionary.vocabs) {
         const vocab = window.trevorese_dictionary.vocabs[gloss];
         
-        // Skip atomic words and proper nouns
-        if (vocab.atomic || gloss.startsWith('u_')) {
+        // Skip atomic words
+        if (vocab.atomic) {
             continue;
         }
         

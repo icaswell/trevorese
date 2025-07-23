@@ -8,33 +8,23 @@ function get_surface_single_word(word, notFoundWords) {
   const glosses = word.split("-");
   const data = window.atomgloss_to_surface;
 
-  // Check if this is a proper noun gloss
-  if (window.proper_noun_glosses && window.proper_noun_glosses.has(word)) {
-    console.log(`typing_tools.js: Found proper noun gloss: '${word}'`); // DEBUG
-    // Find the surface form for this proper noun gloss
-    for (const [surface, gloss] of Object.entries(window.proper_nouns)) {
-      if (gloss === word) {
-        console.log(`typing_tools.js: Proper noun '${word}' has surface form '${surface}'`); // DEBUG
-        return `<span class="propernoun">${surface}</span>`;
-      }
-    }
-    // If we can't find the surface, use the gloss as is
+  // Check if this is a proper noun using is_phonetic_noun property
+  if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs && 
+      window.trevorese_dictionary.vocabs[word] && 
+      window.trevorese_dictionary.vocabs[word].is_phonetic_noun) {
+    console.log(`typing_tools.js: Found proper noun with phonetic noun facet: '${word}'`); // DEBUG
+    // For proper nouns, use the gloss as is with propernoun styling
     return `<span class="propernoun">${word}</span>`;
   }
 
   const subsurfaces = glosses.map(gloss => {
     let subsurface;
-    // Check if this part is a proper noun gloss
-    if (window.proper_noun_glosses && window.proper_noun_glosses.has(gloss)) {
-      console.log(`typing_tools.js: Found proper noun gloss part: '${gloss}'`); // DEBUG
-      // Find the surface form for this proper noun gloss
-      for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
-        if (propGloss === gloss) {
-          console.log(`typing_tools.js: Proper noun part '${gloss}' has surface form '${surface}'`); // DEBUG
-          return `<span class="propernoun">${surface}</span>`;
-        }
-      }
-      // If we can't find the surface, use the gloss as is
+    // Check if this part is a proper noun using is_phonetic_noun property
+    if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs && 
+        window.trevorese_dictionary.vocabs[gloss] && 
+        window.trevorese_dictionary.vocabs[gloss].is_phonetic_noun) {
+      console.log(`typing_tools.js: Found proper noun part with phonetic noun facet: '${gloss}'`); // DEBUG
+      // For proper nouns, use the gloss as is with propernoun styling
       return `<span class="propernoun">${gloss}</span>`;
     }
     
@@ -46,21 +36,12 @@ function get_surface_single_word(word, notFoundWords) {
         subsurface = `<span class="surface">${surfaceValue}</span>`;
       }
     } else {
-      // Check if this is a proper noun gloss
-      if (window.proper_noun_glosses && window.proper_noun_glosses.has(gloss)) {
-        console.log(`typing_tools.js: Found proper noun gloss in else branch: '${gloss}'`); // DEBUG
-        // Find the surface form for this proper noun gloss
-        for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
-          if (propGloss === gloss) {
-            console.log(`typing_tools.js: Proper noun '${gloss}' has surface form '${surface}'`); // DEBUG
-            subsurface = `<span class="propernoun">${surface}</span>`;
-            return subsurface; // Return early to avoid further processing
-          }
-        }
-        // If we can't find the surface, use the gloss as is
-        subsurface = `<span class="propernoun">${gloss}</span>`;
-      } else if (word.startsWith("u")) {
-        // Legacy handling for proper nouns starting with 'u'
+      // Check if this is a proper noun using is_phonetic_noun property
+      if (window.trevorese_dictionary && window.trevorese_dictionary.vocabs && 
+          window.trevorese_dictionary.vocabs[gloss] && 
+          window.trevorese_dictionary.vocabs[gloss].is_phonetic_noun) {
+        console.log(`typing_tools.js: Found proper noun in else branch with phonetic noun facet: '${gloss}'`); // DEBUG
+        // For proper nouns, use the gloss as is with propernoun styling
         subsurface = `<span class="propernoun">${gloss}</span>`;
       } else {
         subsurface = `<span class="highlight">${gloss}</span>`;
@@ -94,30 +75,21 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
     for (const match of matches) {
       const [_, word, punct] = match;
       if (word) {
-        // Check if this is a proper noun gloss before processing
-        const isProperNoun = window.proper_noun_glosses && window.proper_noun_glosses.has(word);
+        // Check if this is a proper noun using is_phonetic_noun property
+        const isProperNoun = window.trevorese_dictionary && 
+                           window.trevorese_dictionary.vocabs && 
+                           window.trevorese_dictionary.vocabs[word] && 
+                           window.trevorese_dictionary.vocabs[word].is_phonetic_noun;
         console.log(`typing_tools.js: Checking if '${word}' is a proper noun: ${isProperNoun}`); // DEBUG
         
         originalGlosses.push(`<span class="gloss">${word}</span>`); // Default gloss representation
 
         let surf;
-        let properNounSurface = null;
         
         // Handle proper noun specially
         if (isProperNoun) {
-          // Find the surface form for this proper noun gloss
-          for (const [surface, propGloss] of Object.entries(window.proper_nouns)) {
-            if (propGloss === word) {
-              console.log(`typing_tools.js: Found proper noun surface for '${word}': '${surface}'`); // DEBUG
-              properNounSurface = surface;
-              surf = `<span class="propernoun">${surface}</span>`;
-              break;
-            }
-          }
-          // If we couldn't find the surface, fall back to regular processing
-          if (!properNounSurface) {
-            surf = get_surface_single_word(word, notFoundWords);
-          }
+          // For proper nouns, use the gloss as is with propernoun styling
+          surf = `<span class="propernoun">${word}</span>`;
         } else {
           surf = get_surface_single_word(word, notFoundWords);
         }
@@ -132,7 +104,7 @@ function get_surface(gloss, notFoundWords, notFoundCompounds, showAnnotations) {
         const fullGloss = word; // Use the original word (gloss)
 
         // Special handling for proper nouns in annotation
-        if (isProperNoun && properNounSurface) {
+        if (isProperNoun) {
           // For proper nouns, use a simpler annotation that doesn't split the word
           annotation = `(${word})`; // Just use the gloss as annotation
         } else if (isCompound) {
@@ -305,13 +277,6 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
       const [_, word, punct] = match;
 
       if (word) {
-        // First check if the word is a proper noun
-        if (window.proper_nouns && word in window.proper_nouns) {
-          const properNounGloss = window.proper_nouns[word];
-          console.log(`typing_tools.js: Found proper noun: '${word}' -> '${properNounGloss}'`); // DEBUG
-          lineGlosses.push(properNounGloss);
-          continue; // Skip to the next match
-        }
         
         let tokenized;
         try {
@@ -326,12 +291,7 @@ function surface_to_atomgloss_to_surface(surfaceInput) {
 
         // Build raw gloss (no HTML) for compound check and processing
         const rawGlosses = tokenized.map(token => {
-          // Check if token is a proper noun
-          if (window.proper_nouns && token in window.proper_nouns) {
-            const properNounGloss = window.proper_nouns[token];
-            console.log(`typing_tools.js: Token '${token}' is a proper noun with gloss '${properNounGloss}'`); // DEBUG
-            return properNounGloss;
-          }
+          // We no longer need to check for proper nouns in window.proper_nouns
           return window.surface_to_gloss[token] || token;
         });
         console.log(`typing_tools.js: Lookup surface '${tokenized.join(',')}': Got gloss(es) '${rawGlosses.join(',')}'`); // DEBUG

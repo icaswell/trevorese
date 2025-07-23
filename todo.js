@@ -36,8 +36,8 @@ function populateTodoTab() {
     for (const gloss in window.trevorese_dictionary.vocabs) {
         const entry = window.trevorese_dictionary.vocabs[gloss];
         
-        // Skip atomic entries, entries with spaces, or entries starting with u_
-        if (entry.atomic || gloss.includes(' ') || gloss.startsWith('u_')) continue;
+        // Skip atomic entries or entries with spaces
+        if (entry.atomic || gloss.includes(' ')) continue;
         
         // Check for supergloss decomposition issues
         if (entry.facets.supercompound && entry.facets.supercompound.length > 0) {

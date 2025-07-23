@@ -150,11 +150,8 @@ function isWordGlossable(word) {
     try {
         // console.log(`stories.js: Checking if word is glossable: '${word}'`);
         
-        // First check if the word is a proper noun
-        if (window.proper_nouns && word in window.proper_nouns) {
-            // console.log(`stories.js: Word '${word}' is a proper noun with gloss '${window.proper_nouns[word]}'`);
-            return true; // Proper nouns are glossable
-        }
+        // We no longer need to check for proper nouns in window.proper_nouns
+        // Proper nouns are now handled through the u_ prefix in glosses
         
         // Use the FSA to tokenize the surface form
         const tokenized = chomp_tokens(word.replace(/-/g, ''), true); // Remove any hyphens for tokenization, enable proper noun checking
@@ -162,11 +159,8 @@ function isWordGlossable(word) {
         
         // Check if all tokens can be mapped to glosses
         for (const surfaceToken of tokenized) {
-            // Check if the token is a proper noun
-            if (window.proper_nouns && surfaceToken in window.proper_nouns) {
-                // console.log(`stories.js: Token '${surfaceToken}' is a proper noun with gloss '${window.proper_nouns[surfaceToken]}'`);
-                continue; // Proper nouns are glossable, so continue to the next token
-            }
+            // We no longer need to check for proper nouns in window.proper_nouns
+            // Proper nouns are now identified by glosses with u_ prefix
             
             // Check if the token is in the regular surface_to_gloss mapping
             if (!window.surface_to_gloss || !(surfaceToken in window.surface_to_gloss)) {

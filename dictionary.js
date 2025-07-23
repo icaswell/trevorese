@@ -64,7 +64,7 @@ function parseTSV(tsvData) {
 }
 
 const DEFINITION_FIELDS = [
-    "noun/pronoun", "adj/adv", "verb", "quantifier", "conjunction", 
+    "noun/pronoun", "phonetic noun", "adj/adv", "verb", "quantifier", "conjunction", 
     "preposition", "affix", "interjection", "fn"
 ];
 
@@ -98,8 +98,9 @@ class VocabEntry {
         this.gloss_parts = this.calculateGlossParts(this.gloss, direct_debug);
         
 
-        // atomic: Boolean indicating if this is an atomic word (single gloss part, not starting with u_)
-        this.atomic = this.gloss && this.gloss_parts.length === 1 && !this.gloss.startsWith("u_");
+        // atomic: Boolean indicating if this is an atomic word (single gloss part with no phonetic noun facet)
+        // Initialize as if it's atomic, but we'll update this after facets are processed if needed
+        this.atomic = this.gloss && this.gloss_parts.length === 1;
         
         // surface: String representing the Sesowi surface form
         // For atomic words, this is set directly from the TSV
@@ -135,6 +136,16 @@ class VocabEntry {
                     this.facets[col_name].push(sub_element);
                  }
             }
+        }
+        
+        // Set is_phonetic_noun property based on phonetic noun facet
+        this.is_phonetic_noun = !!(this.facets["phonetic noun"] && this.facets["phonetic noun"].length > 0);
+        
+        // Update atomic status based on phonetic noun facet
+        // If a word has a non-empty phonetic noun facet, it's not atomic (it's a proper noun)
+        if (this.is_phonetic_noun) {
+            this.atomic = false;
+            console.log(`dictionary.js: Word '${this.gloss}' has phonetic noun facet, marking as non-atomic`);
         }
         
         // Calculate complexity after all facets are processed
@@ -816,8 +827,8 @@ class Dictionary {
         for (const gloss in this.vocabs) {
             const v = this.vocabs[gloss];
             
-            // Skip atomic entries, entries with spaces, or entries starting with u_
-            if (v.atomic || gloss.includes(' ') || gloss.startsWith('u_')) continue;
+            // Skip atomic entries or entries with spaces
+            if (v.atomic || gloss.includes(' ')) continue;
             
             // Skip entries without supercompound
             if (!v.facets.supercompound || v.facets.supercompound.length === 0) continue;
@@ -862,9 +873,8 @@ class Dictionary {
 async function loadDictionaryData() {
     console.log("dictionary.js: Fetching sesowi.tsv...");
     try {
-        // Initialize window variables that will be used for both regular dictionary and proper nouns
-        window.proper_nouns = {}; // Store proper nouns mapping: surface -> gloss
-        window.proper_noun_glosses = new Set(); // Store set of proper noun glosses for quick lookup
+        // Initialize window variables for dictionary
+        // Note: proper nouns are now handled directly through the u_ prefix in glosses
         
         // Fetch and process the main dictionary file
         const response = await fetch('./sesowi.tsv?v=' + Date.now()); // Cache bust
@@ -1129,86 +1139,6 @@ async function loadDictionaryData() {
         // Calculate complexity for all entries after dictionary is fully loaded
         window.trevorese_dictionary.calculateAllComplexities();
         console.log("dictionary.js: Complexities calculated for all dictionary entries.");
-        
-        // Now load proper nouns from propernouns.tsv
-        console.log("dictionary.js: Fetching propernouns.tsv...");
-        try {
-            const properNounsResponse = await fetch('./propernouns.tsv?v=' + Date.now()); // Cache bust
-            if (!properNounsResponse.ok) {
-                console.warn(`Warning: Could not load propernouns.tsv. Status: ${properNounsResponse.status}`);
-            } else {
-                const properNounsTsvData = await properNounsResponse.text();
-                console.log("dictionary.js: Proper nouns TSV data fetched.");
-                
-                // Parse TSV with proper handling of quoted fields that may contain newlines
-                const properNounsRows = parseTSV(properNounsTsvData);
-                console.log(`dictionary.js: Parsed ${properNounsRows.length} rows from propernouns.tsv.`);
-                
-                let properNounsIndices = {};
-                let properNounsHeaderFound = false;
-                let properNounsCount = 0;
-                
-                for (const row of properNounsRows) {
-                    // Simple header check
-                    if (!properNounsHeaderFound && row.includes("surface") && row.includes("gloss")) {
-                        console.log("dictionary.js: Proper nouns header found");
-                        properNounsIndices = {}; // Reset indices for safety
-                        row.forEach((col, index) => {
-                            if (col.trim()) { // Only map non-empty column names
-                                properNounsIndices[col.trim()] = index;
-                            }
-                        });
-                        // Sanity check essential columns
-                        if (properNounsIndices['surface'] === undefined || properNounsIndices['gloss'] === undefined) {
-                            console.error("Header row missing essential 'surface' or 'gloss' column.");
-                            throw new Error("Invalid propernouns.tsv header: missing 'surface' or 'gloss'.");
-                        }
-                        properNounsHeaderFound = true;
-                        // console.log("dictionary.js: Proper nouns indices mapped:", properNounsIndices);
-                    } else if (properNounsHeaderFound) {
-                        // This is a proper noun entry row
-                        const surface = row[properNounsIndices["surface"]]?.trim();
-                        const gloss = row[properNounsIndices["gloss"]]?.trim();
-                        
-                        // Skip entries without a surface or gloss
-                        if (!surface || !gloss) {
-                            // console.log(`dictionary.js: Skipping proper noun entry without surface or gloss: ${JSON.stringify(row)}`);
-                            continue;
-                        }
-                        
-                        // Add to proper nouns mapping
-                        window.proper_nouns[surface] = gloss;
-                        window.proper_noun_glosses.add(gloss);
-                        
-                        // Also add to surface_to_gloss mapping for consistent lookup
-                        window.surface_to_gloss[surface] = gloss;
-                        
-                        // Create and add a VocabEntry for the proper noun
-                        const vocabEntry = new VocabEntry(row, properNounsIndices);
-                        vocabEntry.surface = surface; // Directly assign surface from TSV
-                        vocabEntry.atomic = true; // Treat proper nouns as atomic
-                        all_vocabs.add_vocab(vocabEntry);
-                        
-                        properNounsCount++;
-                        
-                        // Log a few examples for debugging
-                        // if (properNounsCount <= 5) {
-                        //     console.log(`dictionary.js: Added proper noun: surface='${surface}', gloss='${gloss}'`);
-                        // }
-                    }
-                }
-                
-                // console.log(`dictionary.js: Added ${properNounsCount} proper nouns to the dictionary`);
-                // console.log(`dictionary.js: window.proper_nouns count: ${Object.keys(window.proper_nouns).length}`);
-                // console.log(`dictionary.js: window.proper_noun_glosses count: ${window.proper_noun_glosses.size}`);
-                
-                // if (properNounsCount > 0) {
-                //     console.log('Sample proper nouns:', Object.entries(window.proper_nouns).slice(0, 5));
-                // }
-            }
-        } catch (error) {
-            console.error('Failed to load or process proper nouns data:', error);
-        }
 
     } catch (error) {
         console.error('Failed to load or process dictionary data:', error);
@@ -1219,8 +1149,6 @@ async function loadDictionaryData() {
         window.english_to_gloss = {};
 
         window.gloss_to_supercompound = {};
-        window.proper_nouns = {};
-        window.proper_noun_glosses = new Set();
     }
 }
 

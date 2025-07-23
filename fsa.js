@@ -82,10 +82,17 @@ function buildFSA() {
  * @returns {boolean} True if the string is a proper noun
  */
 function isProperNoun(s) {
-    // Check if the string exists in the proper_nouns mapping
-    if (window.proper_nouns && s in window.proper_nouns) {
-        console.log(`Found proper noun: '${s}' -> '${window.proper_nouns[s]}'`);
-        return true;
+    if (window.surface_to_gloss && s in window.surface_to_gloss) {
+        const gloss = window.surface_to_gloss[s];
+        console.log(`fsa.js: Checking if '${s}' is a proper noun with gloss '${gloss}'`);
+        
+        // Check if this gloss is a phonetic noun
+        if (window.trevorese_dictionary && 
+            window.trevorese_dictionary.vocabs && 
+            window.trevorese_dictionary.vocabs[gloss] && 
+            window.trevorese_dictionary.vocabs[gloss].is_phonetic_noun) {
+            return true;
+        }
     }
     return false;
 }
@@ -96,8 +103,16 @@ function isProperNoun(s) {
  * @returns {string|null} The gloss for the proper noun, or null if not found
  */
 function getProperNounGloss(s) {
-    if (window.proper_nouns && s in window.proper_nouns) {
-        return window.proper_nouns[s];
+    if (window.surface_to_gloss && s in window.surface_to_gloss) {
+        const gloss = window.surface_to_gloss[s];
+        
+        // Check if this gloss is a phonetic noun
+        if (window.trevorese_dictionary && 
+            window.trevorese_dictionary.vocabs && 
+            window.trevorese_dictionary.vocabs[gloss] && 
+            window.trevorese_dictionary.vocabs[gloss].is_phonetic_noun) {
+            return gloss;
+        }
     }
     return null;
 }

@@ -58,6 +58,7 @@ function createDictionaryHeaderDisplay(options = {}) {
 
 // Define the order of fields to display
 const FIELD_DISPLAY_ORDER = [
+    { tsv: "phonetic noun", display: "Phonetic Noun" },
     { tsv: "noun/pronoun", display: "noun" },
     { tsv: "verb", display: "verb" },
     { tsv: "adj/adv", display: "adj/adv" },
