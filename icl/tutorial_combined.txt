@@ -5,9 +5,6 @@
 
 Sesowi is pronounced just about the way it looks. The technically-minded can look at the Phonolgy tab for details. 
                 
-                
-                    Everything is pronounced more or less as in English. The only things to be careful of are:
-
   * Sesowi: a
   * IPA: /a/
   * English Example: father
@@ -236,11 +233,11 @@ Atoms themselves have broader meanings than English words, and if they are used 
 
 Note to English speakers: A good number of the world's languages, e.g. Greek and Chinese, do not differentiate "hand" and "arm". So this level of ambiguity is quite natural!
 
-## Proper Nouns and Transition Metals
+## Phonetic Nouns and Transition Metals
 
-Culturally universal words should all be represented by atoms or compounds. This includes specific concepts that are now known to all people, for example, rice or wheat. However, proper nouns or other culturally specific concepts are not given their unique atoms or compounds. Instead, they are written out phonetically using Sesowi atoms, e.g. banglase (the Bangla/Bengali language) or kiwipa (kiwi fruit). These have epiphenomenal meanings from the atoms that they are composed of ("eight hot language" and "air small fruit" in this case) that are purely coincidental, just as with proper nouns in Chinese.
+Phonetic Nouns: Culturally universal words should all be represented by atoms or compounds. This includes specific concepts that are now known to all people, for example, rice or wheat. However, proper nouns or other culturally specific concepts are not given their unique atoms or compounds. Instead, they are written out phonetically using Sesowi atoms, e.g. banglase (the Bangla/Bengali language) or kiwipa (kiwi fruit). These have epiphenomenal meanings from the atoms that they are composed of ("eight hot language" and "air small fruit" in this case) that are purely coincidental, just as with proper nouns in Chinese.
 
-There is a similar phenomenon with atoms. Atoms are supposed to represent general, universal concepts, whereas compounds can be more complex. However, there are some more specific concepts that are given atoms just because it is pragmatically easier. For example, "cat" is not a fundamental building block of the information architecture of the world, but it is so naturally represented with the onomonopoetic mau that it would be a shame not to use that surface for it. We playfully call these atoms the Transition Metals.
+Transition MetalsThere is a similar phenomenon with atoms. Atoms are supposed to represent general, universal concepts, whereas compounds can be more complex. However, there are some more specific concepts that are given atoms just because it is pragmatically easier. For example, "cat" is not a fundamental building block of the information architecture of the world, but it is so naturally represented with the onomonopoetic mau that it would be a shame not to use that surface for it. We playfully call these atoms the Transition Metals.
 
 Here is a table summarizing all types of Sesowi words:
 
@@ -260,9 +257,9 @@ Here is a table summarizing all types of Sesowi words:
   * class: compound (formed semantically for universal concept)
 
   * en: crocodile
-  * sesowi: u_crocodile
+  * sesowi: kokodila
   * complexity level: culturally specific
-  * class: proper noun (formed phonetically for very specific concept)
+  * class: phonetic noun (formed phonetically for very specific concept)
 
 
 
@@ -417,7 +414,7 @@ More examples:
 With multiple adjectives, put a so before each one:
 
   * en: this cat is friendly, talkative, and doglike
-  * sesowi: i mau so mamang so se, so daga
+  * sesowi: i mau so mamang, so se, so daga
 
 ## Verbs 1
 
@@ -578,16 +575,16 @@ English has a lot of prepositions for how two objects can be related. The snake 
 In Sesowi, these prepositions are simply expressed as one of the basic prepositions of movement (usually tu) plus the location relative to the object. Let’s look at a few examples. In these examples, we’ll break them up by whether the movement is static (happening in one location), or as a movement to- or from that location:
 
   * en: She drove to the store
-  * sesowi: i ya du tago tu gekanglu
+  * sesowi: i ya du tago tu kanglu
 
   * en: She drove from the store
-  * sesowi: i ya du tago de gekanglu
+  * sesowi: i ya du tago de kanglu
 
   * en: She drove through the store
-  * sesowi: i ya du tago twa gekanglu
+  * sesowi: i ya du tago twa kanglu
 
   * en: She was driving at the store
-  * sesowi: i ya du tago lu gekanglu
+  * sesowi: i ya du tago lu kanglu
 
 location noun: inside
 
@@ -678,7 +675,7 @@ Many Indo-European verbs have prepositions built into them, and it causes consid
   * en: I am coping with loss.
   * sesowi: mi du koyo deyo
 
-An exception is verbs that take indirect objects with the preposition to or about, like talk to or talk about. "to" is explained in the section on indirect objects, and "about" was explained in the de section above.
+An exception is verbs that take indirect objects with the preposition to or de, like talk to or talk about. "to" is explained in the section on indirect objects, and "about" was explained in the de section above.
 
 In some cases where English has different meanings for different prepositions, Sesowi has different verbs. In these cases you’ll notice that English also generally offers us easy synonyms:
 
@@ -705,7 +702,7 @@ In other cases there is some ambiguity:
 Notice however that even in English, believe in has a different meaning when applied to God versus to me! Really, there is ambiguity everywhere in all languages, but context clears almost everything up!
 
   * en: I walk on the street
-  * sesowi: mi du kogo top golu
+  * sesowi: mi du kogo ta golu
 
   * en: I talk to him out of necessity
   * sesowi: mi se i wai dayau
@@ -720,7 +717,7 @@ Notice however that even in English, believe in has a different meaning when app
   * sesowi: mi du geng wai lelu de mi
 
   * en: I  for gay marriage
-  * sesowi: mi du tali watwima lema
+  * sesowi: mi du tali wawema leleng
 
 At this point, you already know most of the language's grammar!
 
@@ -748,23 +745,23 @@ Sesowi uses a base-10 system. The numbers 0-9 are atoms. Larger numbers are form
 
 For larger numbers, ta (ta) is used for powers of ten. The format is `(coefficient)ta(exponent)`.
 
-  * en: one hundred/100 (1x102)
+  * en: one hundred / 100 1x102
   * sesowi: watado
 
-  * en: two hundred/100 (2x102)
+  * en: two hundred / 100 / 2x102
   * sesowi: dotado
 
-  * en: one thousand/1,000 (1x103)
+  * en: one thousand / 1,000 / 1x103
   * sesowi: watati
 
-  * en: two thousand/2,000 (2x103)
+  * en: two thousand / 2,000 / 2x103
   * sesowi: dotati
 
-  * en: one million / 1,000,000 (1x105)
+  * en: one million / 1,000,000 / 1x105
   * sesowi: watapai
 
-  * en: ninety-eight trillion / 98,000,000,000,000 (98x1012)
-  * sesowi: noibangwatawado
+  * en: ninety-eight trillion / 98,000,000,000,000 / 98x1012
+  * sesowi: noibangtawado
 
 
 
@@ -930,7 +927,7 @@ Similarly, with the universal quantifier:
 
 Look closely at these. In English, we have so many different words for these concepts, and it hides how similar they all are! It is common for a language to be like English in this way, and have some collection of concepts from different roots and languages, such that the true structure is hidden. However, several other languages actually make these relations perfectly clear — for instance Telugu, what uses exactly the structure described above!
 
-## an adjective can be a whole sentence! (relative clauses)
+## Adjectives 2: an adjective can be a whole sentence! (relative clauses)
 
 Let's get back to adjectives. As you recall, adjectives are just formed by saying that a noun is like another noun:
 
@@ -968,6 +965,29 @@ You can do that too! In fact, you can put a full sentence in front of the so, as
 Note that according to the "proper" English grammar, this last example is impossible to express. As you can see, so is a very powerful tool! It is used anywhere English uses "that" to start a relative clause.
 
 NB: The i is optional here; it is included in parentheses for completeness.
+
+## Adjectives 3: the hidden "to be" in adjectives.
+
+  * en: this black catthis cat is black
+  * sesowi: i  mau so niyang
+
+  * en: this cat is black
+  * sesowi: i mau du  bi  so niyang
+
+  * en: this cat is black
+  * sesowi: i mau [du bi]  so niyang
+
+  * en: this cat wants to be black
+  * sesowi: i mau yau du  bi  so niyang
+
+  * en: I want this cat to be black
+  * sesowi: mi  yau i mau du  bi  so niyang
+
+  * en: I want to be black
+  * sesowi: mi yau du  bi  so niyang
+
+  * en: this cat will be black
+  * sesowi: i mau be du  bi  so niyang
 
 ## Comparative and Superlative
 
@@ -1301,7 +1321,7 @@ The most basic way to make two clauses in Sesowi is to just put two sentences on
   * sesowi: mi du se tu  yu, tai mau du ke lobau
 
   * en: I told you or the cat broke the cup
-  * sesowi: mi du se tu  yu, TODO mau du ke lobau
+  * sesowi: mi du se tu  yu, laipo mau du ke lobau
 
   * en: I told you after the cat broke the cup
   * sesowi: mi du se tu  yu, betai mau du ke lobau
@@ -1730,7 +1750,7 @@ In some cases, using i may seem ambiguous, if there is already another i in the 
 “There is” is expressed with yo, as in Chinese
 
   * en: There are a lot of people in the mall
-  * sesowi: du yo dana mang ne dagekanglu
+  * sesowi: du yo dana mang ne dakanglu
 
 
 
@@ -1821,10 +1841,10 @@ In Sesowi, if you want to emphasize that you are contradicting a statement, you 
   * sesowi: dwe.
 
   * en: You are studying Chinese, right?
-  * sesowi: yu du pumeng u_language_mandarin_chinese e?
+  * sesowi: yu du pumeng sinose e?
 
   * en: but no! I’m studying Sesowi.
-  * sesowi: [geng] no! mi du pumeng Sesowi.
+  * sesowi: [geng] no! mi du pumeng sesowi.
 
 ## Verbs with implied motion
 
@@ -1904,7 +1924,7 @@ In English, we can use “one” to refer to something that has already been men
 Sometimes one needs to refer to two different subjects, and to differentiate them, you need to use “this” and “that”:
 
   * en: which cat are you talking about? This one or that one?
-  * sesowi: yu du se e mau? i laiting a?
+  * sesowi: yu du se e mau? i laipo a?
 
 However, if you have more than two subjects, this gets rather confusing to deal with in English, and we usually say use emphasis. In Sesowi you can simply say “that-two”, “that-three”, and so on:
 

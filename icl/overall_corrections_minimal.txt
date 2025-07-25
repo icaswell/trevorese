@@ -22,9 +22,6 @@ Let's start with the tutorial:
 
 Sesowi is pronounced just about the way it looks. The technically-minded can look at the Phonolgy tab for details. 
                 
-                
-                    Everything is pronounced more or less as in English. The only things to be careful of are:
-
   * Sesowi: a
   * IPA: /a/
   * English Example: father
@@ -197,7 +194,7 @@ Note: Italic text indicates a similar but not exact sound match in that language
 
 ## Atoms
 
-There are under 200 basic words from which all other words are built. These are called atoms. They all have the form consonant+vowel[+optional ng]. The simplest atom would simply have consonant+vowel, e.g. ma, or su. Atoms representing slightly more complex concepts use more use of compound consonants, diphthongs, and the nasal coda, e.g. yau, kwe, or nang.
+There are around 114 basic words from which all other words are built. These are called atoms. They all have the form consonant+vowel[+optional ng]. The simplest atom would simply have consonant+vowel, e.g. ma, or su. Atoms representing slightly more complex concepts use more use of compound consonants, diphthongs, and the nasal coda, e.g. yau, kwe, or nang.
 
 There are four special atoms that start with a vowel, representing the most basic concepts of i, a, o, and e. These are usually not used in compound words.
 
@@ -253,12 +250,39 @@ Atoms themselves have broader meanings than English words, and if they are used 
 
 Note to English speakers: A good number of the world's languages, e.g. Greek and Chinese, do not differentiate "hand" and "arm". So this level of ambiguity is quite natural!
 
+## Phonetic Nouns and Transition Metals
+
+Phonetic Nouns: Culturally universal words should all be represented by atoms or compounds. This includes specific concepts that are now known to all people, for example, rice or wheat. However, proper nouns or other culturally specific concepts are not given their unique atoms or compounds. Instead, they are written out phonetically using Sesowi atoms, e.g. banglase (the Bangla/Bengali language) or kiwipa (kiwi fruit). These have epiphenomenal meanings from the atoms that they are composed of ("eight hot language" and "air small fruit" in this case) that are purely coincidental, just as with proper nouns in Chinese.
+
+Transition MetalsThere is a similar phenomenon with atoms. Atoms are supposed to represent general, universal concepts, whereas compounds can be more complex. However, there are some more specific concepts that are given atoms just because it is pragmatically easier. For example, "cat" is not a fundamental building block of the information architecture of the world, but it is so naturally represented with the onomonopoetic mau that it would be a shame not to use that surface for it. We playfully call these atoms the Transition Metals.
+
+Here is a table summarizing all types of Sesowi words:
+
+  * en: animal
+  * sesowi: boi
+  * complexity level: fundamental
+  * class: atom (principle)
+
+  * en: cat
+  * sesowi: mau
+  * complexity level: universal
+  * class: atom (transition metal; could be a compound but the atom fit too well)
+
+  * en: bird
+  * sesowi: kiboi
+  * complexity level: universal
+  * class: compound (formed semantically for universal concept)
+
+  * en: crocodile
+  * sesowi: kokodila
+  * complexity level: culturally specific
+  * class: phonetic noun (formed phonetically for very specific concept)
 
 
 
 ## Grammar 1: the basics
 
-The following introduces English, Gloss, and Sesowi forms. The gloss for a word is just an English word that approximates the Sesowi word's meaning, so it is easier to see exactly what’s going on. There may also be some loose literal translations in &lt;angle brackets&gt;. These are loose translations of the Sesowi into English so you can understand more or less how the construction words. For instance:
+The following introduces English and Sesowi forms. There may also be some loose literal translations in &lt;angle brackets&gt;. These are loose translations of the Sesowi into English so you can understand more or less how the construction words. For instance:
 
 ## Nouns
 
@@ -407,7 +431,7 @@ More examples:
 With multiple adjectives, put a so before each one:
 
   * en: this cat is friendly, talkative, and doglike
-  * sesowi: i mau so mamang so se, so daga
+  * sesowi: i mau so mamang, so se, so daga
 
 ## Verbs 1
 
@@ -568,16 +592,16 @@ English has a lot of prepositions for how two objects can be related. The snake 
 In Sesowi, these prepositions are simply expressed as one of the basic prepositions of movement (usually tu) plus the location relative to the object. Let’s look at a few examples. In these examples, we’ll break them up by whether the movement is static (happening in one location), or as a movement to- or from that location:
 
   * en: She drove to the store
-  * sesowi: i ya du tago tu gekanglu
+  * sesowi: i ya du tago tu kanglu
 
   * en: She drove from the store
-  * sesowi: i ya du tago de gekanglu
+  * sesowi: i ya du tago de kanglu
 
   * en: She drove through the store
-  * sesowi: i ya du tago twa gekanglu
+  * sesowi: i ya du tago twa kanglu
 
   * en: She was driving at the store
-  * sesowi: i ya du tago lu gekanglu
+  * sesowi: i ya du tago lu kanglu
 
 location noun: inside
 
@@ -668,7 +692,7 @@ Many Indo-European verbs have prepositions built into them, and it causes consid
   * en: I am coping with loss.
   * sesowi: mi du koyo deyo
 
-An exception is verbs that take indirect objects with the preposition to or about, like talk to or talk about. "to" is explained in the section on indirect objects, and "about" was explained in the de section above.
+An exception is verbs that take indirect objects with the preposition to or de, like talk to or talk about. "to" is explained in the section on indirect objects, and "about" was explained in the de section above.
 
 In some cases where English has different meanings for different prepositions, Sesowi has different verbs. In these cases you’ll notice that English also generally offers us easy synonyms:
 
@@ -695,13 +719,13 @@ In other cases there is some ambiguity:
 Notice however that even in English, believe in has a different meaning when applied to God versus to me! Really, there is ambiguity everywhere in all languages, but context clears almost everything up!
 
   * en: I walk on the street
-  * sesowi: mi du kogo top golu
+  * sesowi: mi du kogo ta golu
 
   * en: I talk to him out of necessity
   * sesowi: mi se i wai dayau
 
   * en: I lived here for three years
-  * sesowi: mi ya sa ilu ti daswetai
+  * sesowi: mi ya du sa ilu ti daswetai
 
   * en: I love him for his smile
   * sesowi: mi du ma i wai galitobe de i
@@ -710,10 +734,51 @@ Notice however that even in English, believe in has a different meaning when app
   * sesowi: mi du geng wai lelu de mi
 
   * en: I  for gay marriage
-  * sesowi: mi du tali watwima lema
+  * sesowi: mi du tali wawema leleng
 
 At this point, you already know most of the language's grammar!
 
+## Numbers
+
+Sesowi uses a base-10 system. The numbers 0-9 are atoms. Larger numbers are formed by simple concatenation.
+
+  * en: 0-9
+  * sesowi: no, wa, do, ti, kwa, pai, lau, se, bang, noi
+
+  * en: 10
+  * sesowi: wano
+
+  * en: 19
+  * sesowi: wanoi
+
+  * en: 20
+  * sesowi: dono
+
+  * en: 21
+  * sesowi: dowa
+
+  * en: 115
+  * sesowi: wawapai
+
+For larger numbers, ta (ta) is used for powers of ten. The format is `(coefficient)ta(exponent)`.
+
+  * en: one hundred / 100 1x102
+  * sesowi: watado
+
+  * en: two hundred / 100 / 2x102
+  * sesowi: dotado
+
+  * en: one thousand / 1,000 / 1x103
+  * sesowi: watati
+
+  * en: two thousand / 2,000 / 2x103
+  * sesowi: dotati
+
+  * en: one million / 1,000,000 / 1x105
+  * sesowi: watapai
+
+  * en: ninety-eight trillion / 98,000,000,000,000 / 98x1012
+  * sesowi: noibangtawado
 
 
 
@@ -879,7 +944,7 @@ Similarly, with the universal quantifier:
 
 Look closely at these. In English, we have so many different words for these concepts, and it hides how similar they all are! It is common for a language to be like English in this way, and have some collection of concepts from different roots and languages, such that the true structure is hidden. However, several other languages actually make these relations perfectly clear — for instance Telugu, what uses exactly the structure described above!
 
-## an adjective can be a whole sentence! (relative clauses)
+## Adjectives 2: an adjective can be a whole sentence! (relative clauses)
 
 Let's get back to adjectives. As you recall, adjectives are just formed by saying that a noun is like another noun:
 
@@ -917,6 +982,29 @@ You can do that too! In fact, you can put a full sentence in front of the so, as
 Note that according to the "proper" English grammar, this last example is impossible to express. As you can see, so is a very powerful tool! It is used anywhere English uses "that" to start a relative clause.
 
 NB: The i is optional here; it is included in parentheses for completeness.
+
+## Adjectives 3: the hidden "to be" in adjectives.
+
+  * en: this black catthis cat is black
+  * sesowi: i  mau so niyang
+
+  * en: this cat is black
+  * sesowi: i mau du  bi  so niyang
+
+  * en: this cat is black
+  * sesowi: i mau [du bi]  so niyang
+
+  * en: this cat wants to be black
+  * sesowi: i mau yau du  bi  so niyang
+
+  * en: I want this cat to be black
+  * sesowi: mi  yau i mau du  bi  so niyang
+
+  * en: I want to be black
+  * sesowi: mi yau du  bi  so niyang
+
+  * en: this cat will be black
+  * sesowi: i mau be du  bi  so niyang
 
 ## Comparative and Superlative
 
@@ -1222,6 +1310,121 @@ Finally, there are situations in English where gerunds like being pop up just be
 
 The most basic way to make two clauses in Sesowi is to just put two sentences one after the other:
 
+  * en: I told you
+  * sesowi: mi ya du se tu yu
+
+  * en: the cat breaks a cup
+  * sesowi: mau  du ke lobau
+
+  * en: I told you (that) the cat broke a cup
+  * sesowi: mi ya du se tu yu, mau du ke lobau
+
+  * en: I told you, but the cat broke the cup
+  * sesowi: mi du se tu  yu, geng mau du ke lobau
+
+  * en: I told you, and the cat broke the cup
+  * sesowi: mi du se tu  yu, laiting mau du ke lobau
+
+  * en: I told you, because the cat broke the cup
+  * sesowi: mi du se tu  yu, iwai mau du ke lobau
+
+  * en: I told you, so the cat broke the cup
+  * sesowi: mi du se tu  yu, gewai mau du ke lobau
+
+  * en: I told you before the cat broke the cup
+  * sesowi: mi du se tu  yu, yatai mau du ke lobau
+
+  * en: I told you while/when the cat broke the cup
+  * sesowi: mi du se tu  yu, tai mau du ke lobau
+
+  * en: I told you or the cat broke the cup
+  * sesowi: mi du se tu  yu, laipo mau du ke lobau
+
+  * en: I told you after the cat broke the cup
+  * sesowi: mi du se tu  yu, betai mau du ke lobau
+
+## Serial Verb Constructions
+
+To describe a sequence of actions by the same subject, multiple verbs can be "chained" or "serialized" one after another without any conjunctions. All verbs in the chain share the same subject and any preceding modals or tense markers.
+
+  * en: He stops, turns his head, and drinks.
+  * loose: &lt;He stops, turns head, drinks.&gt;
+  * sesowi: i du nogo, du laiwe  to, du loka.
+
+  * en: I want to go to the store, buy milk, and come back.
+  * loose: &lt;I want to go to store, buy milk, go back.&gt;
+  * sesowi: mi yau du go tu gekanglu, du kang bailo, du go laiwe.
+
+  * en: You should go find him.
+  * loose: &lt;You must go, find him.&gt;
+  * sesowi: yu dwa du go, du obu i.
+
+  * en: She ran home and ate.
+  * loose: &lt;She past went-fast to house, ate.&gt;
+  * sesowi: i ya du kwigo tu dabau, du ka.
+
+## other
+
+  * en: I saw a another cat
+  * sesowi: mi ya du si lai mau
+
+  * en: The other cat was smaller
+  * sesowi: lai mau so mai wi
+
+## Self, own, each other
+
+  * en: he washed the towel
+  * sesowi: i ya du noswe lopinggu
+
+  * en: he washed himself
+  * sesowi: i ya du noswe swa
+
+  * en: they washed themselves
+  * sesowi: ina ya du noswe swa
+
+  * en: he ate his own feces
+  * sesowi: i ya du ka boiswe de swa
+
+  * en: she didn't know her own name
+  * sesowi: i no ya du kumeng swase de swa
+
+  * en: they flog themselves
+  * sesowi: ina du lengliko swa
+
+  * en: they flog each other
+  * sesowi: ina du lengliko lai swa
+
+  * en: what did you say?
+  * sesowi: yu  du se e ting?
+
+  * en: You said WHAT?
+  * sesowi: yu  du se e ting swa?
+
+  * en: YOU said what?
+  * sesowi: yu swa du se e ting?
+
+  * en: even you said that.
+  * sesowi: swa  yu du se a
+
+  * en: you only said that. [Indian English]
+  * sesowi: yu swa  du se a
+
+  * en: you even said that
+  * sesowi: yu  du se swa a
+
+  * en: you said even that
+  * sesowi: yu  du se a swa
+
+## also, again
+
+  * en: I also saw a catI too saw a catI saw a cat as well
+  * sesowi: mi laiting ya du si mau
+
+  * en: The cat is also smallThe cat is small as well
+  * sesowi: mau laiting so wi
+
+  * en: I saw a cat again
+  * sesowi: mi laitai du si mau
 
 
 
@@ -1472,7 +1675,7 @@ All this is saying is that someone or something spilled the milk, but the speake
 
 Now, what about the version of the passive that has a subject attached to it?
 
-The only difference between this and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions:
+The only difference between this construction (passive+"by") and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions:
 
   * en: the milk was spilled by Fred
   * sesowi: Fred ya du su bailo
@@ -1564,7 +1767,7 @@ In some cases, using i may seem ambiguous, if there is already another i in the 
 “There is” is expressed with yo, as in Chinese
 
   * en: There are a lot of people in the mall
-  * sesowi: du yo dana mang ne dagekanglu
+  * sesowi: du yo dana mang ne dakanglu
 
 
 
@@ -1655,10 +1858,10 @@ In Sesowi, if you want to emphasize that you are contradicting a statement, you 
   * sesowi: dwe.
 
   * en: You are studying Chinese, right?
-  * sesowi: yu du pumeng u_language_mandarin_chinese e?
+  * sesowi: yu du pumeng sinose e?
 
   * en: but no! I’m studying Sesowi.
-  * sesowi: [geng] no! mi du pumeng Sesowi.
+  * sesowi: [geng] no! mi du pumeng sesowi.
 
 ## Verbs with implied motion
 
@@ -1738,7 +1941,7 @@ In English, we can use “one” to refer to something that has already been men
 Sometimes one needs to refer to two different subjects, and to differentiate them, you need to use “this” and “that”:
 
   * en: which cat are you talking about? This one or that one?
-  * sesowi: yu du se e mau? i laiting a?
+  * sesowi: yu du se e mau? i laipo a?
 
 However, if you have more than two subjects, this gets rather confusing to deal with in English, and we usually say use emphasis. In Sesowi you can simply say “that-two”, “that-three”, and so on:
 
@@ -1782,12 +1985,12 @@ a (that)
   * noun: that; he; she; it
   * adj/adv: such; thusly
   * quantifier: that
-  * Descendants: ana, alu, awai, atai, awe, akwa, ati, ado
+  * Descendants: ana, alu, awai, atai, awe, akwa, ati, ado, abi, akase, apalana, singtia, alena, abalang, malia, ayalang, italiano, awadise, tealase
   * cognates: a (te:1.0:a; zh:0.4:那; fil:0.4:na; ig:0.4:na; en:0.4:that; es:0.7:acá; de:0.4:da/das; hi:0.4:वह; ru:0.3:там; fr:0.6:là; pt:0.6:là; id:0.6:sana)
 
 ai (egg)
   * noun: egg
-  * Descendants: aikiboi, pwaai
+  * Descendants: aikiboi, pwaai, aisaka
   * cognates: ai (de:1.0:ei; ru:0.7:яйцо=egg; sw:0.9:yai=egg; sn:0.6:zai=egg; ha:0.6:kwai=egg)
 
 ba (with/marks command)
@@ -1797,7 +2000,7 @@ ba (with/marks command)
   * preposition: with; por (Spanish)
   * interjection: please
   * function word: marks command
-  * Descendants: batai, badu, paubadu, bamang, bamangting, bayo, balu, nobalu, noba, bawi, mubawi, gaibawi, damubawi, dagaibawi, wimubawi, wigaibawi, bawida, mubawida, gaibawida, taubawi, dotaubawi, balukang, banogali, bataimang, bameng
+  * Descendants: batai, badu, paubadu, bamang, bamangting, bayo, balu, nobalu, noba, bawi, mubawi, gaibawi, damubawi, dagaibawi, wimubawi, wigaibawi, bawida, mubawida, gaibawida, taubawi, dotaubawi, balukang, banogali, bataimang, bameng, teba, deba, lasiba, abalang, balang, yolubase, lubase, basabalise, basabalise
   * cognates: ba (fa:1.0:ba=with; mn:0.8:ба=and; id:0.2:bersama=together; tr:0.2:birlikte=together); da (chm); le (lus:leh; ga:le; tn:and; tr:ile=with); te (doi:ते); be (ff); na (tpi); ne (lg)
   * Notes: TODO "and" as a conjunction should be "also"; TODO consider merging with touch? (note: also considering merging "surface" or "hand" into touch)
 NOTE: "ba" is the only atom with two different meanings, the first being "with", and the second being "please"/marking command
@@ -1806,19 +2009,19 @@ bai (light/white)
   * noun: light; white; bright
   * verb: to light sth (e.g. a room); to become white; to make sth white
   * adj/adv: white; light
-  * Descendants: baibwa, gwaibaiting, baipingkaboi, bailopingkaboi, baiyang, bailayang, bainiyang, baibainiyang, baibainiyang, kubailo, swangbailo, baili, bailo, baiwidali, baibai, baibai, bebaitai, yabaitai, dobebaitai, doyabaitai, baitai, baitime one, baitime two, baitime three, baitime four, baitime five, baitime six, baitime seven, nitabaiwa, nitabaido, nitabaiti, nitabaikwa, nitabaipai, nitabailau, nitabaise, nitabaibang, nitabainoi, nitabaiwano, nitabaiwawa, nitabaiwado, baitaili, tabai, wibai, nitabai
+  * Descendants: baibwa, gwaibaiting, baipingkaboi, bailopingkaboi, baiyang, bailayang, bainiyang, baibainiyang, baibainiyang, kubailo, swangbailo, baili, bailo, baiwidali, baibai, baibai, bebaitai, yabaitai, dobebaitai, doyabaitai, baitai, baitime one, baitime two, baitime three, baitime four, baitime five, baitime six, baitime seven, nitabaiwa, nitabaido, nitabaiti, nitabaikwa, nitabaipai, nitabailau, nitabaise, nitabaibang, nitabainoi, nitabaiwano, nitabaiwawa, nitabaiwado, baitaili, tabai, wibai, nitabai, baika
   * cognates: bai (zh:1.0:bai=white; en:0.6:bright; ru:0.4:belyy; tr:0.4:beyaz; es:0.2:blanco; fr:0.2:blanc; de:0.3:Weiß; en:0.3:white); gwang (zh:guang=light; sw:mwanga=light)
   * Notes: has antonym
 
 bang (eight)
   * quantifier: eight
-  * Descendants: bangkoboi, lobangkoboi, kasalobangkoboi, nitabaibang, watabang
+  * Descendants: bangkoboi, lobangkoboi, kasalobangkoboi, nitabaibang, watabang, noibangtawado, banglase
   * cognates: bang (zh:0.6:八ba=eight)
 
 bau (container)
   * noun: container; cavity; enclosure; box; bag; sack; bread
   * verb: to hug; to contain sth; to enclose sth; to hug sb; to wrap sth
-  * Descendants: baubwa, baugu, dabaumang, dabauboi, kubauboi, kubauloboi, kubaugwadiboi, kubau, labau, labwabau, nolabau, danolabau, tobau, dabau, dabaukwai, baugoting, kududabau, lobau, pinggubau, yapinggubau, dapwagubau, kangbau, kabau, pingkabau, pingbau, baukwepe, swangbaugu
+  * Descendants: baubwa, baugu, dabaumang, dabauboi, kubauboi, kubauloboi, kubaugwadiboi, kubau, labau, labwabau, nolabau, danolabau, tobau, dabau, lubidabau, dabaukwai, baugoting, kududabau, lobau, pinggubau, yapinggubau, dapwagubau, kangbau, kabau, pingkabau, pingbau, baukwepe, swangbaugu
   * cognates: bau (zh:0.8:bao; vi:0.8:bao=bag; es:0.4:bolsa=bag; pt:0.4:bolsa=bag; it:0.4:borsa=bag; fr:0.5:boîte=box; de:0.6:bau; ms:0.2:bekas=container; en:0.2:box/bag; ); be (zh:bei=cup);
   * Notes: it may seem odd that "container" means "bread", but it is like Chinese bread = flour sack (and it is the same word: bau)
 
@@ -1828,30 +2031,37 @@ be (front/marks future)
   * adj/adv: facing forwards; forwards; after; beyond; then
   * conjunction: after (temporal);
   * preposition: in front of; before (location);
-  * function word: next (temporal); will (marks future)
-  * Descendants: yabe, do nodirt like backbe, betai, tobe, galitobe, twagotobepwa, tobeyaugoli, bemengtai, besi, nangbesi, nonangbesi, bedu, bemeng, beyaugoli, begameng, kebegameng, bebaitai, dobebaitai, bemetai
+  * function word: next (temporal); will (marks future); would (marks conditional)
+  * Descendants: yabe, do nodirt like backbe, betai, tobe, galitobe, twagotobepwa, tobeyaugoli, bemengtai, besi, nangbesi, nonangbesi, bedu, bepau, bemeng, beyaugoli, begameng, kebegameng, bebaitai, dobebaitai, bemetai, isabela, bibeka, belonika
   * cognates: be (tpi:0.7:bai=future tense marker; sw:0.6:mbele=front/forwards; zh:0.9:备bei=to prepare to; ru:0.4:передний=front; ru:0.4:вперед=forwards; zh:0.1:hui=future; zh:-0.7:bei=back) ; de (fr:devant; id:depan) ne (pie:nose); mua (iba)
   * Notes: has antonym
 
+beng (beng)
+  * noun: Ben (name); the sound "beng" (used in proper nouns)
+
 bi (be/if)
-  * noun: existence; being
+  * noun: existence; being; state; situation
   * verb: to be sth; to exist; to show up
   * adj/adv: extant
   * conjunction: if
-  * Descendants: biting, nubi, lubi, nubikamang, bimeng, nubikalu
+  * Descendants: bobi, bwabi, biting, nubi, lubi, lenamark with lawbiting, nubikamang, lubidabau, bimeng, nubikalu, abi, bibeka, bila
   * cognates: bi (en:1.0:be; ru:0.9:быть; ig:0.2:ịbụ)
   * Notes: DECISION: "unify with thing? or being/animal? probably not the latter." - person and animal cover that space. And "to thing sth" is more like "to do sth", not "to be sth"
+
+bing (bing)
+  * noun: the sound "bing" (used in proper nouns)
+  * Descendants: kebing
 
 bo (body)
   * noun: body; trunk; stem; main part of sth; shape; form;
   * verb: to form sth; to embody sth; to mould sth; to constitute sth; to make up sth
   * adj/adv: main; bodily
-  * Descendants: lengbo, nokwekwasaibo, yaulengbo, tobo, bonosai, kwasaibo, tisaibo, pingbo, subo, boku, bogu, boki, boleng, bolink like hard, bolink like noku, labolo, tobopinggu, nangboswe, bosang, boyo, bonoga, gebonoga, yaulobonoga, bokangmengwe, dabo, nangbo
+  * Descendants: bobi, lengbo, nokwekwasaibo, yaulengbo, tobo, bonosai, kwasaibo, tisaibo, pingbo, subo, boku, bogu, boki, boleng, bolink like hard, bolink like noku, labolo, tobopinggu, nangboswe, bosang, boyo, bonoga, gebonoga, yaulobonoga, bokangmengwe, dabo, nangbo, ibose
   * cognates: bo (en:0.4:body; id:0.6:bodi; fi:0.6:bodi; sw:0.6:bodi; id:0.2:badan=body; id:0.2:batang=trunk; fil:0.2:baul=trunk; es:0.0:cuerpo, id:0.1:tubuh); ku (some SEA languge si think; sw:ku=main); seng (zh:shen); ti (zh:ti); gan (zh:gan=trunk); mwi (sw:mwili=body)
 
 boi (animal)
   * noun: animal
-  * Descendants: mitwiboi, dabauboi, neloboi, aikiboi, lokiboi, kwidaboi, pingkaboi, baipingkaboi, gipingkaboi, bailopingkaboi, loboi, masweboi, wiboi, wiwiboi, nosiwiboi, kiwiboi, tauwiboi, kasalokiwiboi, swiwiboi, wiboiswi, dapwaboi, kuliboi, wikuliboi, dunoswekuliboi, dapwaludeyagoboi, ladeyagoboi, lodeyagoboi, langboi, kolangboi, sweboi, losweboi, lolangboi, swelangboi, bangkoboi, lobangkoboi, sangkwaiboi, kubauboi, kuwiboi, lokuwiboi, dalokuwiboi, langkuwiboi, kubauloboi, laukoboi, kiboi, gwadiboi, kubaugwadiboi, dapingkaboi, danauboi, noyaudiboi, kasalobangkoboi, nonutaidaboi, kwinonutaidaboi, boiswe, boigu, siboilu, dengboi, dadengboi, widengboi, boinokemang, kaboiboi, kaboiboi, kaboikiboi, kaboikiboi, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, loyangdamengkiboi, lokolangboi, wangtotakiboi
+  * Descendants: mitwiboi, dabauboi, neloboi, aikiboi, lokiboi, kwidaboi, pingkaboi, baipingkaboi, gipingkaboi, bailopingkaboi, loboi, masweboi, wiboi, wiwiboi, nosiwiboi, kiwiboi, tauwiboi, kasalokiwiboi, swiwiboi, wiboiswi, dapwaboi, kuliboi, wikuliboi, dunoswekuliboi, langboi, kolangboi, sweboi, losweboi, lolangboi, swelangboi, bangkoboi, lobangkoboi, sangkwaiboi, kubauboi, kuwiboi, lokuwiboi, dalokuwiboi, langkuwiboi, kubauloboi, laukoboi, kiboi, gwadiboi, kubaugwadiboi, dapingkaboi, danauboi, noyaudiboi, kasalobangkoboi, nonutaidaboi, kwinonutaidaboi, boiswe, boigu, siboilu, dengboi, dadengboi, widengboi, boinokemang, kaboiboi, kaboiboi, kaboikiboi, kaboikiboi, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, loyangdamengkiboi, lokolangboi, wangtotakiboi, somangboi, dengloboi
   * cognates: boi (en:0.9:boi=animal)
   * Notes: I would love "animal" and "human" to both be "being". But it's not pragmatic. humans fundamentally thing of animals as different. Furthermore, "small-being" wants to be both "child" and "bug" ....
 
@@ -1865,7 +2075,7 @@ bwa (opening/mouth)
   * noun: opening; mouth; entrance; exit; hole; door; window
   * verb: to make an opening; to open sth; to make an opening in sth; to turn sth on; to be surprised; to surprise sb
   * adj/adv: open; on (of a light); surprise
-  * Descendants: baubwa, baibwa, labwabau, bwali, nobwa, tunebwa, tunonebwa, bwalo, tobwasai, kubwasi, nolobwasi, tobwa, maubwa, bwasi, labwasi, kunobwa
+  * Descendants: baubwa, baibwa, bwabi, labwabau, bwali, nobwa, tunebwa, tunonebwa, bwalo, tobwasai, kubwasi, nolobwasi, tobwa, maubwa, bwasi, labwasi, kunobwa, dubwating
   * cognates: bwa (es:0.4:boca=mouth; pt:0.4:boca=mouth; it:0.4:bocca=mouth; fr:0.2:bouche=mouth; fil:0.2:bibig=mouth; ha:0.4:budewa=opening); bu (fr:bouche; zu: vula; ha: bude; id: membuka); mung (de:Mund)
 
 da (big/very)
@@ -1873,7 +2083,7 @@ da (big/very)
   * verb: to swell; to enlarge sth; to make sth bigger; to expand sth; to grow sth (e.g. a plant); to raise sth (e.g. an animal); to cutivate sth (e.g. a habit or plants); to do something in a big way
   * adj/adv: big; important; very; huge; large; major; great; quite; rather; really; a lot; very much
   * function word: very
-  * Descendants: dawe, dadwe, dakatai, daswawe, daga, dada, dada, dakwai, dana, danatai, dabaumang, dabauboi, dapo, dalelu, kwidaboi, dapwaboi, dapwaludeyagoboi, dalokuwiboi, dapingkaboi, danauboi, damau, langlengdamau, kwidamau, nonutaidaboi, kwinonutaidaboi, dapi, dagi, danolabau, danakwai, sadanakwai, lengdanakwai, dagekanglu, duda, dudawimangkwai, dapwako, danatwago, data, dapwa, dapwalu, kadapwalu, medapwa, damang, muda, gaida, damubawi, dagaibawi, bawida, mubawida, gaibawida, tauda, dotauda, titauda, dakunosai, dalolu, datu, dabau, dabaukwai, daswe, dapwagu, dalelupinggu, dapwagukwai, datating, dasali, tadasali, danangdu, dameng, swada, swadali, taswada, dadengboi, dawiketing, dagasangting, daka, widali, baiwidali, sangwidali, tawidali, dali, dama, damamang, danoma, danomali, danumber person, danumber moveli, dayau, daswetai, dataimang, odating, dapumenglu, daswawemengwe, kududabau, dapwagubau, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, danidamengkiboi, loyangdamengkiboi, damanglu, dabo, dageng, danola, daese, dasang, yodanating
+  * Descendants: dawe, dadwe, dakanglu, dakang, dakatai, daswawe, daga, dada, dada, dakwai, dana, danatai, dabaumang, dabauboi, dapo, dalelu, kwidaboi, dapwaboi, dapwaludaga, dapwaludaga, ladaga, lodaga, dalokuwiboi, dapingkaboi, danauboi, damau, langlengdamau, kwidamau, nonutaidaboi, kwinonutaidaboi, dapi, dagi, danolabau, danakwai, sadanakwai, lengdanakwai, duda, dudawimangkwai, dapwako, danatwago, data, dapwa, dapwalu, kadapwalu, medapwa, damang, muda, gaida, damubawi, dagaibawi, bawida, mubawida, gaibawida, tauda, dotauda, titauda, dakunosai, dalolu, datu, dabau, lubidabau, dabaukwai, daswe, dapwagu, dalelupinggu, dapwagukwai, datating, dasali, tadasali, danangdu, dameng, swada, swadali, taswada, dadengboi, dawiketing, dagasangting, daka, widali, baiwidali, sangwidali, tawidali, dali, dama, damamang, danoma, danomali, danumber person, danumber moveli, dayau, daswetai, dataimang, odating, dapumenglu, daswawemengwe, kududabau, dapwagubau, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, danidamengkiboi, loyangdamengkiboi, damanglu, dabo, dageng, danola, daese, dasang, yodanating, daniela, sida, dalise, luwangdase
   * cognates: da (zh:1.0:da=big; ono:0.3:; es:0.1:tamaño; hi:0.3:बड़ा)
   * Notes: has antonym
 note that there are many "big" words with 1) "a" as stem; and 2) "b-"
@@ -1881,22 +2091,23 @@ note that there are many "big" words with 1) "a" as stem; and 2) "b-"
 dai (use)
   * noun: use; purpose
   * verb: to use sth; to avail o.s. of sth; to take advantage of sth
-  * adj/adv: useful; used
+  * adj/adv: useful; used; using
   * function word: marks instrumental case
-  * Descendants: daiting, nolangdai
+  * Descendants: nudaiting, daiting, nolangdai, daimang
   * cognates: yong (zh:1.0:yong=use; en:0.2:use)
 
 de (of/from)
   * noun: posession
   * verb: to own sth
+  * adj/adv: about; based on
   * preposition: of; from; away; genitive marker; intended for; about
-  * Descendants: deyago, deyo, dapwaludeyagoboi, ladeyagoboi, lodeyagoboi, demiting, deli, deting, wideting
+  * Descendants: dese, desena, deyago, widese, deyo, demiting, deli, deting, wideting, deba
   * cognates: de (es:1.0:de=of; pt:1.0:de=of; it:0.7:di/da=of; fr:0.7:de=of; id:0.6:dari=of; zh:0.4:de--note"de" is confusing bc it works backwards from zh); long (tpi:bilong); ya (sw:of); ke/ka/ki (hi)
 
 deng (tooth)
   * noun: bite; tooth
   * verb: to bite sth; to chew sth; to gnaw sth; to nibble sth
-  * Descendants: wideng, langdeng, dengboi, dadengboi, widengboi
+  * Descendants: wideng, langdeng, dengboi, dadengboi, widengboi, dengloboi
   * cognates: ku (ru:0.7:кусать=bite; hi:0.2:काटना=bite; fil 0.7:kumagat=bite; sw:0.7:kuuma=bite; te:0.3:కొరుకు=bite); meng (id:0.8:menggigit=bite); deng (pie:0.9:*denḱ-=bite, sq:0.7:dang=bite, es:0.2:diente=tooth; pt:0.2:dente=tooth; it:0.2:dente=tooth; fr:0.2:dent=tooth; hi:0.1:दाँत=tooth); dang (sq:1.0:dang=bite); nya (en:0.8:gnaw; vi:0.8:nhai=chew; ar:0.6:نخر=gnaw, de:0.7:nage; zh:0.1:yao; te:0.6:నమలడానికి=chew; fil:0.4:ngumunguya=chew); chu (en:chew); yao (zh:yao), keng (zh:0.7:啃咬=bite)
   * Notes: TODO: consider reprecating to hard-thing or hard-eat-thing etc. note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.
 
@@ -1904,26 +2115,27 @@ di (move)
   * noun: movement
   * verb: to move sth
   * adj/adv: moving
-  * Descendants: nodi, disi, disiduting, gwadiboi, kubaugwadiboi, noyaudiboi, gwadi, nogwadi, swegwadi, lidi, diyo, dimengwe, gadi, gadilu, gadimang, gaditing, noyaudi
+  * Descendants: nodi, disi, disiduting, gwadiboi, kubaugwadiboi, noyaudiboi, gwadi, nogwadi, swegwadi, lidi, diyo, dimengwe, gadi, gadilu, gadimang, gaditing, noyaudi, odisa, sangdi, kokodila, awadise, singdise
   * cognates: dong (zh:1.0:dong; ru:0.2:двигаться)
 
 do (two)
   * quantifier: two
-  * Descendants: wado, dosai, saido, domeng, dose, dotauda, dotaubawi, tudo, kwaido, wakwaido, dosaili, dobebaitai, doyabaitai, nitabaido, nitabaiwado, donosaigoting, tudokwepe, nado, dotwima, watado, ado
+  * Descendants: wado, dosai, saido, domeng, dose, dotauda, dotaubawi, tudo, kwaido, wakwaido, dosaili, dobebaitai, doyabaitai, nitabaido, nitabaiwado, donosaigoting, tudokwepe, nado, dotwima, dono, dowa, dodo, dodo, watado, dotado, dotado, dotati, watawado, noibangtawado, ado
   * cognates: do (ga:1.0:do; hi:1.0:दो; ru:0.6:два; es:0.7:dos; fr:0.5:deux; pt:0.6:dois; it:0.4:due; fil:0.2:dalawa; id:0.6:dua; en:0.1:two); dwa (ru:dva; id:dua)
 
 du (do/marks verb)
-  * noun: a deed
+  * noun: deed; action
   * verb: to do sth; to make sth (direction thing: into something)
   * function word: marks verb
-  * Descendants: swadu, duting, swaduting, swadutingpumeng, siduting, disiduting, noduting, nogaswadu, odu, nodu, no can nopaudu, sedu, kudu, nataidu, badu, paubadu, dunoswekuliboi, duda, dudawimangkwai, dupinglu, dusekwai, nangdu, danangdu, dutingli, dukenokupwa, nanglangdu, dukwang, bedu, tutaduting, swagotutaduting, dumoting, kudulu, kududabau, namangdu, gidu
+  * Descendants: dumang, swadu, duting, swaduting, swadutingpumeng, siduting, disiduting, noduting, nogaswadu, odu, nodu, no can nopaudu, sedu, kudu, nataidu, kwedu, kwedumo, badu, paubadu, dunoswekuliboi, duda, dudawimangkwai, dupinglu, dusekwai, nangdu, danangdu, dutingli, dukenokupwa, nanglangdu, dukwang, bedu, tutaduting, swagotutaduting, dumoting, kudulu, kudumang, kududabau, namangdu, gidu, tudu, dubwating
   * cognates: du (en:1.0:do; zh:0.5:zuo; ru:0.2:дело; de:0.7:tun)
 
 dwa (must)
-  * noun: obligation
-  * verb: to have to do sth; to be obligated to do sth; to be supposed to do sth
+  * noun: obligation; duty
+  * verb: to have to do sth; to be obligated to do sth; to be supposed to do sth; to require sth
+  * adj/adv: required
   * function word: must; should
-  * Descendants: dwayo, dwage, dwaomengtai
+  * Descendants: omangdwa, dwayo, dwage, dwaomengtai
   * cognates: dwa (fr:1.0:doi; hi:0.5:दायित्व=obligation; ru:0.2:должен=must/should; es:0.2:debe=must; pt:0.2:deve=must; it:0.2:dovere=must; fil:0.3:dapat=must/should; ha:0.3:dole=must; te:0.2:తప్పక=must); bi (zh)
 
 dwe (truth)
@@ -1936,15 +2148,19 @@ dwe (truth)
 
 e (what/marks question)
   * quantifier: what; which
-  * Descendants: ese, esetai, esemang, eli, emeng, emang, ena, elu, ewai, etai, ewe, eta, daese
+  * Descendants: ese, esetai, esemang, eli, emeng, emang, ena, elu, ewai, etai, ewe, ewesi, eta, daese, daniela, esepelangto, elopa
   * cognates: e (te:1.0:E, yo:0.7:ewo?=what?; en:0.6:eh?; zh:0.6:e/nei; pcm:0.1:wetin; es:0.5:que; fr:0.5:quelle; it:0.5:che; pt:0.5:que; ha:0.5:me=what; ig:0.3:Kedu=what; tr:0.5:Ne=what), we (pcm:0.7:wetin)
   * Notes: NOTE: what-energy could be merged in
+
+eng (eng)
+  * noun: the sound "eng" (used in proper nouns)
+  * Descendants: englise, engkose
 
 ga (good)
   * noun: good
   * verb: to fix sth; to repair sth; to do good
   * adj/adv: good; cool; awesome; nice
-  * Descendants: noga, nogaswadu, oga, daga, gataiganokwe, gataiganokwe, ganokwe, noganokwe, have selftalk like noga, nogaenergy like onelu, kwaside like allga, kwaside like nooga, gasangse, galisang, galisangse, galitobe, gase, tagase, nogase, nogaseli, nogaliki, gali, galitai, nogali, langnogali, nangnoga, nonangnoga, yanogali, nitwanogali, gasang, gasangting, dagasangting, gaka, nogaka, wigaka, gasi, nogasi, nausee like noga, gayu, nogapu, gage, nogating, bonoga, gebonoga, banogali, gameng, nogameng, nugameng, begameng, kebegameng, yaulobonoga, gadi, gadilu, gadimang, gaditing, gasangkwai, igago, gasa
+  * Descendants: noga, nogaswadu, oga, daga, gataiganokwe, gataiganokwe, ganokwe, noganokwe, have selftalk like noga, dapwaludaga, ladaga, lodaga, nogaenergy like onelu, kwaside like allga, kwaside like nooga, galisang, galisangse, galitobe, gase, tagase, nogase, nogaseli, nogaliki, gali, galitai, nogali, langnogali, nangnoga, nonangnoga, yanogali, nitwanogali, gasang, gasangting, dagasangting, gaka, nogaka, wigaka, gasi, nogasi, nausee like noga, gayu, nogapu, gage, nogating, bonoga, gebonoga, banogali, gameng, nogameng, nugameng, begameng, kebegameng, yaulobonoga, gadi, gadilu, gadimang, gaditing, gasangkwai, igago, gasa, malagase, somaligase, sanggase, magalase
   * cognates: ga (ono:0.3; zh:0.4:hao; en:0.3:good; ar:0.2:جيد; de:0.3:gut; ha:0.5:gyara=repair); hau (zh:hao); bon (la); bang (zh:awesome+help); ku (en:cool); su (sa:good)
 
 gai (male)
@@ -1953,11 +2169,15 @@ gai (male)
   * Descendants: legai, gaili, gaikwai, gaida, gaibawi, dagaibawi, wigaibawi, gaiwi, gaibawida
   * cognates: yang (zh:yang=masculine;goat); gai (en:1.0:guy, es:0.5:güe=ox/dude); boi (en:boy)
 
+gang (gang)
+  * noun: the sound "gang" (used in proper nouns)
+  * Descendants: gangse
+
 ge (give)
   * noun: gift; transmission
   * verb: to give sth; to transmit sth; to deal (cards); to offer sth; to provide sth
   * adj/adv: giving
-  * Descendants: gekang, gekanglu, dagekanglu, gese, naige, dwage, gesi, gage, sage, gebonoga, gemeng, gekanggoting, gewai, mage, geting
+  * Descendants: gekang, gekangmang, legekang, gese, naige, dwage, gesi, gage, sage, gebonoga, gemeng, tage, gekanggoting, gewai, mage, geting
   * cognates: ge (zh:1.0:给gei=give ; de:0.9:geb=give; en:0.5:give); de (pie:*deH; es:de; hi:de)
   * Notes: Note: give and get are defined antonyms
 
@@ -1975,20 +2195,20 @@ gi (high/hill)
   * noun: hill; breast; bump; lump; height; level; degree
   * verb: to rise; to raise sth
   * adj/adv: high; tall
-  * Descendants: gipingkaboi, nogi, sugi, lengnogi, kogi, dagi, lenggi, yogi, lagi, ginosai, noneginosai, gidu
+  * Descendants: giping, gipingkaboi, nogi, sugi, lengnogi, kogi, dagi, lenggi, yogi, lagi, ginosai, noneginosai, gidu, gina, gikoyose
   * cognates: gi (ce:1.0:гу; ga:0.6:cnoic/gcnoic, sw:0.8:kilima=hill; yo:0.2:ga=high; en:0.7:hill+high, ru:0.2:грудь; zh:0.3:高); hai (en:high); gwe (zh:gui; ce:гу; ga:cnoic, en:hill, en:high); *i (sounds like "hill"; has a "high" vowel so semi onomonopoeia);
 
 go (go)
   * noun: a trip; a journey
   * verb: to go; to journey; to go swh; to attend sth; to visit swh
   * conjunction: then; after
-  * Descendants: nogo, igo, igomang, deyago, kigolena, dapwaludeyagoboi, ladeyagoboi, lodeyagoboi, gokwai, gonosaileng, twago, danatwago, swego, swegoting, pinggo, tago, goko, gokopau, sugoko, gokowiko, gokogwai, tagoko, twagotobepwa, kigoting, kigolu, kigolukwai, gokopinggu, gokopaupinggu, yaugoli, kigo, golu, kwigo, kogo, okwigo, logo, tobeyaugoli, gotingnokemang, like do person wantgoli, beyaugoli, goting, naigo, baugoting, nosaigoting, laligoting, gekanggoting, pingligo, swagotutaduting, donosaigoting, logoting, laiwego, ogo, logolu, kugo, igago
+  * Descendants: nogo, igo, igomang, deyago, kigolena, gokwai, gonosaileng, twago, danatwago, swego, swegoting, pinggo, tago, goko, gokopau, sugoko, gokowiko, gokogwai, tagoko, twagotobepwa, kigoting, kigolu, kigolukwai, gokopinggu, gokopaupinggu, yaugoli, kigo, golu, kwigo, kogo, okwigo, logo, tobeyaugoli, gotingnokemang, like do person wantgoli, beyaugoli, goting, naigo, baugoting, nosaigoting, laligoting, gekanggoting, pingligo, swagotutaduting, donosaigoting, logoting, laiwego, ogo, logolu, kugo, igago, manggo, ilanggose
   * cognates: go (en:1.0:go; zh:0.7:过; sa:0.5:गा=go; nl:0.5:ga=go!; de:0.5:geh; tr:0.2:gitmek=go); se (vi:sẽ); wi (en:will)
 
 gu (stuff/material)
   * noun: stuff; material; fabric; flesh (of a fruit etc.)
   * adj/adv: material
-  * Descendants: baugu, pinggulengkwai, kagukwai, bogu, menggu, nube eatgu, boigu, pinggu, dapwagu, tapinggu, pingtaipinggu, lapinggu, tobopinggu, gokopinggu, gokopaupinggu, dalelupinggu, sulupinggu, lopinggu, witinggu, swewitinggu, do nodo smalltinggu, laliwitinggu, lokagu, dapwagukwai, pingguleng, nolink eatgu, ligu, kagu, nokegu, mangnagu, gumengwe, menggumengwe, place direction do nodirt flatgu, pinggubau, yapinggubau, dapwagubau, swangbaugu
+  * Descendants: baugu, pinggulengkwai, kagukwai, bogu, menggu, nube eatgu, boigu, pinggu, dapwagu, tapinggu, pingtaipinggu, lapinggu, tobopinggu, gokopinggu, gokopaupinggu, dalelupinggu, sulupinggu, lopinggu, witinggu, swewitinggu, do nodo smalltinggu, laliwitinggu, lokagu, dapwagukwai, pingguleng, nolink eatgu, ligu, kagu, nokegu, mangnagu, gumengwe, menggumengwe, place direction do nodirt flatgu, pinggubau, yapinggubau, dapwagubau, swangbaugu, wigulase
   * cognates: gu ( en:0.6:goo); se (tr:Şey=thing; ar))
 
 gwa (easy)
@@ -2000,20 +2220,20 @@ gwa (easy)
   * Notes: convenient could also be "easy-do" or "fast-do"
 
 gwai (bend)
-  * noun: bend; curve; turn; inequality; difference; change; peculiarity; strangeness; weirdness
-  * verb: to bend sth; to curve sth; to turn (to sth); to change (into sth: direction thing); to change sth; to become (sth: direction thing)
-  * adj/adv: curved; bent; inequal; different; weird; strange; odd; peculiar;
+  * noun: bend; curve; turn; change; peculiarity; strangeness; weirdness
+  * verb: to bend sth; to curve sth; to turn (to sth); to change (into sth: direction thing); to change sth
+  * adj/adv: curved; bent; weird; strange; odd; peculiar;
   * Descendants: nogwai, gwaibaiting, kogwai, wikogwai, gokogwai
   * cognates: gwai (ono:0.7; zh:0.9:拐弯=bend; zh:0.6:改gai=change); gau (ono); gai (zh:gai=change); cha (es:cambiar=change, zh:cha=difference; sn:shanduko=change); che (en:change; zh:cha=difference)
   * Notes: TODO: write decision on change vs differ
 TODO: clean up all the different definitions of "different"
 
 i (this/he/she/it)
-  * noun: this; he; she; it; the
+  * noun: this; he; she; it; the; him; her
   * adj/adv: such; thusly
   * quantifier: this
   * function word: the
-  * Descendants: ina, itaino, igo, igomang, itaikang, ilu, iwai, itai, itime self, iwe, igago
+  * Descendants: itaikang, ina, itaino, igo, igomang, ilu, iwai, itai, itime self, iwe, igago, isabela, isa, italiano, ibose, ilokanose, ilanggose
   * cognates: i (te:1.0:I=this; kri:0.7:i=he/she, en:0.6:he/'e=he; en:0.3:this; en:0.4:here; es:0.7:aquí; id:0.8:ini=this; id:0.7:ia=he/she; hi:0.5:yehयह=he/she/it/this; pt:0.7:qui; fr:0.8:ici; fr:0.7:il; sn:0.7:iye; sw:0.8:hii; ru:0.1:этот; es:0.1:este; fil:0.7:ito; zh:0.3:zhei; de:0.3:hier)
   * Notes: the cognate spects for this/that have higher numbers than the surfaces may seem to imply. Thsi is the case for langauges where i/a seems to regularly contrast proximal/distal, e.g.:
 id: sini/sana
@@ -2025,7 +2245,7 @@ zh:zhei/na
 
 ka (eat)
   * verb: to eat sth; to drink sth
-  * Descendants: katai, wikatai, mekatai, dakatai, nosaka, yauka, loka, pingkaboi, baipingkaboi, gipingkaboi, bailopingkaboi, kasalokiwiboi, dapingkaboi, kasalobangkoboi, kagukwai, kadapwalu, nubikamang, kawipwalu, kako, lokagu, nolengkali, kagu, mauka, gaka, nogaka, daka, wika, wigaka, mangnaka, oka, nubikalu, kalu, lokalu, kaboiboi, kaboikiboi, kabau, pingkabau
+  * Descendants: katai, wikatai, mekatai, dakatai, nosaka, yauka, loka, pingkaboi, baipingkaboi, gipingkaboi, bailopingkaboi, kasalokiwiboi, dapingkaboi, kasalobangkoboi, kagukwai, kadapwalu, nubikamang, kape, kapene, kawipwalu, kako, lokagu, nolengkali, kagu, mauka, gaka, nogaka, daka, wika, wigaka, mangnaka, oka, nubikalu, kalu, lokalu, kaboiboi, kaboikiboi, kabau, pingkabau, baika, aisaka, nika, kasawela, kalala, kakaka, kakaka, kakaka, akase, kuka, bibeka, belonika, seka, kalang, kasakase, kasakase, swengsakase, katalase, ilokanose
   * cognates: ka (hi:0.9:kha; tpi:0.8:kaikai; id:0.3:makan, pcm:0.2:chop=eat; ar:0.1:yakul=eat, sw:0.5:kula=eat, es:0.5:comida=food; pt:0.5:comida=food; sn:0.4:kudya=eat; th:0.2:kin=eat; zh:0.1:喝/he=drink; fi:0.6:ruokaa=food); tin (te:tin); kai (tpi:kaikai); chi (zh:chi), cha (pcm:chop),
 
 kai (start)
@@ -2041,7 +2261,7 @@ kang (metal/money)
   * noun: metal; money; cost; price; payment
   * verb: to gleam; to make sth shining; to shine; to spend; to buy sth; to sell sth; to pay sb; to rent sth; to hire sb; to employ sb; to cost sth
   * adj/adv: metallic; shining
-  * Descendants: sangkang, pingsangkang, yokang, itaikang, wangkang, gekang, gekanglu, dagekanglu, kangkwai, kanglengkwai, kanglangleng, balukang, kangsi, gekanggoting, kangmengwe, bokangmengwe, kangbau, kangleng, swakang
+  * Descendants: itaikang, wangkang, gekang, kanglu, gekangmang, legekang, dakanglu, wikang, dakang, wikangtai, sangkang, pingsangkang, yokang, kangkwai, kanglengkwai, kanglangleng, balukang, kangsi, namotingkanglu, gekanggoting, kangmengwe, bokangmengwe, kangbau, kangleng, swakang
   * cognates: kang (ono:0.7; ltc:0.2:kim; en:0.4:clang; en:0.2:cash; id:0.5:uang=money; ms:0.5:wang=money; ha:0.2:karfe=metal; ha:0.2:kudi=money); ching (en: ka-ching; zh: jing)
 
 kau (cow)
@@ -2053,7 +2273,7 @@ ke (break)
   * noun: break; damage; injury; tear; split;
   * verb: to break sth; to damage sth; to injure sb; to tear sth; to hurt sth; to cut sth; to split sth; to crack sth
   * adj/adv: broken; damaged; injured; torn
-  * Descendants: oke, wike, dawiketing, dukenokupwa, noke, nokegu, nokemang, gotingnokemang, mangnokemang, boinokemang, kebegameng, otuke, wiketing, tukwaike
+  * Descendants: oke, wike, dawiketing, dukenokupwa, noke, nokegu, nokemang, gotingnokemang, mangnokemang, boinokemang, kebegameng, otuke, wiketing, tukwaike, kebing, kelena
   * cognates: ke (ono:0.7; tr:0.4:kırmak=break; es:0.7:quebrar; pt:0.7:quebrar; fr:0.3:casser; ha:0.3:karya; id:0.4:kerusakan=damage; zh:0.1:坏)
   * Notes: DONE consider merging into "part"
 DONE make sure "cut" sounds different
@@ -2062,20 +2282,20 @@ ki (air)
   * noun: air; gas; vapor; wind
   * verb: to evaporate; to vaporize sth; to blow on sth
   * adj/adv: airlike; gassy; windy (like big-air)
-  * Descendants: kigolena, aikiboi, lokiboi, kiwiboi, kasalokiwiboi, kiboi, boki, kigoting, kigolu, kigolukwai, loki, nogaliki, kigo, luki, kaboikiboi, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, loyangdamengkiboi, wangtotakiboi
+  * Descendants: kigolena, aikiboi, lokiboi, kiwiboi, kasalokiwiboi, kiboi, boki, kigoting, kigolu, kigolukwai, loki, nogaliki, kigo, luki, kaboikiboi, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, loyangdamengkiboi, wangtotakiboi, kiwipa
   * cognates: ki (vi:1.0:khí; zh:0.6:qi)
 
 ko (arm/leg)
   * noun: arm; branch; branch (in a river); fork (in a river); protuberance
   * verb: To hit something; to strike something
-  * Descendants: langko, koyo, kopauhave thing like smallnai, kolangboi, bangkoboi, lobangkoboi, laukoboi, kasalobangkoboi, kogi, pwako, dapwako, yako, wiko, noside of smallko, goko, kopau, gokopau, kogwai, suko, sugoko, wikogwai, gokowiko, gokowiko, gokogwai, tako, tagoko, kako, gokopinggu, gokopaupinggu, kogo, nekoting, liko, lengliko, nokoyo, lokolangboi
+  * Descendants: langko, koyo, kopauhave thing like smallnai, kolangboi, bangkoboi, lobangkoboi, laukoboi, kasalobangkoboi, kogi, pwako, dapwako, yako, wiko, noside of smallko, goko, kopau, gokopau, kogwai, suko, sugoko, wikogwai, gokowiko, gokowiko, gokogwai, tako, tagoko, kako, gokopinggu, gokopaupinggu, kogo, nekoting, liko, lengliko, nokoyo, lokolangboi, kokodila, kokodila, koyote, okomiyase, engkose, gikoyose
   * cognates: ko (tr:0.8:kol=arm, fi:0.2:käsivarsi=arm; ru:0.7:конечность=limb; sw:0.5:mkono=arm; te:0.6:kola=branch, te:0.6:kottadu=hit, ta:0.4:kai=hand); leng (id:leng; en:limb; en:long); che (te:che=arm); twe (zh:tui=leg); so (zh:shou); ling (en:limb; id:leng)
 
 ku (hard)
   * noun: stone; rock; hardness
   * verb: to harden sth; to freeze sth
   * adj/adv: stone-like; hard
-  * Descendants: kuma, kuyo, kudu, kuliboi, wikuliboi, dunoswekuliboi, kubauboi, kuwiboi, lokuwiboi, dalokuwiboi, langkuwiboi, kubauloboi, kubaugwadiboi, noku, kuting, kubau, langku, kuleng, kulo, takulo, takulokwai, kupi, boku, bolink like noku, u_apricotku, u_oakku, pwaku, kuse, kusang, nokusang, kunosai, dakunosai, kunosaipwa, kubailo, kubwasi, kuli, okuli, nokupwa, dukenokupwa, kumeng, kulimeng, lekumeng, likumeng, nokumeng, mengkumeng, bukumeng, kunamoting, kutingmengwe, kudulu, kududabau, twasiku, swakumeng, kusai, kugo, wikusai, kunobwa
+  * Descendants: kuma, kuyo, kudu, kuliboi, wikuliboi, dunoswekuliboi, kubauboi, kuwiboi, lokuwiboi, dalokuwiboi, langkuwiboi, kubauloboi, kubaugwadiboi, noku, kuting, kubau, langku, kuleng, kulo, takulo, takulokwai, kupi, boku, bolink like noku, pwaku, kuse, kusang, nokusang, kunosai, dakunosai, kunosaipwa, kubailo, kubwasi, kuli, okuli, nokupwa, dukenokupwa, kumeng, kulimeng, lekumeng, likumeng, nokumeng, mengkumeng, bukumeng, kunamoting, kutingmengwe, kudulu, kudumang, kududabau, twasiku, swakumeng, kusai, kugo, wikusai, kunobwa, kuka
   * cognates: ku (ono:0.7; zh:0.7:ku=bitter; vi:0.7:khó=difficult?; zu:0.5:kunzima=difficult; ru:0.2:камень=rock; id:0.2:keras=hard; zu:0.2:kanzima=hard; te:0.2:కష్టంkashtam=hard; zu:0.1:okubabayo=bitter; fi:0.2:kivi=stone; sn:0.7:kuoma=hardness; es:0.2:duro=hard; pt:0.2:duro=hard;	it:0.2:duro=hard; fr:0.1:dur=hard; hi:0.2:कठोरता=hardness); nwa (fr:noix)
 
 kwa (four)
@@ -2088,7 +2308,7 @@ kwai (part/piece)
   * verb: to separate sth; to part sth; to divide (by sth: with thing; into X parts: to X part); to partition sth; to split sth
   * adj/adv: a little; a bit; slightly; part
   * function word: fewer; part; some [smallish quantity]; less; fraction; rarely
-  * Descendants: dakwai, sangkwaiboi, danakwai, sadanakwai, lengdanakwai, winakwai, sikwai, sangkwai, salokwai, dudawimangkwai, takulokwai, kangkwai, kanglengkwai, lalikwai, pinggulengkwai, gokwai, kagukwai, sekwai, sekwaibu, kaisekwai, dusekwai, sosekwai, tingsekwai, miyusekwai, sikwailo, mukwai, gaikwai, kigolukwai, dabaukwai, kwaido, wakwaido, kwaikwa, wakwaikwa, tikwaikwa, dapwagukwai, sikwailopwa, wisikwailopwa, mengkwai, gasangkwai, tukwaike, mekwai, lipart of middlekwai, pekwai
+  * Descendants: dakwai, lekwai, sangkwaiboi, danakwai, sadanakwai, lengdanakwai, winakwai, sikwai, sangkwai, salokwai, dudawimangkwai, takulokwai, kangkwai, kanglengkwai, lalikwai, pinggulengkwai, gokwai, kagukwai, sekwai, sekwaibu, kaisekwai, dusekwai, sosekwai, tingsekwai, miyusekwai, sikwailo, mukwai, gaikwai, kigolukwai, dabaukwai, kwaido, wakwaido, kwaikwa, wakwaikwa, tikwaikwa, dapwagukwai, sikwailopwa, wisikwailopwa, mengkwai, gasangkwai, tukwaike, mekwai, lipart of middlekwai, pekwai
   * cognates: kwai (zh:1.0:kuai=part; ru:0.3:кусок=piece) ; li (en:little, tpi:liklik, tok:lili), sau (xiao dogo petit chinna chhota cilik liklik mini üçük az, smol, -ito, -chen, -let,; pi (piece; petit), pi (fr, en petit, peu; chi (hi: chota, te: chinna, sn,kg: ch-); fi pieni)
 
 kwang (wide)
@@ -2103,7 +2323,7 @@ kwe (order)
   * noun: order; organization; arrangement
   * verb: to arrange sth; to organize sth; to set sth in order
   * adj/adv: orderly; ordered; organized
-  * Descendants: kwetaiting, swakwe, gataiganokwe, nokwepe, nokwe, ganokwe, noganokwe, nokwekwasaibo, kwebudwe, kwepe, baukwepe, taukwepe, tukwakwepe, tudokwepe, nokwekwepe, nokwekwepe
+  * Descendants: kwetaiting, kwedu, kwedumo, swakwe, langkwe, gataiganokwe, nokwepe, nokwe, ganokwe, noganokwe, nokwekwasaibo, lekwe, kwebudwe, kwepe, baukwepe, taukwepe, tukwakwepe, tudokwepe, nokwekwepe, nokwekwepe
   * cognates: kwe (en:0.1:queue, ms:0.2:kemas=neat/tidy; es:0.2:sequencia/acuerdo; de:0.2:Sequenz; fil:0.2:kaayusan=order; id:0.3:keteraturan=order; sn:0.2:kurongeka=order; te:0.1:క్రమబద్ధమైన=orderly; sw:0.2:kuamuru=ordered)
   * Notes: TODO: "kwe" is better for "link" or string
 DONE: could unify with "string". Decision: no!
@@ -2119,7 +2339,7 @@ la (hot)
   * noun: temperature; heat
   * verb: to get hotter; to heat sth (up)
   * adj/adv: hot
-  * Descendants: ladeyagoboi, nola, labau, laping, labwabau, nolabau, danolabau, lagi, mela, memela, lalikwai, labolo, layang, bailayang, wanglayang, lolayang, lali, lamali, lapinggu, lalilo, laliwitinggu, lasulupa, lapa, nolakwatai, lakwatai, lana, laligoting, labwasi, danola, wanglamau
+  * Descendants: ladaga, nola, labau, laping, labwabau, nolabau, danolabau, lagi, mela, memela, lalikwai, labolo, layang, bailayang, wanglayang, lolayang, lali, lamali, lapinggu, lalilo, laliwitinggu, lasulupa, lapa, nolakwatai, lakwatai, lana, laligoting, labwasi, danola, wanglamau, lamang, isabela, daniela, kasawela, kalala, kalala, apalana, lasiba, bila, misela, kokodila, banglase, tamilase, malatise, pulase, malagase, tealase, magalase, wigulase, katalase
   * cognates: la (zh:0.9:la=hot/spicy; hi:0.6:laal=red, zh:0.2:re=hot; fi:0.6:lämpöä); ko (zh:hou=fire)
 
 lai (other/and)
@@ -2127,7 +2347,7 @@ lai (other/and)
   * adj/adv: other; different
   * quantifier: other
   * function word: and (when "and" doesn't mean "together", e.g. in lists)
-  * Descendants: laiswa, laitai, laiting, laiwe, laitu, lailai, lailai, laitaisi, laiwego, laise, laiother go, laiother hardpi, laitaisang, laitwima
+  * Descendants: laiswa, laitai, laiting, laiwe, laitaileli, laisena, laitu, lailai, lailai, laitaisi, laiwego, laise, laiother go, laiother hardpi, laitaisang, laitwima
   * cognates: lai (id:0.7:lain=other; zh:0.8:来lai=another; zh:0.5:另外lingwai=other; en:0.2:lie); ling (zh:ling; ms:lain=other); nye (zu)
   * Notes: DECIDED: "consider either merge with different or turn into adjective." — "different" was merged into "change" IIRC.
 
@@ -2135,55 +2355,54 @@ lang (long)
   * noun: length
   * verb: to elongate sth; to make sth longer
   * adj/adv: long
-  * Descendants: langtai, langko, langboi, kolangboi, lolangboi, swelangboi, langkuwiboi, langlengdamau, nolang, langku, langwipau, langleng, kanglangleng, lilanglo, langlo, langnogali, langdeng, langlengnolengting, nanglangdu, salang, nolangdai, give thing like nolanguse direction person, give thing like nolanguse of person, lokolangboi
+  * Descendants: langtai, langko, langkwe, langboi, kolangboi, lolangboi, swelangboi, langkuwiboi, langlengdamau, nolang, langku, langwipau, langleng, kanglangleng, lilanglo, langlo, langnogali, langdeng, langlengnolengting, nanglangdu, salang, nolangdai, give thing like nolanguse direction person, get thing like nolanguse of person, lokolangboi, esepelangto, abalang, balang, kalang, ayalang, ilanggose
   * cognates: long (en:0.9:long, de:0.8:lang, es:0.8:longitud; hi:0.3:लंबा; pt:0.9:longo; it:0.7:lungo; fr:1.0:long); chang (zh:chang, id:panjang); dai (vi:dai=long); gau (totally random)
 
 lau (six)
   * quantifier: six
-  * Descendants: lause, laukoboi, nitabailau, watalau
+  * Descendants: lause, laukoboi, nitabailau, watalau, lauli
   * cognates: lau (zh:0.6:liu=six; yue:0.5:luk6=six; vi:0.4:sáu); sau (vi:sáu=six)
 
 le (official)
   * noun: rule; law
   * adj/adv: official; legal
-  * Descendants: nole, leli, lemu, legai, lelengmang, lemang, lena, kigolena, lenonu, lepingting, lelu, dalelu, leleng, dalelupinggu, lekumeng
+  * Descendants: legekang, lele, lele, leli, lewe, lekwe, lekwai, letwi, leliting, lelimang, laitaileli, lelitime endtai, lelitai, lenamo, lenamark with lawbiting, nole, lemu, legai, lelengmang, lemang, lena, kigolena, lenonu, lepingting, lelu, dalelu, melelu, leleng, dalelupinggu, lekumeng, kelena, alena, siletise
   * cognates: le (es:1.0:ley; en:0.2:law; zh:0.2:律/lü=law; pt:1.0:lei=law; it:0.6:legge=law; fr:0.2:loi=law; fi:0.2:lakia/laillinen=law/legal; vi:0.2:luật=law; de:0.2:Regel=rule; fil:0.5:legal=legal; id:0.5:legal=legal;); lai ( IE:l*); la (en:law);
-  * Notes: TODO unify with law?
 
 leng (connect)
   * noun: link; joint; connection; relationship; bridge; attachment
   * verb: to connect (to sth/sb); to join sth; to have a relationship with sb/sth; to tie sth; to bind sth
   * adj/adv: connected; related; attached; bridged; linked; tied
-  * Descendants: lengbo, noleng, nolengtai, lelengmang, yaulengbo, langlengdamau, lengnogi, lenggi, lengdanakwai, kuleng, kanglengkwai, pinggulengkwai, watuleng, langleng, kanglangleng, leleng, gonosaileng, toleng, boleng, pingguleng, nolengkali, nolengting, langlengnolengting, langlengnolengting, use arm do noleng, lileng, lilenglu, kangleng, lengliko
+  * Descendants: lengbo, noleng, nolengtai, lelengmang, yaulengbo, langlengdamau, lengnogi, lenggi, lengdanakwai, kuleng, kanglengkwai, pinggulengkwai, watuleng, langleng, kanglangleng, leleng, gonosaileng, toleng, boleng, pingguleng, nolengkali, nolengting, langlengnolengting, langlengnolengting, use arm do noleng, lileng, place energyleng, lilenglu, kangleng, lengliko
   * cognates: leng (fr:0.6:lian=link; zh:0.7:lian=link; en:0.8:link; vi:0.7:liên kết; fi:0.7:linkki; id:0.2:lampiran=attachment; fi:0.2:liittyvät=related; fi:0.3:liite=attachment; fi:0.2:liitos=joint; pt:0.3:ligar=to tie); pwe (es:puente=bridge); tai (en:tie)
 
 li (energy/feeling)
   * noun: energy; feeling; power; strength
   * verb: to feel sth; to make someone do something; to force sb to do sth
   * adj/adv: energetic; feeling
-  * Descendants: limeng, lisi, lisilu, leli, nonangtwaseli, kuliboi, wikuliboi, dunoswekuliboi, bwali, waluli, lalikwai, tali, galisang, galisangse, galitobe, gaili, muli, lilo, baili, lilanglo, lali, lamali, lalilo, laliwitinggu, peli, nopeli, tuli, dosaili, taituli, kuli, okuli, dasali, tadasali, noli, nonangli, eli, deli, pingli, nopingli, mengli, nogaseli, dutingli, nogaliki, yaugoli, gali, galitai, give goodli, swadali, nogali, langnogali, yanogali, nitwanogali, nolengkali, lidi, ligu, widali, baiwidali, sangwidali, tawidali, neli, dali, tobeyaugoli, banogali, mali, nomali, danomali, kulimeng, likumeng, linamo, like do person wantgoli, danumber moveli, beyaugoli, baitaili, swali, lileng, lilenglu, laligoting, pingligo, lili, lili, lipart of middlekwai, liko, lengliko
+  * Descendants: limeng, lisi, lisilu, leli, leliting, lelimang, number lawlimang, laitaileli, lelitime endtai, lelitai, nonangtwaseli, kuliboi, wikuliboi, dunoswekuliboi, bwali, waluli, lalikwai, tali, galisang, galisangse, galitobe, gaili, muli, lilo, baili, lilanglo, lali, lamali, lalilo, laliwitinggu, peli, nopeli, tuli, dosaili, taituli, kuli, okuli, dasali, tadasali, noli, nonangli, eli, deli, pingli, nopingli, mengli, nogaseli, dutingli, nogaliki, yaugoli, gali, galitai, give goodli, swadali, nogali, langnogali, yanogali, nitwanogali, nolengkali, lidi, ligu, widali, baiwidali, sangwidali, tawidali, neli, dali, tobeyaugoli, banogali, mali, nomali, danomali, kulimeng, likumeng, linamo, like do person wantgoli, danumber moveli, beyaugoli, baitaili, swali, lileng, lilenglu, laligoting, pingligo, lili, lili, lipart of middlekwai, liko, lengliko, lisa, lauli, malia, pilipa, englise, italiano, pilipinose, mawalise, dalise, nepalise, somaligase, sangtalise, basabalise
   * cognates: li (zh:1.0:li力); chi (zh:qi)； mu (de:Mut)
 
 lo (water)
   * noun: water; liquid
   * verb: to pee (on sth); to melt sth; to liquify sth; to water sth (a plant)
   * adj/adv: wet
-  * Descendants: yaulo, loka, nelo, neloboi, lokiboi, bailopingkaboi, loboi, kasalokiwiboi, lodeyagoboi, losweboi, lolangboi, lobangkoboi, lokuwiboi, dalokuwiboi, kubauloboi, kasalobangkoboi, yanglo, salokwai, tanalo, bwalo, salo, kulo, takulo, takulokwai, naulo, labolo, loyang, lolayang, sikwailo, pwalo, lilo, kubailo, swangbailo, nolo, nolobwasi, loswelu, lolu, dalolu, lilanglo, langlo, wilo, lopinggu, gengloting, lalilo, palo, loki, loswe, lokagu, bailo, logo, sikwailopwa, wisikwailopwa, sulo, yaulobonoga, logoting, logolu, lokalu, lobau, loyangdamengkiboi, lokolangboi
+  * Descendants: yaulo, loka, nelo, neloboi, lokiboi, bailopingkaboi, loboi, kasalokiwiboi, lodaga, losweboi, lolangboi, lobangkoboi, lokuwiboi, dalokuwiboi, kubauloboi, kasalobangkoboi, yanglo, salokwai, tanalo, bwalo, salo, kulo, takulo, takulokwai, naulo, labolo, loyang, lolayang, sikwailo, pwalo, lilo, kubailo, swangbailo, nolo, nolobwasi, loswelu, lolu, dalolu, lilanglo, langlo, wilo, lopinggu, gengloting, lalilo, palo, loki, loswe, lokagu, bailo, logo, sikwailopwa, wisikwailopwa, sulo, yaulobonoga, logoting, logolu, lokalu, lobau, loyangdamengkiboi, lokolangboi, dengloboi, elopa, belonika, ilokanose
   * cognates: lo (ono:0.7:l*; fr:1.0:l'eau, tok:0.5:telo, en:0.2:liquid, te:0.4:illu; bnt:0.3:li; es:0.2:líquido; pt:0.2:líquido; it:0.2:liquido; fr:0.2:liquide; fil:0.2:likido; ha:0.2:ruwa); swe (zh:shui); di (bnt); su (?:juice);
 
 lu (place)
-  * noun: place; area; field; land; region; yard; court
-  * verb: to put (sth swh); to place (sth swh); to set up sth
+  * noun: place; area; field; land; region; yard; court; location
+  * verb: to put (sth swh); to place (sth swh); to set up sth; to be located
   * preposition: at; at (exact location); on (temporal)
   * function word: anywhere
-  * Descendants: lisilu, lubi, nowalu, walu, lelu, dalelu, balu, nobalu, nelu, dapwaludeyagoboi, gekanglu, dagekanglu, waluli, nogaenergy like onelu, sulu, dupinglu, pwalu, dapwalu, kadapwalu, selu, selumang, pelu, kigolu, kigolukwai, loswelu, lolu, dalolu, side like directiontwo of lawlu, kawipwalu, siboilu, lune, lunelu, lunelu, luneting, dalelupinggu, sulupinggu, balukang, pingtailu, golu, sulupa, lasulupa, luki, lilenglu, olu, alu, ilu, elu, pumenglu, dapumenglu, nubikalu, logolu, kudulu, kalu, lokalu, gadilu, manglu, wimanglu, damanglu
+  * Descendants: swalu, kanglu, dakanglu, lisilu, lubi, nowalu, walu, waluwe, nalu, lelu, dalelu, melelu, wiselu, balu, nobalu, nelu, dapwaludaga, waluli, nogaenergy like onelu, lusomo, sulu, dupinglu, pwalu, dapwalu, kadapwalu, selu, selumang, pelu, kigolu, kigolukwai, loswelu, lolu, dalolu, side like directiontwo of lawlu, kawipwalu, siboilu, lune, lunelu, lunelu, luneting, lubidabau, dalelupinggu, sulupinggu, balukang, pingtailu, golu, sulupa, lasulupa, namotinglu, namotingkanglu, luki, lilenglu, olu, alu, ilu, elu, pumenglu, pumenglutai, dapumenglu, nubikalu, logolu, kudulu, kalu, lokalu, gadilu, manglu, wimanglu, damanglu, luwe, luta, yolubase, suluse, luwangdase, lunasimise, lubase
   * cognates: lu (fr:0.7:lieu; es:0.7:lugar; pt:0.7:lugar; fil:0.7:lugar; bm:0.3:la=place; zh:0.7:陆lu=land); zai (zh); tai (vi); pu (en:0.7:put; es:0.5:poner; ru:0.5:положить; te:0.3:పెట్టడానికి) fang (zh:fang)
 
 ma (love)
   * noun: love; affection; friendship; care
   * verb: to like sth; to love sth; to care for sth; to care about sth
   * adj/adv: beloved; dear
-  * Descendants: kuma, maomeng, watwima, nangma, masweboi, lamali, dama, mamang, mamangtai, damamang, noma, danoma, mali, nomali, danomali, mageng, nomageng, dotwima, natwima, laitwima, mage, mama, mama
+  * Descendants: kuma, maomeng, wawema, nangma, masweboi, lamali, dama, mamang, mamangtai, damamang, noma, danoma, mali, nomali, danomali, mageng, nomageng, dotwima, natwima, laitwima, mage, mama, mama, malia, malatise, malagase, mawalise, somaligase, magalase
   * cognates: ma (efi:1.0:má, anw:1.0:má, ar:0.6:maħbub=beloved; fil:0.6:mahal=beloved; ha:0.6:masoyi=beloved; sn:0.2:mudiwa=beloved; de:0.7:mag; pt:0.7:ama; it:0.7:ama; fil:0.7:mahalin=love; es:0.7:ama, sw:0.7:mapenzi=affection; sa:0.3:prema, id:0.2:mencintai=love, yrk-xx-tundra:0.1:nya=friend); nya (yrk-xx-tundra:friend)
 
 mai (more)
@@ -2195,7 +2414,7 @@ mai (more)
 
 mang (person)
   * noun: person; human
-  * Descendants: esemang, igomang, dabaumang, wamang, lelengmang, lemang, bamang, bamangting, nudo smallmang, dudawimangkwai, selumang, damang, wimang, wiwimang, nubikamang, nokemang, gotingnokemang, mangnokemang, mangnokemang, boinokemang, mamang, mamangtai, damamang, tadwemang, pumengmang, witaimang, metaimang, dataimang, wanotaimang, bataimang, mangna, pingstuff of thistaimangna, mangnaka, mangnagu, omang, emang, gadimang, namangdu, manglu, mangplace like start, wimanglu, damanglu, gengmangna, pausamang, gengmang
+  * Descendants: dumang, omangdwa, tomang, gekangmang, momang, esemang, igomang, dabaumang, wamang, lelimang, number lawlimang, lelengmang, lemang, bamang, bamangting, nudo smallmang, dudawimangkwai, selumang, damang, wimang, wiwimang, nubikamang, nokemang, gotingnokemang, mangnokemang, mangnokemang, boinokemang, mamang, mamangtai, damamang, tadwemang, pumengmang, witaimang, metaimang, dataimang, wanotaimang, bataimang, mangna, pingstuff of thistaimangna, mangnaka, mangnagu, omang, emang, kudumang, gadimang, namangdu, manglu, mangplace like start, wimanglu, damanglu, gengmangna, pausamang, gengmang, tumangting, somangboi, manggo, daimang, swamang, lamang
   * cognates: mang (id:0.8:mang=uncle; ig:0.2:mmadu=human; te:0.7:మానవుడు=human/మనిషి=man; sw:0.2:mtu; id:0.7:manusia; en:0.8:man; de:0.9:man; fil:0.8:mang=old man; id:01:orang); wang (en:one; id:orang); mu- (bnt)
 
 mau (cat)
@@ -2206,31 +2425,31 @@ mau (cat)
   * Notes: note: a "transition metal" (aka an atom that is included that wouldn't be in the simplest of languages, but it is natural for a human language to be OK with it.
 
 me (middle)
-  * noun: middle; waist
+  * noun: middle; center; waist
   * adj/adv: middle; medium; fine; fair; average
   * preposition: among (multiple objects); between
-  * Descendants: mekatai, mena, mela, memela, memela, medapwa, bemetai, metai, yametai, menitai, metaimang, menidamengkiboi, mekwai
+  * Descendants: meping, mekatai, mena, melelu, mela, memela, memela, medapwa, bemetai, metai, yametai, menitai, metaimang, menidamengkiboi, mekwai
   * cognates: me (fr:0.2:moyenne; en:0.5:medium/middle; es:0.6:medio=middle; pt:0.7:meio=middle; it:0.6:mezzo=middle; fr:0.2:milieu=middle; ru:0.6:между=between; de:0.2:Mitte; te:0.2:మధ్య=middle; hi:0.2:मध्य=middle); mwe (fr:0.7:moyenne; en:0.3:medium/middle; es:0.3:medio=middle; pt:0.3:meio=middle; it:0.3:mezzo=middle; fr:0.2:milieu=middle; ru:0.3:между=between; de:0.2:Mitte; te:0.2:మధ్య=middle)
 
 meng (think)
   * noun: thought; belief; feeling; opinion; mind; sense; common sense; reason (e.g. Vernünft)
   * verb: to think sth; to think about sth; to believe sth; to feel sth; to opine sth; to consider sth; to reason abth sh; to conceptualize sth; to theorize
   * adj/adv: theoretical; conceptual; abstract; figurative; thoughtful
-  * Descendants: mengting, swameng, so no have selfmeng, limeng, maomeng, swadutingpumeng, mengswa, swamengting, numeng, pomeng, wipomeng, yaumeng, mengmo, domeng, menggu, mengmeng, mengmeng, tingmeng, emeng, dameng, wimeng, mengli, owemeng, pingtaimeng, swaomeng, bimeng, mengkwai, kumeng, dwemeng, kulimeng, omeng, lekumeng, likumeng, nokumeng, mengkumeng, mengkumeng, gemeng, pumeng, pumengmang, do wide hardmeng, bukumeng, gameng, nogameng, nugameng, bemengtai, bemeng, yameng, noyameng, begameng, kebegameng, yaomeng, dwaomengtai, pumenglu, pumengtai, dapumenglu, mengwe, samengwe, mengmengwe, mengmengwe, swawemengwe, swawemeng, gumengwe, dimengwe, daswawemengwe, kutingmengwe, nonumengwe, yataimengwe, namengwe, menggumengwe, menggumengwe, kangmengwe, bokangmengwe, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, loyangdamengkiboi, swakumeng, mengnang, mengcan of self, bameng
+  * Descendants: mengting, swameng, like no have selfmeng, limeng, maomeng, swadutingpumeng, mengswa, swamengting, numeng, pomeng, wipomeng, yaumeng, mengmo, mengse, domeng, menggu, mengmeng, mengmeng, tingmeng, emeng, dameng, wimeng, mengli, owemeng, pingtaimeng, swaomeng, bimeng, mengkwai, kumeng, dwemeng, kulimeng, omeng, lekumeng, likumeng, nokumeng, mengkumeng, mengkumeng, gemeng, pumeng, pumengmang, do wide hardmeng, bukumeng, gameng, nogameng, nugameng, bemengtai, bemeng, yameng, noyameng, begameng, kebegameng, yaomeng, dwaomengtai, pumenglu, pumenglutai, pumengtai, dapumenglu, mengwe, samengwe, mengmengwe, mengmengwe, swawemengwe, swawemeng, gumengwe, dimengwe, daswawemengwe, kutingmengwe, nonumengwe, yataimengwe, namengwe, menggumengwe, menggumengwe, kangmengwe, bokangmengwe, damengkiboi, nidamengkiboi, menidamengkiboi, danidamengkiboi, loyangdamengkiboi, swakumeng, mengnang, mengcan of self, bameng
   * cognates: meng (es:0.5:mente=mind; pt:0.5:mente=mind; it:0.5:mente=mind; ar:0.2:معتقد=thought; ru:0.5:мнение=opinion; id:0.3:merasa=feeling; fi:0.2:mieleen=mind; sw:0.2:mawazo/imani/maoni/maana=thought/belief/opinion/sense); kwa (fr:croire=to believe)
   * Notes: TODO: change to mind; think is mind-feel (or just feel). Also life-see for feel [emotionally] ?
 TODO: consider "gai" (from concept); also is more different from "ming" meaning
 
 mi (I)
   * noun: me; I
-  * Descendants: mina, mitwiboi, miyusekwai, demiting
+  * Descendants: mina, mitwiboi, miyusekwai, demiting, misiti, misela, tamilase, okomiyase, lunasimise
   * cognates: mi (en:1.0:me; es:1.0:mi; bci:1.0:mi; de:0.8:mir; ga:0.7:mé; hi:0.6:मैं; ru:0.6:мне; pt:0.5:meu; it:0.7:Me; fr:0.3:moi; fi:0.8:minä; sw:0.8:mimi; yo:0.8:emi; ha:0.3:ni; ig:0.1:mmecha=completion; te:0.5:ముగింపు=complete/end)
 
 mo (mark)
   * noun: mark; letter; sign; representation; fleck
   * verb: to mark sth; to write sth
   * adj/adv: written
-  * Descendants: sotingmo, mengmo, moping, namo, linamo, winamo, namoting, kunamoting, dumoting, mowe
+  * Descendants: momang, kwedumo, lenamo, somo, ??somo, lusomo, mengmo, tamo, moping, namo, linamo, winamo, namoting, namotinglu, namotingkanglu, kunamoting, dumoting, mowe
   * cognates: mo (fr:0.9:mot=word; te:0.2:maata=word; es:0.2:marca=mark; pt:0.2:marca=mark; it:0.2:marca?=mark; fr:0.2:marque=mark; fil:0.2:marka=mark; fi:0.2:merkki=mark; de:0.2:markieren=mark; fil:0.2:menulis=write; ar:0.2:مكتوب=written; )
   * Notes: DONE: "make write different from represent" —> write —> flat-symbol
 DONE: change core meaning to "mark"
@@ -2238,6 +2457,7 @@ DONE: change core meaning to "mark"
 moi (salt/savory)
   * noun: salt; umami; savoriness
   * adj/adv: savory; salty
+  * Descendants: moipa
   * cognates: moi (vi:1.0:muối=salt; ar:0.2:ملح; hi:0.1:नमक; sn:0.3:munyu; ja:0.2:umami; en:0.2:umami; fil:0.2:maalat=salty; ms:0.2:masin)
   * Notes: Lisa: how about umami powder
 needs to have an "m" in it for savoring
@@ -2254,7 +2474,7 @@ na (number/marks plural)
   * adj/adv: numerous; a number of
   * quantifier: number; plural marker
   * function word: number; plural marker
-  * Descendants: ina, ana, mina, yuna, dana, mena, wina, danatai, winatai, natai, nataidu, pauna, lena, kigolena, danakwai, sadanakwai, lengdanakwai, winakwai, tana, tanalo, danatwago, nawa, nonawa, namo, linamo, winamo, namoting, kunamoting, lana, mangna, pingstuff of thistaimangna, pingstuff of personna, mangnaka, mangnagu, ena, namengwe, namangdu, gengmangna, of mena, of thisna, nado, natwima, yodanating
+  * Descendants: desena, ina, ana, mina, yuna, dana, mena, wina, danatai, winatai, natai, nataidu, pauna, nalu, lenamo, lenamark with lawbiting, lena, kigolena, laisena, danakwai, sadanakwai, lengdanakwai, winakwai, tana, tanalo, danatwago, nawa, nonawa, namo, linamo, winamo, namoting, namotinglu, namotingkanglu, kunamoting, lana, mangna, pingstuff of thistaimangna, pingstuff of personna, mangnaka, mangnagu, ona, ena, namengwe, namangdu, gengmangna, nado, natwima, yodanating, of mena, of thisna, apalana, gina, kelena, alena, sana, yana, lunasimise, sonase
   * cognates: na (ga:0.8:na; de:0.2:-en; ak:0.3:n-; en:0.3:no/number; es:0.2:número; fr:0.2:nombre; fil:0.2:numero; id:0.2:nomor; sw:0.6:nambari; sn:0.6:nhamba; vi:0.4:nhóm=group); mwe (ki); su (zh:shu=number, la:summa=number, vi:số=number, yue:sou=number; tyv:сан=number, tr:sayı, tt:san, proto-turkic:*sā(j)-=to count, gn:su=thousand ); de (zh)
   * Notes: Merged in "group", the plural marker. The polysemy of "number"="whicth number in a group" and "number"="a quantity" is a little odd, but English has it too.
 There is a bit of an ambiguity of big-number = large group or big number, but prolly fine.
@@ -2287,14 +2507,14 @@ ne (in)
   * verb: to enter sth; to go inside sth; to draw sth inside; to suck (e.g. this do inside air)
   * adj/adv: interior
   * preposition: during (temporal); in; in (static location); inside; within
-  * Descendants: newe, nelu, nelo, neloboi, tunebwa, tunonebwa, noneginosai, direction none, lune, lunelu, luneting, none, yone, neli, nekoting
+  * Descendants: newe, nelu, nelo, neloboi, tunebwa, tunonebwa, noneginosai, direction none, kapene, lune, lunelu, luneting, none, yone, neli, nekoting, pwaneta, nepalise
   * cognates: ne (zh:0.9:nei; ja:0.5:nai; th:0.5:nai; ko:0.5:ane; en:0.2:in; de:0.2:in; es:0.2:en=in; pt:0.1:em=in; it:0.2:In=in; sw:0.2:ndani=inside; zu:0.2:ngaphakathi=inside; ig:0.2:n'ime=inside); me (hi:mein); li/lo (te:lo; zh:li)
 
 ni (dark/black)
   * noun: darkness; blackness; shadow; shade
   * verb: to become black; to make sth black
   * adj/adv: dark; black
-  * Descendants: niyang, bainiyang, baibainiyang, nitwanogali, menitai, nitai, nitabaiwa, nitabaido, nitabaiti, nitabaikwa, nitabaipai, nitabailau, nitabaise, nitabaibang, nitabainoi, nitabaiwano, nitabaiwawa, nitabaiwado, nitabai, nidamengkiboi, menidamengkiboi, danidamengkiboi
+  * Descendants: niyang, bainiyang, baibainiyang, nitwanogali, nitai, menitai, nitabaiwa, nitabaido, nitabaiti, nitabaikwa, nitabaipai, nitabailau, nitabaise, nitabaibang, nitabainoi, nitabaiwano, nitabaiwawa, nitabaiwado, nitabai, nidamengkiboi, menidamengkiboi, danidamengkiboi, daniela, nika, belonika
   * cognates: ni (es:0.4:negro; en:0.3:night; fr:0.2:noir, fr:0.3:nuite; sw:0.3:nyeusi=black; sn:0.2:nhema=black; ig:0.2:nwa=black; te:0.2:నలుపుnalupu=black)
   * Notes: has antonym
 
@@ -2302,31 +2522,31 @@ no (what)
   * noun: zero; nothingness
   * quantifier: no; not; zero
   * function word: question marker
-  * Descendants: noping, nodi, nogwai, nope, nosa, noduting, noga, nogaswadu, itaino, nogo, nodu, noting, tingnoting, wano, nowalu, nomai, nosaka, noleng, nolengtai, gataiganokwe, nokwepe, nokwe, ganokwe, noganokwe, noganokwe, nokwekwasaibo, nole, lenonu, notwasi, nonangtwase, nonangtwaseli, nobalu, noba, nosiwiboi, dunoswekuliboi, noyaudiboi, nonutaidaboi, kwinonutaidaboi, nogwa, nogwadi, nokwi, noku, nogi, lengnogi, nola, nolabau, danolabau, nolang, nonu, nobwa, tunonebwa, nokwang, nogaenergy like onelu, nosai, pingnosai, bonosai, noside of smallko, swanosai, ginosai, noneginosai, noneginosai, tisainosai, gonosaileng, nowisai, nodwese, nonang, nose, nodwe, notruth like want, nokusang, nogase, kunosai, dakunosai, kunosaipwa, nolo, nolobwasi, none, nopeli, noli, nonangli, nopingli, nogaseli, nogaliki, nogali, langnogali, nangnoga, nonangnoga, nonangnoga, yanogali, nitwanogali, nolink eatgu, nolengkali, noswe, nopingtai, nolengting, langlengnolengting, nokupwa, dukenokupwa, nogaka, nogasi, nonawa, nogapu, nosi, nonangsi, nonangsisang, nogating, bonoga, gebonoga, noke, nokegu, nokemang, gotingnokemang, mangnokemang, boinokemang, banogali, noma, danoma, nomali, danomali, nokumeng, nogameng, nonangbesi, noyameng, nonutai, nitabaiwano, nolakwatai, wanotaimang, yaulobonoga, nosang, nosaigoting, donosaigoting, nonumengwe, nolangdai, noyaudi, nokwekwepe, nomageng, danola, winosaipa, kunobwa, watawano, nokoyo
+  * Descendants: noping, nodi, nogwai, nope, nosa, noduting, noga, nogaswadu, itaino, nogo, nodu, noting, tingnoting, wano, nowalu, nomai, nosaka, noleng, nolengtai, gataiganokwe, nokwepe, nokwe, ganokwe, noganokwe, noganokwe, nokwekwasaibo, nole, lenonu, notwasi, nonangtwase, nonangtwaseli, nobalu, noba, nosiwiboi, dunoswekuliboi, noyaudiboi, nonutaidaboi, kwinonutaidaboi, nogwa, nogwadi, nokwi, noku, nogi, lengnogi, nola, nolabau, danolabau, nolang, nonu, nobwa, tunonebwa, nokwang, nogaenergy like onelu, nosai, pingnosai, bonosai, noside of smallko, swanosai, ginosai, noneginosai, noneginosai, tisainosai, gonosaileng, nowisai, nodwese, nonang, nose, nodwe, notruth like want, nokusang, nogase, kunosai, dakunosai, kunosaipwa, nolo, nolobwasi, none, nopeli, noli, nonangli, nopingli, nogaseli, nogaliki, nogali, langnogali, nangnoga, nonangnoga, nonangnoga, yanogali, nitwanogali, nolink eatgu, nolengkali, noswe, nopingtai, nolengting, langlengnolengting, nokupwa, dukenokupwa, nogaka, nogasi, nonawa, nogapu, nosi, nonangsi, nonangsisang, nogating, bonoga, gebonoga, noke, nokegu, nokemang, gotingnokemang, mangnokemang, boinokemang, banogali, noma, danoma, nomali, danomali, nokumeng, nogameng, nonangbesi, noyameng, nonutai, nitabaiwano, nolakwatai, wanotaimang, yaulobonoga, nosang, nosaigoting, donosaigoting, nonumengwe, nolangdai, noyaudi, nokwekwepe, nomageng, danola, winosaipa, kunobwa, dono, watawano, nokoyo, sinose, italiano, pilipinose, ilokanose
   * cognates: no (en:1.0:no; hi:0.2:नहीं=no; ru:0.4:нет/ноль=not/zero; es:1.0:no; pt:0.8:não=not; it:0.8:non; fr:0.9:non; id:0.4:nol=zero; fi:0.4:nolla=zero; de:0.4:nicht/null; vi:0.1:không); bu (zh); la/le (ar, tok, ta)?
 
 noi (nine)
   * quantifier: nine
-  * Descendants: nitabainoi, watanoi
+  * Descendants: nitabainoi, wanoi, watanoi, noibangtawado
   * cognates: noi (ga:0.7:nui; de:0.7:neun; hi:0.2:नौ; es:0.5:nueve; pt:0.2:nove=nine; it:0.2:nove=nine; fr:0.2:neuf=nine; ); nyu (Tocharian:nyu, zh-en:nine+jiu)
 
 nu (new)
   * noun: youth; freshness; newness; novelty; news
   * verb: to renew sth; to refresh sth; to rejuvinate sth
   * adj/adv: new; fresh; novel; raw
-  * Descendants: nubi, numeng, lenonu, nonutaidaboi, kwinonutaidaboi, nonu, nudo smallmang, nube eatgu, nubikamang, nugameng, nutai, nonutai, nonumengwe, nubikalu, nuse
+  * Descendants: nuping, nubi, numeng, nudaiting, lenonu, nonutaidaboi, kwinonutaidaboi, nonu, nudo smallmang, nube eatgu, nubikamang, nugameng, nutai, nonutai, nonumengwe, nubikalu, nuse
   * cognates: nu (en:1.0:new; de:0.5:neu; ru:0.5:новый; es:0.7:nuevo; it:0.7:nuovo; pt:0.5:novo; fr:0.8:nouveau; hi:0.2:नया)
   * Notes: many languages differentiate "young" (animate) and "new" (inanimate)
 
 o (all/completely-)
-  * quantifier: all; each; every
-  * Descendants: maomeng, odu, oga, opo, kwaside like nooga, okuli, owemeng, oke, okwigo, swaomeng, omeng, otuke, yaomeng, oka, ogo, obu, oyau, dwaomengtai, omang, olu, oting, odating, otai
+  * quantifier: all; each; every; both
+  * Descendants: omangdwa, maomeng, odu, oga, opo, kwaside like nooga, okuli, owemeng, oke, okwigo, swaomeng, omeng, otuke, yaomeng, oka, ogo, obu, oyau, dwaomengtai, omang, ona, olu, oting, odating, otai, odisa, okomiyase
   * cognates: o (en:0.6:all, sco:0.8:au, tpi:0.8:ol, pcm:0.8:ol, es:0.2:todo; pt:0.2:todo; it:0.7:ogni; fi:0.2:joka=every; sw:0.2:zote=all; zu:0.2:konke=all; sn:0.2:zvose=all; ha:0.1:kowane=every; yo:0.1:gbogbo=all/every; la:0.3:omne); au (en:0.6:all, sco:1.0:au, tpi:0.7:ol, pcm:0.7:ol, la:0.1:omne); me (zh:mei)
   * Notes: TODO: still not sure if completative (e.g. search—>find, think —> decide) should be all- or end-
 
 pa (result/fruit)
   * noun: result; fruit
-  * Descendants: payau, palo, sulupa, lasulupa, lapa, wangpa, winosaipa, putaupa
+  * Descendants: payau, palo, sulupa, lasulupa, lapa, wangpa, winosaipa, moipa, putaupa, pusupa, elopa, apalana, pilipa, kiwipa, pasatose, nepalise
   * cognates: pa (ta:0.7:pazham=fruit; sa:0.7:phala=fruit; hi:0.7:फल/phal=fruit; hi:0.7:परिणाम/parinam=result; en:0.1:fruit=fruit; ig:0.2:pụta=result; te:0.7:ఫలితం=fruit; te:0.7:పండు=fruit)
 
 pai (five)
@@ -2339,7 +2559,7 @@ pau (end)
   * verb: to finish sth; to complete sth; to end sth; to turn sth off; to close sth; to die; to kill sb/sth; to stop sth
   * adj/adv: complete; to completion (adv); ended; stopped
   * affix: prefix meaning to do something to completion;
-  * Descendants: wipau, kopauhave thing like smallnai, no can nopaudu, pauna, pauting, pautu, paubadu, yowipau, langwipau, kopau, gokopau, gokopaupinggu, setaipau, pausa, pausamang
+  * Descendants: wipau, kopauhave thing like smallnai, no can nopaudu, pauna, pauting, pautu, paubadu, yowipau, langwipau, pausai, kopau, gokopau, gokopaupinggu, bepau, setaipau, pausa, pausamang
   * cognates: pau (haw:1.0:pau=finished/done/destroyed; hwc:1.0:pau=done, finished, el:0.4:παύω=stop; pt:0.3:parar=stop; es:0.3:parar=stop; ru:0.6:пауза=pause; pl:0.6:pauza=pause; es:0.6:pausa=pause; pt:0.6:pausa=pause; it:0.6:pausa=pause; fr:0.4:pause=pause; ); dai (en:0.7:die, zh:0.5:歹/dai=die); mo (zh:0.9:mo=end; ar:0.3:مكتمل=complete; es:0.3:morir=to die; pt:0.3:morrer=to die; it:0.3:morire=to die; fr:0.3:mourir=to die; sw:0.2:mwisho=end; fil:0.1:mamatay=die); gwang (zh:0.9:guang=close); dau (zh:0.9:dao=completitive particle)
   * Notes: DONE check tip/point vs end (for an object). Maybe "tip" is just "small-end".
 Note: has antonym. This one seems pretty important.
@@ -2349,15 +2569,15 @@ pe (play/fun)
   * noun: play; game
   * verb: to have fun; to play (with sth)
   * adj/adv: playful; fun
-  * Descendants: nope, nokwepe, pelu, peli, nopeli, peting, pingpeting, kwepe, baukwepe, taukwepe, tukwakwepe, tudokwepe, nokwekwepe, pekwai, pepingting
+  * Descendants: nope, nokwepe, kape, kapene, pelu, peli, nopeli, peting, pingpeting, kwepe, baukwepe, taukwepe, tukwakwepe, tudokwepe, nokwekwepe, pekwai, pepingting, esepelangto
   * cognates: pe (en:0.7:play; ru:0.5:веселье=fun; id:0.6:permainan/bermain=game/play, fi:0.7:peli/pelata=game/play)
   * Notes: TODO could be split to "good-time"
 
 pi (surface/skin)
   * noun: surface; skin; bark; touch; contact
-  * verb: to touch sth; to rub sth; to meet sth; to contact sth; to cross sth; to meet sth
+  * verb: to touch sth; to rub sth; to meet sth; to contact sth; to cross sth; to meet sth; to click sth
   * adj/adv: touching
-  * Descendants: topi, dapi, kupi, pingpi, pisi, laiother hardpi
+  * Descendants: topi, dapi, kupi, pingpi, pisi, laiother hardpi, pita, pilipa, pilipinose, pilipinose
   * cognates: pi (zh:1.0:pi=skin, es:0.8:piel=skin; ko:0.7:pibu=skin; th:0.8:phio=skin; ru:0.2:поверхность=surface; pt:0.3:pele=skin; it:3:pelle=skin; fr:0.2:peau=skin; ms:0.3:permukaan=surface; fi:0.6:pinta=surface; zu:0.2:phezulu=surface; sn:0.2:pamusoro=surface; en:0.5:peel) mwa (ono:0.5, zh:0.8:mo=touch; id:0.2:menyentuh=touch)
   * Notes: NOTE: the atom "touch (mwa)" was merged into this
 
@@ -2365,7 +2585,7 @@ ping (plat)
   * noun: level; a flat thing; evenness; levelness; equality; flatness; pitch (music); leaf; paper
   * verb: to level; to equal sth; to flatten sth; to lay sth; to set sth;
   * adj/adv: flat; even; level; equal; fair; lying
-  * Descendants: noping, pingsangkang, pingtai, lepingting, pingkaboi, baipingkaboi, gipingkaboi, bailopingkaboi, dapingkaboi, laping, pingnosai, pinggulengkwai, pinggo, pingbo, dupinglu, pingpi, pinggu, tapinggu, pingtaipinggu, pingtaipinggu, pingtaipingstuff like small, pingtaipingstuff like small, lapinggu, tobopinggu, gokopinggu, gokopaupinggu, dalelupinggu, pingstuff of hardsai, sulupinggu, lopinggu, pingguleng, moping, pwaping, pingting, yotingpingting, pingli, nopingli, pingtailu, nopingtai, pingtaimeng, pingpeting, pingstuff of thistaimangna, pingstuff of personna, pingligo, pinggubau, yapinggubau, pingkabau, pingbau, pepingting
+  * Descendants: noping, nuping, meping, giping, pingsangkang, pingtai, swaweping, lepingting, pingkaboi, baipingkaboi, gipingkaboi, bailopingkaboi, dapingkaboi, laping, pingnosai, pinggulengkwai, pinggo, pingbo, dupinglu, pingpi, pinggu, tapinggu, pingtaipinggu, pingtaipinggu, pingtaipingstuff like small, pingtaipingstuff like small, lapinggu, tobopinggu, gokopinggu, gokopaupinggu, dalelupinggu, pingstuff of hardsai, sulupinggu, lopinggu, pingguleng, moping, pwaping, pingting, yotingpingting, pingli, nopingli, pingtailu, nopingtai, pingtaimeng, pingpeting, pingstuff of thistaimangna, pingstuff of personna, pingligo, pinggubau, yapinggubau, pingkabau, pingbau, pepingting
   * cognates: ping (zh:1.0:ping=level, vi:0.1:bình=peace; ru:0.2:плоский=flat; es:0.2:plano/papel=flat/paper; pt:0.2:plano=flat; it:0.2:Piatto=flat; fr:0.2:plat=flat; fil:0.2:patag; yo:0.4:alapin=flat)
 
 po (possible/may/might (with verb))
@@ -2378,13 +2598,13 @@ po (possible/may/might (with verb))
 
 pu (get)
   * verb: to get sth; to obtain sth; to receive sth
-  * Descendants: swadutingpumeng, nogapu, pumeng, pumengmang, pumenglu, pumengtai, dapumenglu, putaupa
+  * Descendants: swadutingpumeng, nogapu, pumeng, pumengmang, supu, pumenglu, pumenglutai, pumengtai, dapumenglu, witaipu, putaupa, pusupa, pulase
   * cognates: po (sw:0.7:kupokea; ru:0.7:получать=get/obtain; te:07:పొందండి=get/obtain; hi:0.2:पाना=get) ; gau (zh:gao lai=get; en:get) ; chu (zh:0.9:qu)
   * Notes: this could be deprecated to "hand" aka "grasp", though that conflates active and passive. It could also be "reverse-give". However, to be naturalistic, we have kept it an atom.
 
 pwa (plant)
   * noun: plant; vegetable
-  * Descendants: dapwaboi, dapwaludeyagoboi, pwako, dapwako, dapwa, pwalu, dapwalu, kadapwalu, medapwa, pwaku, pwayang, wangpwayang, wangwangpwayang, kunosaipwa, pwalo, twagotobepwa, kawipwalu, dapwagu, pwaai, dapwagukwai, pwaping, nokupwa, dukenokupwa, sikwailopwa, wisikwailopwa, wipwa, dapwagubau
+  * Descendants: dapwaboi, dapwaludaga, pwako, dapwako, dapwa, pwalu, dapwalu, kadapwalu, medapwa, pwaku, pwayang, wangpwayang, wangwangpwayang, kunosaipwa, pwalo, twagotobepwa, kawipwalu, dapwagu, pwaai, dapwagukwai, pwaping, nokupwa, dukenokupwa, sikwailopwa, wisikwailopwa, wipwa, dapwagubau, pwaneta
   * cognates: pwa (en:0.5:plant; es:0.5:planta; pt:0.5:planta=plant; it:0.2:pianta=plant; fr:0.5:plante; hi:0.3:पौधा=plant); mo/mu (te:mokka; bnt:mou); su (zh:tree)
   * Notes: plant-water would be good for "tea" in the meaning of a tisane. But the plant "tea" needs a word, and that would be "cha". But if "cha" exists, then it may as well mean tisane as well...
 Lisa: chose "su" because it sounds like tree in southern chinese
@@ -2393,28 +2613,28 @@ sa (life/experience/used for passive)
   * noun: life; soul; experience
   * verb: to live; to experience sth
   * adj/adv: alive; living; lively; experienced
-  * Descendants: nosa, nosaka, give nosaeat direction person, kasalokiwiboi, kasalobangkoboi, sadanakwai, salokwai, salo, dasali, tadasali, sage, salang, samengwe, pausa, pausamang, gasa
+  * Descendants: nosa, nosaka, give nosaeat direction person, kasalokiwiboi, kasalobangkoboi, sadanakwai, salokwai, salo, dasali, tadasali, sage, salang, samengwe, pausa, pausamang, gasa, aisaka, lisa, odisa, isabela, kasawela, isa, sana, pasatose, kasakase, swengsakase, basabalise
   * cognates: sa (ce:1.0:са=life/soul, ing:1.0:са=soul; en:0.3:soul; zh:0.2:sheng, gl:0.6:sa=generation/litter/sowing; bg:1.0:са=is; fi:0.2:sielu; de:0.2:Seele; te:0.6:సజీవంగా; vi:0.3:sống)
   * Notes: decided: don't unify with be
 TODO: add this as a passive marker "it was conquered" --> "it lived a conquering"
 
 sai (side)
   * noun: side; bank (of river); edge; coast; sharpness
-  * Descendants: nokwekwasaibo, nosai, pingnosai, bonosai, swanosai, ginosai, noneginosai, tisainosai, tisainosai, dosai, kwasaibo, tisai, gonosaileng, kwasai, tisaibo, wisai, nowisai, saiwa, saido, tobwasai, kunosai, dakunosai, kunosaipwa, pingstuff of hardsai, dosaili, nosaigoting, donosaigoting, kusai, winosaipa, wikusai
+  * Descendants: nokwekwasaibo, nosai, pingnosai, bonosai, swanosai, ginosai, noneginosai, tisainosai, tisainosai, dosai, kwasaibo, tisai, gonosaileng, kwasai, tisaibo, pausai, wisai, nowisai, saiwa, saido, tobwasai, kunosai, dakunosai, kunosaipwa, pingstuff of hardsai, dosaili, nosaigoting, donosaigoting, kusai, winosaipa, wikusai
   * cognates: sai (en:0.7:side; as:0.2:ساحل=coast; tr:0.2:sahil=coast; ru:0.2:сторона=side; id:0.3:samping=side; ms:0.2:sebelah=side; de:0.7:Seite=side), s* (ono; en:sharp, vi:sắc=sharp; ru:ostryi=sharp;, ja:surudosa=sharpness;), beng (zh:bian)
 
 sang (sound)
   * noun: noise; sound
   * verb: to meow/woof/etc. (depends on lthe animal); to make a noise; to sound sth; to make a sound with sth
   * adj/adv: noisy; sounding
-  * Descendants: sangkang, pingsangkang, sangkwaiboi, sangkwai, gasangse, galisang, galisangse, kusang, nokusang, sangsi, gasang, gasangting, dagasangting, bosang, mausang, sangwidali, nonangsisang, nosang, laitaisang, gasangkwai, dasang
+  * Descendants: sangkang, pingsangkang, sangkwaiboi, sangkwai, galisang, galisangse, kusang, nokusang, sangsi, gasang, gasangting, dagasangting, bosang, mausang, sangwidali, nonangsisang, nosang, laitaisang, gasangkwai, dasang, sangdi, sanggase, sangtalise
   * cognates: sang (es:0.4:sonido=sound; pt:0.3:som=sound; it:0.3:suono=sound; fr:0.3:son=sound; en:0.8:song/sound; zh:0.4:sheng; ar:0.2:صوت=sound; id:0.2:suara=sound; sw:0.3:sauti=sound; tr:0.2:ses); song (es:0.7:sonido=sound; pt:0.7:som=sound; it:0.6:suono=sound; fr:0.8:son=sound; en:0.8:song/sound; zh:0.6:sheng; ar:0.3:صوت=sound; id:0.2:suara=sound; sw:0.2:sauti=sound; tr:0.2:ses)
 
 se (talk)
   * noun: talk; speech; story; tale; language
-  * verb: to say sth; tell sth; to call sb; to tell (sb sth); to recount sth; to talk (about sth: of thing); to pronounce sth
+  * verb: to say sth; tell sth; to call sb; to tell (sb sth); to recount sth; to talk (about sth: of thing); to pronounce sth; to speak sth
   * adj/adv: talkative
-  * Descendants: yase, ese, esetai, esemang, sedu, twase, wise, naise, nonangtwase, nonangtwaseli, have selfse, person like have selfse, nodwese, nose, dwese, gese, gasangse, swase, kwangse, galisangse, dose, kuse, gase, tagase, nogase, sekwai, sekwaibu, kaisekwai, dusekwai, sosekwai, tingsekwai, miyusekwai, selu, selumang, nogaseli, seyang, laise, daese, sewe, nuse, muse, sesowi
+  * Descendants: dese, desena, yase, ese, esetai, esemang, sedu, twase, widese, wise, wiselu, naise, laisena, nonangtwase, nonangtwaseli, have selfse, person like have selfse, nodwese, nose, dwese, gese, mengse, swase, kwangse, galisangse, dose, kuse, gase, tagase, nogase, sekwai, sekwaibu, kaisekwai, dusekwai, sosekwai, tingsekwai, miyusekwai, selu, selumang, nogaseli, seyang, laise, daese, sewe, nuse, muse, esepelangto, sesowi, akase, misela, seka, sinose, englise, banglase, tamilase, malatise, taise, pasatose, yolubase, pulase, pilipinose, awadise, ibose, singdise, malagase, mawalise, dalise, tealase, nepalise, somaligase, okomiyase, engkose, sanggase, kasakase, magalase, swengsakase, titewase, suluse, siletise, twise, wigulase, luwangdase, katalase, ilokanose, lunasimise, gangse, sonase, gikoyose, lubase, sangtalise, ilanggose, basabalise
   * cognates: se (en:1.0:say; zh:0.1:shuo=say; fi:0.2:sanoa=say; ru:0.2:сказать=say; tr:0.2:söyle=say; de:0.2:sprech=speak; yo:0.2:sọ=say; fil:0.2:sabihin=say; )
 
 se (seven)
@@ -2423,31 +2643,35 @@ se (seven)
   * cognates: se (en:0.5:seven; hi:0.2:सात; ar:0.2:سبعة; ru:0.7:Семь; es:0.5:siete; pt:0.6:sete; it:0.6:sete; fr:0.5:sept; fi:0.5:seitsemän; sw:0.2:saba; de:0.3:Sieben); seng (en:0.7:seven; hi:0.2:सात; ar:0.4:سبعة; ru:0.6:Семь; es:0.3:siete; pt:0.6:sete; it:0.6:sete; fr:0.6:sept; fi:0.6:seitsemän; sw:0.2:saba; de:0.3:Sieben); ki (zh:0.6:qi)
 
 si (see)
-  * noun: vision; sight; look
-  * verb: to see sth; to sense sth; to look (at sth); to meet sb; to meet sb
+  * noun: vision; sight; look; view
+  * verb: to see sth; to sense sth; to look (at sth); to meet sb; to meet sb; to view sth
   * adj/adv: looking
-  * Descendants: lisi, lisilu, siduting, disi, disiduting, twasi, notwasi, nosiwiboi, sikwai, sikwailo, kubwasi, nolobwasi, siboilu, kangsi, swasi, swasiting, sangsi, sikwailopwa, wisikwailopwa, gasi, nogasi, nausi, pisi, bwasi, gesi, nosi, nonangsi, nonangsisang, do go nosi, laitaisi, besi, nangbesi, nonangbesi, twasiku, labwasi, wisi, wisiting
+  * Descendants: lisi, lisilu, siduting, disi, disiduting, twasi, notwasi, nosiwiboi, sikwai, sikwailo, kubwasi, nolobwasi, siboilu, kangsi, swasi, swasiting, sangsi, sikwailopwa, wisikwailopwa, gasi, nogasi, nausi, pisi, bwasi, gesi, nosi, nonangsi, nonangsisang, do go nosi, laitaisi, besi, nangbesi, nonangbesi, ewesi, twasiku, labwasi, wisi, wisiting, misiti, lasiba, sida, sinose, siletise, lunasimise
   * cognates: si (en:1.0:see; es:0.5:Siento=I feel; pt:0.5:eu sinto=I feel; it:0.2:sento=I feel; fr:0.2:Je me sens=I feel; de:0.6:sehen)
+
+sing (sing)
+  * noun: the sound "sing" (used in proper nouns)
+  * Descendants: singtia, singdise
 
 so (marks adjective)
   * function word: as (in the sense of "to dress up AS"); that/who (when introducing relative clause); marks adjective
-  * Descendants: sotingmo, sosekwai, sesowi
+  * Descendants: somo, ??somo, lusomo, sosekwai, somangboi, sesowi, somaligase, sonase
   * cognates: so (en:0.8:so; zh:0.3:xiang=like; ru:0.7:ЧТО=that; hi:0.4:साsa/समान=like/-ish/resembling, pcm:0.4:se=that; id:0.2:sangat/serupa=very/similar/equal; ar:0.4:سَوَاء=equal; sw:0.4:sawa/sana=similar/very; yo:0.6:sosai=very; tr:0.1:çok=very); da (en:that's, de:dass); lang (tpi:long=of); se (pcm:se=that)
   * Notes: TODO consider replace with "of"
 
 su (down)
   * noun: butt; bottom; base; ground; floor
   * verb: to fall; to knock over; to drop sth; to down sth; to fell sth; to sit sth. down
-  * adj/adv: down; fallen; base; fundamental
-  * preposition: underneath (static); down(direction); under
-  * Descendants: sugi, suting, sulu, subo, suko, sugoko, sulupinggu, sulupa, lasulupa, sulo, sukwatai
+  * adj/adv: down; fallen; base; fundamental; below
+  * preposition: underneath (static); down (direction); under; below
+  * Descendants: sugi, suting, sulu, subo, suko, sugoko, sulupinggu, sulupa, lasulupa, sulo, sukwatai, supu, pusupa, suluse
   * Notes: DECIDED: "really need to decide whether to split out top/bottom from over" — not merging for now at least
 
 swa (self/just/marks emphasis)
   * noun: self; themselves; themself
   * adj/adv: just (past)/just about to (future); barely
   * conjunction: even if
-  * Descendants: laiswa, swameng, swadu, swawe, daswawe, swaduting, swadutingpumeng, mengswa, swamengting, nogaswadu, swakwe, swanosai, swase, swada, swadali, swawi, taswada, swasi, swasiting, swaomeng, swali, swatai, swagotutaduting, swawemengwe, swawemeng, daswawemengwe, swakumeng, swakang
+  * Descendants: laiswa, swalu, swameng, swadu, swawe, swaweping, daswawe, swaduting, swadutingpumeng, mengswa, swamengting, nogaswadu, swakwe, swanosai, swase, swada, swadali, swawi, taswada, swasi, swasiting, swaomeng, swali, swatai, swagotutaduting, swawemengwe, swawemeng, daswawemengwe, swakumeng, swakang, swamang
   * cognates: swa (hi:1.0:swa=self; fr:1.0:soi=self; ga:0.6:-sa=stress clitic; zh:0.2:zi; ru:0.2:себя; fi:0.2:sarili; de:0.2:selbst; te:0.7:స్వీయ)
   * Notes: note: "even" is used to mean "even if" by many ESL speakers
 
@@ -2462,6 +2686,10 @@ swe (dirt)
   * Descendants: masweboi, dunoswekuliboi, sweboi, losweboi, swelangboi, swegwadi, boiswe, swego, swegoting, sweyang, loswelu, daswe, nangboswe, loswe, swewitinggu, noswe, yoswe, daswetai
   * cognates: swe (es:0.8:suelo; en:0.3:soil; pt:0.3:solo; it:0.3:suolo; fr:0.3:sol;); soi (en:soil); mwa (karelian mua)
 
+sweng (sweng)
+  * noun: the sound "sweng" (used in proper nouns)
+  * Descendants: swengsakase
+
 swi (sweet)
   * noun: sugar; sweetness
   * adj/adv: sweet
@@ -2474,7 +2702,7 @@ ta (up/over/top)
   * verb: to be on top of sth/sb; to pass sth/sb; to surpass sth/sb
   * adj/adv: over; up; above
   * preposition: over; up(direction); above
-  * Descendants: tamai, tayau, tana, tanalo, takulo, takulokwai, data, tuta, tali, tating, tago, tako, tagoko, tagase, tapinggu, datating, tadasali, taswada, tawidali, tadwe, tadwemang, nitabaiwa, nitabaido, nitabaiti, nitabaikwa, nitabaipai, nitabailau, nitabaise, nitabaibang, nitabainoi, nitabaiwano, nitabaiwawa, nitabaiwado, takwatai, tabai, nitabai, tutaduting, swagotutaduting, eta, wata, watado, watati, watakwa, watapai, watalau, watase, watabang, watanoi, watawano, tota, wangtotakiboi
+  * Descendants: tamai, tayau, tana, tanalo, tamo, takulo, takulokwai, data, tuta, tali, tating, tago, tako, tagoko, tagase, tapinggu, datating, tadasali, taswada, tawidali, tadwe, tadwemang, nitabaiwa, nitabaido, nitabaiti, nitabaikwa, nitabaipai, nitabailau, nitabaise, nitabaibang, nitabainoi, nitabaiwano, nitabaiwawa, nitabaiwado, takwatai, tabai, tage, nitabai, tutaduting, swagotutaduting, eta, wata, watado, watati, dotado, dotati, watakwa, watapai, watalau, watase, watabang, watanoi, watawano, watawawa, watawado, noibangtawado, tota, wangtotakiboi, yuta, pwaneta, pita, luta, tamilase, italiano, katalase, sangtalise
   * cognates: ta (en:0.8:top, id:0.7:atas=on top of; fil:0.7:itaas=top); sang (zh:shang); chu (sw:juu)
 
 tai (time(s))
@@ -2482,7 +2710,7 @@ tai (time(s))
   * verb: to be time (for sth); to be time to do sth
   * adj/adv: times (used to make perfect)
   * function word: anytime
-  * Descendants: yatai, langtai, katai, wikatai, mekatai, dakatai, pingtai, esetai, itaino, laitai, danatai, winatai, natai, nataidu, taiting, kwetaiting, nolengtai, gataiganokwe, batai, nonutaidaboi, kwinonutaidaboi, betai, itaikang, pingtaipinggu, pingtaipingstuff like small, taituli, galitai, pingtailu, nopingtai, pingtaimeng, start flattai, mamangtai, bemengtai, laitaisi, this lighttai, bebaitai, yabaitai, dobebaitai, doyabaitai, nutai, bemetai, metai, yametai, nonutai, menitai, nitai, witai, wiwitai, setai, setaipau, baitai, kwatai, nolakwatai, sukwatai, takwatai, lakwatai, daswetai, baitaili, witaimang, metaimang, dataimang, wanotaimang, swatai, bataimang, pingstuff of thistaimangna, dwaomengtai, otai, atai, itai, etai, pumengtai, yataimengwe, laitaisang
+  * Descendants: yatai, langtai, itaikang, wikangtai, katai, wikatai, mekatai, dakatai, pingtai, esetai, itaino, laitai, danatai, winatai, natai, nataidu, taiting, kwetaiting, nolengtai, gataiganokwe, laitaileli, lelitime endtai, lelitai, batai, nonutaidaboi, kwinonutaidaboi, betai, pingtaipinggu, pingtaipingstuff like small, taituli, galitai, pingtailu, nopingtai, pingtaimeng, start flattai, mamangtai, bemengtai, laitaisi, this lighttai, bebaitai, yabaitai, dobebaitai, doyabaitai, nutai, bemetai, metai, yametai, nonutai, nitai, menitai, witai, wiwitai, setai, setaipau, baitai, kwatai, nolakwatai, sukwatai, takwatai, lakwatai, daswetai, baitaili, witaimang, metaimang, dataimang, wanotaimang, swatai, bataimang, pingstuff of thistaimangna, dwaomengtai, otai, atai, itai, etai, pumenglutai, pumengtai, yataimengwe, witaipu, laitaisang, taise
   * cognates: tai (en:0.7:time; es:0.3:tiempo; fr:0.2:temps; it:0.3:tempo; pt:0.3:tempo; fi:0.2:aika; de:0.5:Zeit)
   * Notes: TODO: "ever" needs a better gloss
 TODO consider "teng" as surface?
@@ -2493,29 +2721,34 @@ tau (jump)
   * Descendants: tauwiboi, taubawi, tauda, dotauda, titauda, dotaubawi, taukwepe, putaupa
   * cognates: tau (zh:0.8:tiao)
 
+te (te)
+  * noun: the sound "te" (used in proper nouns)
+  * Descendants: teba, koyote, tealase, titewase
+
 ti (three)
   * quantifier: three
-  * Descendants: tisainosai, tisai, tisaibo, titauda, tuti, tikwaikwa, nitabaiti, watati, ati
+  * Descendants: tisainosai, tisai, tisaibo, titauda, tuti, tikwaikwa, nitabaiti, watati, dotati, ati, singtia, misiti, malatise, titewase, siletise
   * cognates: ti (en:0.5:three; ru:0.5:три; es:0.3:tres; it:0.3:tre; pt:0.3:três; fr:0.2:trois; fil:0.2:tatlo; sw:0.3:tatu; sn:0.3:tatu; id:0.7:tiga; ar:0.7:ثلاثة/tlieta; hi:0.7:tin); si (en:three)
 
 ting (thing)
-  * noun: thing; deed; aspect; facet; characteristic; trait; step (aka measure); measure (aka step)
+  * noun: thing; deed; aspect; facet; characteristic; trait; step (aka measure); measure (aka step); item
   * verb: to do things; to make sth; to treat (a person well); to do sth
   * adj/adv: literal; concrete
   * function word: anything
-  * Descendants: mengting, biting, duting, swaduting, swadutingpumeng, siduting, disiduting, noduting, swamengting, laiting, noting, tingnoting, tingnoting, gwaibaiting, wating, dweting, do think like truthting, poting, taiting, kwetaiting, pauting, lepingting, bamangting, kuting, witing, sotingmo, swegoting, tating, suting, tingmeng, tingsekwai, kigoting, luneting, demiting, gengloting, witinggu, swewitinggu, do nodo smalltinggu, laliwitinggu, twating, datating, pingting, yotingpingting, yotingpingting, dutingli, swasiting, nolengting, langlengnolengting, dawiketing, peting, pingpeting, gasangting, dagasangting, nogating, gotingnokemang, namoting, kunamoting, goting, baugoting, nosaigoting, laligoting, gekanggoting, tutaduting, swagotutaduting, donosaigoting, logoting, oting, odating, daiting, wiketing, dumoting, kutingmengwe, gaditing, pepingting, nekoting, deting, wideting, yodanating, wisiting, geting, waweting
+  * Descendants: mengting, biting, duting, swaduting, swadutingpumeng, siduting, disiduting, noduting, swamengting, laiting, noting, tingnoting, tingnoting, gwaibaiting, wating, dweting, do think like truthting, poting, taiting, kwetaiting, nudaiting, pauting, leliting, lenamark with lawbiting, lepingting, bamangting, kuting, witing, swegoting, tating, suting, tingmeng, tingsekwai, kigoting, luneting, demiting, gengloting, witinggu, swewitinggu, do nodo smalltinggu, laliwitinggu, twating, datating, pingting, yotingpingting, yotingpingting, dutingli, swasiting, nolengting, langlengnolengting, dawiketing, peting, pingpeting, gasangting, dagasangting, nogating, gotingnokemang, namoting, namotinglu, namotingkanglu, kunamoting, goting, baugoting, nosaigoting, laligoting, gekanggoting, tutaduting, swagotutaduting, donosaigoting, logoting, oting, odating, daiting, wiketing, dumoting, kutingmengwe, gaditing, pepingting, nekoting, tumangting, deting, wideting, dubwating, yodanating, wisiting, geting, waweting
   * cognates: ting (en:0.9:thing; zh:0.6:dongxi; de:0.9:ding)
 
 to (head/main)
   * noun: head; bud; leader
-  * verb: to drive; to drive sth; to head sth; to lead sth
-  * Descendants: topi, tobo, tobe, tobau, toleng, tobwasai, galitobe, twagotobepwa, tobopinggu, tobwa, tobeyaugoli, tota, wangtotakiboi
+  * verb: to drive; to drive sth; to head sth; to lead sth; to guide
+  * Descendants: tomang, topi, tobo, tobe, tobau, toleng, tobwasai, galitobe, twagotobepwa, tobopinggu, tobwa, tobeyaugoli, tota, wangtotakiboi, esepelangto, pasatose
   * cognates: to (zh:1.0:tou; ru:0.2:голова; fr:0.2:tête; it:0.2:testa; id:0.2:tunas=bud; tr:0.5:tomurcuk=bud; te:0.2:తల=head; ha:0.5:toho=bud)
 
 tu (to/direction)
   * noun: direction
   * preposition: to; towards; in order to (para in spanish); por; to (physical or object); para; for the sake of; "this gift is TO you"
-  * Descendants: pautu, tunebwa, tunonebwa, laitu, watuleng, tuta, datu, tuwa, tudo, tuti, tukwa, tuli, taituli, tutaduting, swagotutaduting, otuke, tukwaike, tukwakwepe, tudokwepe
+  * function word: than
+  * Descendants: pautu, tunebwa, tunonebwa, laitu, watuleng, tuta, datu, tuwa, tudo, tuti, tukwa, tuli, taituli, tutaduting, swagotutaduting, otuke, tukwaike, tukwakwepe, tudokwepe, tudu, tumangting
   * cognates: tu (en:1.0:to, te:1.0:tu=direction) ; pa (es: pa/para)
 
 twa (through)
@@ -2526,44 +2759,18 @@ twa (through)
   * cognates: twa (ono:0.2); tang (zh:0.4:tong=through; en:0.2:tunnel; es:0.2:túnel; ru:0.2:туннель; fr:0.2:tunnel; ms:0.3:terowong; de:0.2:Tunnel; tr:0.2:tünel); tong (zh:0.6:tong=through; en:0.2:tunnel; es:0.2:túnel; ru:0.2:туннель; fr:0.2:tunnel; ms:0.3:terowong; de:0.2:Tunnel; tr:0.2:tünel)
 
 twi (type/kind)
-  * noun: type; kind; genre
+  * noun: type; kind; genre; category
+  * verb: to typecast sth/sb; to categorize sth
   * adj/adv: typical; usual; classic
-  * Descendants: mitwiboi, watwima, dotwima, natwima, laitwima
+  * Descendants: mitwiboi, letwi, dotwima, natwima, laitwima, twise
   * cognates: twi (en:0.3:type; es:05:tipo; pt:05:tipo; it:05:tipo; ru:05:tip; fr:05:type; fi:05:tyyppi; tr:0.2:tür)
-
-u_ (u_)
-  * cognates: u (sw:0.4:u-=forms names of countries+class XI noun prefix denoting natural objects+extensions+abstract qualities or collections of small things; yo:0.2:ù=abstract or instrument nominalizing prefix; da:0.0:u-=prefix meaning reversing the meaning; nd:0.0:u-=class 11 nouns -- no clear semantics)
-
-u_mango (u_mango)
-  * noun: mango
-  * Notes: TODO atomize
-
-u_mint (u_mint)
-  * noun: mint
-  * Notes: TODO atomize
-
-u_monkey (u_monkey)
-  * noun: monkey
-  * Notes: TODO atomize
-
-u_rice (u_rice)
-  * noun: rice
-  * Notes: TODO atomize
-
-u_shark (u_shark)
-  * noun: shark
-  * Notes: TODO atomize
-
-u_tomato (u_tomato)
-  * noun: tomato
-  * Notes: TODO atomize
 
 wa (one)
   * noun: whole; unity; one
   * verb: to unify sth; to unite sth
   * adj/adv: single
   * quantifier: one
-  * Descendants: wawa, wawa, wano, wado, nowalu, watwima, wating, walu, wamang, wawe, waluli, watuleng, saiwa, tuwa, wakwaido, wakwaikwa, nawa, nonawa, nitabaiwa, nitabaiwano, nitabaiwawa, nitabaiwawa, nitabaiwado, wanotaimang, wata, watado, watati, watakwa, watapai, watalau, watase, watabang, watanoi, watawano, watawano, wawapai, wawapai, waweting
+  * Descendants: wawa, wawa, wano, wado, nowalu, wawema, wating, walu, waluwe, wamang, wawe, waluli, watuleng, saiwa, tuwa, wakwaido, wakwaikwa, nawa, nonawa, nitabaiwa, nitabaiwano, nitabaiwawa, nitabaiwawa, nitabaiwado, wanotaimang, wanoi, dowa, wata, watado, watati, watakwa, watapai, watalau, watase, watabang, watanoi, watawano, watawano, watawawa, watawawa, watawawa, watawado, watawado, noibangtawado, wawapai, wawapai, waweting, awadise, mawalise, titewase
   * cognates: wa (ar:0.6:واحد=one; en:0.4:one; te:0.1:ఒక/[w]oka=one)
 
 wai (reason)
@@ -2578,7 +2785,7 @@ wang (yellow)
   * noun: yellow
   * verb: to become yellow; to make sth yellow
   * adj/adv: yellow
-  * Descendants: wangkang, wanglayang, wangpwayang, wangwangpwayang, wangwangpwayang, wangpa, wangtotakiboi, wanglamau
+  * Descendants: wangkang, wanglayang, wangpwayang, wangwangpwayang, wangwangpwayang, wangpa, wangtotakiboi, wanglamau, luwangdase
   * cognates: wang (zh:0.8:huang=yellow; yue:1.0:wong4=yellow)
   * Notes: this is the only color with a bespoke atom. although the symmetry is not nice, Trevorese is above all a pragmatic language, and no other atom has a yellow color!
 Deprecated comment: Think "banana color". (Note that banana is the fundamental fruit in e.g. Tamil). This is the oddest of the color glosses. "sun color" was better, but sun was deprecated. energy-color is OK but then 3 colors start in l*. Yellow starting in "pa-" is good because it mirrors Telugu pasupu, Hindi pila.
@@ -2587,22 +2794,22 @@ we (way)
   * noun: way; method; solution; explanation; manner
   * verb: to solve sth
   * function word: how
-  * Descendants: dawe, gengwe, swawe, daswawe, newe, laiwe, wawe, no onewe, think like onewe, owemeng, laiwego, awe, iwe, ewe, mengwe, samengwe, mengmengwe, swawemengwe, swawemengwe, swawemeng, gumengwe, dimengwe, daswawemengwe, daswawemengwe, kutingmengwe, nonumengwe, yataimengwe, namengwe, menggumengwe, kangmengwe, bokangmengwe, sewe, mowe, waweting
+  * Descendants: dawe, gengwe, swawe, swaweping, daswawe, newe, wawema, laiwe, waluwe, wawe, no onewe, lewe, think like onewe, owemeng, laiwego, awe, iwe, ewe, ewesi, mengwe, samengwe, mengmengwe, swawemengwe, swawemengwe, swawemeng, gumengwe, dimengwe, daswawemengwe, daswawemengwe, kutingmengwe, nonumengwe, yataimengwe, namengwe, menggumengwe, kangmengwe, bokangmengwe, sewe, mowe, waweting, luwe, kasawela
   * cognates: we (en:1.0:way; de:0.7:Weg)
 
 wi (small)
   * noun: smallness; child
   * verb: to shrink sth; to summarize sth
   * adj/adv: small; little; subtle
-  * Descendants: wikatai, wipau, winai, wina, winatai, wipomeng, wipo, wise, wiboi, wiwiboi, wiwiboi, nosiwiboi, kiwiboi, tauwiboi, kasalokiwiboi, swiwiboi, wiboiswi, wikuliboi, kuwiboi, lokuwiboi, dalokuwiboi, langkuwiboi, yowipau, witing, winakwai, dudawimangkwai, langwipau, wiko, wisai, nowisai, wikogwai, gokowiko, wimang, wiwimang, wiwimang, bawi, mubawi, gaibawi, damubawi, dagaibawi, wimubawi, wimubawi, wigaibawi, wigaibawi, muwi, gaiwi, bawida, mubawida, gaibawida, small of withwi, taubawi, dotaubawi, kawipwalu, wilo, witinggu, swewitinggu, laliwitinggu, wimeng, swawi, wike, wideng, widengboi, dawiketing, wisikwailopwa, wipwa, wika, wigaka, widali, baiwidali, sangwidali, tawidali, winamo, witai, wiwitai, wiwitai, witaimang, wibai, wiketing, yowitwa, wimanglu, wideting, winosaipa, wikusai, wisi, wisiting, sesowi
+  * Descendants: wikang, wikangtai, wikatai, wipau, winai, wina, winatai, wipomeng, wipo, widese, wise, wiselu, wiboi, wiwiboi, wiwiboi, nosiwiboi, kiwiboi, tauwiboi, kasalokiwiboi, swiwiboi, wiboiswi, wikuliboi, kuwiboi, lokuwiboi, dalokuwiboi, langkuwiboi, yowipau, witing, winakwai, dudawimangkwai, langwipau, wiko, wisai, nowisai, wikogwai, gokowiko, wimang, wiwimang, wiwimang, bawi, mubawi, gaibawi, damubawi, dagaibawi, wimubawi, wimubawi, wigaibawi, wigaibawi, muwi, gaiwi, bawida, mubawida, gaibawida, small of withwi, taubawi, dotaubawi, kawipwalu, wilo, witinggu, swewitinggu, laliwitinggu, wimeng, swawi, wike, wideng, widengboi, dawiketing, wisikwailopwa, wipwa, wika, wigaka, widali, baiwidali, sangwidali, tawidali, winamo, witai, wiwitai, wiwitai, witaimang, wibai, wiketing, witaipu, yowitwa, wimanglu, wideting, winosaipa, wikusai, wisi, wisiting, sesowi, kiwipa, wigulase
   * cognates: wi (en:1.0:wee)
   * Notes: has antonym
 note that many "small" words have "i" in the stem
 
 ya (back/marks past)
   * noun: back; the past
-  * adj/adv: facing backwards; backwards; already; before (temporal); in the past; following; last (temporal; e.g. "last friday"); behind (location); ago (temporal)
-  * Descendants: yase, yatai, deyago, yabe, dapwaludeyagoboi, ladeyagoboi, lodeyagoboi, yako, yanogali, yameng, noyameng, yabaitai, doyabaitai, yametai, yaomeng, yataimengwe, yapinggubau
+  * adj/adv: facing backwards; backwards; already; before (temporal); in the past; following; last (temporal; e.g. "last friday"); behind (location); ago (temporal); previous; previously
+  * Descendants: yase, yatai, deyago, yabe, yako, yanogali, yameng, noyameng, yabaitai, doyabaitai, yametai, yaomeng, yataimengwe, yapinggubau, yana, ayalang, okomiyase
   * cognates: ya (es:0.8:ya=already; es:0.7:-ía; it:0.5:già=already; fi:0.2:jo=already); ha (en:have, es:ha, de:habe); da (en:done); le (zh:le, fr:l'est); da (vi:đã), se (vi:“sẽ”, fr:s'est); la (zh:le, fr:l'a); ko (zh:hou=back); ba (en:back)
   * Notes: has antonym; "before" is an interesting word, because it literally means "in front". Thus "vorhersagen" etc really refer to time stretching in front of you. Therefore, "back" is a less confusing gloss. Note that this could be anti-front, but is seems too fundamental for that.
 
@@ -2624,15 +2831,21 @@ yau (want)
 yo (have)
   * noun: possession; property
   * verb: to have sth; to hold sth; to carry sth; to bear sth [archaic]
-  * Descendants: kuyo, koyo, deyo, bayo, yokang, yoyau, yowipau, yogi, yone, yotingpingting, diyo, yoswe, boyo, dwayo, yowitwa, yodanating, nokoyo
+  * Descendants: kuyo, koyo, deyo, bayo, yokang, yoyau, yowipau, yogi, yone, yotingpingting, diyo, yoswe, boyo, dwayo, yowitwa, yodanating, nokoyo, koyote, yolubase, gikoyose
   * cognates: yo (zh:1.0:yo=have; es:0.1:llevar)
 
 yu (you)
   * noun: you; thou
-  * Descendants: yuna, miyusekwai, gayu
+  * Descendants: yuna, miyusekwai, gayu, yuta
   * cognates: yu (en:1.0:you; de:0.4:du; es:0.2:tú)
 
 ## Compounds
+
+gangse (Ga_(language) > ATOM_GANG-talk)
+  * Notes: proper noun / phonetic noun
+
+teba (Trevor! > ATOM_TE-with)
+  * Notes: proper noun / phonetic noun
 
 genggeng (defense > against-against)
   * noun: defense; protection
@@ -2682,8 +2895,13 @@ oga (perfect > all-good)
   * adj/adv: perfect
   * Notes: ; TODO all-
 
+ona (total > all-number)
+  * noun: total; sum
+  * adj/adv: total
+
 omang (everyone > all-person)
   * noun: everyone; anyone
+  * adj/adv: public
 
 olu (everywhere > all-place)
   * noun: everywhere; anywhere
@@ -2703,7 +2921,7 @@ oting (everything > all-thing)
 
 omeng (decision > all-think)
   * noun: decision; choice; judgement; conclusion; pick
-  * verb: to decide sth; to conclude that; to choose sth; to judge sth/sb; to pick sth
+  * verb: to decide sth; to conclude that; to choose sth; to judge sth/sb; to pick sth; to determine sth, to figure sth out
   * adj/adv: sure; decided; certain
   * Notes: aka think to completion; "end think" without the dash is also fine. But it makes it a bit funnier when it is a noun. "this is my end think" means that "end" is a quantifier — or else adjectives can go before or after
 
@@ -2749,6 +2967,9 @@ yabe (oscilalte > back-front)
   * adj/adv: swinging; back and forth
   * Notes: Merged in direction-of and direction-of-move, which were weird glosses for vibration
 
+yana (Jan;_Ian > back-number)
+  * Notes: proper noun / phonetic noun
+
 yase (story > back-talk)
   * noun: story; history
   * verb: to tell a story
@@ -2760,6 +2981,9 @@ yameng (memory > back-think)
 
 yatai (before > back-time)
   * adj/adv: before; back then
+
+bila (Vir > be-hot)
+  * Notes: proper noun / phonetic noun; or "wila"
 
 biting (condition > be-thing)
   * noun: case; situation; condition; phenomenon; circumstance
@@ -2804,7 +3028,7 @@ dali (big_energy > big-energy)
 daga (dog > big-good)
   * noun: <disambiguation_form> dog
   * adj/adv: doglike
-  * Notes: aka faithful (following) animal. with current glosses, this is deyago(mang), which sounds both like dog and 狗!!
+  * Notes: alternate gloss: deyago, aka faithful (following) animal. with current glosses, this is deyago(mang), which sounds both like dog and 狗!!
 
 dagi (mountain > big-high)
   * noun: mountain
@@ -2814,6 +3038,9 @@ dama (dear > big-love)
   * noun: love; romantic love
   * verb: to like; to like sth; to love sth
   * adj/adv: beloved; dear
+
+dakang (expensive > big-metal)
+  * adj/adv: expensive
 
 dana (many > big-number)
   * noun: a large group; flock; collection; swarm; group; host
@@ -2873,6 +3100,10 @@ boki (fart > body-air)
   * noun: fart; flatulance
   * verb: to fart; to go gas
 
+bobi (health > body-be)
+  * noun: health
+  * Notes: aka bodily state
+
 boku (bone > body-hard)
   * noun: bone
   * Notes: aka aka body-stone
@@ -2896,6 +3127,9 @@ bosang (voice > body-sound)
 
 bogu (flesh > body-stuff)
   * noun: flesh
+
+kebing (Kevin > break-ATOM_BING)
+  * Notes: proper noun / phonetic noun
 
 nangbo (malleable > can-body)
   * adj/adv: malleable; moldable
@@ -2933,11 +3167,18 @@ niyang (black > dark-color)
   * noun: <disambiguation_form> blackness
   * adj/adv: <disambiguation_form> black
 
+nika (Nick > dark-eat)
+  * Notes: proper noun / phonetic noun
+
 nitai (night > dark-time)
   * noun: night
 
 direction none (direction no-inside)
   * preposition: out of
+
+tudu (serve > direction-do)
+  * noun: service
+  * verb: to serve (sth/sb)
 
 tuli (pressure > direction-energy)
   * noun: pressure; printing
@@ -3007,6 +3248,9 @@ do wide hardmeng (do wide hard-think)
 duda (grow > do-big)
   * noun: compound disambiguation form: grow]
 
+dumang (doer > do-person)
+  * noun: subject (of a sentence); doer; agent
+
 duting (device > do-thing)
   * noun: machine; robot; mechanism
   * verb: to mechanize sth
@@ -3021,6 +3265,10 @@ suko (forearm > down-arm)
 subo (sit > down-body)
   * verb: to sit; to sit down; to sit on sth
   * adj/adv: <disambiguation_term> sitting (stressing that it's "sitting up" not "lying" ; usually you'd just use "flat")
+
+supu (download > down-get)
+  * noun: download
+  * verb: to download sth
 
 sugi (deep > down-high)
   * noun: depth
@@ -3050,8 +3298,15 @@ kako (fork > eat-arm)
 kabau (bowl > eat-container)
   * noun: bowl; cup; tupperware; tup
 
+kalang (Calum > eat-long)
+  * Notes: proper noun / phonetic noun
+
 kalu (restaurant > eat-place)
   * noun: restaurant
+
+kape (coffee > eat-play)
+  * noun: coffee
+  * Notes: this is one of the few words that is universally cognate...and "eat-play" is an amazing meaning!
 
 kagu (food > eat-stuff)
   * noun: food
@@ -3075,6 +3330,9 @@ pauna (sufficient > end-number)
   * cognates: nyo (ga:gnó=enough; en:enough; ee:gno=sufficient)
   * Notes: aka a complete amount; TODO all-
 
+pausai (border > end-side)
+  * noun: border; limit; outer edge; frontier
+
 pauting (conclusion > end-thing)
   * noun: conclusion
   * verb: to conclude sth
@@ -3089,11 +3347,14 @@ lili (energetic > energy-energy)
   * noun: energeticness
   * adj/adv: energetic
 
+lisa (Lisa > energy-life)
+  * Notes: proper noun / phonetic noun
+
 lileng (internet > energy-link)
-  * noun: internet
+  * noun: internet; web
 
 lidi (exercise > energy-move)
-  * noun: exercise
+  * noun: exercise; sport; sports
   * verb: to exercise
 
 lisi (check > energy-see)
@@ -3110,8 +3371,8 @@ limeng (careful > energy-think)
   * adj/adv: careful; attentive; well-pondered
   * Notes: a bit of a weak gloss. this could be its own atom.
 
-lilo (coffee > energy-water)
-  * noun: coffee; gasoline; petrol
+lilo (gas > energy-water)
+  * noun: gasoline; petrol
 
 kwigo (run > fast-go)
   * noun: run
@@ -3177,11 +3438,15 @@ kwatai (season > four-time)
   * Notes: DONE: harmonize seasons vs months placement of nombers
 
 bedu (prepare > front-do)
-  * noun: preparation; installation; readiness
+  * noun: preparation; installation; readiness; amenities
   * verb: to prepare sth; to set sth. up; to ready sth; to install sth
   * adj/adv: ready; prepared
   * Notes: Note: "prepare" = pre + do, and pre/post are a bit reversed in trevorese
 consider atome fo this semantic gap: prepare/ready/setup/install/construct/build
+
+bepau (prevent > front-end)
+  * noun: prevention; prophylactic
+  * verb: to prevent sth
 
 besi (predict > front-see)
   * noun: prediction; prognostication
@@ -3208,7 +3473,7 @@ payau (depend > fruit-want)
 palo (juice > fruit-water)
   * noun: juice
 
-pumeng (study > get-think)
+pumeng (learn > get-think)
   * noun: learnings; study
   * verb: to learn sth; to study sth
 
@@ -3216,7 +3481,8 @@ give goodli (give good-energy)
   * verb: to please sb
 
 gekang (pay > give-metal)
-  * noun: [means 'pay' in compounds]
+  * noun: spending; shopping
+  * verb: to spend; to pay; to shop
 
 gewai (therefore > give-reason)
   * noun: therefore; so
@@ -3312,6 +3578,9 @@ kudu (work > hard-do)
   * adj/adv: worklike
   * cognates: gong (zh:gong=work)
 
+kuka (Huck > hard-eat)
+  * Notes: proper noun / phonetic noun; "kukka" is "dog" in many Indian languages
+
 kuli (strength > hard-energy)
   * noun: strength
   * verb: to push sth; to power through sth; to force sth
@@ -3328,9 +3597,10 @@ kuyo (keep > hard-have)
 kuleng (pole > hard-link)
   * noun: pole
 
-kuma (care_for > hard-love)
-  * verb: to look after sth; to care for sth; to tend sth
-  * Notes: TODO not sure about this gloss
+kuma (worry > hard-love)
+  * noun: worry; care
+  * verb: to look after sth; to care for sth; to tend sth; to worry about sth
+  * Notes: hypercognate: is cuma liom, kümmern
 
 kusai (wall > hard-side)
   * noun: wall
@@ -3411,6 +3681,9 @@ tobwa (mouth > head-opening)
 tota (crest > head-over)
   * noun: crest; top of the head
 
+tomang (leader > head-person)
+  * noun: leader; guide
+
 topi (hat > head-surface)
   * Notes: topi means hat in Indonesian!!
 
@@ -3419,6 +3692,13 @@ gidu (respect > high-do)
   * verb: to respect sth/sb; to honor sth/sb
   * adj/adv: respectful; honorable
 
+giping (advanced > high-flat)
+  * adj/adv: advanced
+  * Notes: TODO big flat?
+
+gina (Gina > high-number)
+  * Notes: proper noun / phonetic noun
+
 layang (red > hot-color)
   * noun: red
   * verb: to blush; to make sth red
@@ -3426,7 +3706,7 @@ layang (red > hot-color)
 
 labau (oven > hot-container)
   * noun: oven
-  * verb: to bake (sth)
+  * verb: to bake sth
 
 lali (fire > hot-energy)
   * noun: fire; anger; rage; wrath
@@ -3435,7 +3715,7 @@ lali (fire > hot-energy)
 
 laping (pan > hot-flat)
   * noun: pan; frying pan
-  * verb: to fry (sth)
+  * verb: to fry sth
 
 lapa (apple > hot-fruit)
   * noun: apple
@@ -3446,6 +3726,9 @@ lagi (degree > hot-high)
 
 lana (temperature > hot-number)
   * noun: temperature
+
+lamang (Raman > hot-person)
+  * Notes: proper noun / phonetic noun
 
 neli (emotion > inside-energy)
   * noun: emotion; feeling
@@ -3468,13 +3751,23 @@ tauda (grandparent > jump-big)
   * noun: grandparent
   * Notes: For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".
 
+twise (Twi_(language) > kind-talk)
+  * Notes: proper noun / phonetic noun
+
 leli (power > law-energy)
-  * noun: power (e.g. political power or jurisdiction); right (e.g. the right to do sth); control; governance
-  * verb: to govern sth/sb; to rule sth
+  * noun: power (e.g. political power or jurisdiction); right (e.g. the right to do sth); control; governance; rights
+  * verb: to govern sth/sb; to rule sth; to manage sth
   * adj/adv: powerful
 
 lemu (wife > law-female)
   * noun: wife
+
+letwi (version > law-kind)
+  * noun: version; model
+
+lele (legislative_law > law-law)
+  * noun: the law
+  * Notes: aka the "official law"
 
 leleng (marriage > law-link)
   * noun: marriage
@@ -3487,11 +3780,22 @@ legai (husband > law-male)
 lena (company > law-number)
   * noun: company
 
+lekwe (policy > law-order)
+  * noun: policy
+
+lekwai (department > law-part)
+  * noun: department
+
 lemang (employee > law-person)
   * noun: officer; employee
 
 lelu (province > law-place)
   * noun: county; region; any sort of smaller official division; district; province
+
+lewe (standard > law-way)
+  * noun: standard
+  * verb: to stndardize sth
+  * adj/adv: standard; official; standardized
 
 sage (birth > life-give)
   * noun: birth
@@ -3503,6 +3807,9 @@ salang (hello > life-long)
   * interjection: hi!
   * Notes: a phonetic loan from "salaam", not a true compound.
 
+sana (John;_Johan;_Giovanni;_Sean > life-number)
+  * Notes: proper noun / phonetic noun
+
 salo (blood > life-water)
   * noun: sap; blood
   * verb: to bleed
@@ -3512,10 +3819,14 @@ baiyang (white > light-color)
   * noun: <disambiguation_form> whiteness
   * adj/adv: <disambiguation_form> white
 
+baika (rice > light-eat)
+  * noun: rice
+  * Notes: aka "white food". rice is fundamental enough to merit this honor.
+
 baili (electricity > light-energy)
   * noun: electricity
   * verb: to electrify sth; to shock
-  * adj/adv: electric
+  * adj/adv: electric; digital
 
 baibai (goodbye > light-light)
   * noun: goodbye
@@ -3527,7 +3838,7 @@ baibwa (window > light-opening)
   * noun: window
 
 baitai (day > light-time)
-  * noun: day
+  * noun: day; date
 
 baitime five (light-time five)
   * noun: Friday
@@ -3552,6 +3863,15 @@ baitime two (light-time two)
 
 bailo (milk > light-water)
   * noun: milk
+
+like no have selfmeng (meaningless > like no have self-think)
+  * noun: meaninglessness
+  * adj/adv: meaningless
+
+somo (image > like-mark)
+  * noun: image; picture; depiction; drawing; painting
+  * verb: to depict sth; to draw sth; to paint sth
+  * Notes: DONE: merge with symbol etc?
 
 lengbo (sex > link-body)
   * noun: sex
@@ -3578,6 +3898,10 @@ langleng (string > long-link)
   * adj/adv: sequential; stringy; sinewy
   * Notes: used to be atomic
 TODO may have to differentiate e.g. hair and stripe, e.g. a zebra has stripes versus hair
+
+langkwe (sequence > long-order)
+  * noun: list; series; sequence
+  * verb: to list sth (out)
 
 langtai (longtime > long-time)
   * noun: age; aeon
@@ -3628,7 +3952,10 @@ gaiwi (son > male-small)
   * Notes: For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".
 
 moping (paper > mark-flat)
-  * noun: <disambiguation_form> paper
+  * noun: page; paper
+
+momang (writer > mark-person)
+  * noun: writer; author
 
 mowe (grammar > mark-way)
   * noun: grammar
@@ -3648,10 +3975,17 @@ kangkwai (coin > metal-part)
   * noun: coin
   * cognates: money-let (eo: monero a coin, from 'money'))
 
+kanglu (market > metal-place)
+  * noun: store; market; grocery
+  * Notes: alt: give-metal-place
+
 kangsi (shine > metal-see)
   * noun: shine
   * adj/adv: <disambiguation_form> shiny
   * Notes: aka metallic appearance
+
+meping (intermediate > middle-flat)
+  * adj/adv: intermediate
 
 mela (warm > middle-hot)
   * noun: warmth
@@ -3689,8 +4023,11 @@ dwayo (deserve > must-have)
 
 nubi (create > new-be)
   * noun: creation
-  * verb: to build sth; to create sth; to make sth
+  * verb: to build sth; to create sth; to make sth; to produce sth; to manufacture sth
   * Notes: new as a verb would be "to refresh" etc.
+
+nuping (beginner > new-flat)
+  * adj/adv: beginner
 
 nuse (introduction > new-talk)
   * noun: introduction
@@ -3702,7 +4039,7 @@ numeng (idea > new-think)
 
 nutai (morning > new-time)
   * noun: morning
-  * adj/adv: early
+  * adj/adv: early; am
 
 no onewe (no one-way)
   * noun: differentness
@@ -3802,7 +4139,7 @@ noleng (release > no-link)
 
 nolang (shortness > no-long)
   * noun: shortness
-  * verb: to shorten; to make sth shorter; to shorten
+  * verb: to shorten; to make sth shorter; to shorten sth
   * adj/adv: short
 
 noma (dislike > no-love)
@@ -3911,6 +4248,9 @@ nawa (win > number-one)
   * adj/adv: first-rate
   * Notes: aka get number-one
 
+nalu (index > number-place)
+  * noun: index; ordinal
+
 natai (usual > number-time)
   * adj/adv: usual; customary; typical; normal; usually (used for habitual tenses); common; normal
   * Notes: DECIDED: "merge with "kind" ?" — no
@@ -3936,10 +4276,20 @@ deyo (lose > of-have)
   * verb: to lose sth; to shed sth
   * Notes: English sometimes has separate words for intentional vs unintentional things. "no-have" would likely be better, but i no du yo and i du noyo sound too similar so it might be confusing. TODO find other verbs starting with no- and analyze!
 
+dese (describe > of-talk)
+  * noun: description; review; report
+  * verb: to describe sth; to review sth; to report sth
+
 deting (topic > of-thing)
   * noun: theme; topic; issue; matter
   * verb: to pertain to sth; concern
   * adj/adv: relevant; topical
+
+deba (Dave > of-with)
+  * Notes: proper noun / phonetic noun
+
+wanoi (nineteen > one-nine)
+  * noun: nineteen
 
 wano (ten > one-no)
   * quantifier: ten
@@ -3975,6 +4325,11 @@ wawe (same > one-way)
   * cognates: one-kind (tpi:wankain)
   * Notes: TODO: share and copy should be different
 
+bwabi (availability > opening-be)
+  * noun: availability
+  * adj/adv: abailable
+  * Notes: aka in a state of openness
+
 bwali (surprise > opening-energy)
   * noun: surprise; shock; sudden event
   * verb: to surprise sb; to shock sb
@@ -3990,6 +4345,9 @@ bwalo (saliva > opening-water)
   * noun: spit; saliva
   * verb: to spit
   * cognates: ln: twa
+
+kwedu (program > order-do)
+  * noun: program; programming
 
 kwepe (chess > order-play)
   * noun: chess; go; a strategy game like chess
@@ -4013,8 +4371,8 @@ laiswa (eachother > other-self)
   * noun: each other
 
 laise (answer > other-talk)
-  * noun: answer
-  * verb: to answer sth/sb
+  * noun: answer; reply
+  * verb: to answer sth/sb; to reply to sth/sb
 
 laiting (also > other-thing)
   * adj/adv: also; and; too; as well
@@ -4030,7 +4388,7 @@ laitai (again > other-time)
 
 laiwe (different > other-way)
   * noun: difference
-  * adj/adv: different
+  * adj/adv: different; inequal;
 
 tako (upper_arm > over-arm)
   * noun: upper arm
@@ -4041,6 +4399,10 @@ tali (lift > over-energy)
   * adj/adv: supportive
   * Notes: aka hold up
 
+tage (upload > over-give)
+  * noun: upload
+  * verb: to upload sth
+
 tago (ride > over-go)
   * noun: ride; drive
   * verb: to ride sth; to drive sth
@@ -4049,6 +4411,11 @@ tabai (sun > over-light)
   * noun: sun; star
   * adj/adv: sunny
   * Notes: although "over-light" is an excellent gloss, "sun" has too many children at present. Hence why it is atomic. [EDIT: most of these can be replaced with "light", so it is being deatomized!]
+
+tamo (title > over-mark)
+  * noun: title
+  * verb: to entitle sth
+  * adj/adv: titled
 
 tamai (too > over-more)
   * noun: excess; surplus
@@ -4089,6 +4456,10 @@ person like allpo (person like all-possibility)
 person like have selfse (person like have self-talk)
   * noun: celebrity; star
 
+manggo (mango > person-go)
+  * noun: mango
+  * Notes: considered big-sweet-fruit, but if English, Chinese, Tagalog, Indonesian have the cognate, it seems fine. Pity about Hindi and Vietnamese.
+
 mangna (community > person-number)
   * noun: community; culture; being-group; group of people; group identity; granfalloon
   * cognates: twa/twai (en:tribe; zh:tuan)
@@ -4101,6 +4472,9 @@ manglu (settlement > person-place)
 mangplace like start (person-place like start)
   * noun: hometown
 
+place energyleng (place energy-link)
+  * adj/adv: online
+
 place like allpo (place like all-possibility)
   * noun: somewhere; region
   * adj/adv: somewhere; region
@@ -4109,7 +4483,7 @@ luki (climate > place-air)
   * noun: climate
   * Notes: slightly odd gloss, but like zh 天气
 
-lubi (wait > place-be)
+lubi (stay > place-be)
   * noun: wait
   * verb: to wait (for sth: direction thing); to stay swh
   * adj/adv: waiting
@@ -4117,6 +4491,12 @@ lubi (wait > place-be)
 lune (insert > place-inside)
   * noun: insertion
   * verb: to insert sth; to plug sth in
+
+luta (Ruth > place-over)
+  * Notes: proper noun / phonetic noun
+
+luwe (ambiance > place-way)
+  * noun: ambiance; feng shui
 
 pwako (branch > plant-arm)
   * noun: stick; branch
@@ -4169,6 +4549,13 @@ reason like allpo (reason like all-possibility)
   * noun: for some reason
   * adj/adv: for some reason
 
+moipa (tomato > salt-fruit)
+  * noun: tomato
+  * Notes: aka savory fruit
+
+sida (Sid > see-big)
+  * Notes: proper noun / phonetic noun
+
 sikwai (eye > see-part)
   * noun: eye
   * cognates: ai (en); mu (zh)
@@ -4196,6 +4583,12 @@ swakang (value > self-metal)
 swakwe (pattern > self-order)
   * noun: structure; pattern; design
   * adj/adv: structured
+
+swamang (personal > self-person)
+  * adj/adv: personal; private
+
+swalu (address > self-place)
+  * noun: address
 
 swasi (appearance > self-see)
   * noun: appearance; reflection
@@ -4237,6 +4630,9 @@ saido (right > side-two)
   * noun: the right side of sth
   * preposition: to the right
 
+lauli (Lowry > six-energy)
+  * Notes: proper noun / phonetic noun
+
 lause (sixty-seven > six-seven)
   * noun: 67
 
@@ -4263,7 +4659,7 @@ wike (cut > small-break)
 winai (close > small-distance)
   * noun: closeness; area
   * verb: to get closer (to sth); to near sth
-  * adj/adv: near; close; close by; almost
+  * adj/adv: near; close; close by; local; almost
   * preposition: around (temporal); near (approximate location); about; around (spatial)
   * Notes: DONE: consider merging "area" into this; DONE almost and barely are the same —> barely is not "just"
 
@@ -4278,6 +4674,9 @@ wipau (tip > small-end)
 
 wibai (flashlight > small-light)
   * noun: flashlight
+
+wikang (cheap > small-metal)
+  * adj/adv: cheap
 
 wina (few > small-number)
   * adj/adv: few; a few; several; a couple (fight me)
@@ -4303,10 +4702,10 @@ wisai (edge > small-side)
   * verb: to sharpen sth
   * adj/adv: sharp
 
-wise (summary > small-talk)
-  * noun: summary
-  * verb: to summarize sth
-  * adj/adv: summarized
+wise (comment > small-talk)
+  * noun: comment; aphorism
+  * verb: to comment on sth
+  * Notes: lol that aphorism is wise
 
 witing (detail > small-thing)
   * noun: detail
@@ -4327,12 +4726,11 @@ wideng (nibble > small-tooth)
 wilo (pond > small-water)
   * noun: puddle/pond
 
-so no have selfmeng (meaningless > so no have self-think)
-  * noun: meaninglessness
-  * adj/adv: meaningless
-
 sangkang (bell > sound-metal)
   * noun: bell; tuning fork
+
+sangdi (Sandy > sound-move)
+  * Notes: proper noun / phonetic noun
 
 sangkwai (ear > sound-part)
   * noun: ear
@@ -4343,6 +4741,9 @@ sangsi (hearing > sound-see)
 
 start flattai (start flat-time)
   * verb: to fall asleep
+
+pita (Peter > surface-over)
+  * Notes: proper noun / phonetic noun
 
 pisi (feel > surface-see)
   * noun: feel; feeling
@@ -4364,8 +4765,11 @@ sedu (command > talk-do)
   * noun: command; order
   * verb: to command sb; to order sth
 
+seka (Jake > talk-eat)
+  * Notes: proper noun / phonetic noun
+
 sekwai (word > talk-part)
-  * noun: tongue; word
+  * noun: tongue; word; term
   * verb: to tongue sth/sb; to make out (with sb)
   * cognates: tang (en:0.9:tongue; es:0.1:lengua; fr:0.2:langue)
   * Notes: odd that tongue and word are the same, but also ok
@@ -4377,6 +4781,9 @@ selu (translation > talk-place)
 sewe (pronunciation > talk-way)
   * noun: pronunciation; accent
   * adj/adv: accented
+
+abi (Abby > that-be)
+  * Notes: proper noun / phonetic noun
 
 akwa (that4 > that-four)
   * adj/adv: that #4
@@ -4430,9 +4837,9 @@ mengli (creativity > think-energy)
   * adj/adv: creative; imaginitive
 
 mengmo (symbol > think-mark)
-  * noun: symbol; word
+  * noun: symbol
   * verb: to represent sth; to symbolize sth
-  * adj/adv: symbolic; wordy
+  * adj/adv: symbolic
   * Notes: note: "word" and "law" merged, and word is no longer "talk part".
 note 2: "word" and "law" have been de-merged. "word" has been changed to "talk-symbol". note 3: merged into symbol
 note 3: meaning-mark --> think-mark
@@ -4446,8 +4853,13 @@ mengswa (selfish > think-self)
   * Notes: verb-initial compound, like "want-X" or "have-X"
 
 menggu (information > think-stuff)
-  * noun: information
+  * noun: information; info; data
   * verb: to inform ; to inform sb of sth
+
+mengse (poem > think-talk)
+  * noun: poetry; poem
+  * adj/adv: poetic
+  * Notes: NB: "poetry" comes from "to make" and "Gedichte" from "to say"
 
 mengting (concept > think-thing)
   * noun: idea; concept
@@ -4457,7 +4869,7 @@ mengmeng (figurative > think-think)
   * adj/adv: figurative
 
 mengwe (ology > think-way)
-  * noun: discpline (school of thought); bani (Carnatic music); -ology; school of thought
+  * noun: discipline (school of thought); bani (Carnatic music); -ology; school of thought; subject (academic)
 
 this lighttai (this light-time)
   * noun: today
@@ -4466,6 +4878,9 @@ igo (come > this-go)
   * noun: arrival
   * verb: to come (to swh); to visit swh
   * Notes: used to be "go this place", but "go" feels so different from coming....
+
+isa (Eesha > this-life)
+  * Notes: proper noun / phonetic noun
 
 ina (they > this-number)
   * noun: they; them
@@ -4510,6 +4925,9 @@ time like allpo (time like all-possibility)
   * noun: sometime
   * adj/adv: sometime
 
+taise (Thai_(language) > time-talk)
+  * Notes: proper noun / phonetic noun
+
 taiting (clock > time-thing)
   * noun: clock
 
@@ -4534,6 +4952,12 @@ dwedwe (truly > truth-truth)
   * adj/adv: truly; really
   * Notes: this is just duplicative strength
 
+dono (twenty > two-no)
+  * noun: twenty
+
+dowa (twentyone > two-one)
+  * noun: twenty-one
+
 dosai (angle > two-side)
   * noun: angle
 
@@ -4544,14 +4968,14 @@ domeng (pun > two-think)
   * noun: pun
   * verb: to make a pun
 
-u_apricotku (u_apricot-hard)
-  * noun: almond
-
-u_oakku (u_oak-hard)
-  * noun: acorn
+dodo (twentytwo > two-two)
+  * noun: twenty-two
 
 use arm do noleng (throw > arm-release > use arm do no-link)
   * verb: to throw sth; to toss sth
+
+daimang (user > use-person)
+  * noun: user
 
 daiting (tool > use-thing)
   * noun: tool
@@ -4659,6 +5083,9 @@ bayo (gather > with-have)
   * adj/adv: shared; (in) common
   * Notes: TODO: are the meanings too divergent?: "to gather sth; to collect sth; to share; to have in common"
 
+balang (Bran > with-long)
+  * Notes: proper noun / phonetic noun
+
 bamang (partner > with-person)
   * noun: partner
 
@@ -4691,6 +5118,24 @@ wangkang (gold > yellow-metal)
 yuna (ye > you-number)
   * noun: ye; you (pl); y'all
 
+yuta (Utah > you-over)
+  * Notes: proper noun / phonetic noun
+
+??somo (photo > ??-like-mark)
+  * noun: photo; photograph
+
+engkose (NKo_(language) > ATOM_ENG-arm-talk)
+  * Notes: proper noun / phonetic noun
+
+englise (English_(language) > ATOM_ENG-energy-talk)
+  * Notes: proper noun / phonetic noun
+
+singdise (Sindhi_(language) > ATOM_SING-move-talk)
+  * Notes: proper noun / phonetic noun
+
+singtia (Cynthia > sing-three-that > ATOM_SING-three-that)
+  * Notes: proper noun / phonetic noun
+
 gengmangna (army > soldier-number > against-person-number)
   * noun: army; military
 
@@ -4704,6 +5149,9 @@ kigoting (airplane > flight-thing > air-go-thing)
 
 kiwiboi (fly > air-bug > air-small-animal)
   * noun: fly
+
+kiwipa (kiwi_(fruit) > air-small-fruit)
+  * Notes: proper noun / phonetic noun
 
 odating (world > all-big-thing)
   * noun: the world; the universe
@@ -4721,9 +5169,20 @@ okuli (conquer > all-strength > all-hard-energy)
   * noun: conquest
   * verb: to conquer sth; to take sth over; to control sth/sb;
 
+odisa (Odis > all-move-life)
+  * Notes: proper noun / phonetic noun
+
+omangdwa (responsibility > everyone-must > all-person-must)
+  * noun: responsibility
+  * verb: to be responsible for; to take responsibility for
+  * adj/adv: responsible
+  * Notes: Or: odwa?
+
 owemeng (ingenuity > all-way-think)
   * noun: ingenuity; genius (e.g. 'his genius')
   * adj/adv: ingenious
+
+koyote (coyote > arm-have-ATOM_TE)
 
 kolangboi (lizard > arm-snake > arm-long-animal)
   * noun: lizard; reptile
@@ -4734,6 +5193,9 @@ yabaitai (yesterday > back-day > back-light-time)
 
 yametai (pre_noon > back-noon > back-middle-time)
   * noun: pre-noon
+
+bibeka (Vivek > be-front-eat)
+  * Notes: proper noun / phonetic noun; could be "wiweka" too
 
 gwaibaiting (lens > bend-light-thing)
   * noun: lens
@@ -4761,6 +5223,9 @@ daswetai (year > earth-time > big-dirt-time)
 
 dakatai (dinner > big-meal > big-eat-time)
 
+dalise (Dari_(language) > big-energy-talk)
+  * Notes: proper noun / phonetic noun
+
 dalelu (country > big-province > big-law-place)
   * noun: country; nation
   * adj/adv: national
@@ -4772,6 +5237,9 @@ dasali (enthusiasm > big-life-energy)
 damamang (beloved > dear-person > big-love-person)
   * noun: loved one; partner (romantic); one's love; beloved
   * verb: to win sb over romantically; to seduce sb
+
+dakanglu (mall > big-market > big-metal-place)
+  * noun: mal; supermarket
 
 danola (freeze > big-cold > big-no-hot)
   * verb: to freeze
@@ -4843,6 +5311,9 @@ bonoga (sick > body-bad > body-no-good)
 bonosai (sphere > body-ball > body-no-side)
   * noun: <disambiguitory_form>ball/sphere
 
+kelena (Helen > break-law-number)
+  * Notes: proper noun / phonetic noun
+
 nangboswe (clay > malleable-dirt > can-body-dirt)
   * noun: clay
 
@@ -4879,6 +5350,9 @@ tukwaike (destruction > direction-part-break)
   * Notes: DECIDED: annoying that there isnt really a way of expressing "into" in the sense of "to break into parts". But "direction" will fill this, e.g. "break it to parts".
 TODO: slow destroy is to decompose?
 
+tumangting (product > direction-person-thing)
+  * noun: product
+
 swegwadi (landslide > dirt-slide > dirt-easy-move)
   * noun: landslide
 
@@ -4899,6 +5373,9 @@ dupinglu (seat > do-flat-place)
 dumoting (pen > do-mark-thing)
   * noun: pen
 
+dubwating (key > do-opening-thing)
+  * noun: key
+
 dusekwai (verb > do-word > do-talk-part)
   * noun: verb
 
@@ -4917,6 +5394,9 @@ sulupa (potato > ground-fruit > down-place-fruit)
   * noun: potato
   * Notes: aka aka earth-fruit
 
+suluse (Zulu_(language) > down-place-talk)
+  * Notes: proper noun / phonetic noun
+
 gwadiboi (slug > slide-animal > easy-move-animal)
   * noun: snail; slug
   * cognates: naked-snail (de: Naktschnecke)
@@ -4926,6 +5406,16 @@ kaboiboi (predator > eat-animal-animal)
   * noun: predator
   * adj/adv: predatory
 
+kakaka (hahaha > eat-eat-eat)
+  * Notes: proper noun / phonetic noun
+
+kalala (Clara > eat-hot-hot)
+  * Notes: proper noun / phonetic noun
+
+kapene (caffeine > coffee-inside > eat-play-inside)
+  * noun: caffeine
+  * Notes: sounds like "caffeine"...and almost makes sense. Properly shoudl be in-coffee but whatever
+
 kagukwai (crumb > food-part > eat-stuff-part)
   * noun: crumb; kibble
 
@@ -4933,8 +5423,14 @@ aikiboi (chicken > egg-bird > egg-air-animal)
   * noun: chicken
   * Notes: TODO atomize; Trevor: I feel like common sense would say all birds should be air-animals (Even though penguins, chickens, ostritches, etc. don't fly). I think chicken would be like "domestic air animal"
 
+aisaka (Isaac > egg-life-eat)
+  * Notes: proper noun / phonetic noun
+
 bangkoboi (spider > eight-arm-animal)
   * noun: arachnid
+
+banglase (Bengali_(language) > eight-hot-talk)
+  * Notes: proper noun / phonetic noun
 
 pausamang (killer > kill-person > end-life-person)
   * noun: killer; assassin
@@ -4946,7 +5442,7 @@ likumeng (familiarity > energy-know > energy-hard-think)
   * Notes: aka feel-know
 
 lilenglu (website > internet-place > energy-link-place)
-  * noun: website
+  * noun: website; site
 
 lilanglo (electric_current > energy-river > energy-long-water)
   * noun: electric current; electrical current
@@ -5034,18 +5530,26 @@ bemengtai (schedule > plan-time > front-think-time)
   * verb: to book sth; to schedule sth
   * adj/adv: scheduled
 
-putaupa (grape > put-jump-fruit > get-jump-fruit)
-  * noun: grape
-  * Notes: This is a cognate from Chinese
+get thing like nolanguse of person (get thing like no-long-use of person)
+  * verb: to borrow sth from sb
 
-pumengmang (student > study-person > get-think-person)
+pusupa (Puspa > get-down-fruit)
+  * Notes: proper noun / phonetic noun
+
+pulase (Fulani_(language) > get-hot-talk)
+  * Notes: proper noun / phonetic noun
+
+putaupa (grape > get-jump-fruit)
+  * Notes: proper noun / phonetic noun
+
+pumengmang (student > learn-person > get-think-person)
   * noun: student
   * Notes: aka study-person
 
-pumenglu (school > study-place > get-think-place)
+pumenglu (school > learn-place > get-think-place)
   * noun: school
 
-pumengtai (lesson > study-time > get-think-time)
+pumengtai (lesson > learn-time > get-think-time)
   * noun: lesson; class period
 
 give nosaeat direction person (give no-life-eat direction person)
@@ -5054,11 +5558,8 @@ give nosaeat direction person (give no-life-eat direction person)
 give thing like nolanguse direction person (give thing like no-long-use direction person)
   * verb: to lend sth to sb
 
-give thing like nolanguse of person (give thing like no-long-use of person)
-  * verb: to borrow sth from sb
-
-gekanglu (market > pay-place > give-metal-place)
-  * noun: store; market; grocery
+gekangmang (customer > pay-person > give-metal-person)
+  * noun: customer
 
 gokogwai (knee > leg-bend > go-arm-bend)
   * noun: knee
@@ -5095,14 +5596,13 @@ ganokwe (luck > good-random > good-no-order)
 gasangkwai (verse > music-part > good-sound-part)
   * noun: verse (in a song)
 
-gasangse (poem > good-sound-talk)
-  * noun: poetry; poem
-  * adj/adv: poetic
-
 gasangting (instrument > music-thing > good-sound-thing)
 
 kubauboi (crustacean > shell-animal > hard-container-animal)
   * noun: snail; crustacean
+
+kudumang (worker > work-person > hard-do-person)
+  * noun: worker; employee; staff; proletariat; workman
 
 kudulu (workplace > work-place > hard-do-place)
   * noun: workplace; office
@@ -5150,6 +5650,10 @@ tobwasai (lips > mouth-side > head-opening-side)
 ginosai (cylinder > high-ball > high-no-side)
   * noun: cylinder
 
+ladaga (fox > hot-dog > hot-big-good)
+  * noun: fox
+  * Notes: aka red dog; the -animal is optional
+
 labolo (sweat > hot-body-water)
   * noun: sweat
 
@@ -5180,6 +5684,9 @@ labwasi (spice > hot-taste > hot-opening-see)
   * noun: spice
   * adj/adv: spicy
 
+lasiba (Rajiv > hot-see-with)
+  * Notes: proper noun / phonetic noun
+
 nekoting (example > inside-arm-thing)
   * noun: example
 
@@ -5198,9 +5705,24 @@ taubawi (cousin > jump-sibling > jump-with-small)
   * noun: cousin
   * Notes: For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".
 
+lelimang (manager > power-person > law-energy-person)
+  * noun: manager; boss
+
+leliting (governmeng > power-thing > law-energy-thing)
+  * noun: government; regime
+  * Notes: TODO not the greatest compound
+
+lelitai (term_of_office > power-time > law-energy-time)
+  * noun: term (of office)
+
 lepingting (counter > law-board > law-flat-thing)
   * noun: counter
   * Notes: aka law table
+
+legekang (tax > law-pay > law-give-metal)
+  * noun: taxes
+  * verb: to tax
+  * Notes: todo separate out intop fine
 
 lekumeng (diagnosis > law-know > law-hard-think)
   * noun: diagnosis
@@ -5213,6 +5735,9 @@ lelengmang (spouse > law-link-person)
 lenonu (seniority > law-old > law-no-new)
   * noun: seniority
   * adj/adv: senior
+
+lenamo (contract > law-text > law-number-mark)
+  * noun: contract; written agreement; legal document
 
 samengwe (biology > life-ology > life-think-way)
   * noun: biology
@@ -5237,13 +5762,14 @@ like do person wantgoli (like do person want-go-energy)
   * verb: to frighten sth
   * adj/adv: frightening
 
+sonase (Shona_(language) > like-number-talk)
+  * Notes: proper noun / phonetic noun
+
+somangboi (monkey > like-person-animal)
+  * noun: monkey; ape
+
 sosekwai (adjective > like-word > like-talk-part)
   * noun: adjective
-
-sotingmo (image > like-thing-mark)
-  * noun: image; picture; depiction; drawing; painting
-  * verb: to depict sth; to draw sth; to paint sth
-  * Notes: DONE: merge with symbol etc?
 
 lengliko (whip > link-strike > link-energy-arm)
   * noun: whip
@@ -5251,18 +5777,17 @@ lengliko (whip > link-strike > link-energy-arm)
 
 lengnogi (groove > link-valley > link-no-high)
   * noun: ditch; groove
+  * cognates: Before exact match, remove "to( (do|make))?  " before any verb fields, and remove " (do )?(sth|sb|swh)?(/(sth|sb|swh))?\)?"
 
 langwipau (spear > long-tip > long-small-end)
   * noun: ray; spear
   * cognates: gai (ga:gae)
 
-maomeng (picky > love-decide > love-all-think)
-  * adj/adv: decisive; picky; choosy
-  * cognates: chu (en:choose, sw:chagua=choose; vi:để chọn=to pick; th:thichalueak=to choose sth; th:thichalueak=to pick sth; th:chuchichukchik=choosy; zh:xuan; en:judge) ; swa (zh:xun; fr:choix); kwa/mwa (sw:kuamua)
-  * Notes: verbal compound; one of the few compounds with a V syllable in the middle
-
 masweboi (pig > love-dirt-animal)
   * noun: pig
+
+malia (Maria > love-energy-that)
+  * Notes: proper noun / phonetic noun
 
 mamangtai (friendship > friend-time > love-person-time)
   * noun: friendship
@@ -5273,6 +5798,12 @@ gaibawi (brother > male-sibling > male-with-small)
 
 mitwiboi (human > me-kind-animal)
   * noun: <disambiguation_term> human
+
+misiti (Mishti > me-see-three)
+  * Notes: proper noun / phonetic noun
+
+misela (Mishel > me-talk-hot)
+  * Notes: proper noun / phonetic noun
 
 kanglengkwai (chainlink > chain-part > metal-link-part)
   * noun: chain link
@@ -5291,6 +5822,9 @@ menitai (midnight > middle-night > middle-dark-time)
   * noun: midnight
 
 mekatai (lunch > middle-meal > middle-eat-time)
+
+melelu (international > middle-province > middle-law-place)
+  * adj/adv: international
 
 memela (lukewarm > middle-warm > middle-middle-hot)
   * noun: neutral temperature
@@ -5313,6 +5847,9 @@ nugameng (forgiveness > new-goodthink > new-good-think)
   * noun: forgiveness
   * verb: to forgive sb
   * adj/adv: forgiven
+
+nudaiting (technology > new-tool > new-use-thing)
+  * noun: tech; technology
 
 no can nopaudu (no can no-end-do)
   * adj/adv: unmistakeable
@@ -5439,9 +5976,9 @@ nomali (unfriendliness > dislike-energy > no-love-energy)
   * verb: to be unfriendly (with sb)
   * adj/adv: unfriendly
 
-nonutai (late > no-early > no-new-time)
+nonutai (late > no-morning > no-new-time)
   * noun: evening
-  * adj/adv: late
+  * adj/adv: late; pm; evening
 
 nonawa (lose(game) > no-win > no-number-one)
   * noun: lose
@@ -5490,6 +6027,9 @@ nausee like noga (nose-see like no-good)
   * verb: to stink
   * adj/adv: stinky
 
+number lawlimang (number law-energy-person)
+  * noun: the management
+
 natwima (polyamory > number-kind-love)
   * noun: polyamory
   * adj/adv: polyamorous
@@ -5519,12 +6059,12 @@ deyago (follow > of-back-go)
 demiting (posession > of-me-thing)
   * noun: posession
 
+desena (rating > describe-number > of-talk-number)
+  * noun: rating
+  * verb: to rate sth
+
 watuleng (ray > one-direction-link)
   * noun: ray (geometry)
-
-watwima (gay > same-love > one-kind-love)
-  * noun: gayness; homosexuality
-  * adj/adv: gay; homosexual
 
 wawapai (115 > one-one-five)
   * noun: one hundred and fifteen
@@ -5533,7 +6073,7 @@ watabang (yi > one_times_ten_to_the-eight > one-over-eight)
   * noun: 100 million
 
 watapai (lakh > one_times_ten_to_the-five > one-over-five)
-  * noun: one hundred thousand
+  * noun: one hundred thousand (one lakh)
 
 watakwa (wan > one_times_ten_to_the-four > one-over-four)
   * noun: ten thousand
@@ -5542,7 +6082,7 @@ watanoi (billion > one_times_ten_to_the-nine > one-over-nine)
   * noun: one billion
 
 watase (crore > one_times_ten_to_the-seven > one-over-seven)
-  * noun: ten million
+  * noun: ten million (one crore)
 
 watalau (million > one_times_ten_to_the-six > one-over-six)
   * noun: one million
@@ -5564,8 +6104,19 @@ waluli (focus > specific-energy > one-place-energy)
   * verb: to focus on sth; to concentrate on sth; to pay attention to sth
   * adj/adv: focused; concentrated
 
+waluwe (special > specific-way > one-place-way)
+  * adj/adv: special
+  * Notes: this is all a bit sus
+
+wawema (gay > same-love > one-way-love)
+  * noun: gayness; homosexuality
+  * adj/adv: gay; homosexual
+
 waweting (equivalent > same-thing > one-way-thing)
   * noun: equivalent
+
+kwedumo (code > program-mark > order-do-mark)
+  * noun: code
 
 kwebudwe (science > order-seek-truth)
   * noun: science
@@ -5643,6 +6194,17 @@ lunelu (socket > insert-place > place-inside-place)
 luneting (plug > insert-thing > place-inside-thing)
   * noun: plug
 
+lusomo (map > place-image > place-like-mark)
+  * noun: map
+  * verb: to map sth (out)
+  * adj/adv: mapped out
+
+lubase (Tshiluba_(language) > place-with-talk)
+  * Notes: proper noun / phonetic noun
+
+pwaneta (Planeta_(name) > plant-inside-over)
+  * Notes: proper noun / phonetic noun
+
 pepingting (game_board > play-board > play-flat-thing)
   * noun: board (in a game)
 
@@ -5652,6 +6214,9 @@ siboilu (zoo > see-animal-place)
 siduting (camera > see-device > see-do-thing)
   * noun: camera; video-recorder; CCTV
   * verb: to video-tape; to take a picture
+
+sinose (mandarin_chinese_(language) > see-no-talk)
+  * Notes: proper noun / phonetic noun
 
 sikwailo (cry > eye-water > see-part-water)
   * noun: tears; tear
@@ -5688,6 +6253,9 @@ swamengting (computer > self-think-thing)
   * adj/adv: computational
   * Notes: aka thinking machine
 
+swaweping (quality > nature-flat > self-way-flat)
+  * noun: quality
+
 swawemeng (philosophy > nature-think > self-way-think)
   * noun: philosophy
 
@@ -5723,6 +6291,9 @@ wigaka (treat > small-yummy > small-good-eat)
 
 wikusai (fence > small-wall > small-hard-side)
 
+wikangtai (sale > cheap-time > small-metal-time)
+  * noun: sale; rebate
+
 winamo (sentence > small-text > small-number-mark)
   * noun: sentence; sms; short message
   * Notes: cognate: 短信
@@ -5736,6 +6307,11 @@ winatai (unusual > small-number-time)
   * verb: to behave oddly
   * adj/adv: rare; uncommon; infrequent; unusual
   * Notes: DECIDED: "deprecated in favor of "specific" ?" — no, they are OK being different
+
+widese (summary > small-describe > small-of-talk)
+  * noun: summary
+  * verb: to summarize sth
+  * adj/adv: summarized
 
 wideting (motif > small-topic > small-of-thing)
   * noun: motif
@@ -5760,16 +6336,25 @@ wiwimang (baby > small-child > small-small-person)
 wiwitai (second > small-minute > small-small-time)
   * noun: second
 
+wiselu (forum > comment-place > small-talk-place)
+
 witinggu (powder > small-thing-stuff)
   * noun: powder; dust
   * verb: to grind (into flour e.g.); to pulverize
   * adj/adv: powdered; dusty
+
+witaipu (borrow > small-time-get)
+  * noun: loan
+  * verb: to borrow sth (of sb: de mang)
 
 witaimang (youth > small-time-person)
   * noun: a youth; a child
 
 widengboi (mouse > small-rodent > small-tooth-animal)
   * noun: mouse
+
+sanggase (Tsonga_(language) > sound-good-talk)
+  * Notes: proper noun / phonetic noun
 
 sangkwaiboi (rabbit > ear-animal > sound-part-animal)
   * noun: rabbit; jump-animal
@@ -5790,14 +6375,29 @@ gumengwe (chemistry > stuff-ology > stuff-think-way)
 swiwiboi (bee > sugar-bug > sugar-small-animal)
   * noun: bee
 
-sesowi (sesowi > talk-like-small)
-  * noun: Sesowi
+pilipa (Philip > surface-energy-fruit)
+  * Notes: proper noun / phonetic noun
+
+sesowi (Sesowi > talk-like-small)
+  * Notes: proper noun / phonetic noun
 
 sekwaibu (dictionary > word-seek > talk-part-seek)
   * noun: dictionary
 
 selumang (translator > translation-person > talk-place-person)
   * noun: translator
+
+ayalang (Ireland_(country) > that-back-long)
+  * Notes: proper noun / phonetic noun
+
+akase (Akshay > that-eat-talk)
+  * Notes: proper noun / phonetic noun
+
+alena (Alena > that-law-number)
+  * Notes: proper noun / phonetic noun
+
+abalang (Avalon > that-with-long)
+  * Notes: proper noun / phonetic noun
 
 tingnoting (contradiction > thing-no-thing)
   * noun: contradiction; paradox
@@ -5817,8 +6417,11 @@ mengkumeng (intellectual_knowledge > think-know > think-hard-think)
 mengmengwe (psychology > think-ology > think-think-way)
   * noun: psychology
 
+ibose (Igbo_(language) > this-body-talk)
+  * Notes: proper noun / phonetic noun
+
 igomang (visitor > come-person > this-go-person)
-  * noun: visitor
+  * noun: visitor; guest
 
 igago (welcome > this-good-go)
   * noun: welcome
@@ -5853,6 +6456,9 @@ taituli (urgency > time-pressure > time-direction-energy)
   * adj/adv: urgent
   * Notes: aka time pressure
 
+dengloboi (shark > tooth-fish > tooth-water-animal)
+  * noun: shark
+
 dotauda (great-grandparent > two-grandparent > two-jump-big)
   * noun: great-grandparent
   * Notes: For fambily members, the "-person" can generally be omitted since it's unambiguous. The older generation will end in "big" and the smaller generation with "small".
@@ -5860,6 +6466,12 @@ dotauda (great-grandparent > two-grandparent > two-jump-big)
 dotwima (bisexual > two-kind-love)
   * noun: bisexual
   * adj/adv: bisexual; bi
+
+dotati (two_thousand > two-over-three)
+  * noun: two thousand
+
+dotado (two_hundred > two-over-two)
+  * noun: two hundred
 
 dosaili (squeeze > two-side-energy)
   * verb: to squeeze sth; to pinch sth
@@ -5876,6 +6488,9 @@ yaulengbo (horny > want-sex > want-link-body)
 
 lokiboi (seabird > water-bird > water-air-animal)
   * noun: waterbird; duck
+
+lodaga (seal > water-dog > water-big-good)
+  * Notes: aka sea dog; the -animal is optional
 
 losweboi (amphibian > mud-animal > water-dirt-animal)
   * noun: amphibian
@@ -5918,6 +6533,13 @@ esetai (interview > ask-time > what-talk-time)
   * noun: interview; interrogation
   * verb: to inverview; to interrogate
 
+elopa (Europe > what-water-fruit)
+  * Notes: proper noun / phonetic noun
+
+ewesi (test > how-see > what-way-see)
+  * noun: test; exam; quiz; probe
+  * verb: to test sth/sb; to quiz sth/sb; to probe sth
+
 bamangting (gathering > with-person-thing)
   * noun: gathering; party
 
@@ -5931,7 +6553,7 @@ bawida (uncle/aunt > sibling-big > with-small-big)
 bataimang (classmate > meeting-person > with-time-person)
   * noun: classmate
 
-wanglamau (Orangecat > orange-cat > yellow-hot-cat)
+wanglamau (Orangecat > yellow-hot-cat)
   * noun: Orange Cat (name)
 
 wanglayang (orange > yellow-hot-color)
@@ -5944,6 +6566,12 @@ wangpwayang (yellow_green > yellow-plant-color)
   * verb: to become yellow green; to make sth yellow green
   * adj/adv: yellow green
 
+swengsakase (Swedish_(language) > ATOM_SWENG-life-eat-talk)
+  * Notes: proper noun / phonetic noun
+
+tealase (Sinhala_(language) > ATOM_TE-that-hot-talk)
+  * Notes: proper noun / phonetic noun
+
 kigolena (airline_company > flight-company > air-go-law-number)
   * noun: airline company
 
@@ -5953,6 +6581,9 @@ kigolukwai (airport_terminal > airport-part > air-go-place-part)
 boinokemang (veterinarian > animal-repairman > animal-no-break-person)
   * noun: veterinarian
   * Notes: aka animal repairman
+
+kokodila (crocodile > arm-arm-move-hot)
+  * Notes: proper noun / phonetic noun
 
 kopauhave thing like smallnai (arm-end-have thing like small-distance)
   * verb: to cling to sth
@@ -5974,6 +6605,9 @@ yanogali (regret > back-hurt > back-no-good-energy)
 yataimengwe (history > before-ology > back-time-think-way)
   * noun: history
 
+daniela (Daniel > big-dark-what-hot)
+  * Notes: proper noun / phonetic noun
+
 damubawi (jiejie > big-sister > big-female-with-small)
   * noun: big sister
 
@@ -5981,11 +6615,8 @@ dapingkaboi (moose > big-herbivore > big-flat-eat-animal)
   * noun: moose
 
 dapumenglu (university > big-school > big-get-think-place)
-  * noun: university
+  * noun: university; college
   * Notes: 大学
-
-dagekanglu (mall > big-market > big-give-metal-place)
-  * noun: mal; supermarket
 
 dagaibawi (gege > big-brother > big-male-with-small)
   * noun: big brother
@@ -6053,6 +6684,15 @@ kaboikiboi (raptor > eat-animal-bird > eat-animal-air-animal)
 kadapwalu (orchard > eat-forest > eat-big-plant-place)
   * noun: orchard
 
+kasakase (Kazakh_(language) > eat-life-eat-talk)
+  * Notes: proper noun / phonetic noun
+
+kasawela (Caswell > eat-life-way-hot)
+  * Notes: proper noun / phonetic noun
+
+katalase (Catalan_(language) > eat-over-hot-talk)
+  * Notes: proper noun / phonetic noun
+
 kawipwalu (pasture > eat-grass-place > eat-small-plant-place)
   * noun: grazing land; pasture
   * verb: to graze (e.g. cows eating grass); to graze swh
@@ -6083,6 +6723,15 @@ kwaside like nooga (four-side like no-all-good)
 
 beyaugoli (dread > front-fear > front-want-go-energy)
   * noun: dread
+
+belonika (Veronica > front-water-dark-eat)
+  * Notes: proper noun / phonetic noun
+
+pasatose (Pashto_(language) > fruit-life-head-talk)
+  * Notes: proper noun / phonetic noun
+
+pumenglutai (education > school-time > get-think-place-time)
+  * noun: education; schooling
 
 gebonoga (infect > give-sick > give-body-no-good)
   * noun: infection; transmission of disease
@@ -6126,12 +6775,18 @@ yodanating (busy > have-many-thing > have-big-number-thing)
   * verb: to be busy; to busy about
   * adj/adv: busy
 
+yolubase (Yoruba_(language) > have-place-with-talk)
+  * Notes: proper noun / phonetic noun
+
 yotingpingting (table > have-thing-board > have-thing-flat-thing)
   * noun: table
   * Notes: aka hold-things-flat-thing
 
 tobopinggu (scarf > neck-cloth > head-body-flat-stuff)
   * noun: scarf
+
+gikoyose (Kikuyu_(language) > high-arm-have-talk)
+  * Notes: proper noun / phonetic noun
 
 gipingkaboi (goat > high-herbivore > high-flat-eat-animal)
   * noun: goat
@@ -6145,6 +6800,12 @@ lasulupa (ginger > hot-ground-fruit > hot-down-place-fruit)
 
 laligoting (train > fire-vehicle > hot-energy-go-thing)
   * noun: train
+
+nepalise (Nepali_(language) > inside-fruit-energy-talk)
+  * Notes: proper noun / phonetic noun
+
+lelitime endtai (law-energy-time end-time)
+  * noun: term limit
 
 sadanakwai (ecosystem > life-system > life-big-number-part)
   * noun: ecosystem; habitat
@@ -6175,6 +6836,23 @@ langlengdamau (tiger > string-lion > long-link-big-cat)
 
 langnogali (depression > long-hurt > long-no-good-energy)
   * noun: depression
+
+maomeng (picky > love-decision > love--all-think)
+  * adj/adv: decisive; picky; choosy
+  * cognates: chu (en:choose, sw:chagua=choose; vi:để chọn=to pick; th:thichalueak=to choose sth; th:thichalueak=to pick sth; th:chuchichukchik=choosy; zh:xuan; en:judge) ; swa (zh:xun; fr:choix); kwa/mwa (sw:kuamua)
+  * Notes: verbal compound; one of the few compounds with a V syllable in the middle
+
+magalase (Hungarian_(language) > love-good-hot-talk)
+  * Notes: proper noun / phonetic noun
+
+malagase (Malagasy_(language) > love-hot-good-talk)
+  * Notes: proper noun / phonetic noun
+
+malatise (Marathi_(language) > love-hot-three-talk)
+  * Notes: proper noun / phonetic noun
+
+mawalise (Marwari_(language) > love-one-energy-talk)
+  * Notes: proper noun / phonetic noun
 
 gaibawida (uncle > male-uncle/aunt > male-with-small-big)
   * noun: uncle
@@ -6254,8 +6932,18 @@ nolobwasi (astringency > dry-taste > no-water-opening-see)
   * noun: astringency
   * adj/adv: astringent
 
+namotinglu (library > book-place > number-mark-thing-place)
+  * noun: library
+
 watawano (arab > one_times_ten_to_the-ten > one-over-one-no)
-  * noun: ten billion
+  * noun: ten billion (one arab)
+
+watawawa (ten_arab > one_times_ten_to_the-eleven > one-over-one-one)
+
+watawado (trillion > one_times_ten_to_the-twelve > one-over-one-two)
+
+laisena (phonenumber > phone-number > other-talk--number)
+  * noun: phone number
 
 tadasali (frenzy > over-enthusiasm > over-big-life-energy)
   * noun: frenzy
@@ -6265,6 +6953,9 @@ takulokwai (snowflake > snow-part > over-hard-water-part)
   * noun: snowflake
   * cognates: snow-let (eo: neĝero a snowflake, from 'snow')
 
+tamilase (Tamil_(language) > over-me-hot-talk)
+  * Notes: proper noun / phonetic noun
+
 tawidali (lightning > over-pulse > over-small-big-energy)
   * noun: lightning
   * verb: to have lightning
@@ -6273,6 +6964,15 @@ tawidali (lightning > over-pulse > over-small-big-energy)
 mangnokemang (doctor > person-repairman > person-no-break-person)
   * noun: <disambiguation_form> doctor
   * Notes: aka person repairman
+
+lubidabau (hotel > stay-house > place-be-big-container)
+  * noun: hotel; model; holiday inn
+
+luwangdase (Kinyarwanda_(language) > place-yellow-big-talk)
+  * Notes: proper noun / phonetic noun
+
+siletise (Sylheti_(language) > see-law-three-talk)
+  * Notes: proper noun / phonetic noun
 
 sikwailopwa (onion > cry-plant > see-part-water-plant)
   * noun: onion
@@ -6292,13 +6992,34 @@ wigaibawi (didi > small-brother > small-male-with-small)
 winosaipa (berry > small-ball-fruit > small-no-side-fruit)
   * noun: berry
 
+wigulase (Uyghur_(language) > small-stuff-hot-talk)
+  * Notes: proper noun / phonetic noun
+
+sangtalise (Santali_(language) > sound-over-energy-talk)
+  * Notes: proper noun / phonetic noun
+
 sangwidali (beep > sound-pulse > sound-small-big-energy)
   * noun: beep
   * verb: to beep
   * adj/adv: beeping
 
+apalana (Aparna > that-fruit-hot-number)
+  * Notes: proper noun / phonetic noun
+
+awadise (Awadhi_(language) > that-one-move-talk)
+  * Notes: proper noun / phonetic noun
+
 menggumengwe (informatics > information-ology > think-stuff-think-way)
   * noun: informatics; computer science
+
+isabela (Isabel > this-life-front-hot)
+  * Notes: proper noun / phonetic noun
+
+ilanggose (Hiligaynon_(language) > this-long-go-talk)
+  * Notes: proper noun / phonetic noun
+
+titewase (Chichewa_(language) > three-ATOM_TE-one-talk)
+  * Notes: proper noun / phonetic noun
 
 doyabaitai (day_before_yesterday > two-yesterday > two-back-light-time)
   * noun: day before yesterday
@@ -6331,6 +7052,9 @@ wangwangpwayang (extra_yellow_yellow_green > yellow-yellow_green > yellow-yellow
   * noun: extra yellow yellow-green
   * verb: to become extra yellow yellow green; to make sth extra yellow yellow green
   * adj/adv: extra yellow yellow green
+
+okomiyase (Assamese_(language) > all-arm-me-back-talk)
+  * Notes: proper noun / phonetic noun
 
 dagasangting (piano > big-instrument > big--good-sound-thing)
 
@@ -6403,27 +7127,54 @@ kunosaipwa (bean_plant > bean-plant > hard--no-side-plant)
 kunamoting (hard_copy > hard-book > hard--number-mark-thing)
   * noun: <disambiguation_form> book; hard copy
 
-ladeyagoboi (fox > hot-dog > hot-of-back-go-animal)
-  * noun: fox
-  * Notes: aka red dog; the -animal is optional
+lenamark with lawbiting (law-number-mark with law-be-thing)
+  * noun: terms and conditions
+
+somaligase (Somali_(language) > like-love-energy-good-talk)
+  * Notes: proper noun / phonetic noun
+
+noibangtawado (98_trillion > nine-eight-over-one-two)
 
 nonangnoga (non-dangerous > no-danger > no--can-no-good)
   * noun: safety; security
   * adj/adv: nondangerous; safe; secure
 
+namotingkanglu (bookstore > book-market > number-mark-thing-metal-place)
+  * noun: bookstore
+
 wanotaimang (teenager > ten-time-person > one-no-time--person)
   * noun: a teenager
+
+laitaileli (coyright > again-power > other-time--law-energy)
+  * noun: copyright
+  * verb: to copyright
+  * adj/adv: copyrighted
+
+lunasimise (Quechua_(language) > place-number-see-me-talk)
+  * Notes: proper noun / phonetic noun
 
 wikuliboi (procyonid > small-bear > small--hard-energy-animal)
   * noun: raccoon; procyonid
   * Notes: aka Kleinbär
 
+pilipinose (Filipino_(language) > surface-energy-surface-no-talk)
+  * Notes: proper noun / phonetic noun
+
+italiano (Italian_(language) > this-over-energy-that-no)
+  * Notes: proper noun / phonetic noun
+
+ilokanose (Ilocano_(language) > this-water-eat-no-talk)
+  * Notes: proper noun / phonetic noun
+
 tisainosai (cone > triangle-ball > three-side--no-side)
   * noun: cone; horn
   * Notes: aka triangle-circle
 
-lodeyagoboi (seal > water-dog > water-of-back-go-animal)
-  * Notes: aka sea dog; the -animal is optional
+esepelangto (Esperanto > what-talk-play-long-head)
+  * Notes: proper noun / phonetic noun
+
+basabalise (Balinese_(language) > with-life-with-energy-talk)
+  * Notes: proper noun / phonetic noun
 
 wangtotakiboi (golden_crowned_sparrow > yellow-crest-bird > yellow-head-over-air-animal)
   * noun: Golden Crowned Sparrow
@@ -6431,6 +7182,11 @@ wangtotakiboi (golden_crowned_sparrow > yellow-crest-bird > yellow-head-over-air
 dalelupinggu (flag > country-cloth > big-law-place--flat-stuff)
   * noun: flag
   * Notes: aka country cloth
+
+dapwaludaga (wolf > forest-dog > big-plant-place--big-good)
+  * noun: wolf
+  * cognates: forest-dog (sa:अरण्यश्वा)
+  * Notes: aka forest-dog; the -animal is optional
 
 nidamengkiboi (crow/raven > dark-corvid > dark--big-think-air-animal)
   * noun: crow;raven
@@ -6536,11 +7292,6 @@ loyangdamengkiboi (jay > blue-corvid > water-color--big-think-air-animal)
 danidamengkiboi (raven > big-crow/raven > big--dark-big-think--air-animal)
   * noun: raven
 
-dapwaludeyagoboi (wolf > forest-dog > big-plant-place--of-back-go-animal)
-  * noun: wolf
-  * cognates: forest-dog (sa:अरण्यश्वा)
-  * Notes: aka forest-dog; the -animal is optional
-
 kwinonutaidaboi (velociraptor > fast-dinosaur > fast--no-new-time--big-animal)
   * noun: velociraptor
 
@@ -6548,8 +7299,6 @@ menidamengkiboi (crow > middle-crow/raven > middle--dark-big-think--air-animal)
   * noun: crow
 
 ## Phrases
-
-o na (all number)
 
 o de (all of)
   * adj/adv: all of; the whole
@@ -6584,6 +7333,9 @@ yo tai (have time)
 
 so i (like this)
   * adj/adv: like this
+
+mai ga (more good)
+  * adj/adv: better
 
 no mai (no more)
   * adj/adv: no longer
@@ -6644,6 +7396,9 @@ de tai (of time)
 de yu (of you)
   * adj/adv: your; yours
 
+ta ga (over good)
+  * adj/adv: best
+
 lu sai (place side)
   * adj/adv: next to; by
 
@@ -6655,7 +7410,7 @@ a na (that number)
   * Notes: TODO "that much" versus "them"
 
 i na (this number)
-  * noun: this much
+  * noun: this much; these
   * Notes: TODO "this much" versus "them"
 
 tai swa (time self)
@@ -6808,7 +7563,7 @@ geng ne i biting, mi no du kumeng, i du ge mina e kumeng.	But in this case, I do
 
 ___
 so da yodanating	Very busy	Note: modal practice; used: dwa yau bu=try nang should continue nang=allow
-du yo tai so odisa so gali so da, du ping lu suting, du nang mang du pingpi i.	Sometimes, Odis is very happy and lies on the ground, allowing people to pat him.	Note: "sometimes" = "du yo tai" ("There are times")
+du yo tai so odisa so gali so da, du ping lu su, du nang mang du pingpi i.	Sometimes, Odis is very happy and lies on the ground, allowing people to pat him.	Note: "sometimes" = "du yo tai" ("There are times")
 geng lai na tai, i mau du yo ting so dawe so i dwa du.	But other times, he has important things he has to do.
 i na tai, yu lailai nang bu du pingpi i.	These times, you can still try to touch him.
 no du bi biting, so i no yau yu du i ting.	It's not the case that he doesn't want you to do this.
@@ -6864,7 +7619,7 @@ upasama so wi	The smol opossum
 du bi ta wi mamang de mi!	is my smallest friend
 gasangkwai 1	Verse 1
 e mang du igo?	Who is coming?
-oka ka de mau de mi	eating up my cat's food
+du oka kagu de mau	eating up the cat's food	Note: prev: "oka ka de mau de mi". not clear if this lack of "du" because of parallelism is ok
 e mang du	Who is [..]
 gasangkwai 2	Verse 2
 nang du bi lai mau?	Could it be another cat?
@@ -7027,7 +7782,7 @@ a daswetai, teba du go o baitai du si aisaka, du pe i pe.	That year, Trevor came
 dasali de teba so dukwang, du ge aisaka li so wawe.	Trevor's enthusiasm was infectious, and gave Isaac the same energy.
 aisaka du kai o baitai du nubi pepingting so nu.	Isaac started making new cards every day.	Note: "kai" in the modal construction but with separating clause, therefore double "du"
 tai i kai du pingtai, tai i du donosaigoting tu kudulu, i nomai du meng nokwekwepe.	As he was falling asleep, as he was biking to work, he only thought about Random Coping Chess.	Note: TBH I feel like you can put the "du" anywhere you want in a modal chain: "tai i du kai pingtai"/"tai i kai du pingtai" both sound good
-o de setai, aisaka du begameng setaipau, tai i nang du pe wa pe so kwa metai lang.	The whole week, Isaac was looking forward to the weekend, when he could play a single, four-hour long game.	Note: note "o setai" is "all weeks"; "o de setai" is "all of the week"
+o de sengtai, aisaka du begameng sengtaipau, tai i nang du pe wa pe so kwa metai lang.	The whole week, Isaac was looking forward to the weekend, when he could play a single, four-hour long game.	Note: note "o sengtai" is "all weeks"; "o de sengtai" is "all of the week"
 aisaka du meng, i du bi po so watwi du meng so ku lai du eta, geng tai so watwi du noleng o swadali de i.	Isaac thought that this was a unique opportunity to think hard and compete, but at the same time let go of his pride.
 teba du se so danatai, du meng i ting nang du gemeng, ewe du koyo na ting so nokwe so ku so du swadu ne sa de mang.	Trevor often said that he thought this can teach how to cope with the random and difficult things that happen in one's life.
 aisaka du ma i meng, geng du wipomeng i nang du i ting so dwedwe.	Isaac liked this idea, but was uncertain that this could actually do this.	Note: note again: adverb must go after verb, or else it seems to apply to the oun
@@ -7051,10 +7806,10 @@ na dwe, i se so da noku du pumeng.	yes, this language is very easy to learn!	Not
 du yo lai se so mang du nubi.	There are other languages that people have created.
 ina laiting so noku du pumeng.	They are also easy to learn.
 geng, ina no so odating.	but they are not universal.
-nekoting, du meng esepelangto, lai ido, ingtalingwe, ingtalingwa, lingwa di pwaneta, lailai.	For example, consider Esperanto, or Interlingue, or Interlingua, or Lingwa di Planeta, or Ido, etc.
+nekoting, du meng esepelangtose, lai idose, ingtalingwese, ingtalingwsea, lingwa di pwaneta se, lailai.	For example, consider Esperanto, or Interlingue, or Interlingua, or Lingwa di Planeta, or Ido, etc.
 ina o so noku du pumeng....	They are easy to learn...
 wating muse de yu de elopa.	only if your mother tongue is from Europe.
-biting muse de yu du bi sinose, lai basabali, lai benggali, ina so ku so da!	If your mother tongue is Chinese, or Balinese, or Bengali, they are very hard!
+biting muse de yu du bi sinose, lai basabalise, lai benggalise, ina so ku so da!	If your mother tongue is Chinese, or Balinese, or Bengali, they are very hard!
 swa swase de ina so ku du se!	even their names are hard to say!
 laiting, sesowi du sang so nangma!	Also, Sesowi sounds cute!
 mi du dwemeng,	I believe,
@@ -7074,7 +7829,7 @@ mi du gesi lilenglu de mina tu yu ba.	Let me show you our website.
 du yo nuse lai swawemeng	It has the introduction and philosophy,	Note: swawemengwe is only for the school of thought that is philosophy?
 na sang, na kaisekwai	the sounds, the root words (atoms),
 na mowe, lai na pumengtai	the grammar, and lessons
-nang du dai englisa du bu sekwai ne sekwaibu,	you can use English to search for words,
+nang du dai englise du bu sekwai ne sekwaibu,	you can use English to search for words,
 laiting nang du dai sesowi.	or you can use Sesowi.
 ilu du yo yase.	Here are stories.
 nang du pi sekwai, du si twase de i.	You can click on the words to see their definitions
