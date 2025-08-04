@@ -81,7 +81,7 @@ class VocabEntry {
         // Check for the target entry right at the beginning
         const rawGloss = (row[indices["gloss"]] || '').trim();
         let direct_debug = false;
-        if (rawGloss === "of-back-go--animal") {
+        if (rawGloss === "no move") {
             direct_debug = true;
         }
 
@@ -145,27 +145,27 @@ class VocabEntry {
         // If a word has a non-empty phonetic noun facet, it's not atomic (it's a proper noun)
         if (this.is_phonetic_noun) {
             this.atomic = false;
-            console.log(`dictionary.js: Word '${this.gloss}' has phonetic noun facet, marking as non-atomic`);
+            // console.log(`dictionary.js: Word '${this.gloss}' has phonetic noun facet, marking as non-atomic`);
         }
         
         // Calculate complexity after all facets are processed
         // todo this should be done by the dictionary after errthing is loaded
         this.complexity = 0;
         this.calculateComplexity();
-         // Verify the result
-        // if (direct_debug) {
-        //     console.log("dictionary.js: DIRECT_DEBUG: Final gloss:", this.gloss);
-        //     console.log("dictionary.js: DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
-        //     console.log("dictionary.js: DIRECT_DEBUG: surface:", this.surface);
-        //     console.log("dictionary.js: DIRECT_DEBUG: atomic:", this.atomic);
-        //     console.log("dictionary.js: DIRECT_DEBUG: complexity:", this.complexity);
-        //     console.log("dictionary.js: DIRECT_DEBUG: hyphen_indices:", this.hyphen_indices);
-        //     console.log("dictionary.js: DIRECT_DEBUG: facets:", this.facets);
-        //     console.log("dictionary.js: DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
-        //     console.log("dictionary.js: DIRECT_DEBUG: Is gloss_parts defined?", this.gloss_parts !== undefined);
-        //     console.log("dictionary.js: DIRECT_DEBUG: Is gloss_parts an array?", Array.isArray(this.gloss_parts));
-        //     console.log("dictionary.js: DIRECT_DEBUG: gloss_parts length:", this.gloss_parts.length);
-        // }
+        // Verify the result
+        if (direct_debug) {
+            console.log("dictionary.js: DIRECT_DEBUG: Final gloss:", this.gloss);
+            console.log("dictionary.js: DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
+            console.log("dictionary.js: DIRECT_DEBUG: surface:", this.surface);
+            console.log("dictionary.js: DIRECT_DEBUG: atomic:", this.atomic);
+            console.log("dictionary.js: DIRECT_DEBUG: complexity:", this.complexity);
+            console.log("dictionary.js: DIRECT_DEBUG: hyphen_indices:", this.hyphen_indices);
+            console.log("dictionary.js: DIRECT_DEBUG: facets:", this.facets);
+            console.log("dictionary.js: DIRECT_DEBUG: Final gloss_parts:", this.gloss_parts);
+            console.log("dictionary.js: DIRECT_DEBUG: Is gloss_parts defined?", this.gloss_parts !== undefined);
+            console.log("dictionary.js: DIRECT_DEBUG: Is gloss_parts an array?", Array.isArray(this.gloss_parts));
+            console.log("dictionary.js: DIRECT_DEBUG: gloss_parts length:", this.gloss_parts.length);
+        }
                    
         // Enhanced debugging for "of-back-go--animal"
         // Check if the raw gloss contains the target string regardless of exact match
@@ -540,6 +540,10 @@ class Dictionary {
      * @returns {Array} A tuple of [words array, punctuation array]
      */
     tokenize(s) {
+        var isTargetEntry = false;
+        if (s === "no move") {
+            isTargetEntry = true;
+        }
         // Special case for hyphenated compound words (e.g., 'love-dirt-animal' or 'person like have self-talk')
         if (s.includes('-')) {
             // For compound words, we need to treat each part as a separate word
@@ -568,29 +572,38 @@ class Dictionary {
         
         // Regular tokenization for non-compound words
         // Split text into tokens and in-between spans.
-        // JS regex differs from Python's unicode handling slightly, using \w for simplicity
-        // Using splitKeep helper to mimic Python's re.split behavior better
-        s = ` ${s} `; // Add padding like Python code
+        const s_orig = s;
+        s = ` ${s} `; // Add padding
         
         // Split by non-word characters to get delimiters (punctuation)
-        const punct = this.splitKeep(s, /\W+/).filter((_, i) => i % 2 !== 0); // Keep only delimiters
+        const punct = this.splitKeep(s, /\W+/g).filter((_, i) => i % 2 !== 0); // Keep only delimiters
         
         // Split by word characters to get words
-        const words = this.splitKeep(s, /\w+/).filter((_, i) => i % 2 !== 0); // Keep only words
-            
+        const words = this.splitKeep(s, /\w+/g).filter((_, i) => i % 2 !== 0); // Keep only words
+        
+        if (isTargetEntry) {
+            console.log(`dictionary.js: DIRECT_DEBUG 3a: '${s}'`);
+            console.log("dictionary.js: DIRECT_DEBUG 3b: ", words);
+            console.log("dictionary.js: DIRECT_DEBUG 3c: ", punct);
+        } 
         // Adjust first/last punct based on padding
         punct[0] = (s.startsWith(' ') ? '' : punct[0]) || '';
         punct[punct.length - 1] = (s.endsWith(' ') ? '' : punct[punct.length - 1]) || '';
-        
-        // Python code asserts len(punct) == len(words) + 1. Let's ensure structure is similar.
-        // If s starts with non-word, punct will have extra empty string at start
-        if (s.match(/^\W/)) {
-            punct.shift();
+         
+        // Ensure punct has one more element than words for interleaving
+        while (punct.length < words.length + 1) {
+             punct.push('');
         }
-        // If s ends with non-word, punct will have extra empty string at end
-         if (s.match(/\W$/)) {
-            punct.pop();
+        if (isTargetEntry) {
+            console.log("dictionary.js: DIRECT_DEBUG 3e: ", punct);
+        } 
+        if (punct.length > words.length + 1) {
+             console.warn("Punct array too long after tokenization", s, words, punct);
+             punct.length = words.length + 1; // Truncate if needed
         }
+        if (isTargetEntry) {
+            console.log("dictionary.js: DIRECT_DEBUG 3f: ", punct);
+        } 
         // Ensure punct has one more element than words for interleaving
         while (punct.length < words.length + 1) {
              punct.push('');
@@ -615,7 +628,7 @@ class Dictionary {
         // Used to add hyphens to the surface form at the correct positions
         let hyphenIndices = [];
         
-        // isTargetEntry: Boolean flag for special debug logging of "of-back-go--animal"
+        // isTargetEntry: Boolean flag for special debug logging
         let isTargetEntry = false;
         
         if (sentence instanceof VocabEntry) {
@@ -631,19 +644,18 @@ class Dictionary {
             sentence = sentence.gloss;
         }
         
-        if (sentence === "of-back-go--animal") {
+        if (sentence === "no move") {
             isTargetEntry = true;
-            console.log("dictionary.js: get_surface called with of-back-go--animal string");
         }
         
         // Handle compound words with spaces in their parts
         if (isTargetEntry) {
-            console.log("dictionary.js: Tokenizing of-back-go--animal:");
+            console.log("dictionary.js: DIRECT_DEBUG 2: tokenizing: ", sentence);
         }
         const [words, punct] = this.tokenize(sentence);
         if (isTargetEntry) {
-            console.log("dictionary.js: Tokenization result - words:", words);
-            console.log("dictionary.js: Tokenization result - punct:", punct);
+            console.log("dictionary.js:  DIRECT_DEBUG 2: tokenization result - words:", words);
+            console.log("dictionary.js:  DIRECT_DEBUG 2: tokenization result - punct:", punct);
         }
         
         // surfs: Array to store the surface form for each word in the gloss
@@ -696,6 +708,7 @@ class Dictionary {
         // surface = surface.replace(/<>-/g, ''); // Remove empty placeholders with hyphens
         // surface = surface.replace(/-<>/g, ''); // Remove empty placeholders with hyphens
         // surface = surface.replace(/<>/g, ''); // Remove any remaining empty placeholders
+        surface = surface.replace(/--/g, '-'); // Remove any remaining empty placeholders
         
         return surface;
     }
@@ -912,10 +925,6 @@ async function loadDictionaryData() {
             } else if (headerFound) {
                  // This is a vocab entry row
                  if (indices["gloss"] === undefined || !row[indices["gloss"]]) continue; // Skip rows without a gloss
-                 if (row[indices["gloss"]].startsWith("<")) {
-                     // entries starting with "<" are ignored.
-                     continue;
-                 }
                  const vocab = new VocabEntry(row, indices);
                  all_vocabs.add_vocab(vocab);
             }

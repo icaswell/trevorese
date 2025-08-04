@@ -1,80 +1,325 @@
-*   **`bu` (seek) vs. `yau` (want):** "To seek" is often "to want to find." `obu` (find) is `all-seek`, which is excellent. But could `bu` be deprecated in favor of phrases like `yau obu` (want to find)?
-------
+FAQ
+
+jelo
 
 
-    *   **Recommendation:** Change one of them. Looking at your cognates for "seven", you list `ki` (from Chinese `qī`). This would be an excellent replacement. `se` for "talk" is perfect (from "say").
-------
-ba: The dictionary notes that ba has two unrelated meanings ("with" and command marker). For a language striving for simplicity, this is not ideal. I suggest creating a new, simple atom for the command marker, perhaps ma or pa, to avoid ambiguity.
+## Overall
 
-------
+Q: How complete is the language? is there a versioning system? What's the next stage?
+A: The language exists in a complete form, and as of August 2025, should be considered *Old Sesowi*. The next major changes will have to come after speakers are proficient enough to get a feel of the language and decide what feels right or not. 
 
-### VI. Example Stories & Texts
+Here is the versioning:
 
-The stories are the ultimate test, and they work beautifully. They demonstrate the language's capabilities and charm.
-
-
-*   **Clarity in "God of Isaac":**
-    *   `"wating a mang so du kudu i kigo nang du gwai kigo."`
-    *   (Only the people who operate this flight can change the flight.)
-    *   This is a perfect use of the `so` and `nang` markers. It's unambiguous and clear.
-
---------
-2.  **Redundant or Overlapping Atoms:**
-    *   **`bu` (seek/try) vs. `obu` (find):** `obu` is `all-seek`. This is a perfect compound and `bu` works well as the atom. Good.
-    *   **`ge` (give) vs. `pu` (get):** You note `pu` could be "reverse-give." This would be more elegant. You could use a marker for reversal, like `gengwe` (anti). `gengwe-ge` (anti-give) -> `ge-geng`? or `gengge`? This might be too complex, and having `pu` is pragmatic. It's a trade-off.
-    *   **`pi` (surface/skin) vs. `touch`:** Your decision to merge "touch" into "surface/skin" was excellent. It simplifies the lexicon beautifully.
-------
-
-
-    *   **`gokopau` (foot):** `go-arm-end` (leg-hand). Excellent. But the verb form is "to stand up." This feels like a conceptual leap. "to stand" should probably be its own concept, perhaps `su-ping` (down-flat, i.e., sitting/standing on a flat surface) or something similar.
-
-
------------
-weak error: the following is only about passive+"by"
-
-The Passive Voice (sa): The tutorial has a major contradiction.
-The section “It”: Passive voice states, "The only difference between this and the active voice is that it takes some responsibility away from Fred. This distinction doesn’t add much to the expressivity of the language, and can safely be removed. As such, Sesowi just uses the active voice in these constructions."
-However, the section on Participles introduces sa as a passive marker: kuliboi so du sa ka (An eaten bear). Later, the passive is explained again with sa: nau de i du sa tobwa (Her nose experiences kisses).
-
-------------
-# hallucination: there is no such note
-pwalo (tea/broth): The note about cha vs. pwalo.
-Suggestion: pwalo (plant-water) is a perfect compound for "herbal infusion/broth". You can introduce a specific, un-decomposable word like cha for the tea plant itself (camellia sinensis), just as you have kau for cow. Then "tea" (the drink) would be chalopwalo (tea-plant-water) or simply cha by convention.
-
-------------
-# there is a note about chu/swa/kwa as cognates, but no TODOs. and the suggestion is unrelated
-maomeng (picky/choosy): The note about chu/swa/kwa sounds.
-Suggestion: maomeng from ma (love) + omeng (decision) is a bit of a stretch. "Love-decision" for "picky" isn't intuitive. A better compound might be dayau so wi (wanting big for small things) or danoma witing (disliking details). However, if you want to keep maomeng, perhaps gloss it as "particular about what one loves."
-
-
--------
-# doesn't understand "so" usage
-sesowi (Sesowi): se (talk) + so (like) + wi (small) = "talk-like-small". This is a bit opaque. "small-like talk"? A more direct name could be Gase (Good-talk), Ose (All-talk), or Winakwaise (Simple-talk). However, Sesowi has a nice sound and a unique identity, so keeping it is fine, but the etymology isn't its strongest point.
-
------
-Extra: se (seven) should be changed due to the homophone. It could become a compound like lau-wa (six-one) or have its surface changed (e.g., to sepa).
+* Proto Sesowi (2023-end 2024): the language evolves rapidly in many directions; many TODOs remain open.
+* Old Sesowi (end 2025-Aug 2025): The first version of the language is completed. The website goes live. Literature is written; movies are made.
+* Early Middle Sesowi (Aug 2025 -?): The language starts to evolves as a function of use, not a priori decisions.
+* Middle Sesowi (?): Middle Sesowi can only evolve once there are at least five people regularly using it.
 
 
 
+Q: Is there a next stage in the development of Sesowi?
+A: Yes, as we slide into Early Middle and Middle Sesowi, a fair number of changes will happen.
+Possible changes:
+  - is the verb marker needed at all?
+  - should "du bi" be used with adjective statements, or should it be more zero copula?
+  - should /p/ be merged into /b/ for more friendliness to Arabic speakers?
+  - [long shot] should so be replaced with de for adjectives, and split off relative clauses?
+  - some atoms may be split if they are working too hard, e.g. leng (are link and string too divergent meanings?)
+  - some atoms may be deprecated.
+    - kau --> bailoboi?
+    - gwai --> laiwe?
+  - some atoms may be birthed.
+    - fear?
 
------
-A new atom, e.g., sin, for emotional feeling (from siento/sensation). Then gali (happy) could be ga-sin (good-feeling) and nogali (sad) could be noga-sin (bad-feeling). This would make the distinction between "tired" (noli) and "sad" (nogasin) clearer.
+Q: What would it take for Sesowi to spread widely?
+A: Sesowi will likely retire to an early grave with 1-2 speakers. But it's a well-designed language, and with the right plays on the part of Fate, it could go far. For this to happen, I think there need to be two main steps:
+1. One person (this could be you!) gets really into it, and shares a lot on social media, and helps make a small online community. Sesowi evolves, and the media, learning materials, and literature all blossom.
+2. A Korean or Chinese pop-star tells their fans to learn it. 1 Million plus fans go to sesowi.com, and the Sesowi community welcomes them with open arms, putting their idol's face on the website, and being really wholesome on the Sesowi forums.
+
+
+Q: What languages do Sesowi's creators speak?
+A: We're native speakers of English, German, and Mandarin, and learners of English, German, Mandarin, Spanish, French, Irish, Hindi, Telugu.
+
+Q: What languages does Sesowi draw from?
+A: TODO make graph 
+
+Q: Was AI used?
+A: The language itself was all from our meat brains, with no AI. The website on the other hand was mostly vibe coding.
+
+Q: Does Sesowi accept linguistic change? Is it prescriptivist or descriptivist?
+A: Let's see once we have a community of speakers!
+
+Q: How is community feedback accepted?
+A: We don't have a community yet so I don't know! 
+
+Q: How do I get involved?
+A: Join the [discord](https://discord.com/invite/nPXrjDu3Cv)!
 
 
 
-------
-page numbers???
-The Issue: The passive marker sa is a major grammatical feature. However, it's introduced very late in the tutorial, almost as an afterthought. Core grammatical markers like du and so are introduced on page 3-4 of the tutorial, while sa doesn't appear until page 21.
+## Orthography (Spelling)
+
+Q: Why use ⟨y⟩ for /j/ instead of ⟨j⟩?
+A: Most of the world's languages use ⟨y⟩ for the /j/ sound, including English, Indonesian, Spanish, French, Swahili, and the romanized versions of Chinese, Japanese, Hindi, Bengali, Arabic, Persian, etc.. It is really only the European countries between Germany and Russia that use ⟨j⟩.
+
+Q: Why use ⟨ng⟩ for /ŋ/?
+A: Mainly just to make typing easier! I'd love to use ⟨ŋ⟩ and I think it should be a valid alternative.
+
+Overview of choices:
+
+* Use the conventional digraph ⟨ng⟩.
+  * Pro: widely understood+used by Euro languages, Pinyin, and Austronesian languages.
+  * Con: is a digraph; breaks the 1-letter-1-sound rule
+* Use the IPA symbol ⟨ŋ⟩.
+  * Pro: one letter, one sound!
+  * Con: it is hard to type on most keyboards.
+* Use an unused letter, like ⟨q⟩.
+  * Pro: one letter, one sound!
+  * Con: not intuitively easy to read
 
 
--------
-"Ground": The story "Opossum Song" uses suting (su-ting / down-thing) for "ground" (lo du bi lu suting). However, the dictionary lists sulu (su-lu / down-place) as the word for "ground". This is a direct contradiction. sulu seems more logical.
+## Phonology
 
->> in fact, the Opossum Song already had "lo du bi lu su". However, in an Odis story there was "du yo tai so odisa so gali so da, du ping lu suting, du nang mang du pingpi i."
+### Low hanging fruit
+**The Low Hanging Fruit are things that any language should obey if it wants a chance at being universal.**
+
+Q: Why disallow /f/, /z/, [others]?
+A: 
+
+Q: Why disallow wu/wo, ye/yi?
+A: Various languages, especially South Indian and Chinese languages, do not differentiate wu/u and yi/i, and also may not differentiate wo/o and ye/e. For example, a classic Tamil accent would pronounce "only" as "wonly", "yield" as "ield", and "endaro mahanubhavulu" as "yendaro mahanubhavulu".
+
+Q: Why no consonant clusters, like "play?"
+A: A large portion of the world's languages have no consonant clusters, and have difficulty pronouncing them. These langauges include all varieties of Chinese, Japanese, Korean, Vietnamese, Thai, etc.; and similarly Polynesian languages like Hawaiian.
+
+Q: Why no final consonants, like the "d" in "good"?
+A: Many languages have no final consonants (except nasals), like basically all of the ones mentioned in the consonant clusters section above.
+
+**Plosives:** Over time, languages seem to lose final plosives. The first stage is devoicing, like how German and Russian pronounce a /b/ at the end of a syllable as /p/. After that, devoiced consonants begin to be replaced by glottal stops (or non-released consonants), e.g. the /t/ in English "cat", the /k/ in Malay "tidak", and any final consonant in Vietnamese or Cantonese. Finally, they slough off entirely, as in Mandarin Chinese. 
+
+**Liquids:** Final liquids tend to assimilate into vowels. In German and British English, final /r/ has turned into a lengthening of the vowel. In various Englishes, final /l/ often turns into a darkening of a vowel, e.g. "call" --> "co".
+
+**Fricatives:** Not sure about these.
+
+**Nasals:** Final nasals are usually retained, but eventually converge to a single nasal. For example, Cantonese has /n/, /m/, and /ng/; Mandarin has only /n/ and /ng/; and Sichuanese and Japanese have only /n/.
+
+
+Q: what are the most common consonants across the world's languages?
+A: this is a hard question to answer properly, but according to [phoible](TODO link), here is a list of the world’s phonemes from most to least common, keeping in mind that this is over almost 3000 languages, so Papua new Guinea will have a disproportionate representation: m k j p w n t l s b ŋ ɡ h d r f ɲ t̠ʃ ʔ ʃ z d̠ʒ v ɾ t̪ ts kʰ pʰ x n̪ ʈ ʒ ɣ d̪ c tʰ ɳ ȵ ɡb kp kʷ ɟ ɭ ȶ dz β ɻ ɓ mb nd
+
+Q: Were Sesowi consonants based on Bybee's work?
+A: No, but they converged to the same set of eleven! 
+
+*“Bybee explained that the proposed primal consonants come from five sets: the consonants are: the stops made with full closure of the lips (labials), /p b m/; stops made with the tongue creating closure at the teeth or behind the teeth, /t d n/; stops made with the back of the tongue against the soft palate, /k g ŋ/; and fricative /s/ and lateral /l/. “Almost all languages use consonants from these five sets to make words,” she said. “Research on 81 unrelated languages identified sound changes that this small set of consonants undergoes to create new consonants… By contrast, it is very rare for consonants not included in the primal consonant set to change into one of the primal consonants. The discovery of these primal consonants is a major contribution to our understanding of the origins of human language.”
+
+
+Q: Voicing contrast [b] [d] [g] vs [p] [t] [k]
+A: TODO Please note that what actually matters is the contrasts, not the phonemes themselves. For instance, /b/, /p/, and /pʰ/ are common phonemes. But very few languages contrast all three. In fact, not one of the world’s five most spoken languages has the same set of contrasts:
+English contrasts /b/ and /pʰ/
+Mandarin contrasts /p/, and /pʰ/
+Hindi has all of /b/, /p/, and /pʰ/ 
+Spanish contrasts /b/ and /p/
+Arabic has no contrast, and uses only /b/
+
+For Trevorese, we have chosen to contrast the two most distinguishable of these three, namely  /b/ and /pʰ/, as English does. This minimizes the possibility of confusion. The same goes for /d/ vs /tʰ/ and  /g/ vs /kʰ/
+
+
+Most of the world’s languages contrast voiced and voiceless stops, including Chinese, all Indo-European languages, and indeed all of the top 30 most spoken languages except Tamil – with the exception that Arabic varieties usually don’t contrast [p]/[b]. Toki Pona lacks this contrast. The one wrinkle is that DFSDFVS
+[b] vs [p]: Spanish, Malay
+[p] vs [ph]: Chinese
+[b] vs [ph]: English
+[b] [p] [ph]: Thai, Hindi
+[p] vs [ɓ]: Vietnamese
+
+
+
+Q: On [b], [v], [w]
+Many languages lack a v/w distinction, including Mandarin, all Indian languages, and (sort of) German. Thus, clearly only one of these should be included! Some languages, like Spanish, also lack a b/v distinction. These two constraints together lead us to include [b] and [w], but not [v].
+
+Q: On [f]
+contrast [f] and [pʰ]: English and Mandarin 
+lack [pʰ]: Spanish, Arabic, Greek, and Portuguese 
+lack [f]: Philippine languages, Javanese, Sundanese, Blinese, “Native” Indian languages 
+lack [f] but have [v]: vi
+weird about [f]; use  [ɸ]: Japanese, Korean, Finnish
+
+Summary: omit
+
+Q: On [h]/[x]
+[h]:/[ɦ] English, Indonesian, Hindi, Swahili, Tagalog, Hausa, Japanese, Turkish, Vietnamese, Korean, 
+[x~χ]: Chinese, Spanish, Portuguese (<r>), Russian 
+[h] and [x~χ]: Arabic, German, Scots, Urdu
+as allophone: Tamil
+no [h]: French
+
+French lacks this phoneme, and Spanish+Portuguese are likely to not pronounce because of orthographic confusion. Furthermore, this sound is weak and often goes away.
+
+Weak reject.
+
+
+Q: On [z]/[s]
+Languages lacking a z/s distinction: Spanish, All Chinese, Bengali, Yoruba, Tagalog, Korean (?), Thai, Fulfulde, German. 
+
+Q: On [ʃ]/[s]
+Note: considering ʂ and ʃ the same for now.
+
+Missing ʃ: Southern Chinese (e.g. Wu), Korean, Thai, many Spanish varieties, some Hindi varieties.
+No contrast with tʃ: French
+
+Q: On [tʃ]/[dʒ]
+English, Mandarin, Hindi, Bengali, Indonesian, Japanese, Nigerian Pidgin, and Turkish have this distinction. Tagalog does too, though [tʃ] “may be pronounced [ts] (or [tj] if spelled ⟨ty⟩), especially by speakers in rural areas. ”
+
+Arabic lacks [tʃ]. Most Spanish varieties lack [dʒ], or when they do have it, don’t contrast it with [j]; similarly, most Slavic languages have [tʃ] (well, [t͡ɕ]) but lacks [dʒ]. French and Portuguese lack both, collapsing them to [ʃ]/[ʒ], though African French varieties may have them. Vietnamese seems to lack [dʒ].
+
+Conclusion: keep [tʃ] but not [dʒ], for ease on Spanish, Arabic, and Slavic speakers.
+
+
+
+Q: Why no rhotics?
+A: indeed it is a wee tragedy to abolish such a lovely class of sounds. And indeed, most languages have rhotics. However, they are frequently very different from each other. Consider the “strong rhotics”  /ɹ/, /r/, /ʁ/, /ʐ/, and /ɻ/, from English, Spanish, French, Mandarin, and Tamil. Each one of these sounds is exceedingly difficult for speakers of any of the other four to make. Therefore, including any of them in the language would be unwise; and allowing for all would be chaos.
+
+On the other hand, the “weak rhotic” /ɾ/ is a much easier sound to deal with. English, Mandarin, and French lack it, and Japanese does not contrast it with /l/, but Spanish, Portuguese, Arabic, Turkish, and all Indian languages have it (sometimes in free variation with /r/). English even has the sound as an allophone of /t/, and it is not a hard sound to master. Nonetheless, it will be an accent-marking phoneme, at least for English, Mandarin, French, and Japanese, who will tend to realize it as their strong rhotic.
 
 
 
 
+
+
+
+
+
+### Mid-Hanging Fruit
+**The Mid Hanging Fruit are things for which there exists a good argument that it is needed for universality, but also a reasonable rebuttal.**
+
+Q: Why allow diphthongs?
+A: Some of the phonologically most reduced languages, like the pacific islands languages (and arguably Japanese), lack diphthongs. However, the nice thing about that diphthongs is that they can just be pronounced as each of their individual components. "bai" can be said as "ba+i", and vowel sequences are allowed in all languages [citation needed].
+
+Q: Sure, but /au/? really?
+A: Correct, /au/ is a bad diphthong because it often mixes with /o/. Sesowi therefore only uses /au/ for transition metals, not core atoms.
+
+Q: Why allow Cw onsets like "dwa"? Isn't that a consonant cluster?
+A: It is possible that such clusters will pose difficulty to some speakers. However, just as with diphthongs, these can be prounounced as a series of vowels, and be understood by all. E.g. "dwa" --> "du+a". In proto-Sesowi, these were actually rising diphthongs, and written as such ("dua")
+
+This is not really a consonant cluster because /w/ is not a real consonant; it's more like a vowel in disguise. 
+
+Q: Why not allow Cy onsets like "bya"?
+A: Unlike labialization (consonant+w), palatalization (consonant+y) has a strong tendency to change the consonant. "tya" will tend towards "cha", and "kya" will as well, heading for collision. Some languages, like Twi, use "ky" to represent the "ch" sound, e.g. the common name "Boakye". "sy" will tend strongly to "sh".
+
+Q: Why is the final nasal ng, instead of e.g. n?
+A: This is a really fun question!
+
+On the surface of it, /n/ is slightly more universal as a final nasal, as evidenced by languages with a single final nasal like Sichuanese and Japanese. However, alternation between /n/ and /ng/ is very benign, and easy enough for everyone to understand.
+
+However, there are two good reasons for NOT using /n/ as the final:
+  1. /n/ assimilates more easily. So "banbo" would be pronounced by many as "bambo". This is not too big of a problem, but it gets worse for a word like "banmo", which would end up like "bammo", colliding with "bamo". "bangmo" might be hard for some to pronounce, but at least it is less likely to assimilate and cause a homophone to arise!
+  2. It's very convenient for the only final consonant to be a consonant never occuring as an initial. If /n/ could be a final, then "bano" could be parsed as "ban+o" or "ba+no". However, if <ng> is the only final, "bano" is unambiguously "ba-no", and "bango" is unambiguously "bang+o"
+  2b. Worse yet, if you have a final and an initial that are the same, you'll end up with compounds like "banno", which, while unambiguous in the written form, is a homophone with "bano"...unless you decide to include geminate consonants, which of course you shouldn't.
+
+As an example of non-assimilation, in English, “Fan me” goes to “fammi”, but “sing me” does not assimilate.
+
+Q: But isn't ng a consonant cluster?
+A: no. Blame the Greeks+Romans for not making a single letter for it.
+
+Q: Why not have other final nasals, e.g. how Chinese contrasts n/ng?
+A: See "Why no final consonants" section. Also, as a Chinese learner, I can attest that I confuse -n/-ng sometimes (usually when it is the first character of a compound.) 
+
+Q: Why keep the ti/si distinction?
+A: 
+
+Q: Why keep voiced/voiceless distinction?
+A: 
+
+Q: How about p/b in particular?
+A: 
+
+
+### High-Hanging Fruit
+**The High Hanging Fruit are things that a "truly" universal language would have, but neither Sesowi nor Toki Pona do.***
+
+Q: Why keep n/l distinction?
+A: 
+
+Ngoko register of Javanese
+
+| Language / Language Group | Language Family | Nature of the Lack of Distinction | Estimated Number of Speakers (Total) |
+| :--- | :--- | :--- | :--- |
+| **Southwestern Mandarin** | Sino-Tibetan | **Merger / Free Variation.** Most speakers do not distinguish n- and l- initials. | ~260 million |
+| **Korean** | Koreanic | **Allophonic.** /l/ is realized as [n] in the initial position. No initial [l] exists. | ~80 million |
+| **Cantonese (Yue)** | Sino-Tibetan | **Merger in progress.** Increasingly common, especially among younger speakers. | 85 million (merger affects a large portion) |
+| **Sotho-Tswana languages** (e.g., Sesotho, Setswana) | Niger-Congo (Bantu) | **Conditioned Variation.** The choice between /n/ and /l/ is determined by the following vowel. | Sesotho: ~14 million<br>Setswana: ~9 million |
+
+
+Q: Why keep w/l distinction?
+A: 
+
+Q: Why keep o/u e/i distinctions?
+A: Many languages, like Quechua, Kalaallisut, and Modern Standard Arabic, do not differentiate o/u or e/i. 
+
+
+
+## Grammar
+### Low-hanging fruit
+Q: Why not plural, gender, imperfect vs preterite, subjunctive, conditional...?
+A: don't need 'em. Many languages lack these and do fine.
+
+
+### High-hanging fruit
+Q: Why not zero copula?
+A: 
+
+Q: Why are quantifiers before the noun, not after like in Malay or Toki Pona?
+A: 
+
+
+
+## Lexicon
+Q: Why are "she/he" and "this" the same?
+A: 
+
+
+
+
+
+## Toki Pona and Esperanto
+
+Q: What are major similarities and differences between Sesowi and Toki Pona?
+A: 
+
+Q: Are the 114 Sesowi atoms the same as the 120-140 Toki Pona words?
+A: 
+
+Q: How do Toki Pona and Sesowi differ phonetically?
+A: 
+
+Q: How do Toki Pona and Sesowi differ in terms of word origin?
+A: 
+
+Q: Are Sesowi and Toki Pona at odds?
+A: 
+
+Q: Which is simpler, Sesowi or Toki Pona?
+A: 
+
+Q: Was Sesowi inspired by Toki Pona?
+A: 
+
+
+
+
+
+Q2: What is the main goal of Sesowi?
+Q3: Is Sesowi a "real" language? Can I say everything in it?
+A: Yes. While it is a constructed language (a "conlang"), it is designed to be a complete and fully functional language. With its system of about 115 atomic concepts and a logical compounding system, you can express anything from simple, everyday ideas to complex, technical, or poetic thoughts.
+Q4: How long does it take to learn?
+A: Sesowi is designed to be learned much faster than any natural language. The grammar is completely regular with no exceptions, and the core vocabulary is very small. A dedicated learner can grasp the entire grammar and all atomic words in a matter of weeks, and then spend time mastering the art of compounding to achieve fluency.
+Q5: How can you say everything with only ~115 "atoms"?
+A: The power of Sesowi lies in its compounding system. The 115 atoms are like Lego bricks representing core concepts (e.g., lo=water, boi=animal). By combining them, you can build more specific words. For example, "fish" is loboi (water-animal), "snake" is langboi (long-animal), and "salamander" is lokolangboi (water-leg-snake). This makes the vocabulary transparent and easy to remember.
+Q6: How do I know how to combine atoms? Is there a right or wrong way?
+A: There is usually a most common or "official" compound for a concept (listed in the dictionary), but the system is also creative. As long as your compound is logical, people will likely understand you. For example, a "car" is officially nosaigoting (wheel-vehicle), but if you called it a koyomangting (person-carrying-thing), you would probably be understood from context. The goal is communication, not rigid prescription.
+Q7: How do I talk about specific things like "France" or "pizza"?
+A: These are handled as "Phonetic Nouns." You simply adapt the word into Sesowi's sound system. For example, the language "Bangla" becomes banglase, and "kiwi fruit" becomes kiwipa. It is understood that these are proper nouns and their etymology from Sesowi atoms ("eight-hot-language" and "air-small-fruit") is purely coincidental.
+Q16: You say the language is neutral, but some features feel like they're from Chinese. Is it truly neutral?
+A: This is an excellent point. True neutrality, in the sense of having no features from any existing language, is impossible. The goal of Sesowi's neutrality is balance. While its isolating grammar, topic-comment sentences, and use of classifiers like mang (person) and ting (thing) may feel familiar to speakers of Sinitic languages, its strict Subject-Verb-Object (SVO) word order and use of prepositions (tu, de) will feel more familiar to speakers of European languages. By balancing these features, Sesowi aims to be equally unfamiliar (and thus equally easy to learn) for everyone, rather than giving one group a massive advantage.
 
 
 
