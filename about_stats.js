@@ -78,16 +78,16 @@ function updateVocabStats() {
         // Replace the placeholder text with actual counts
         const statsText = introText.innerHTML;
         var updatedText = statsText.replace(
-            RegExp(/ATOMCOUNT/, 'g'),
+            RegExp(/AAA/, 'g'),
             atomCount); 
         updatedText = updatedText.replace(
-            RegExp(/COMPOUNDCOUNT/, 'g'),
+            RegExp(/CCCC/, 'g'),
             compoundCount); 
         updatedText = updatedText.replace(
-            RegExp(/PHONETICCOUNT/, 'g'),
+            RegExp(/PPP/, 'g'),
             properNounCount); 
         updatedText = updatedText.replace(
-            RegExp(/ENGLISHCOUNT/, 'g'),
+            RegExp(/EEEE/, 'g'),
             englishWordCount); 
         
         //     `Sesowi currently has ${atomCount} atoms, ${compoundCount} defined compound words, and ${properNounCount} proper nouns, covering a total of ${englishWordCount} English words.`

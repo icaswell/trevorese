@@ -1320,11 +1320,11 @@ body .subsubprinciple {
     background-color: #f9f9f9;
 }
 
-.lookup-word-section h3 {
+.lookup-word-section h4 {
     margin-top: 0;
     margin-bottom: 8px; /* Reduced from 15px */
     color: #009c36;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: var(--header-weight);
     border-bottom: 2px solid #009c36;
     padding-bottom: 4px; /* Reduced from 8px */
@@ -1335,15 +1335,33 @@ body .subsubprinciple {
 }
 
 .lookup-word-section .dictionary-entry {
-    margin-bottom: 8px; /* Reduced from 15px */
-    padding: 6px; /* Reduced from 10px */
+    margin-bottom: 4px !important; /* Override the main 15px */
+    padding: 4px !important; /* Override the main padding */
+    padding-bottom: 4px !important; /* Override the main 15px padding-bottom */
     border: 1px solid #e0e0e0;
     border-radius: 5px;
     background-color: white;
+    border-bottom: 1px solid #e0e0e0 !important; /* Override the main border-bottom */
 }
 
 .lookup-word-section .dictionary-entry:last-child {
     margin-bottom: 0;
+    border-bottom: 1px solid #e0e0e0 !important; /* Keep consistent border */
+}
+
+.lookup-word-section .dictionary-entry .word {
+    font-size: 14px !important; /* Smaller font size */
+    margin-bottom: 2px !important;
+}
+
+.lookup-word-section .dictionary-entry .definition {
+    margin-top: 2px !important; /* Reduced from 5px */
+    font-size: 12px !important; /* Smaller font size */
+    line-height: 1.2 !important; /* Tighter line height */
+}
+
+.lookup-word-section .dictionary-entry .pos {
+    font-size: 11px !important; /* Smaller font size */
 }
 
 /* Mobile responsive styles for lookup section */
@@ -1352,8 +1370,8 @@ body .subsubprinciple {
         padding: 8px; /* Reduced from 15px */
     }
     
-    .lookup-word-section h3 {
-        font-size: 1.1em;
+    .lookup-word-section h4 {
+        font-size: 1em;
     }
     
     .lookup-results-container {
