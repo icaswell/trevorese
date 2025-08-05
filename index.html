@@ -29,7 +29,13 @@
     <meta property="twitter:title" content="Sesowi!">
     <meta property="twitter:description" content="igago, mamang!">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/icaswell/trevorese/main/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload fonts to prevent font swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
