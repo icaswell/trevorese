@@ -84,7 +84,7 @@ function buildFSA() {
 function isProperNoun(s) {
     if (window.surface_to_gloss && s in window.surface_to_gloss) {
         const gloss = window.surface_to_gloss[s];
-        console.log(`fsa.js: Checking if '${s}' is a proper noun with gloss '${gloss}'`);
+        // console.log(`fsa.js: Checking if '${s}' is a proper noun with gloss '${gloss}'`);
         
         // Check if this gloss is a phonetic noun
         if (window.trevorese_dictionary && 

@@ -191,7 +191,7 @@ function processSurfaceMode(doc, isSurfaceMode) {
                         // Force the class to be only 'surface-emph' or 'surface' without any other classes
                         if (isEmph) {
                             span.className = 'surface-emph';
-                            console.log('Setting surface-emph for compound:', glossText);
+                            // console.log('Setting surface-emph for compound:', glossText);
                         } else {
                             span.className = 'surface';
                         }

@@ -1301,3 +1301,62 @@ body .subsubprinciple {
         font-size: 0.8em;
     }
 }
+
+/* Lookup section styles */
+.lookup-results {
+    margin-top: 20px;
+}
+
+.lookup-results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced from 30px */
+}
+
+.lookup-word-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px; /* Reduced from 20px */
+    background-color: #f9f9f9;
+}
+
+.lookup-word-section h3 {
+    margin-top: 0;
+    margin-bottom: 8px; /* Reduced from 15px */
+    color: #009c36;
+    font-size: 1.2em;
+    font-weight: var(--header-weight);
+    border-bottom: 2px solid #009c36;
+    padding-bottom: 4px; /* Reduced from 8px */
+}
+
+.lookup-word-section .dictionary-results {
+    margin-top: 5px; /* Reduced from 10px */
+}
+
+.lookup-word-section .dictionary-entry {
+    margin-bottom: 8px; /* Reduced from 15px */
+    padding: 6px; /* Reduced from 10px */
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.lookup-word-section .dictionary-entry:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile responsive styles for lookup section */
+@media (max-width: 768px) {
+    .lookup-word-section {
+        padding: 8px; /* Reduced from 15px */
+    }
+    
+    .lookup-word-section h3 {
+        font-size: 1.1em;
+    }
+    
+    .lookup-results-container {
+        gap: 10px; /* Reduced from 20px */
+    }
+}
