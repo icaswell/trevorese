@@ -778,6 +778,15 @@ body .subsubprinciple {
     overflow: hidden;
 }
 
+/* Special styling for YouTube shorts (tall aspect ratio) - only on mobile */
+@media (max-width: 768px) {
+    #videos .video-item:first-child .video-wrapper {
+        padding-bottom: 177.78%; /* 9:16 Aspect Ratio */
+        max-width: 315px; /* Limit width for better mobile experience */
+        margin: 0 auto; /* Center the video */
+    }
+}
+
 #videos .video-wrapper iframe {
     position: absolute;
     top: 0;
